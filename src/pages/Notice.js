@@ -10,7 +10,7 @@ export default function Notice() {
         <div>
           <ul>
             <li>
-              <div className="Notice-comm_title">
+              <div className="notice-comm_title">
                 <img src="\images\Notice\cs_notice_on.svg" alt="확성기" />
               </div>
               <div>공지사항</div>
