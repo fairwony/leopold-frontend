@@ -1,3 +1,4 @@
+import Banner from "../components/Banner"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import Main from "../components/Main"
@@ -8,8 +9,7 @@ export default function Home() {
 		<div className="Home">
 			<Header />
 			<Main>
-				<p>home</p>
-				<p>서고은 확인</p>
+				<Banner></Banner>
 			</Main>
 			<Footer />
 		</div>

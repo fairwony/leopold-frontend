@@ -1,0 +1,19 @@
+.banner{
+    width: 100%;
+    height: 1080px;
+}
+.slide1{
+    width: 100%;
+    height: 1080px;
+    background-image: url(../images/Home/슬라이드1.png);
+}
+.slide2{
+    width: 100%;
+    height: 1080px;
+    background-image: url(../images/Home/슬라이드2.png);
+}
+.slide3{
+    width: 100%;
+    height: 1080px;
+    background-image: url(../images/Home/슬라이드3.jpg);
+}
