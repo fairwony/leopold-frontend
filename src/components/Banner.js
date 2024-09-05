@@ -8,9 +8,9 @@ export default function Banner() {
 			<Swiper
               className="banner"
               slidesPerView={1}>
-                <SwiperSlide className="slide1"></SwiperSlide>
-                <SwiperSlide className="slide2"></SwiperSlide>
-                <SwiperSlide className="slide3"></SwiperSlide>
+                <SwiperSlide></SwiperSlide>
+                <SwiperSlide></SwiperSlide>
+                <SwiperSlide></SwiperSlide>
             </Swiper>
 		</>
 	)
