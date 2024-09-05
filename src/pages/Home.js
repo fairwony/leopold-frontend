@@ -10,6 +10,7 @@ export default function Home() {
 			<Main>
 				<p>home</p>
 				<p>서고은 확인</p>
+				<p>황유원 확인</p>
 			</Main>
 			<Footer />
 		</div>
