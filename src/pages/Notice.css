@@ -3,11 +3,15 @@
     height: 120px;
     margin: 120px;
     border: 1px dotted black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .notice-tab {
+    width: 1340px;
+    height: 120px;
     display: flex;
+}
+
+.notice-on {
+    width: 268px;
+    height: 120px;
 }
