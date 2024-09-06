@@ -5,17 +5,17 @@ export default function Header() {
 	const [isTop, setIsTop] = useState(true);
 
 	const handleScroll = () => {
-		if(window.scrollY === 0) {
+		if (window.scrollY === 0) {
 			setIsTop(true);
-		}else{
+		} else {
 			setIsTop(false);
-		}	
+		}
 	}
 
-	useEffect(() =>{
+	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
 
-		return() => {
+		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		}
 	}, []);
@@ -29,7 +29,7 @@ export default function Header() {
 					</div>
 
 					<div className="logo">
-					<img src="images\Header\mh_logo.png" alt="logo_white" />
+						<img src="images\Header\mh_logo.png" alt="logo_white" />
 					</div>
 
 					<div className="header-container">
@@ -44,22 +44,22 @@ export default function Header() {
 			<div  className="Header">
 				<div className="header-wrapper">
 					<div>
-					<img src="images\Header\h_menu_black.png" alt="menu_black"></img>
+						<img src="images\Header\h_menu_black.png" alt="menu_black"></img>
 					</div>
 					
 					<div className="logo">
-				<img src="images\Header\logo_black.png" alt="logo_black"/>
+						<img src="images\Header\logo_black.png" alt="logo_black"/>
 					</div>
 
-					<div className="header-container">
-						<p className="header-point">적립금 1,050P</p>
-						<p className="header-service">고객지원</p>
-						<img  className="header-icon" src="images\Header\h_search_black.png" alt="search_black"></img>
-						<img className="header-icon" src="images\Header\h_mypage_black.png" alt="mypage_black"></img>
-						<img className="header-icon" src="images\Header\h_cart_black.png" alt="cart_black"></img>
+						<div className="header-container">
+							<p className="header-point">적립금 1,050P</p>
+							<p className="header-service">고객지원</p>
+							<img className="header-icon" src="images\Header\h_search_black.png" alt="search_black"></img>
+							<img className="header-icon" src="images\Header\h_mypage_black.png" alt="mypage_black"></img>
+							<img className="header-icon" src="images\Header\h_cart_black.png" alt="cart_black"></img>
+						</div>
 					</div>
-				</div>
-			</div>}
+				</div>}
 		</div>
 	)
 }
