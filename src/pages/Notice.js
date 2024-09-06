@@ -8,29 +8,29 @@ export default function Notice() {
     <>
       <Header />
       <Main>
-        <div className='notice-comm_title'>
-          <ul className='notice-tab'>
-            <li className='notice-on'>
-              <div className='notice-img'>
-                <img src='images\Notice\cs_notice_on.svg' alt="확성기" />
+        <div className="notice-comm_title">
+          <ul className="notice-tab">
+            <li className="notice-on">
+              <div className="notice-img">
+                <img src="images\Notice\cs_notice_on.svg" alt="확성기" />
               </div>
               <div className='notice-text'>공지사항</div>
             </li>
             <li>
               <div className='notice-img'>
-                <img src='images\Notice\cs_download.svg' alt="구름" />
+                <img src="images\Notice\cs_download.svg" alt="구름" />
               </div>
               <div className='notice-text'>자료실</div>
             </li>
             <li>
-              <div className='notice-img'>
-                <img src='images\Notice\cs_faq.svg' alt="보고서" />
+              <div className="notice-img">
+                <img src="images\Notice\cs_faq.svg" alt="보고서" />
               </div>
-              <div className='notice-text'>FAQ</div>
+              <div className="notice-text">FAQ</div>
             </li>
             <li>
-              <div className='notice-img'>
-                <img src='images\Notice\cs_as.svg' alt="스패너" />
+              <div className="notice-img">
+                <img src="images\Notice\cs_as.svg" alt="스패너" />
               </div>
               <div className='notice-text'>A/S 접수</div>
             </li>
