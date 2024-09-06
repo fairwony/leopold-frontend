@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Notice from "./pages/Notice";
 import Review from "./pages/Review";
+import Join from "./pages/Join";
 
 export default function App() {
 	return (
@@ -22,6 +23,7 @@ export default function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/forgotId" element={<ForgotId />} />
 				<Route path="/forgotPs" element={<ForgotPs />} />
+				<Route path="/join" element={<Join />} />
 			</Routes>
 		</div>
 	);
