@@ -1,27 +1,27 @@
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Main from "../components/Main";
+import WhiteHeader from "../components/WhiteHeader";
 import "./Login.css";
 
 export default function Login() {
 	return (
 		<div className="Login">
-			<Header />
+			<WhiteHeader />
 			<Main>
 				<p className="login-title">로그인</p>
 
-				<div className="login-key">ID</div>
+				<div className="login-key1">ID</div>
 
-				<input />
+				<input className="login-input" />
 
-				<div className="login-key">PASSWORD</div>
+				<div className="login-key2">PASSWORD</div>
 
-				<input />
+				<input type="password" className="login-input" />
 
 				<div className="login-forgot-wrapper">
-					<p>아이디 찾기</p>
+					<p className="login-forgot-button">아이디 찾기</p>
 					<p>/</p>
-					<p>비밀번호 찾기</p>
+					<p className="login-forgot-button">비밀번호 찾기</p>
 				</div>
 
 				<button className="login-button">로그인</button>
