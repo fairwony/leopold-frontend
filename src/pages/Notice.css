@@ -33,7 +33,10 @@
 
 .notice-titleArea {
     width: 1340px;
-    height: 92px;    
+    height: 92px;
+    margin: 0 0 80px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .notice-h2 {
@@ -42,7 +45,6 @@
     font-weight: 700;
     line-height: 48px;
     text-align: center;
-
 }
 
 
