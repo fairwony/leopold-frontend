@@ -58,3 +58,13 @@ a {
 	text-decoration-line: none;
 	color: inherit;
 }
+
+@font-face {
+	font-family: "inter";
+	font-weight: normal;
+	src: url(./fonts/Inter-Regular.ttf);
+}
+
+body {
+	font-family: "inter";
+}

@@ -1,7 +1,13 @@
 import { Route, Routes } from "react-router-dom";
+import AS from "./pages/AS";
+import Download from "./pages/Download";
+import FAQ from "./pages/FAQ";
+import ForgotId from "./pages/ForgotId";
+import ForgotPs from "./pages/ForgotPs";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import Notice from "./pages/Notice";
-import Join from "./pages/Join";
+import Review from "./pages/Review";
 
 export default function App() {
 	return (
@@ -9,7 +15,13 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/notice" element={<Notice />} />
-				<Route path="/join" element={<Join />} />
+				<Route path="/download" element={<Download />} />
+				<Route path="/faq" element={<FAQ />} />
+				<Route path="/as" element={<AS />} />
+				<Route path="/review" element={<Review />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/forgotId" element={<ForgotId />} />
+				<Route path="/forgotPs" element={<ForgotPs />} />
 			</Routes>
 		</div>
 	);
