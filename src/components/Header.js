@@ -1,5 +1,5 @@
-import "./Header.css";
 import { useEffect, useState } from "react";
+import "./Header.css";
 
 export default function Header() {
 	const [isTop, setIsTop] = useState(true);
