@@ -1,31 +1,52 @@
 import { useState } from "react";
 import "./Banner.css";
-import "swiper/css"
+import "swiper/css";
+import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 export default function Banner() {
-  
-	return (
-		<>
-			<Swiper
-              className="banner"
-              modules={[Pagination, Autoplay]}
-              slidesPerView={1}
-              autoplay={{
-                delay: 4500,
-                disableOnInteraction: false
-              }}
-              speed={1500}
-              pagination={{clickable: true}}
-              >
-                
-                <SwiperSlide><img src='images\Home\슬라이드1.png'></img></SwiperSlide>
-                <SwiperSlide><img src='images\Home\슬라이드2.png'></img></SwiperSlide>
-                <SwiperSlide><img src='images\Home\슬라이드3.jpg'></img></SwiperSlide>
-                <div className="swiper-button-prev"></div>
-            </Swiper>
-            
-		</>
-	)
+  return (
+    <>
+      <Swiper
+        className="banner"
+        modules={[Autoplay, Navigation]}
+        slidesPerView={1}
+        speed={2000}
+        loop={true}
+        loopAddBlankSlides={1}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false
+        }}
+        navigation={true}
+        style={{ "--swiper-navigation-color": "white" }}
+      >
+        <SwiperSlide>
+          <img src="images\Home\슬라이드1.png"></img>
+          <div className="text-container">
+            <p className="text1">Wired & Wireless Series</p>
+            <p className="text2">MILK TURQUOISE</p>
+            <p className="text3">자세히 보기 →</p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="images\Home\슬라이드2.png"></img>
+          <div className="text-container">
+            <p className="text1">Wired & Wireless Series</p>
+            <p className="text2">CORAL BLUE</p>
+            <p className="text3">자세히 보기 →</p>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="images\Home\슬라이드3.jpg"></img>
+          <div className="text-container">
+            <p className="text1">The New CHERRY Switch</p>
+            <p className="text2">MX24 Series</p>
+            <p className="text3">자세히 보기 →</p>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </>
+  );
 }
