@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Header from "../components/Header"
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./Notice.css";
@@ -6,7 +7,7 @@ import "./Notice.css";
 export default function Notice() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Main>
         <div className="notice-comm_title">
           <ul className="notice-tab">
