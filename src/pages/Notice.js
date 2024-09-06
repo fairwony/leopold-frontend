@@ -64,11 +64,8 @@ export default function Notice() {
         </div>
         <div>
           <table>
-            <thead>
-              <tr>
-                
-              </tr>
-            </thead>
+            
+
           </table>
         </div>
          </Main>
