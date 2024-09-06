@@ -64,8 +64,23 @@ export default function Notice() {
         </div>
         <div>
           <table>
-            
-
+            <tr>
+              <th>번호</th>
+              <th>카테고리</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>작성일</th>
+              <th>조회</th>
+              <th>추천</th>
+              <th>평점</th>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>프리미엄 알파셀 장패드 신규 출시</td>
+              <td><img src="images/Notice/ico_nick1.gif" />"Leopold"</td>
+              <td><span>2024-08-29</span></td>
+              <td><span>315</span></td>
+            </tr>
           </table>
         </div>
          </Main>
