@@ -1,12 +1,37 @@
-.zeroHeader {
-    width: 100px;
-    height: 100px;
-    background-color: red;
+.best-prouduct{
+    width: 100%;
+    height: 800px;
+    position: relative;
+ }
+.yello-picture{
+    width: 758px;
+    height: 684px;
+    position: absolute;
+    top: 85px;
+    left: 85px;
 }
-
-.whiteHeader {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
+.yello-picture > img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
-
+.home-title-boldtext{
+    font-family: GmarketBold;
+    font-size: 50px;
+    text-align: center;
+}
+.home-title-lighttext{
+    font-family: GmarketLight;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+}
+.leopold-container{
+    width: 100%;
+    height: 650px;
+    position: relative;
+}
+.leopold-boldtext{
+    font-family: GmarketBold;
+    font-size: 20px;
+}

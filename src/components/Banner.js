@@ -7,7 +7,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 export default function Banner() {
   return (
-    <>
+    <div className="center">
       <Swiper
         className="banner"
         modules={[Autoplay, Navigation]}
@@ -47,6 +47,6 @@ export default function Banner() {
           </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }
