@@ -1,8 +1,11 @@
 .notice-comm_title {
     width: 1340px;
     height: 120px;
-    margin: 120px;
+    margin: auto;
     border: 1px dotted black;
+    position: relative;
+    top: 120px;
+    
 }
 
 .notice-tab {
@@ -15,3 +18,13 @@
     width: 268px;
     height: 120px;
 }
+
+.notice-img, .notice-txt {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+
+
