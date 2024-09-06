@@ -35,8 +35,8 @@ export default function Header() {
 					<div className="header-container">
 						<p className="header-point" style={{color:"white"}}>적립금 1,050P</p>
 						<p className="header-service" style={{color:"white"}}>고객지원</p>
-						<img className="header-icon" src="images\Header\h_search.png" alt="search_white"></img>
-						<img className="header-icon" src="images\Header\h_mypage.png" alt="mypage_white"></img>
+						<img className="header-icon" src="images\Header\search.png" alt="search_white"></img>
+						<img className="header-icon" src="images\Header\mypage.png" alt="mypage_white"></img>
 						<img className="header-icon" src="images\Header\h_cart.png" alt="cart_white"></img>
 					</div>
 				</div>
