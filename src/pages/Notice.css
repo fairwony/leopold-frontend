@@ -32,10 +32,9 @@
 }
 
 .notice-titleArea {
-    width: 1340px;
     height: 92px;
     margin: 0 0 80px 0;
-    
+    text-align: center;
 }
 
 .notice-h2 {
@@ -43,20 +42,18 @@
     color: #1a1a1a;
     font-weight: 700;
     line-height: 48px;
-    text-align: center;
 }
 
 .notice-p {
     font-family: 'Inter','Pretendard',sans-serif;
     font-size: 18px;
-    color: rgb(136, 136, 136);
+    font-weight: 400;
+    color: #888888;
     height: 28px;
     letter-spacing: -0.36px;
     line-height: 28px;
     margin-top: 16px;
-    position: relative;
-    text-align: center;
-    
+
 }
 
 

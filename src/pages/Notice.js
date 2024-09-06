@@ -62,6 +62,15 @@ export default function Notice() {
           <h2 className="notice-h2">공지사항</h2>
           <p className="notice-p">Notice</p>
         </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                
+              </tr>
+            </thead>
+          </table>
+        </div>
          </Main>
       <Footer />
     </>
