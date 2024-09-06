@@ -38,8 +38,6 @@ export default function Header() {
 						<img className="header-icon" src="images\Header\h_search.png" alt="search_white"></img>
 						<img className="header-icon" src="images\Header\h_mypage.png" alt="mypage_white"></img>
 						<img className="header-icon" src="images\Header\h_cart.png" alt="cart_white"></img>
-
-
 					</div>
 				</div>
 			</div> :
