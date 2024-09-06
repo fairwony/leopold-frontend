@@ -12,35 +12,44 @@ export default function Notice() {
         <div className="notice-comm_title">
           <ul className="notice-tab">
             <li className="notice-on">
-              <Link to=""
-              <div className="notice-img">
-                <img src="images\Notice\cs_notice_on.svg" alt="확성기" />
-              </div>
-              <div className="notice-txt">공지사항</div>
+              <Link to="/notice">
+                <div className="notice-img">
+                  <img src="images\Notice\cs_notice_on.svg" alt="확성기" />
+                </div>
+                <div className="notice-txt">공지사항</div>
+              </Link>
             </li>
             <li className="notice-on">
-              <div className="notice-img">
-                <img src="images\Notice\cs_download.svg" alt="구름" />
-              </div>
-              <div className="notice-txt">자료실</div>
+              <Link to="/download">
+                <div className="notice-img">
+                  <img src="images\Notice\cs_download.svg" alt="구름" />
+                </div>
+                <div className="notice-txt">자료실</div>
+              </Link>
             </li>
             <li className="notice-on">
-              <div className="notice-img">
-                <img src="images\Notice\cs_faq.svg" alt="보고서" />
-              </div>
-              <div className="notice-txt">FAQ</div>
+              <Link to="/faq">
+                <div className="notice-img">
+                  <img src="images\Notice\cs_faq.svg" alt="보고서" />
+                </div>
+                <div className="notice-txt">FAQ</div>
+              </Link>
             </li>
             <li className="notice-on">
-              <div className="notice-img">
-                <img src="images\Notice\cs_as.svg" alt="스패너" />
-              </div>
-              <div className="notice-txt">A/S 접수</div>
+              <Link to="/as">
+                <div className="notice-img">
+                  <img src="images\Notice\cs_as.svg" alt="스패너" />
+                </div>
+                <div className="notice-txt">A/S 접수</div>
+              </Link>
             </li>
             <li className="notice-on">
-              <div className="notice-img">
-                <img src="images\Notice\cs_review.svg" alt="말풍선" />
-              </div>
-              <div className="notice-txt">사용자 리뷰</div>
+              <Link to="/review">
+                <div className="notice-img">
+                  <img src="images\Notice\cs_review.svg" alt="말풍선" />
+                </div>
+                <div className="notice-txt">사용자 리뷰</div>
+              </Link>
             </li>
           </ul>
         </div>
