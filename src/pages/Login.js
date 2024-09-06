@@ -1,12 +1,12 @@
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Main from "../components/Main";
+import WhiteHeader from "../components/WhiteHeader";
 import "./Login.css";
 
 export default function Login() {
 	return (
 		<div className="Login">
-			<Header />
+			<WhiteHeader />
 			<Main>
 				<p className="login-title">로그인</p>
 

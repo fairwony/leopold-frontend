@@ -15,13 +15,19 @@
 	gap: 8px;
 }
 
+.forgotPs-id {
+	margin: 43px auto 0px auto;
+	width: 400px;
+	font-size: 13px;
+}
+
 .forgotPs-checkbox-wrapper>input {
 	width: 20px;
 	height: 20px;
 }
 
 .forgotPs-name {
-	margin: 43px auto 0px auto;
+	margin: 24px auto 0px auto;
 	width: 400px;
 	font-size: 13px;
 }
@@ -78,4 +84,27 @@
 	border: none;
 	cursor: pointer;
 	font-size: 16px;
+}
+
+input[type='radio']:checked {
+	background-color: #22d3ee;
+	border: 3px solid white;
+}
+
+.ForgotPs input[type='radio'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	outline: none;
+	cursor: pointer;
+}
+
+.ForgotPs input[type='radio']:checked {
+	background-color: #FE9900;
+	border: 3px solid white;
+	box-shadow: 0 0 0 1.6px #FE9900;
 }

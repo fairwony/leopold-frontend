@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 import Main from '../components/Main';
 import './Notice.css';
+import WhiteHeader from '../components/WhiteHeader';
 
 export default function Notice() {
 	return (
     <>
-      <Header />
+      <WhiteHeader />
       <Main>
         <div className='notice-comm_title'>
           <ul className='notice-tab'>

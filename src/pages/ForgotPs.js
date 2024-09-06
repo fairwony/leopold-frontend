@@ -1,14 +1,14 @@
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Main from "../components/Main";
+import WhiteHeader from "../components/WhiteHeader";
 import "./ForgotPs.css";
 
 export default function ForgotPs() {
 	return (
 		<div className="ForgotPs">
-			<Header />
+			<WhiteHeader />
 			<Main>
-				<p className="forgotPs-title">아이디 찾기</p>
+				<p className="forgotPs-title">비밀번호 찾기</p>
 
 				<div className="forgotPs-checkbox-wrapper">
 					<input type="radio" name="method" id="byEmail" />
@@ -17,6 +17,10 @@ export default function ForgotPs() {
 					<input type="radio" name="method" id="byPhone" />
 					<label for="byPhone">휴대폰 번호</label>
 				</div>
+
+				<div className="forgotPs-id">아이디</div>
+
+				<input className="forgotPs-input" />
 
 				<div className="forgotPs-name">이름</div>
 
