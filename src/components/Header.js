@@ -1,5 +1,5 @@
-import "./Header.css";
 import { useEffect, useState } from "react";
+import "./Header.css";
 
 export default function Header() {
 	const [isTop, setIsTop] = useState(true);
@@ -44,11 +44,11 @@ export default function Header() {
 			<div  className="Header">
 				<div className="header-wrapper">
 					<div>
-						<img src="images\Header\h_menu_black.png" alt="menu_black"></img>
+					<img src="images\Header\h_menu_black.png" alt="menu_black"></img>
 					</div>
 					
 					<div className="logo">
-						<img src="images\Header\logo_black.png" alt="logo_black"/>
+				<img src="images\Header\logo_black.png" alt="logo_black"/>
 					</div>
 
 					<div className="header-container">
