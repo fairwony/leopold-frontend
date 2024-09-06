@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import AS from "./pages/AS";
 import Download from "./pages/Download";
 import FAQ from "./pages/FAQ";
+import ForgotId from "./pages/ForgotId";
+import ForgotPs from "./pages/ForgotPs";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Notice from "./pages/Notice";
@@ -18,6 +20,8 @@ export default function App() {
 				<Route path="/as" element={<AS />} />
 				<Route path="/review" element={<Review />} />
 				<Route path="/login" element={<Login />} />
+				<Route path="/forgotId" element={<ForgotId />} />
+				<Route path="/forgotPs" element={<ForgotPs />} />
 			</Routes>
 		</div>
 	);
