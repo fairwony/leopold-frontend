@@ -193,6 +193,29 @@ export default function Download() {
             <li>&gt;</li>
           </ul>
         </div>
+        {/* 찾기 메뉴*/}
+        <form>
+          <div className="download-board_search">
+            <fieldset >
+              <select id="download-search_date">
+                <option value={"week"}>일주일</option>
+                <option value={"month"}>한달</option>
+                <option value={"month3"}>세달</option>
+                <option value={"all"}>전체</option>
+              </select>
+
+              <select id="download-search_key">
+                <option value={"subject"}>제목</option>
+                <option value={"content"}>내용</option>
+                <option value={"writer_name"}>글쓴이</option>
+                <option value={"member_id"}>아이디</option>
+                <option value={"nick_name"}>별명</option>
+              </select>
+              <input id="download-search" />
+              <span id="download-btn">찾기</span>
+            </fieldset>
+          </div>
+        </form>
       </Main>
       <Footer />
     </>

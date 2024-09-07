@@ -182,7 +182,7 @@ export default function Notice() {
             <li>&gt;</li>
           </ul>
         </div>
-        {/* 찾기 */}
+        {/* 찾기 메뉴*/}
         <form>
           <div className="notice-board_search">
             <fieldset >
