@@ -7,7 +7,7 @@ import DownloadTable from "../components/DownloadTable";
 
 export default function Download() {
   const downloads = Array(28).fill(null);
-  
+
   return (
     <>
       <Header />
@@ -70,14 +70,16 @@ export default function Download() {
         {/* 카테고리 바 */}
         <div className="download-boardSort">
           <select id="download-board_category" name="board_category">
-            <option value selected={"selected"}>전체</option>
+            <option value selected={"selected"}>
+              전체
+            </option>
             <option value={1}>매뉴얼</option>
             <option value={2}>소프트웨아</option>
             <option value={3}>문제해결</option>
           </select>
         </div>
-         {/* 표 제목 */}
-         <div>
+        {/* 표 제목 */}
+        <div>
           <table className="download-thead">
             <tr className="download-theadTitle">
               <th
@@ -91,7 +93,15 @@ export default function Download() {
               <th
                 className="download-theadTitle"
                 style={{
-                  width: "940px",
+                  width: "135px",
+                }}
+              >
+                카테고리
+              </th>
+              <th
+                className="download-theadTitle"
+                style={{
+                  width: "885px",
                 }}
               >
                 제목
@@ -112,14 +122,6 @@ export default function Download() {
               >
                 작성일
               </th>
-              <th
-                className="download-theadTitle"
-                style={{
-                  width: "80px",
-                }}
-              >
-                조회
-              </th>
             </tr>
             {/* 표 내용 */}
             <tr className="download-tbody">
@@ -130,18 +132,27 @@ export default function Download() {
                   color: "#1a1a1a",
                 }}
               >
-                {18}
+                {29}
               </td>
               <td
                 className="download-tbodyContent"
                 style={{
-                  width: "940px",
+                  width: "135px",
+                  color: "#9a9a9a",
+                }}
+              >
+                {"매뉴얼"}
+              </td>
+              <td
+                className="download-tbodyContent"
+                style={{
+                  width: "885px",
                   color: "#555555",
                   padding: "28px 0 28px 32px",
                   textAlign: "left",
                 }}
               >
-                {"프리미엄 알파셀 장패드 신규 출시"}
+                {"FC730MBT MX2A Manual"}
               </td>
               <td
                 className="download-tbodyContent"
@@ -158,15 +169,7 @@ export default function Download() {
                   width: "120px",
                 }}
               >
-                <span>{"2024-08-29"}</span>
-              </td>
-              <td
-                className="download-tbodyContent"
-                style={{
-                  width: "80px",
-                }}
-              >
-                <span>{315}</span>
+                <span>{"2024-07-31"}</span>
               </td>
             </tr>
           </table>
