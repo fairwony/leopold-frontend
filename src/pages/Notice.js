@@ -9,6 +9,7 @@ export default function Notice() {
     <>
       <Header />
       <Main>
+        {/* 메뉴 바 */}
         <div className="notice-comm_title">
           <ul className="notice-tab">
             <li className="notice-on">
@@ -58,35 +59,38 @@ export default function Notice() {
             </li>
           </ul>
         </div>
+        {/* 제목 */}
         <div className="notice-titleArea">
           <h2 className="notice-h2">공지사항</h2>
           <p className="notice-p">Notice</p>
         </div>
-        <div className="notice-thead">
-          <table>
-            <tr style={{
+        {/* 표 제목 */}
+        <div>
+          <table className="notice-thead">
+            <tr className="notice-theadTitle" style={{
               height : "72px"
             }}>
-              <th style={{
+              <th className="notice-theadTitle" style={{
                 width : "80px"
               }} >번호</th>
-              <th style={{
+              <th className="notice-theadTitle" style={{
                 width : "940px"
               }}>제목</th>
-              <th style={{
+              <th className="notice-theadTitle" style={{
                 width : "120px"
               }}>작성자</th>
-              <th style={{
+              <th className="notice-theadTitle" style={{
                 width : "120px"
               }}>작성일</th>
-              <th style={{
+              <th className="notice-theadTitle" style={{
                 width : "80px"
               }}>조회</th>
             </tr>
+            {/* 표 내용 */}
             <tr>
               <td>18</td>
               <td>프리미엄 알파셀 장패드 신규 출시</td>
-              <td><img src="images/Notice/ico_nick1.gif" />"Leopold"</td>
+              <td><img src="images/Notice/ico_nick1.gif" />Leopold</td>
               <td><span>2024-08-29</span></td>
               <td><span>315</span></td>
             </tr>
