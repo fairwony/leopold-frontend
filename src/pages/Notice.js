@@ -70,7 +70,7 @@ export default function Notice() {
             <tr className="notice-theadTitle">
               <th className="notice-theadTitle" style={{
                 width : "80px"
-              }} >번호</th>
+              }}>번호</th>
               <th className="notice-theadTitle" style={{
                 width : "940px"
               }}>제목</th>
@@ -108,6 +108,8 @@ export default function Notice() {
             </tr>
           </table>
         </div>
+        {/* 페이지 이동 화살표 */}
+        
          </Main>
       <Footer />
     </>
