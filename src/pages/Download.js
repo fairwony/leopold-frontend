@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
+import "./Download.css";
+import DownloadTable from "../components/DownloadTable";
 
 export default function Download() {
   return (
