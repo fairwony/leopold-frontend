@@ -12,11 +12,11 @@ export default function Download() {
       <Main>
 		{/* 메뉴 바 */}
         <div className="download-comm_title">
-          <ul className="-tab">
+          <ul className="download-tab">
             <li className="download-on">
               <Link to="/notice">
                 <div className="download-img">
-                  <img src="images\Notice\cs_notice_on.svg" alt="확성기" />
+                  <img src="images\Download\cs_notice.svg" alt="확성기" />
                 </div>
                 <br />
                 <div className="download-txt">공지사항</div>
@@ -25,7 +25,7 @@ export default function Download() {
             <li className="download-on">
               <Link to="/download">
                 <div className="download-img">
-                  <img src="images\Notice\cs_download.svg" alt="구름" />
+                  <img src="/images/Download/cs_data_on.svg" alt="구름" />
                 </div>
                 <br />
                 <div className="download-txt">자료실</div>
