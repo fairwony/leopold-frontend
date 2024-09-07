@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import Header from "../components/Header"
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./Notice.css";
 import NoticeTable from "../components/NoticeTable";
 
 export default function Notice() {
-  const notices = Array(15).fill(null); 
+  const notices = Array(15).fill(null);
 
   return (
     <>
@@ -71,43 +71,94 @@ export default function Notice() {
         <div>
           <table className="notice-thead">
             <tr className="notice-theadTitle">
-              <th className="notice-theadTitle" style={{
-                width : "80px"
-              }}>번호</th>
-              <th className="notice-theadTitle" style={{
-                width : "940px"
-              }}>제목</th>
-              <th className="notice-theadTitle" style={{
-                width : "120px"
-              }}>작성자</th>
-              <th className="notice-theadTitle" style={{
-                width : "120px"
-              }}>작성일</th>
-              <th className="notice-theadTitle" style={{
-                width : "80px"
-              }}>조회</th>
+              <th
+                className="notice-theadTitle"
+                style={{
+                  width: "80px",
+                }}
+              >
+                번호
+              </th>
+              <th
+                className="notice-theadTitle"
+                style={{
+                  width: "940px",
+                }}
+              >
+                제목
+              </th>
+              <th
+                className="notice-theadTitle"
+                style={{
+                  width: "120px",
+                }}
+              >
+                작성자
+              </th>
+              <th
+                className="notice-theadTitle"
+                style={{
+                  width: "120px",
+                }}
+              >
+                작성일
+              </th>
+              <th
+                className="notice-theadTitle"
+                style={{
+                  width: "80px",
+                }}
+              >
+                조회
+              </th>
             </tr>
             {/* 표 내용 */}
             <tr className="notice-tbody">
-              <td className="notice-tbodyContent" style={{
-                width : "80px",
-                color : "#1a1a1a"
-              }}>{18}</td>
-              <td className="notice-tbodyContent" style={{
-                width : "940px",
-                color : "#555555",
-                padding : "28px 0 28px 32px",
-                textAlign : "left"
-              }}>{"프리미엄 알파셀 장패드 신규 출시"}</td>
-              <td className="notice-tbodyContent" style={{
-                width : "120px"
-              }}><img src="images/Notice/ico_nick1.gif" />{"Leopold"}</td>
-              <td className="notice-tbodyContent" style={{
-                width : "120px"
-              }}><span>{"2024-08-29"}</span></td>
-              <td className="notice-tbodyContent" style={{
-                width : "80px"
-              }}><span>{315}</span></td>
+              <td
+                className="notice-tbodyContent"
+                style={{
+                  width: "80px",
+                  color: "#1a1a1a",
+                }}
+              >
+                {18}
+              </td>
+              <td
+                className="notice-tbodyContent"
+                style={{
+                  width: "940px",
+                  color: "#555555",
+                  padding: "28px 0 28px 32px",
+                  textAlign: "left",
+                }}
+              >
+                {"프리미엄 알파셀 장패드 신규 출시"}
+              </td>
+              <td
+                className="notice-tbodyContent"
+                style={{
+                  width: "120px",
+                }}
+              >
+                <img src="images/Notice/ico_nick1.gif" />
+                {"Leopold"}
+              </td>
+              <td
+                className="notice-tbodyContent"
+                style={{
+                  width: "120px",
+                }}
+              >
+                <span>{"2024-08-29"}</span>
+              </td>
+              <td
+                className="notice-tbodyContent"
+                style={{
+                  width: "80px",
+                }}
+              >
+                <span>{315}</span>
+              </td>
             </tr>
           </table>
           {notices.map((_, index) => (
@@ -115,8 +166,19 @@ export default function Notice() {
           ))}
         </div>
         {/* 페이지 이동 화살표 */}
-        
-         </Main>
+        <div className="notice-paging">
+          <ul className="notice-ul">
+            <li>&lt;</li>
+            <li style={{
+              color: "#1a1a1a",
+              fontWeight: "700",
+              cursor: "pointer"
+            }}>1</li>
+            <li>2</li>
+            <li>&gt;</li>
+          </ul>
+        </div>
+      </Main>
       <Footer />
     </>
   );
