@@ -59,7 +59,7 @@
 .download-boardSort {
     width: 1340px;
     height: 40px;
-    margin-bottom: 24px;
+    margin: 0 auto 24px auto;
     font-weight: 400;
     text-align: right;
 }
@@ -106,4 +106,28 @@
     border-bottom: 1px solid #d7d5d5;
     line-height: 1.5;
     
+}
+/* 페이지 이동 화살표 */
+.download-paging {
+    width: 1340px;
+    height: 40px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.download-ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-ul > li {
+    letter-spacing: -0.28px;
+    width: 40px;
+    height: 40px;
+    color: #939393;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 8px;
+    line-height: 40px;
 }

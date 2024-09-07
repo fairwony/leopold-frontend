@@ -177,6 +177,22 @@ export default function Download() {
             <DownloadTable key={index} />
           ))}
         </div>
+        {/* 페이지 이동 화살표 */}
+        <div className="download-paging">
+          <ul className="download-ul">
+            <li>&lt;</li>
+            <li
+              style={{
+                color: "#1a1a1a",
+                fontWeight: "700",
+                cursor: "pointer",
+              }}
+            >
+              1
+            </li>
+            <li>&gt;</li>
+          </ul>
+        </div>
       </Main>
       <Footer />
     </>
