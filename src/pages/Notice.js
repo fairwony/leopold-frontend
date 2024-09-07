@@ -62,17 +62,26 @@ export default function Notice() {
           <h2 className="notice-h2">공지사항</h2>
           <p className="notice-p">Notice</p>
         </div>
-        <div>
+        <div className="notice-thead">
           <table>
-            <tr>
-              <th>번호</th>
-              <th>카테고리</th>
-              <th>제목</th>
-              <th>작성자</th>
-              <th>작성일</th>
-              <th>조회</th>
-              <th>추천</th>
-              <th>평점</th>
+            <tr style={{
+              height : "72px"
+            }}>
+              <th style={{
+                width : "80px"
+              }} >번호</th>
+              <th style={{
+                width : "940px"
+              }}>제목</th>
+              <th style={{
+                width : "120px"
+              }}>작성자</th>
+              <th style={{
+                width : "120px"
+              }}>작성일</th>
+              <th style={{
+                width : "80px"
+              }}>조회</th>
             </tr>
             <tr>
               <td>18</td>
