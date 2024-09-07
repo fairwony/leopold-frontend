@@ -66,12 +66,29 @@
 }
 
 .notice-theadTitle {
+    height: 72px;
     padding: 24px 0;
     background-color: #f6f6f6;
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
     color:#1a1a1a;
+}
+
+/* .notice-tbody {
+    
+} */
+
+.notice-tbodyContent {
+    padding: 28px 0;
+    font-size: 14px;
+    line-height: 24px;
+    color: #9a9a9a;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 1px solid #d7d5d5;
+    line-height: 1.5;
+    
 }
 
 

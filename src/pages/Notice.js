@@ -67,9 +67,7 @@ export default function Notice() {
         {/* 표 제목 */}
         <div>
           <table className="notice-thead">
-            <tr className="notice-theadTitle" style={{
-              height : "72px"
-            }}>
+            <tr className="notice-theadTitle">
               <th className="notice-theadTitle" style={{
                 width : "80px"
               }} >번호</th>
@@ -87,12 +85,26 @@ export default function Notice() {
               }}>조회</th>
             </tr>
             {/* 표 내용 */}
-            <tr>
-              <td>18</td>
-              <td>프리미엄 알파셀 장패드 신규 출시</td>
-              <td><img src="images/Notice/ico_nick1.gif" />Leopold</td>
-              <td><span>2024-08-29</span></td>
-              <td><span>315</span></td>
+            <tr className="notice-tbody">
+              <td className="notice-tbodyContent" style={{
+                width : "80px",
+                color : "#1a1a1a"
+              }}>{18}</td>
+              <td className="notice-tbodyContent" style={{
+                width : "940px",
+                color : "#555555",
+                padding : "28px 0 28px 32px",
+                textAlign : "left"
+              }}>{"프리미엄 알파셀 장패드 신규 출시"}</td>
+              <td className="notice-tbodyContent" style={{
+                width : "120px"
+              }}><img src="images/Notice/ico_nick1.gif" />{"Leopold"}</td>
+              <td className="notice-tbodyContent" style={{
+                width : "120px"
+              }}><span>{"2024-08-29"}</span></td>
+              <td className="notice-tbodyContent" style={{
+                width : "80px"
+              }}><span>{315}</span></td>
             </tr>
           </table>
         </div>
