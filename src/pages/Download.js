@@ -10,7 +10,7 @@ export default function Download() {
     <>
       <Header />
       <Main>
-		{/* 메뉴 바 */}
+        {/* 메뉴 바 */}
         <div className="download-comm_title">
           <ul className="download-tab">
             <li className="download-on">
@@ -59,6 +59,11 @@ export default function Download() {
               </Link>
             </li>
           </ul>
+        </div>
+        {/* 제목 */}
+        <div className="download-titleArea">
+          <h2 className="download-h2">자료실</h2>
+          <p className="download-p">Download</p>
         </div>
       </Main>
       <Footer />
