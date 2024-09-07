@@ -6,6 +6,8 @@ import "./Notice.css";
 import NoticeTable from "../components/NoticeTable";
 
 export default function Notice() {
+  const notices = Array(15).fill(null); 
+
   return (
     <>
       <Header />
@@ -108,7 +110,9 @@ export default function Notice() {
               }}><span>{315}</span></td>
             </tr>
           </table>
-          <NoticeTable />
+          {notices.map((_, index) => (
+            <NoticeTable key={index} />
+          ))}
         </div>
         {/* 페이지 이동 화살표 */}
         
