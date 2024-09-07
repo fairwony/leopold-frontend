@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
+import "./FAQ.css";
 
 export default function FAQ() {
   return (
@@ -32,7 +33,7 @@ export default function FAQ() {
             <li className="faq-on">
               <Link to="/faq">
                 <div className="faq-img">
-                  <img src="images\Notice\cs_faq.svg" alt="보고서" />
+                  <img src="images\FAQ\cs_faq_on.svg" alt="보고서" />
                 </div>
                 <br />
                 <div className="faq-txt">FAQ</div>
