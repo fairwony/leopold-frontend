@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./Notice.css";
+import NoticeTable from "../components/NoticeTable";
 
 export default function Notice() {
   return (
@@ -107,6 +108,7 @@ export default function Notice() {
               }}><span>{315}</span></td>
             </tr>
           </table>
+          <NoticeTable />
         </div>
         {/* 페이지 이동 화살표 */}
         
