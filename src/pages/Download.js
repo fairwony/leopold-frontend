@@ -6,6 +6,8 @@ import "./Download.css";
 import DownloadTable from "../components/DownloadTable";
 
 export default function Download() {
+  const downloads = Array(28).fill(null);
+  
   return (
     <>
       <Header />
@@ -64,6 +66,113 @@ export default function Download() {
         <div className="download-titleArea">
           <h2 className="download-h2">자료실</h2>
           <p className="download-p">Download</p>
+        </div>
+        {/* 카테고리 바 */}
+        <div className="download-boardSort">
+          <select id="download-board_category" name="board_category">
+            <option value selected={"selected"}>전체</option>
+            <option value={1}>매뉴얼</option>
+            <option value={2}>소프트웨아</option>
+            <option value={3}>문제해결</option>
+          </select>
+        </div>
+         {/* 표 제목 */}
+         <div>
+          <table className="download-thead">
+            <tr className="download-theadTitle">
+              <th
+                className="download-theadTitle"
+                style={{
+                  width: "80px",
+                }}
+              >
+                번호
+              </th>
+              <th
+                className="download-theadTitle"
+                style={{
+                  width: "940px",
+                }}
+              >
+                제목
+              </th>
+              <th
+                className="download-theadTitle"
+                style={{
+                  width: "120px",
+                }}
+              >
+                작성자
+              </th>
+              <th
+                className="download-theadTitle"
+                style={{
+                  width: "120px",
+                }}
+              >
+                작성일
+              </th>
+              <th
+                className="download-theadTitle"
+                style={{
+                  width: "80px",
+                }}
+              >
+                조회
+              </th>
+            </tr>
+            {/* 표 내용 */}
+            <tr className="download-tbody">
+              <td
+                className="download-tbodyContent"
+                style={{
+                  width: "80px",
+                  color: "#1a1a1a",
+                }}
+              >
+                {18}
+              </td>
+              <td
+                className="download-tbodyContent"
+                style={{
+                  width: "940px",
+                  color: "#555555",
+                  padding: "28px 0 28px 32px",
+                  textAlign: "left",
+                }}
+              >
+                {"프리미엄 알파셀 장패드 신규 출시"}
+              </td>
+              <td
+                className="download-tbodyContent"
+                style={{
+                  width: "120px",
+                }}
+              >
+                <img src="images/Notice/ico_nick1.gif" />
+                {"Leopold"}
+              </td>
+              <td
+                className="download-tbodyContent"
+                style={{
+                  width: "120px",
+                }}
+              >
+                <span>{"2024-08-29"}</span>
+              </td>
+              <td
+                className="download-tbodyContent"
+                style={{
+                  width: "80px",
+                }}
+              >
+                <span>{315}</span>
+              </td>
+            </tr>
+          </table>
+          {downloads.map((_, index) => (
+            <DownloadTable key={index} />
+          ))}
         </div>
       </Main>
       <Footer />
