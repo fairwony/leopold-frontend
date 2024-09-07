@@ -184,8 +184,8 @@ export default function Notice() {
         </div>
         {/* 찾기 */}
         <form>
-          <div>
-            <fieldset>
+          <div className="notice-board_search">
+            <fieldset >
               <select id="notice-search_date">
                 <option value={"week"}>일주일</option>
                 <option value={"month"}>한달</option>
@@ -200,8 +200,8 @@ export default function Notice() {
                 <option value={"member_id"}>아이디</option>
                 <option value={"nick_name"}>별명</option>
               </select>
-              <input id="notice-search"></input>
-              <span>찾기</span>
+              <input id="notice-search" />
+              <span id="notice-btn">찾기</span>
             </fieldset>
           </div>
         </form>
