@@ -5,6 +5,8 @@ import Main from "../components/Main";
 import "./FAQ.css";
 
 export default function FAQ() {
+
+
   return (
     <>
       <Header />
@@ -65,7 +67,7 @@ export default function FAQ() {
           <p className="faq-p">자주 하는 질문</p>
         </div>
         {/* 네비게이션 바 */}
-        <div className="faq_navi cboth" id="faq_navi">
+        <div className="faq-navi_cboth" id="faq_navi">
           <ul>
             <li>
               <span>전체</span>
@@ -85,14 +87,14 @@ export default function FAQ() {
           </ul>
         </div>
 
-        <div className="boardSort displaynone">
+        <div className="faq-boardSort_displayNone">
           <span>
             <select name="board_category" id="board_category">
-              <option value="0">전체</option>
-              <option value="1">주문/결제/배송</option>
-              <option value="2">취소/교환/반품</option>
-              <option value="3">상품/기술지원</option>
-              <option value="4">기타</option>
+              <option value={"0"}>전체</option>
+              <option value={"1"}>주문/결제/배송</option>
+              <option value={"2"}>취소/교환/반품</option>
+              <option value={"3"}>상품/기술지원</option>
+              <option value={"4"}>기타</option>
             </select>
           </span>
           <span></span>
