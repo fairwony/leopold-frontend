@@ -64,6 +64,39 @@ export default function FAQ() {
           <h2 className="faq-h2">FAQ</h2>
           <p className="faq-p">자주 하는 질문</p>
         </div>
+        {/* 네비게이션 바 */}
+        <div className="faq_navi cboth" id="faq_navi">
+          <ul>
+            <li>
+              <span>전체</span>
+            </li>
+            <li className="faq-on">
+              <span>주문/결제/배송</span>
+            </li>
+            <li>
+              <span>취소/교환/반품</span>
+            </li>
+            <li>
+              <span>상품/기술지원</span>
+            </li>
+            <li>
+              <span>기타</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="boardSort displaynone">
+          <span>
+            <select name="board_category" id="board_category">
+              <option value="0">전체</option>
+              <option value="1">주문/결제/배송</option>
+              <option value="2">취소/교환/반품</option>
+              <option value="3">상품/기술지원</option>
+              <option value="4">기타</option>
+            </select>
+          </span>
+          <span></span>
+        </div>
       </Main>
       <Footer />
     </>
