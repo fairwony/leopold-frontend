@@ -1,6 +1,18 @@
-.Header {
+.header-transparence {
+	background-color: transparent;
+	width: 100vw;
+	height: 88px;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.header-normal {
 	background-color: white;
-	width: 100%;
+	width: 100vw;
 	height: 88px;
 	border-bottom: 1px solid #e8e8e8;
 	display: flex;
@@ -12,50 +24,34 @@
 	opacity: 0.95;
 }
 
-.logo {
-	padding: 0px 397px 0px 692px;
-}
-
 .header-wrapper {
 	width: 1600px;
-	height: inherit;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.transparence-header {
-	background-color: transparent;
-	width: 100%;
+	max-width: 1600px;
 	height: 88px;
-	display: flex;
-	justify-content: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 2;
-}
-
-.transparence-header-wrapper {
-	width: 1600px;
-	height: inherit;
+	padding: 0px 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.logo {
+	display: block;
+}
+
+.header-menu-wrapper {
+	width: 350px;
 }
 
 .header-container {
+	width: 350px;
 	display: flex;
+	justify-content: end;
+	gap: 24px;
 	height: 24px;
 	align-items: center;
 }
 
-.header-icon {
-	margin-left: 24px;
-}
-
 .header-service {
-	margin-left: 24px;
 	font-size: 16px;
 	font-weight: 500;
 }
@@ -64,4 +60,3 @@
 	font-size: 14px;
 	font-weight: 500;
 }
-

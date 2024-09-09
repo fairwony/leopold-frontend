@@ -5,7 +5,9 @@ import FAQ from "./pages/FAQ";
 import ForgotId from "./pages/ForgotId";
 import ForgotPs from "./pages/ForgotPs";
 import Home from "./pages/Home";
+import Join from "./pages/Join";
 import Login from "./pages/Login";
+import MyPage from "./pages/MyPage";
 import Notice from "./pages/Notice";
 import Review from "./pages/Review";
 
@@ -22,6 +24,8 @@ export default function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/forgotId" element={<ForgotId />} />
 				<Route path="/forgotPs" element={<ForgotPs />} />
+				<Route path="/join" element={<Join />} />
+				<Route path="/mypage" element={<MyPage />} />
 			</Routes>
 		</div>
 	);
