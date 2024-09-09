@@ -59,6 +59,11 @@ export default function AS() {
             </li>
           </ul>
         </div>
+		{/* 제목 */}
+        <div className="as-titleArea">
+          <h2>A/S 안내</h2>
+          <p>After Service</p>
+        </div>
       </Main>
       <Footer />
     </>
