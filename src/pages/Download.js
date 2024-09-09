@@ -64,8 +64,8 @@ export default function Download() {
         </div>
         {/* 제목 */}
         <div className="download-titleArea">
-          <h2 className="download-h2">자료실</h2>
-          <p className="download-p">Download</p>
+          <h2>자료실</h2>
+          <p>Download</p>
         </div>
         {/* 카테고리 바 */}
         <div className="download-boardSort">

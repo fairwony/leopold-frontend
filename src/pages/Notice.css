@@ -38,14 +38,14 @@
     text-align: center;
 }
 
-.notice-h2 {
+.notice-titleArea>h2 {
     font-size: 40px;
     color: #1a1a1a;
     font-weight: 700;
     line-height: 48px;
 }
 
-.notice-p {
+.notice-titleArea>p {
     font-family: 'Inter','Pretendard',sans-serif;
     font-size: 18px;
     font-weight: 400;
