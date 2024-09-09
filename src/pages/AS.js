@@ -15,7 +15,7 @@ export default function AS() {
             <li className="as-on">
               <Link to="/notice">
                 <div className="as-img">
-                  <img src="images\Notice\cs_notice_on.svg" alt="확성기" />
+                  <img src="images\Download\cs_notice.svg" alt="확성기" />
                 </div>
                 <br />
                 <div className="as-txt">공지사항</div>
@@ -42,7 +42,7 @@ export default function AS() {
             <li className="as-on">
               <Link to="/as">
                 <div className="as-img">
-                  <img src="images\Notice\cs_as.svg" alt="스패너" />
+                  <img src="images\AS\cs_as_on.svg" alt="스패너" />
                 </div>
                 <br />
                 <div className="as-txt">A/S 접수</div>
