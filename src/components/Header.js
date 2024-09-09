@@ -21,6 +21,9 @@ export default function Header() {
 		}
 	}, []);
 
+
+	const [isMenuExtend, setIsMenuExtend] = useState(false);
+
 	return (
 		<div className="Header">
 			{isTop
@@ -29,7 +32,8 @@ export default function Header() {
 				<div className="header-transparence">
 					<div className="header-wrapper">
 						<div className="header-menu-wrapper">
-							<img src="\images\Header\h_menu.png" alt="menu_white"></img>
+							<img src="\images\Header\h_menu.png" alt="menu_white" className="header-menu-icon"
+								onClick={() => { setIsMenuExtend(true); }} />
 						</div>
 
 						<Link to="/"><img src="\images\Header\mh_logo.png" alt="logo_white" className="logo" /></Link>
@@ -48,7 +52,8 @@ export default function Header() {
 				<div className="header-normal">
 					<div className="header-wrapper">
 						<div className="header-menu-wrapper">
-							<img src="\images\Header\h_menu_black.png" alt="menu_black"></img>
+							<img src="\images\Header\h_menu_black.png" alt="menu_black" className="header-menu-icon"
+								onClick={() => { setIsMenuExtend(true); }} />
 						</div>
 
 						<Link to="/"><img src="\images\Header\logo_black.png" alt="logo_black" className="logo" /></Link>
@@ -63,6 +68,13 @@ export default function Header() {
 					</div>
 				</div>
 			}
+
+			
+
+			<div className={isMenuExtend ? "header-extend-yes" : "header-extend-no"}>
+				<img src="\images\Header\close.png" onClick={() => { setIsMenuExtend(false) }} alt="close"
+					className="header-close" />
+			</div>
 		</div>
 	)
 }

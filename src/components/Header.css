@@ -8,6 +8,7 @@
 	top: 0;
 	left: 0;
 	z-index: 2;
+	transition-duration: 0.3s;
 }
 
 .header-normal {
@@ -22,6 +23,7 @@
 	left: 0;
 	z-index: 2;
 	opacity: 0.95;
+	transition-duration: 0.3s;
 }
 
 .header-wrapper {
@@ -42,6 +44,10 @@
 	width: 350px;
 }
 
+.header-menu-icon {
+	cursor: pointer;
+}
+
 .header-container {
 	width: 350px;
 	display: flex;
@@ -59,4 +65,34 @@
 .header-point {
 	font-size: 14px;
 	font-weight: 500;
+}
+
+.header-extend-no {
+	width: 547px;
+	height: 1080px;
+	position: fixed;
+	z-index: 10;
+	left: 0px;
+	top: 0px;
+	background-color: #ebebeb;
+	opacity: 0.95;
+	transform: translate(-547px, 0px);
+	transition-duration: 0.3s;
+}
+
+.header-extend-yes {
+	width: 547px;
+	height: 1080px;
+	position: fixed;
+	z-index: 10;
+	left: 0px;
+	top: 0px;
+	background-color: #ebebeb;
+	opacity: 0.95;
+	transition-duration: 0.3s;
+}
+
+.header-close {
+	margin: 47px 0px 0px 55px;
+	cursor: pointer;
 }
