@@ -6,6 +6,8 @@ import WhiteHeader from "../components/WhiteHeader";
 import FaqSub from "./FaqSub";
 
 export default function FAQ() {
+  const faqs = Array(9).fill(null);
+
   return (
     <>
       <WhiteHeader />
@@ -125,7 +127,9 @@ export default function FAQ() {
             </li>
 
             <li>
-              <FaqSub />
+            {faqs.map((_, index) => (
+            <FaqSub key={index} />
+          ))}
             </li>
           </ul>
         </div>
