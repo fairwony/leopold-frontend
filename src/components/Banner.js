@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Banner.css";
 import "swiper/css";
 import "swiper/css/navigation";

@@ -12,29 +12,30 @@ export default function Home() {
       <Header />
       <Main>
         <Banner></Banner>
-        <div style={{ overflowX: "hidden" }}>
+        <div>
           <div className="best-prouduct">
             <div className="yello-picture">
               <img src="images\Home\사람.jpg"></img>
             </div>
+            <div className="best-prouduct-group">
             <p
               className="home-title-boldtext"
-              style={{ position: "absolute", top: "124px", left: "1120px" }}
             >
               BEST PRODUCT
             </p>
             <p
               className="home-title-lighttext"
-              style={{ position: "absolute", top: "196px", left: "1102px" }}
+              style={{ paddingTop: "20px" }}
             >
               올 한해, 가장 많이 사랑받은 베스트셀러 <br /> 다양한 색상으로
               나만의 키보드를 지금 만나보세요.
             </p>
+            </div>
             <SmallBanner></SmallBanner>
           </div>
 
           <div className="leopold-container">
-            <p className="home-title-boldtext" style={{ marginTop: "96px" }}>
+            <p className="home-title-boldtext" style={{ marginTop: "196px" }}>
               LEOPOLD
             </p>
             <p className="home-title-lighttext" style={{ paddingTop: "12px" }}>
