@@ -1,3 +1,9 @@
+/* 게시판 메인
+.as-community_list {
+    width: 1340px;
+    height: 931px;
+    margin-bottom: 50px;
+} */
 /* 메뉴 바 */
 .as-comm_title {
     text-align: center;
@@ -31,7 +37,6 @@
     text-align: center;
     font-family: 'Inter', 'Pretendard', sans-serif;
 }
-
 /* 제목 */
 .as-titleArea {
     height: 92px;
@@ -56,8 +61,6 @@
     line-height: 28px;
     margin-top: 16px;
 }
-
-
 /* 네비게이션 바 */
 #as_navi {
     width: 1340px;
@@ -96,11 +99,10 @@
     border-bottom: 2px solid #f90;
     font-weight: 500;
 }
-
 /* Q&A */
 .as-cboth_questions {
     width: 1340px;
-    height: 1043px;
+    height: auto;
     margin: auto;
 }
 
@@ -167,4 +169,23 @@
     width: auto;
     height: auto;
     font-size: 14px;
+}
+
+.as-btn {
+    width: 1340px;
+    height: 96px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.as-gRight {
+    width: 160px;
+    height: 56px;
+    line-height: 56px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';
+    transition: all 0.2s;
+   border: 1px solid #fff;
+   background-color: #f90;
 }
