@@ -68,37 +68,65 @@ export default function FAQ() {
         </div>
         {/* 네비게이션 바 */}
         <div className="faq-navi_cboth" id="faq_navi">
-          <ul>
-            <li>
+          <ul data-tab>
+            <li data-tab="0" className="faq-on2">
               <span>전체</span>
             </li>
-            <li className="faq-on">
+            <li data-tab="1" >
               <span>주문/결제/배송</span>
             </li>
-            <li>
+            <li data-tab="2" >
               <span>취소/교환/반품</span>
             </li>
-            <li>
+            <li data-tab="3" >
               <span>상품/기술지원</span>
             </li>
-            <li>
+            <li data-tab="4" >
               <span>기타</span>
             </li>
           </ul>
         </div>
 
-        <div className="faq-boardSort_displayNone">
-          <span>
-            <select name="board_category" id="board_category">
-              <option value={"0"}>전체</option>
-              <option value={"1"}>주문/결제/배송</option>
-              <option value={"2"}>취소/교환/반품</option>
-              <option value={"3"}>상품/기술지원</option>
-              <option value={"4"}>기타</option>
-            </select>
-          </span>
-          <span></span>
+
+        {/* 페이지 이동 화살표 */}
+        <div className="download-paging">
+          <ul className="download-ul">
+            <li>&lt;</li>
+            <li
+              style={{
+                color: "#1a1a1a",
+                fontWeight: "700",
+                cursor: "pointer",
+              }}
+            >
+              1
+            </li>
+            <li>&gt;</li>
+          </ul>
         </div>
+        {/* 찾기 메뉴*/}
+        <form>
+          <div className="download-board_search">
+            <fieldset >
+              <select id="download-search_date">
+                <option value={"week"}>일주일</option>
+                <option value={"month"}>한달</option>
+                <option value={"month3"}>세달</option>
+                <option value={"all"}>전체</option>
+              </select>
+
+              <select id="download-search_key">
+                <option value={"subject"}>제목</option>
+                <option value={"content"}>내용</option>
+                <option value={"writer_name"}>글쓴이</option>
+                <option value={"member_id"}>아이디</option>
+                <option value={"nick_name"}>별명</option>
+              </select>
+              <input id="download-search" />
+              <span id="download-btn">찾기</span>
+            </fieldset>
+          </div>
+        </form>
       </Main>
       <Footer />
     </>
