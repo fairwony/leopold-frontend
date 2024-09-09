@@ -1,4 +1,10 @@
 .samll-banner{
     width: 1009px;
     height: 260px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+.swiper-button-prev {
+    background-color: red !important;
 }
