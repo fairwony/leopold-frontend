@@ -97,8 +97,45 @@
 .faq-cboth_questions {
     width: 1340px;
     height: 1043px;
+    margin: auto;
 }
 
+.faq-has-sub {
+    width: 1340px;
+    height: 242px;
+    border-bottom: 1px solid #ededed;
+    color: #353535;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.faq-move {
+    width: 1340px;
+    height: 88 px;
+    padding: 28px 0;
+    cursor: pointer;
+    line-height: 32px;
+    display: flex;
+}
+
+.faq-move > span {
+    display: block;
+    width: 80px;
+    height: 32px;
+    margin-right: 16px;
+    text-align: center;
+}
+
+.faq-move > span > svg {
+    
+    width: 24px;
+    height: 24px;
+    line-height: 32px;
+    margin-left: 943.859px;
+    padding: 0 30px;
+
+}
 
 
 /* 페이지 이동 화살표 */
