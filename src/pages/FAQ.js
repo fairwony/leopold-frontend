@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./FAQ.css";
 import WhiteHeader from "../components/WhiteHeader";
+import FaqSub from "./FaqSub";
 
 export default function FAQ() {
   return (
@@ -123,7 +124,9 @@ export default function FAQ() {
               </div>
             </li>
 
-            <li></li>
+            <li>
+              <FaqSub />
+            </li>
           </ul>
         </div>
 
