@@ -38,14 +38,14 @@
     text-align: center;
 }
 
-.faq-h2 {
+.faq-titleArea > h2 {
     font-size: 40px;
     color: #1a1a1a;
     font-weight: 700;
     line-height: 48px;
 }
 
-.faq-p {
+.faq-titleArea > p {
     font-family: 'Inter','Pretendard',sans-serif;
     font-size: 18px;
     font-weight: 400;
@@ -61,7 +61,7 @@
     height: 67px;   
     border-bottom: 1px solid #ededed;
     margin:auto;
-    font-family: Inter, Pretendard, sans-serif;
+    font-family: 'Inter', 'Pretendard', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #353535;

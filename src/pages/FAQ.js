@@ -63,8 +63,8 @@ export default function FAQ() {
         </div>
         {/* 제목 */}
         <div className="faq-titleArea">
-          <h2 className="faq-h2">FAQ</h2>
-          <p className="faq-p">자주 하는 질문</p>
+          <h2>FAQ</h2>
+          <p>자주 하는 질문</p>
         </div>
         {/* 네비게이션 바 */}
         <div id="faq_navi">
