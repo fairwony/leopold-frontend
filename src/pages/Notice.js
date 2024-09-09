@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
+import WhiteHeader from "../components/WhiteHeader";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./Notice.css";
@@ -10,7 +10,7 @@ export default function Notice() {
 
   return (
     <>
-      <Header />
+      <WhiteHeader />
       <Main>
         {/* 메뉴 바 */}
         <div className="notice-comm_title">
