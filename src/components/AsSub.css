@@ -1,0 +1,32 @@
+.asSub-move {
+    width: 1340px;
+    height: 88px;
+    padding: 28px 0;
+    cursor: pointer;
+    line-height: 32px;
+    display: flex;
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    border-bottom: 1px solid #ededed;
+    color: #353535;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.asSub-move>span {
+    display: block;
+    width: 80px;
+    height: 32px;
+    margin-right: 16px;
+    text-align: center;
+}
+
+.asSub-move>svg {
+    display: block;
+    width: 84px;
+    height: 24px;
+    margin-left: 1000px;
+    padding: 0 30px;
+    /* transform: rotate(-180deg); */
+    cursor: pointer;   
+}

@@ -3,8 +3,12 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./AS.css";
+import FaqSub from "../components/FaqSub";
+import AsSub from "../components/AsSub";
 
 export default function AS() {
+  const as = Array(3).fill(null);
+
   return (
     <>
       <WhiteHeader />
@@ -84,7 +88,7 @@ export default function AS() {
                 <span>
                   <img src="images\FAQ\faq_q.svg" alt="Q" />
                 </span>
-                {"주문 내역을 변경할 수 있나요?"}
+                {"A/S 정책 및 운영 방침"}
                 <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
                   <path
                     d="M4 8L12 16L20 8"
@@ -102,11 +106,15 @@ export default function AS() {
                   </span>
                   <div>
                     <p>
-                      {
-                        "본 약관은 레오폴드㈜에서 판매한 제품에 대하여 고객 여러분들께 더 나은 서비스를 제공하기 위해 작성되었으며 제공되는 서비스는 아래와 같습니다."
-                      }
+                      <span>
+                        {
+                          "본 약관은 레오폴드㈜에서 판매한 제품에 대하여 고객 여러분들께 더 나은 서비스를 제공하기 위해 작성되었으며 제공되는 서비스는 아래와 같습니다."
+                        }
+                      </span>
                     </p>
-                    <p>{"본 약관은 국내에서만 효력을 갖습니다."}</p>
+                    <p>
+                      <span>{"본 약관은 국내에서만 효력을 갖습니다."}</span>
+                    </p>
                     <p>
                       {
                         "본 약관은 레오폴드㈜에서 제조/유통/판매한 제품에 한하여 적용됩니다."
@@ -119,8 +127,16 @@ export default function AS() {
                 </div>
               </div>
             </li>
+
+            <li>
+              {as.map((_, index) => (
+                <AsSub key={index} />
+              ))}
+            </li>
           </ul>
         </div>
+
+		
       </Main>
       <Footer />
     </>

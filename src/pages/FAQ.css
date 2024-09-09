@@ -164,8 +164,8 @@
 }
 
 .faq-wrap>div {
-    width: 558px;
-    height: 96px;
+    width: auto;
+    height: auto;
 }
 
 /* 페이지 이동 화살표 */
