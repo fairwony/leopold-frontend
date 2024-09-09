@@ -74,7 +74,7 @@ export default function Download() {
               전체
             </option>
             <option value={1}>매뉴얼</option>
-            <option value={2}>소프트웨아</option>
+            <option value={2}>소프트웨어</option>
             <option value={3}>문제해결</option>
           </select>
         </div>
