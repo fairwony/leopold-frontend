@@ -89,8 +89,8 @@ export default function FAQ() {
 
 
         {/* 페이지 이동 화살표 */}
-        <div className="download-paging">
-          <ul className="download-ul">
+        <div className="faq-paging">
+          <ul className="faq-ul">
             <li>&lt;</li>
             <li
               style={{
@@ -106,24 +106,24 @@ export default function FAQ() {
         </div>
         {/* 찾기 메뉴*/}
         <form>
-          <div className="download-board_search">
+          <div className="faq-board_search">
             <fieldset >
-              <select id="download-search_date">
+              <select id="faq-search_date">
                 <option value={"week"}>일주일</option>
                 <option value={"month"}>한달</option>
                 <option value={"month3"}>세달</option>
                 <option value={"all"}>전체</option>
               </select>
 
-              <select id="download-search_key">
+              <select id="faq-search_key">
                 <option value={"subject"}>제목</option>
                 <option value={"content"}>내용</option>
                 <option value={"writer_name"}>글쓴이</option>
                 <option value={"member_id"}>아이디</option>
                 <option value={"nick_name"}>별명</option>
               </select>
-              <input id="download-search" />
-              <span id="download-btn">찾기</span>
+              <input id="faq-search" />
+              <span id="faq-btn">찾기</span>
             </fieldset>
           </div>
         </form>

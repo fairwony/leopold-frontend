@@ -56,3 +56,76 @@
     margin-top: 16px;
 }
 /* 네비게이션 바 */
+
+
+
+/* 페이지 이동 화살표 */
+.faq-paging {
+    width: 1340px;
+    height: 40px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.faq-ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-ul > li {
+    letter-spacing: -0.28px;
+    width: 40px;
+    height: 40px;
+    color: #939393;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 8px;
+    line-height: 40px;
+}
+/* 찾기 메뉴 */
+.faq-board_search {
+    width: 1340px;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.faq-board_search > fieldset {
+    display: block;
+    padding: 30px 0;
+    color: #2e2e2e;
+    font-weight: 400;
+} 
+
+#faq-search_date {
+    border: 1px solid #d5d5d5;
+    margin: 0 8px 0 22px;
+    padding: 0 25px 0 8px;
+    height: 40px;
+}
+
+#faq-search_key {
+    border: 1px solid #d5d5d5;
+    margin: 0 8px 0 0;
+    padding: 0 25px 0 8px;
+    height: 40px;
+}
+
+#faq-search {
+    border: 1px solid #d5d5d5;
+    padding: 2px 4px;
+    height: 40px;
+}
+
+#faq-btn {
+    cursor: pointer;
+    font-size: 13px;
+    margin: 0 0 0 8px;
+    padding: 7px 27px;
+    border: 1px solid #bfbfbf;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+
+}
