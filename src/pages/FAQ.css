@@ -93,7 +93,20 @@
     border-bottom: 3px solid #f90;
 }
 /* Q&A */
+.faq-cboth_questions {
+    width: 1340px;
+    height: 1043px;
+    margin: auto;
+    font-family: Inter, Pretendard, sans-serif;
+    font-size: 18px;
+}
 
+.faq-has-sub {
+    width: 1340px;
+    height: 241px;
+    color: #1a1a1a;
+
+}
 
 
 
