@@ -67,26 +67,54 @@ export default function FAQ() {
           <p className="faq-p">자주 하는 질문</p>
         </div>
         {/* 네비게이션 바 */}
-        <div className="faq-navi_cboth" id="faq_navi">
-          <ul data-tab>
-            <li data-tab="0" className="faq-on2">
-              <span>전체</span>
-            </li>
-            <li data-tab="1" >
+        <div id="faq_navi">
+          <ul className="faq-navi_cboth">
+            <li data-tab="1" id="faq-on2">
               <span>주문/결제/배송</span>
             </li>
-            <li data-tab="2" >
+            <p>|</p>
+            <li data-tab="2">
               <span>취소/교환/반품</span>
             </li>
-            <li data-tab="3" >
+            <p>|</p>
+            <li data-tab="3">
               <span>상품/기술지원</span>
             </li>
-            <li data-tab="4" >
+            <p>|</p>
+            <li data-tab="4">
               <span>기타</span>
             </li>
           </ul>
         </div>
+        {/* Q */}
+        <div></div>
+        <div>
+          <ol>
+            <li>
+              <span>
+                <image></image>
+              </span>
+              {"주문 내역을 변경할 수 있나요?"}
+              <svg>
+                <path></path>
+              </svg>
+              <div>
+                <div>
+                  <span>
+                    <image></image>
+                  </span>
+                  <div>
+                    <p>{"결제 완료된 주문 건은 직접 변경이 불가능합니다."}</p>
+                    <p>{"변경을 원하실 경우 1:1 문의게시판을 이용하시거나, 고객센터로 연락 바랍니다."}</p>
+                    <p><br></br></p>
+                  </div>
+                </div>
+              </div>
+            </li>
 
+            <li></li>
+          </ol>
+        </div>
 
         {/* 페이지 이동 화살표 */}
         <div className="faq-paging">
@@ -107,7 +135,7 @@ export default function FAQ() {
         {/* 찾기 메뉴*/}
         <form>
           <div className="faq-board_search">
-            <fieldset >
+            <fieldset>
               <select id="faq-search_date">
                 <option value={"week"}>일주일</option>
                 <option value={"month"}>한달</option>
