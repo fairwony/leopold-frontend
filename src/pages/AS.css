@@ -56,3 +56,43 @@
     line-height: 28px;
     margin-top: 16px;
 }
+
+
+/* 네비게이션 바 */
+#as_navi {
+    width: 1340px;
+    height: 67px;
+    border-bottom: 1px solid #ededed;
+    margin: auto;
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #888888;
+}
+
+.as-navi_cboth {
+    display: flex;
+}
+
+.as-navi_cboth>li {
+    width: 670px;
+    height: 66px;
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.as-navi_cboth>p {
+    display: flex;
+    align-items: center;
+    color: #ededed;
+}
+
+#as-on2 {
+    color: #1a1a1a;
+    border-bottom: 2px solid #f90;
+    font-weight: 500;
+}
