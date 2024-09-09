@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Main from "../components/Main";
 import "./Download.css";
 import DownloadTable from "../components/DownloadTable";
+import WhiteHeader from "../components/WhiteHeader";
 
 export default function Download() {
   const downloads = Array(28).fill(null);
 
   return (
     <>
-      <Header />
+      <WhiteHeader />
       <Main>
         {/* 메뉴 바 */}
         <div className="download-comm_title">

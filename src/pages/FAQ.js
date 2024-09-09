@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Main from "../components/Main";
 import "./FAQ.css";
+import WhiteHeader from "../components/WhiteHeader";
 
 export default function FAQ() {
 
 
   return (
     <>
-      <Header />
+      <WhiteHeader />
       <Main>
         {/* 메뉴 바 */}
         <div className="faq-comm_title">
