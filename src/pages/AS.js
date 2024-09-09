@@ -64,6 +64,18 @@ export default function AS() {
           <h2>A/S 안내</h2>
           <p>After Service</p>
         </div>
+		{/* 네비게이션 바 */}
+        <div id="as_navi">
+			<ul className="as-navi_cboth">
+				<li data-tab="1" id="as-on2">
+					<span>A/S 필독사항</span>
+				</li>
+				<p>|</p>
+				<li data-tab="2">
+					<span>A/S 접수안내</span>
+				</li>
+			</ul>
+		</div>
       </Main>
       <Footer />
     </>
