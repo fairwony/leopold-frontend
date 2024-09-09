@@ -5,12 +5,12 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./AS.css";
 
 export default function AS() {
-	return (
-		<>
-			<WhiteHeader />
-			<Main>
-				{/* 메뉴 바 */}
-				<div className="as-comm_title">
+  return (
+    <>
+      <WhiteHeader />
+      <Main>
+        {/* 메뉴 바 */}
+        <div className="as-comm_title">
           <ul className="as-tab">
             <li className="as-on">
               <Link to="/notice">
@@ -59,8 +59,8 @@ export default function AS() {
             </li>
           </ul>
         </div>
-			</Main>
-			<Footer />
-		</>
-	)
+      </Main>
+      <Footer />
+    </>
+  );
 }
