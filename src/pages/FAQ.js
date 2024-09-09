@@ -3,9 +3,10 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./FAQ.css";
 import WhiteHeader from "../components/WhiteHeader";
+import FaqSub from "./FaqSub";
 
 export default function FAQ() {
-
+  const faqs = Array(9).fill(null);
 
   return (
     <>
@@ -63,8 +64,8 @@ export default function FAQ() {
         </div>
         {/* 제목 */}
         <div className="faq-titleArea">
-          <h2 className="faq-h2">FAQ</h2>
-          <p className="faq-p">자주 하는 질문</p>
+          <h2>FAQ</h2>
+          <p>자주 하는 질문</p>
         </div>
         {/* 네비게이션 바 */}
         <div id="faq_navi">
@@ -88,21 +89,23 @@ export default function FAQ() {
         </div>
         {/* Q&A */}
         <div className="faq-cboth_questions">
-          <ol>
+          <ul>
             <li className="faq-has-sub">
-              <span>
-                <img src="images\FAQ\faq_q.svg" alt="Q" />
-              </span>
-              {"주문 내역을 변경할 수 있나요?"}
-              <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 8L12 16L20 8"
-                  stroke="#1A1A1A"
-                  strokeWidth={1.2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <div className="faq-move">
+                <span>
+                  <img src="images\FAQ\faq_q.svg" alt="Q" />
+                </span>
+                {"주문 내역을 변경할 수 있나요?"}
+                <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 8L12 16L20 8"
+                    stroke="#1A1A1A"
+                    strokeWidth={1.2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
               <div className="faq-has-sub-a">
                 <div className="faq-wrap">
                   <span>
@@ -123,8 +126,12 @@ export default function FAQ() {
               </div>
             </li>
 
-            <li></li>
-          </ol>
+            <li>
+            {faqs.map((_, index) => (
+            <FaqSub key={index} />
+          ))}
+            </li>
+          </ul>
         </div>
 
         {/* 페이지 이동 화살표 */}

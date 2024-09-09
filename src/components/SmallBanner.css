@@ -1,4 +1,26 @@
-.samll-banner{
-    width: 1009px;
-    height: 260px;
+@keyframes slide {
+    from {
+        transform: translateY(200px);
+      }
+      to {
+        transform: translateY(0px);
+      }
 }
+
+.small-banner{
+    position: relative;
+}
+.small-banner:hover > .information-box{
+    width: 260px;
+    height: 110px;
+    opacity: 0.6;
+    background-color: white;
+    position: absolute;
+    top: 150px;
+    left: 55px;
+    border-radius: 0 0 10px 10px;
+    animation-name: slide;
+    animation-duration: 0.3s;
+    z-index: 1;
+}
+

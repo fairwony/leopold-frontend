@@ -5,10 +5,13 @@ import FAQ from "./pages/FAQ";
 import ForgotId from "./pages/ForgotId";
 import ForgotPs from "./pages/ForgotPs";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Notice from "./pages/Notice";
-import Review from "./pages/Review";
 import Join from "./pages/Join";
+import Login from "./pages/Login";
+import MyPage from "./pages/MyPage";
+import Notice from "./pages/Notice";
+import Order from "./pages/Order";
+import OrderDetail from "./pages/OrderDetail";
+import Review from "./pages/Review";
 
 export default function App() {
 	return (
@@ -24,6 +27,9 @@ export default function App() {
 				<Route path="/forgotId" element={<ForgotId />} />
 				<Route path="/forgotPs" element={<ForgotPs />} />
 				<Route path="/join" element={<Join />} />
+				<Route path="/mypage" element={<MyPage />} />
+				<Route path="/order" element={<Order />} />
+				<Route path="/order/detail" element={<OrderDetail />} />
 			</Routes>
 		</div>
 	);
