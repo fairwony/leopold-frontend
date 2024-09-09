@@ -88,6 +88,7 @@ export default function MyPage() {
 						</div>
 
 						<OrderTable />
+						<OrderTable />
 
 						<div className="mypage-title2">
 							<p className="mypage-title2-p1">문의 내역</p>

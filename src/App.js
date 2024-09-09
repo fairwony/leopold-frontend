@@ -9,6 +9,8 @@ import Join from "./pages/Join";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
 import Notice from "./pages/Notice";
+import Order from "./pages/Order";
+import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
 
 export default function App() {
@@ -26,6 +28,8 @@ export default function App() {
 				<Route path="/forgotPs" element={<ForgotPs />} />
 				<Route path="/join" element={<Join />} />
 				<Route path="/mypage" element={<MyPage />} />
+				<Route path="/order" element={<Order />} />
+				<Route path="/order/detail" element={<OrderDetail />} />
 			</Routes>
 		</div>
 	);
