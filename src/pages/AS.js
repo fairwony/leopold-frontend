@@ -59,23 +59,68 @@ export default function AS() {
             </li>
           </ul>
         </div>
-		{/* 제목 */}
+        {/* 제목 */}
         <div className="as-titleArea">
           <h2>A/S 안내</h2>
           <p>After Service</p>
         </div>
-		{/* 네비게이션 바 */}
+        {/* 네비게이션 바 */}
         <div id="as_navi">
-			<ul className="as-navi_cboth">
-				<li data-tab="1" id="as-on2">
-					<span>A/S 필독사항</span>
-				</li>
-				<p>|</p>
-				<li data-tab="2">
-					<span>A/S 접수안내</span>
-				</li>
-			</ul>
-		</div>
+          <ul className="as-navi_cboth">
+            <li data-tab="1" id="as-on2">
+              <span>A/S 필독사항</span>
+            </li>
+            <p>|</p>
+            <li data-tab="2">
+              <span>A/S 접수안내</span>
+            </li>
+          </ul>
+        </div>
+        {/* Q&A */}
+        <div className="as-cboth_questions">
+          <ul>
+            <li className="as-has-sub">
+              <div className="as-move">
+                <span>
+                  <img src="images\FAQ\faq_q.svg" alt="Q" />
+                </span>
+                {"주문 내역을 변경할 수 있나요?"}
+                <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M4 8L12 16L20 8"
+                    stroke="#1A1A1A"
+                    strokeWidth={1.2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <div className="as-has-sub-a">
+                <div className="as-wrap">
+                  <span>
+                    <img src="images\FAQ\faq_a.svg" alt="A"></img>
+                  </span>
+                  <div>
+                    <p>
+                      {
+                        "본 약관은 레오폴드㈜에서 판매한 제품에 대하여 고객 여러분들께 더 나은 서비스를 제공하기 위해 작성되었으며 제공되는 서비스는 아래와 같습니다."
+                      }
+                    </p>
+                    <p>{"본 약관은 국내에서만 효력을 갖습니다."}</p>
+                    <p>
+                      {
+                        "본 약관은 레오폴드㈜에서 제조/유통/판매한 제품에 한하여 적용됩니다."
+                      }
+                    </p>
+                    <p>
+                      <br></br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </Main>
       <Footer />
     </>
