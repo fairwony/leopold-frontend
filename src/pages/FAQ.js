@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./FAQ.css";
 import WhiteHeader from "../components/WhiteHeader";
-import FaqSub from "./FaqSub";
+import FaqSub from "../components/FaqSub";
 
 export default function FAQ() {
   const faqs = Array(9).fill(null);
