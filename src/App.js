@@ -12,7 +12,7 @@ import Notice from "./pages/Notice";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
-import AsReception from "./components/AsReception";
+import AsReception from "./pages/AsReception";
 
 export default function App() {
 	return (

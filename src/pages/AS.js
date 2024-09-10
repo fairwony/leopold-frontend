@@ -148,12 +148,18 @@ export default function AS() {
         {/* 스스로 해결방법 */}
         <div className="as-self">
           <div className="as-tit">스스로 해결방법</div>
-          <div className="as-img">
-            <img src="\images\AS\faq01.png" />
-          </div>
-          <div className="as-text">
-            <span>동영상</span>
-            <span>동영상 가이드를 활용하여 문제점을 해결해보세요.</span>
+          <div>
+            <Link
+              to={"https://www.youtube.com/channel/UCG9XHvC24e3NFSCMVbBGu7w"}
+            >
+              <div className="as-img">
+                <img src="\images\AS\faq01.png" />
+              </div>
+              <div className="as-text">
+                <span>동영상</span>
+                <span>동영상 가이드를 활용하여 문제점을 해결해보세요.</span>
+              </div>
+            </Link>
           </div>
         </div>
       </Main>
