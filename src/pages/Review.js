@@ -61,8 +61,8 @@ export default function Review() {
         </div>
         {/* 제목 */}
         <div className="review-titleArea">
-          <h2>공지사항</h2>
-          <p>Notice</p>
+          <h2>사용자 리뷰</h2>
+          <p>User review</p>
         </div>
       </Main>
       <Footer />
