@@ -33,20 +33,20 @@
 }
 
 /* 제목 */
-.notice-titleArea {
+.review-titleArea {
     height: 92px;
     margin: 0 0 80px 0;
     text-align: center;
 }
 
-.notice-titleArea>h2 {
+.review-titleArea>h2 {
     font-size: 40px;
     color: #1a1a1a;
     font-weight: 700;
     line-height: 48px;
 }
 
-.notice-titleArea>p {
+.review-titleArea>p {
     font-family: 'Inter','Pretendard', 'sans-serif';
     font-size: 18px;
     font-weight: 400;
