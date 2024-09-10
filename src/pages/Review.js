@@ -70,8 +70,8 @@ export default function Review() {
             <colgroup className="review-board">
               <col style={{ width: "80px" }} />
               <col style={{ width: "auto" }} />
-              <col style={{ width: "120" }} />
-              <col style={{ width: "120" }} />
+              <col style={{ width: "120px" }} />
+              <col style={{ width: "120px" }} />
             </colgroup>
             <tr>
               <th>번호</th>
