@@ -73,48 +73,51 @@ export default function Review() {
               <col style={{ width: "120px" }} />
               <col style={{ width: "120px" }} />
             </colgroup>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>작성자</th>
-              <th>작성일</th>
-            </tr>
-            <tr>
-              <td>
-                <img
-                  src="\images\Review\edb64352918b2053a1637b66ac073850.png"
-                  alt="공지"
-                />
-              </td>
-              <td className="review-subject">
-                <strong>
-                  <Link to={"/review/detail"}>사용자 리뷰 안내</Link>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+              </tr>
+            </thead>
+            <tbody className="review-board-notice">
+              <tr>
+                <td>
+                  <img
+                    src="\images\Review\edb64352918b2053a1637b66ac073850.png"
+                    alt="공지"
+                  />
+                </td>
+                <td className="review-subject">
+                  <strong>
+                    <Link to={"/review/detail"}>{"사용자 리뷰 안내"}</Link>
+                  </strong>
+                </td>
+                <td>
+                  <img src="\images\Notice\ico_nick1.gif" />
+                  {"Leopold"}
+                </td>
+                <td>
+                  <span className="review-txtNum">2023-8-29</span>
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td>{494}</td>
+                <td className="review-subject">
+                  <Link to={"/review/detail"}>{"굿"}</Link>
                   <span className="review-txtEm" />
-                </strong>
-              </td>
-              <td>
-                <img src="\images\Notice\ico_nick1.gif" />
-                {"Leopold"}
-              </td>
-              <td>
-                <span className="review-txtNum">2023-8-29</span>
-              </td>
-            </tr>
-            <tr>
-              <td>{494}</td>
-              <td className="review-subject">
-                <Link to={"/review/detail"}>{"굿"}</Link>
-                <span className="review-txtEm" />
-              </td>
-              <td>{"김****"}</td>
-              <td>
-                <span className="review-txtNum">{"2024-09-10"}</span>
-              </td>
-            </tr>
+                </td>
+                <td>{"김****"}</td>
+                <td>
+                  <span className="review-txtNum">{"2024-09-10"}</span>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
-
-
       </Main>
       <Footer />
     </>
