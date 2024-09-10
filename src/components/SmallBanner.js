@@ -1,10 +1,10 @@
-import "./SmallBanner.css";
-import "./Banner.css";
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./Banner.css";
+import "./SmallBanner.css";
 
 export default function SmallBanner() {
   const [isMousedOver, setIsMousedOver] = useState(true);

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./OrderTable.css";
 import OrderTableCart from "./OrderTableCart";
 
@@ -8,7 +9,7 @@ export default function OrderTable() {
 				<p className="ot-date">2024-09-03</p>
 				<p className="ot-uid">20240903-0000021</p>
 
-				<button className="ot-num-order-view">주문상세보기</button>
+				<Link to={"/order/detail"}><button className="ot-num-order-view">주문상세보기</button></Link>
 
 				<div style={{ display: "flex", gap: "6px" }}>
 					<button className="ot-small-btn">주문취소</button>

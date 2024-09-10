@@ -57,17 +57,17 @@ export default function ForgotPs() {
 						</div>
 
 						<div className="forgotPs-phone-wrapper">
-							<input className="forgotPs-phoneBox"
+							<input className="forgotPs-phoneBox" maxLength={4}
 								onChange={(e) => { setPhone1(e.target.value) }} />
 
 							<span className="forgotPs-hyphen">-</span>
 
-							<input className="forgotPs-phoneBox"
+							<input className="forgotPs-phoneBox" maxLength={4}
 								onChange={(e) => { setPhone2(e.target.value) }} />
 
 							<span className="forgotPs-hyphen">-</span>
 
-							<input className="forgotPs-phoneBox"
+							<input className="forgotPs-phoneBox" maxLength={4}
 								onChange={(e) => { setPhone3(e.target.value) }} />
 						</div>
 					</div>}

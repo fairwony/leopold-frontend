@@ -1,9 +1,14 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./Login.css";
 
 export default function Login() {
+	const [id, setId] = useState();
+	const [password, setPassword] = useState();
+
 	return (
 		<div className="Login">
 			<WhiteHeader />
@@ -12,16 +17,18 @@ export default function Login() {
 
 				<div className="login-key1">ID</div>
 
-				<input className="login-input" />
+				<input className="login-input"
+					onChange={(e) => { setId(e.target.value) }} />
 
 				<div className="login-key2">PASSWORD</div>
 
-				<input type="password" className="login-input" />
+				<input type="password" className="login-input"
+					onChange={(e) => { setPassword(e.target.value) }} />
 
 				<div className="login-forgot-wrapper">
-					<p className="login-forgot-button">아이디 찾기</p>
+					<Link to={"/forgotId"}><p className="login-forgot-button">아이디 찾기</p></Link>
 					<p>/</p>
-					<p className="login-forgot-button">비밀번호 찾기</p>
+					<Link to={"/forgotPs"}><p className="login-forgot-button">비밀번호 찾기</p></Link>
 				</div>
 
 				<button className="login-button">로그인</button>
@@ -30,7 +37,10 @@ export default function Login() {
 					아직 회원이 아니신가요?
 				</div>
 
-				<button className="login-join-button">회원가입</button>
+				<Link to={"/join"}><button className="login-join-button">회원가입</button></Link>
+
+				<p>{id}, {password}</p>
+
 			</Main>
 			<Footer />
 		</div>

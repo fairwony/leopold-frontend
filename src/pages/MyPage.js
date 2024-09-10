@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import Main from "../components/Main";
+import MyPageNav from "../components/MyPageNav";
 import OrderTable from "../components/OrderTable";
 import QnaTableMini from "../components/QnaTableMini";
 import WhiteHeader from "../components/WhiteHeader";
@@ -11,13 +12,7 @@ export default function MyPage() {
 			<WhiteHeader />
 			<Main>
 				<div className="mypage">
-					<div className="mypage-nav">
-						<div className="mypage-nav-title">My Page</div>
-						<div className="mypage-nav-menu">주문 내역 조회</div>
-						<div className="mypage-nav-menu">관심 상품</div>
-						<div className="mypage-nav-menu">회원 정보 수정</div>
-						<div className="mypage-nav-menu">접수/문의 내역</div>
-					</div>
+					<MyPageNav />
 
 					<div className="mypage-main">
 						<div className="mypage-title1">주문 처리 현황</div>
