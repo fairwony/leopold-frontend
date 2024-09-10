@@ -1,0 +1,39 @@
+.sd-section1 {
+	width: 640px;
+	height: 650px;
+}
+
+.sd-section2 {
+	width: 560px;
+	height: 650px;
+	display: flex;
+	flex-direction: column;
+}
+
+.sd-deliver-info {
+	margin-top: 28px;
+	width: 560px;
+	height: 120px;
+	display: flex;
+	border-top: 1px solid #9a9a9a;
+	border-bottom: 1px solid #9a9a9a;
+}
+
+.sd-deliver-key {
+	width: 160px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 25px;
+}
+
+.sd-deliver-value {
+	color: #888;
+	width: 160px;
+	height: 120px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 25px;
+}

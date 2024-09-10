@@ -45,7 +45,7 @@ export default function Shopping() {
 				</div>
 
 				<div className="shopping-sort-container">
-					<p style={{ fontSize: 10, color: "#6a6a6a" }}>
+					<p style={{ fontSize: 12, color: "#6a6a6a" }}>
 						총 <span style={{ color: "black", fontWeight: "bold" }}>53</span> 개의 제품이 있습니다.
 					</p>
 

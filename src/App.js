@@ -14,6 +14,7 @@ import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
 import Shopping from "./pages/Shopping";
+import ShoppingDetail from "./pages/ShoppingDetail";
 
 export default function App() {
 	return (
@@ -34,6 +35,7 @@ export default function App() {
 				<Route path="/order" element={<Order />} />
 				<Route path="/order/detail" element={<OrderDetail />} />
 				<Route path="/shopping" element={<Shopping />} />
+				<Route path="/shopping/detail" element={<ShoppingDetail />} />
 			</Routes>
 		</div>
 	);
