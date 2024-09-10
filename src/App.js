@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AS from "./pages/AS";
+import AsReception from "./pages/AsReception";
 import Download from "./pages/Download";
 import FAQ from "./pages/FAQ";
 import ForgotId from "./pages/ForgotId";
@@ -12,11 +13,7 @@ import Notice from "./pages/Notice";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
-<<<<<<< HEAD
 import Shopping from "./pages/Shopping";
-=======
-import AsReception from "./pages/AsReception";
->>>>>>> 47f4bcd3d1f18d34c5bafb0f02baa1ffc5fdd5a8
 
 export default function App() {
 	return (
