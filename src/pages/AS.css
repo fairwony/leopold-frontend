@@ -155,10 +155,13 @@
 .as-wrap {
     display: flex;
     width: 1340px;
-    height:128px;
+    height: 128px;
 }
 
 .as-wrap>span {
+    display: block;
+    width: 80px;
+    height: 128px;
     margin-right: 16px;
     text-align: center;
 }
@@ -228,16 +231,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px dotted black;
+    /* border: 1px dotted black; */
 
 }
 
-.as-wrap>div {
+.as-wrap2>div {
     width: 416px;
     height: 420px;
 }
 
 .as-img {
-    
+    width: 420px;
+    height: 320px;
     margin-bottom: 24px;
+    
 }
