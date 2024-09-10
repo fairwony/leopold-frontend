@@ -64,6 +64,17 @@ export default function Review() {
           <h2>사용자 리뷰</h2>
           <p>User review</p>
         </div>
+        {/* 게시판 */}
+        <div className="review-gBorder">
+          <table border={1}>
+            <colgroup className="review-board">
+              <col style={{ width: "80px" }} />
+              <col style={{ width: "auto" }} />
+              <col style={{ width: "120" }} />
+              <col style={{ width: "120" }} />
+            </colgroup>
+          </table>
+        </div>
       </Main>
       <Footer />
     </>
