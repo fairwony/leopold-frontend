@@ -65,7 +65,7 @@ export default function Review() {
           <p>User review</p>
         </div>
         {/* 게시판 */}
-        <div className="review-gBorder">
+        <div className="review-base-table">
           <table border={1}>
             <colgroup className="review-board">
               <col style={{ width: "80px" }} />
@@ -113,6 +113,8 @@ export default function Review() {
             </tr>
           </table>
         </div>
+
+
       </Main>
       <Footer />
     </>
