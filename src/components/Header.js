@@ -30,13 +30,13 @@ export default function Header() {
   const toggleBtn2 = document.querySelector('.show-icon1');
   const menu2 = document.querySelector('.header-menu-categoty2');
 
-  toggleBtn.addEventListener('click', () => {
+  /* toggleBtn.addEventListener('click', () => {
     menu.classList.toggle('show');
   })
 
   toggleBtn2.addEventListener('click', () => {
     menu2.classList.toggle('show1');
-  })
+  }) */
   
   return (
     <div className="Header">
