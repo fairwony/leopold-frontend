@@ -156,6 +156,28 @@
     border: 1px solid #f90;
     background-color: #fff; 
 }
+/* 페이지 이동 화살표 */
+.review-base-paginate {
+    width: 1340px;
+    height: 40px;
+    margin: 40px 0;
+    text-align: center;
+    /* border: 1px dotted black; */    
+}
+
+.review-base-paginate>ol {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: top;
+    
+
+}
+
+.review-record {
+    color: #939393;
+    display: inline-block;
+    font-size: 14px;
+}
 
 
 
