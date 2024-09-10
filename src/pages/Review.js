@@ -137,6 +137,7 @@ export default function Review() {
           <ol>
             <li className="review-record">&lt;</li>
             <li
+              className="review-record"
               style={{
                 color: "#1a1a1a",
                 fontWeight: "700",
