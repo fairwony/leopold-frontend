@@ -154,7 +154,7 @@ export default function AS() {
               <Link
                 to={"https://www.youtube.com/channel/UCG9XHvC24e3NFSCMVbBGu7w"}
               >
-                <div className="as-img">
+                <div className="as-img2">
                   <img src="\images\AS\faq01.png" alt="유튜브" />
                 </div>
                 <div className="as-text">
@@ -168,7 +168,7 @@ export default function AS() {
 
             <div>
               <Link to={"/download"}>
-                <div className="as-img">
+                <div className="as-img2">
                   <img src="\images\AS\faq02.png" alt="자료실" />
                 </div>
                 <div className="as-text">
@@ -182,7 +182,7 @@ export default function AS() {
 
             <div>
               <Link to={"/download"}>
-                <div className="as-img">
+                <div className="as-img2">
                   <img src="\images\AS\faq03.png" alt="리포트" />
                 </div>
                 <div className="as-text">

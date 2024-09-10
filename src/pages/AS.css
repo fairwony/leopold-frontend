@@ -240,9 +240,31 @@
     height: 420px;
 }
 
-.as-img {
+.as-img2 {
     width: 420px;
     height: 320px;
-    margin-bottom: 24px;
-    
+    margin-bottom: 24px;    
+}
+
+.as-img2>img {
+    border-radius: 20px;
+}
+
+.as-t01 {
+    display: block;
+    width: 420px;
+    height: 32px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #1a1a1a; 
+}
+
+.as-t02 {
+    display: block;
+    width: 420px;
+    height: 32px;
+    font-weight: 400;
+    color: #888888;
+    font-size: 16px;
 }
