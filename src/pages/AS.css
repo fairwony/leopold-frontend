@@ -159,15 +159,12 @@
 }
 
 .as-wrap>span {
-    width: 80px;
-    height: 96px;
     margin-right: 16px;
     text-align: center;
 }
 
 .as-wrap>div {
-    width: auto;
-    height: auto;
+
     font-size: 14px;
 }
 /* 접수하기 버튼*/
@@ -222,4 +219,25 @@
     font-weight: 700;
     font-family: 'inter','Pretendard','sans-serif';
     color: #1a1a1a;
+    /* border: 1px dotted black; */
+}
+
+.as-wrap2 {
+    width: 1340px;
+    height: 416px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px dotted black;
+
+}
+
+.as-wrap>div {
+    width: 416px;
+    height: 420px;
+}
+
+.as-img {
+    
+    margin-bottom: 24px;
 }

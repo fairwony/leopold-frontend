@@ -148,49 +148,53 @@ export default function AS() {
         {/* 스스로 해결방법 */}
         <div className="as-self">
           <div className="as-tit">스스로 해결방법</div>
-          <div>
-            <Link
-              to={"https://www.youtube.com/channel/UCG9XHvC24e3NFSCMVbBGu7w"}
-            >
-              <div className="as-img">
-                <img src="\images\AS\faq01.png" />
-              </div>
-              <div className="as-text">
-                <span className="as-t01">동영상</span>
-                <span className="as-t02">동영상 가이드를 활용하여 문제점을 해결해보세요.</span>
-              </div>
-            </Link>
+          <div className="as-wrap2">
+
+            <div>
+              <Link
+                to={"https://www.youtube.com/channel/UCG9XHvC24e3NFSCMVbBGu7w"}
+              >
+                <div className="as-img">
+                  <img src="\images\AS\faq01.png" alt="유튜브" />
+                </div>
+                <div className="as-text">
+                  <span className="as-t01">동영상</span>
+                  <span className="as-t02">
+                    동영상 가이드를 활용하여 문제점을 해결해보세요.
+                  </span>
+                </div>
+              </Link>
+            </div>
+
+            <div>
+              <Link to={"/download"}>
+                <div className="as-img">
+                  <img src="\images\AS\faq02.png" alt="자료실" />
+                </div>
+                <div className="as-text">
+                  <span className="as-t01">다운로드 자료실</span>
+                  <span className="as-t02">
+                    제품에 관련된 유용한 자료를 다운로드 할 수 있습니다.
+                  </span>
+                </div>
+              </Link>
+            </div>
+
+            <div>
+              <Link to={"/download"}>
+                <div className="as-img">
+                  <img src="\images\AS\faq03.png" alt="리포트" />
+                </div>
+                <div className="as-text">
+                  <span className="as-t01">자가진단</span>
+                  <span className="as-t02">
+                    간편하게 스스로 문제점 확인 후 해결해 보세요.
+                  </span>
+                </div>
+              </Link>
+            </div>
+
           </div>
-
-          <div>
-            <Link
-              to={"/download"}
-            >
-              <div className="as-img">
-                <img src="\images\AS\faq02.png" />
-              </div>
-              <div className="as-text">
-                <span className="as-t01">다운로드 자료실</span>
-                <span className="as-t02">제품에 관련된 유용한 자료를 다운로드 할 수 있습니다.</span>
-              </div>
-            </Link>
-          </div>
-
-          <div>
-            <Link
-              to={"https://www.youtube.com/channel/UCG9XHvC24e3NFSCMVbBGu7w"}
-            >
-              <div className="as-img">
-                <img src="\images\AS\faq03.png" />
-              </div>
-              <div className="as-text">
-                <span className="as-t01">자가진단</span>
-                <span className="as-t02">간편하게 스스로 문제점 확인 후 해결해 보세요.</span>
-              </div>
-            </Link>
-          </div>
-
-
         </div>
       </Main>
       <Footer />
