@@ -134,21 +134,28 @@ export default function AS() {
                   <AsSub key={index} />
                 ))}
               </li>
-
             </ul>
           </div>
         </div>
-        {/* 접수하기 */}
+        {/* 접수하기 버튼*/}
         <div className="as-btn">
           <span className="as-gRight">
-            <Link to="/asReception" className="as-btnSubmit">접수하기</Link>
+            <Link to="/asReception" className="as-btnSubmit">
+              접수하기
+            </Link>
           </span>
         </div>
         {/* 스스로 해결방법 */}
         <div className="as-self">
-          <div className="as-tit"></div>
+          <div className="as-tit">스스로 해결방법</div>
+          <div className="as-img">
+            <img src="\images\AS\faq01.png" />
+          </div>
+          <div className="as-text">
+            <span>동영상</span>
+            <span>동영상 가이드를 활용하여 문제점을 해결해보세요.</span>
+          </div>
         </div>
-
       </Main>
       <Footer />
     </>
