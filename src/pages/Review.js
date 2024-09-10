@@ -3,8 +3,10 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./Review.css";
+import ReviewSub from "../components/ReviewSub";
 
 export default function Review() {
+  const reviewes = Array(14).fill(null);
 	return (
     <>
       <WhiteHeader />
@@ -115,9 +117,11 @@ export default function Review() {
                   <span className="review-txtNum">{"2024-09-10"}</span>
                 </td>
               </tr>
-
-
             </tbody>
+            {reviewes.map((_, index) => (
+            <ReviewSub key={index} />
+          ))}
+
           </table>
         </div>
       </Main>
