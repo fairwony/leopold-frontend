@@ -6,31 +6,9 @@
 	gap: 40px;
 }
 
-.mypage-nav {
-	width: 197px;
-	min-height: 1020px;
-}
-
 .mypage-main {
 	width: 1103px;
 	min-height: 1020px;
-}
-
-.mypage-nav-title {
-	height: 50px;
-	font-size: 24px;
-	font-weight: bold;
-	cursor: pointer;
-	border-bottom: 1px solid #e9e9e9;
-}
-
-.mypage-nav-menu {
-	height: 50px;
-	display: flex;
-	align-items: center;
-	font-size: 16px;
-	cursor: pointer;
-	border-bottom: 1px solid #e9e9e9;
 }
 
 .mypage-title1 {

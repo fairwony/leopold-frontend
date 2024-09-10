@@ -12,6 +12,7 @@ import Notice from "./pages/Notice";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
+import Shopping from "./pages/Shopping";
 
 export default function App() {
 	return (
@@ -30,6 +31,7 @@ export default function App() {
 				<Route path="/mypage" element={<MyPage />} />
 				<Route path="/order" element={<Order />} />
 				<Route path="/order/detail" element={<OrderDetail />} />
+				<Route path="/shopping" element={<Shopping />} />
 			</Routes>
 		</div>
 	);
