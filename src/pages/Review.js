@@ -132,7 +132,31 @@ export default function Review() {
             </Link>
           </span>
         </div>
-        {/*  */}
+        {/* 페이지 이동 화살표 */}
+        <div className="review-base-paginate">
+          <ol>
+            <li className="review-record">&lt;</li>
+            <li
+              style={{
+                color: "#1a1a1a",
+                fontWeight: "700",
+                cursor: "pointer",
+              }}
+            >
+              1
+            </li>
+            <li className="review-record">2</li>
+            <li className="review-record">3</li>
+            <li className="review-record">4</li>
+            <li className="review-record">5</li>
+            <li className="review-record">6</li>
+            <li className="review-record">7</li>
+            <li className="review-record">8</li>
+            <li className="review-record">9</li>
+            <li className="review-record">10</li>
+            <li className="review-record">&gt;</li>
+          </ol>
+        </div>
       </Main>
       <Footer />
     </>
