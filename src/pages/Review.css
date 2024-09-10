@@ -88,18 +88,31 @@
 
 .review-board-notice {
     height: 89px;
+    border-bottom: 1px solid #e9e9e9;
 }
 
 .review-board-notice>tr>td {
+    height: 89px;
     vertical-align: middle;
     text-align: center;
+    color: #9a9a9a;
 }
 
-.review-subject>strong {
-    padding-left: 32px;
+.review-subject {
+    display: flex;
     text-align: left;
+    line-height: 24px;
+    padding: 28px 0 28px 32px;
+    color: #555;
+    font-weight: 700;
 }
 
+.review-board-list {
+    line-height: 18px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9e9e9;
+}
 
 
 
