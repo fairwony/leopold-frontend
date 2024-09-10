@@ -20,7 +20,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/notice">
                   <div className="as-img">
-                    <img src="images\Download\cs_notice.svg" alt="확성기" />
+                    <img src="\images\Download\cs_notice.svg" alt="확성기" />
                   </div>
                   <br />
                   <div className="as-txt">공지사항</div>
@@ -29,7 +29,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/download">
                   <div className="as-img">
-                    <img src="images\Notice\cs_download.svg" alt="구름" />
+                    <img src="\images\Notice\cs_download.svg" alt="구름" />
                   </div>
                   <br />
                   <div className="as-txt">자료실</div>
@@ -38,7 +38,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/faq">
                   <div className="as-img">
-                    <img src="images\Notice\cs_faq.svg" alt="보고서" />
+                    <img src="\images\Notice\cs_faq.svg" alt="보고서" />
                   </div>
                   <br />
                   <div className="as-txt">FAQ</div>
@@ -47,7 +47,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/as">
                   <div className="as-img">
-                    <img src="images\AS\cs_as_on.svg" alt="스패너" />
+                    <img src="\images\AS\cs_as_on.svg" alt="스패너" />
                   </div>
                   <br />
                   <div className="as-txt">A/S 접수</div>
@@ -56,7 +56,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/review">
                   <div className="as-img">
-                    <img src="images\Notice\cs_review.svg" alt="말풍선" />
+                    <img src="\images\Notice\cs_review.svg" alt="말풍선" />
                   </div>
                   <br />
                   <div className="as-txt">사용자 리뷰</div>
@@ -87,7 +87,7 @@ export default function AS() {
               <li className="as-has-sub">
                 <div className="as-move">
                   <span>
-                    <img src="images\FAQ\faq_q.svg" alt="Q" />
+                    <img src="\images\FAQ\faq_q.svg" alt="Q" />
                   </span>
                   {"A/S 정책 및 운영 방침"}
                   <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
@@ -103,7 +103,7 @@ export default function AS() {
                 <div className="as-has-sub-a">
                   <div className="as-wrap">
                     <span>
-                      <img src="images\FAQ\faq_a.svg" alt="A"></img>
+                      <img src="\images\FAQ\faq_a.svg" alt="A"></img>
                     </span>
                     <div>
                       <p>
@@ -134,17 +134,68 @@ export default function AS() {
                   <AsSub key={index} />
                 ))}
               </li>
-
             </ul>
           </div>
         </div>
-        {/* 접수하기 */}
+        {/* 접수하기 버튼*/}
         <div className="as-btn">
           <span className="as-gRight">
-            접수하기
+            <Link to="/asReception" className="as-btnSubmit">
+              접수하기
+            </Link>
           </span>
         </div>
+        {/* 스스로 해결방법 */}
+        <div className="as-self">
+          <div className="as-tit">스스로 해결방법</div>
+          <div className="as-wrap2">
 
+            <div>
+              <Link
+                to={"https://www.youtube.com/channel/UCG9XHvC24e3NFSCMVbBGu7w"}
+              >
+                <div className="as-img">
+                  <img src="\images\AS\faq01.png" alt="유튜브" />
+                </div>
+                <div className="as-text">
+                  <span className="as-t01">동영상</span>
+                  <span className="as-t02">
+                    동영상 가이드를 활용하여 문제점을 해결해보세요.
+                  </span>
+                </div>
+              </Link>
+            </div>
+
+            <div>
+              <Link to={"/download"}>
+                <div className="as-img">
+                  <img src="\images\AS\faq02.png" alt="자료실" />
+                </div>
+                <div className="as-text">
+                  <span className="as-t01">다운로드 자료실</span>
+                  <span className="as-t02">
+                    제품에 관련된 유용한 자료를 다운로드 할 수 있습니다.
+                  </span>
+                </div>
+              </Link>
+            </div>
+
+            <div>
+              <Link to={"/download"}>
+                <div className="as-img">
+                  <img src="\images\AS\faq03.png" alt="리포트" />
+                </div>
+                <div className="as-text">
+                  <span className="as-t01">자가진단</span>
+                  <span className="as-t02">
+                    간편하게 스스로 문제점 확인 후 해결해 보세요.
+                  </span>
+                </div>
+              </Link>
+            </div>
+
+          </div>
+        </div>
       </Main>
       <Footer />
     </>

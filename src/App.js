@@ -12,7 +12,11 @@ import Notice from "./pages/Notice";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
+<<<<<<< HEAD
 import Shopping from "./pages/Shopping";
+=======
+import AsReception from "./pages/AsReception";
+>>>>>>> 47f4bcd3d1f18d34c5bafb0f02baa1ffc5fdd5a8
 
 export default function App() {
 	return (
@@ -23,6 +27,7 @@ export default function App() {
 				<Route path="/download" element={<Download />} />
 				<Route path="/faq" element={<FAQ />} />
 				<Route path="/as" element={<AS />} />
+				<Route path="/asReception" element={<AsReception />} />
 				<Route path="/review" element={<Review />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/forgotId" element={<ForgotId />} />

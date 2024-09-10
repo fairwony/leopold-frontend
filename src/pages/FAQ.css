@@ -121,6 +121,7 @@
     cursor: pointer;
     line-height: 32px;
     display: flex;
+    text-align: left;
 }
 
 .faq-move>span {

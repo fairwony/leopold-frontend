@@ -67,7 +67,7 @@
     height: 67px;
     border-bottom: 1px solid #ededed;
     margin: auto;
-    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';
     font-weight: 400;
     font-size: 18px;
     color: #888888;
@@ -155,37 +155,94 @@
 .as-wrap {
     display: flex;
     width: 1340px;
-    height:128px;
+    height: 128px;
 }
 
 .as-wrap>span {
+    display: block;
     width: 80px;
-    height: 96px;
+    height: 128px;
     margin-right: 16px;
     text-align: center;
 }
 
 .as-wrap>div {
-    width: auto;
-    height: auto;
+
     font-size: 14px;
 }
-
+/* 접수하기 버튼*/
 .as-btn {
     width: 1340px;
     height: 96px;
     padding-top: 40px;
+    margin: auto;
     text-align: center;
 }
 
 .as-gRight {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';   
+}
+
+.as-btnSubmit {
+    display: block;
+    margin: auto;
     width: 160px;
     height: 56px;
     line-height: 56px;
-    font-size: 18px;
+    border: 1px solid #f90;
+    background-color: #f90;
+}
+
+.as-btnSubmit:hover {
+    display: block;
+    margin: auto;
+    width: 160px;
+    height: 56px;
+    line-height: 56px;
+    color: #f90;
+    border: 1px solid #f90;
+    background-color: #fff; 
+}
+/* 스스로 해결방법 */
+.as-self {
+    width: 1340px;
+    height: 544px;
+    margin: 160px auto;
+}
+
+.as-tit {
+    width: 1340px;
+    height: 48px;
+    margin-bottom: 80px;
+    text-align: center;
+    font-size: 40px;
     font-weight: 700;
-    font-family: 'Inter', 'Pretendard', 'sans-serif';
-    transition: all 0.2s;
-   border: 1px solid #fff;
-   background-color: #f90;
+    font-family: 'inter','Pretendard','sans-serif';
+    color: #1a1a1a;
+    /* border: 1px dotted black; */
+}
+
+.as-wrap2 {
+    width: 1340px;
+    height: 416px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px dotted black; */
+
+}
+
+.as-wrap2>div {
+    width: 416px;
+    height: 420px;
+}
+
+.as-img {
+    width: 420px;
+    height: 320px;
+    margin-bottom: 24px;
+    
 }
