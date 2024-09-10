@@ -68,7 +68,6 @@
     font-weight: 400;
     font-size: 18px;
     color: #888888;
-
 }
 
 .faq-navi_cboth {
@@ -94,7 +93,8 @@
 
 #faq-on2 {
     color: #1a1a1a;
-    border-bottom: 3px solid #f90;
+    border-bottom: 2px solid #f90;
+    font-weight: 500;
 }
 
 /* Q&A */
@@ -164,8 +164,8 @@
 }
 
 .faq-wrap>div {
-    width: 558px;
-    height: 96px;
+    width: auto;
+    height: auto;
 }
 
 /* 페이지 이동 화살표 */

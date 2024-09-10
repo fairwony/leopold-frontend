@@ -64,8 +64,8 @@ export default function Notice() {
         </div>
         {/* 제목 */}
         <div className="notice-titleArea">
-          <h2 className="notice-h2">공지사항</h2>
-          <p className="notice-p">Notice</p>
+          <h2>공지사항</h2>
+          <p>Notice</p>
         </div>
         {/* 표 제목 */}
         <div>
