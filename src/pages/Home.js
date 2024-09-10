@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <Main>
         <Banner></Banner>
-        <div style={{ overflowX: "hidden"}}>
+        <div>
           <div className="best-prouduct">
             <div className="yello-picture">
               <img src="images\Home\사람.jpg"></img>
