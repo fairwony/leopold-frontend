@@ -1,7 +1,7 @@
-import "./ReviewSub.css";
+import "./ReviewTable.css";
 import { Link } from "react-router-dom";
 
-export default function ReviewSub() {
+export default function ReviewTable() {
   return (
     <>
       <tbody className="review-board-list">

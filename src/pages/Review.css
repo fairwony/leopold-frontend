@@ -118,6 +118,44 @@
 .review-board-list>tr>:first-child {
     color: #1a1a1a;
 }
+/* 글쓰기 버튼 */
+.review-btn {
+    width: 1340px;
+    height: 96px;
+    padding-top: 40px;
+    margin: auto;
+    display: flex;
+    justify-content: end;
+    text-align: center;
+}
+
+.review-gRight {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';   
+}
+
+.review-btnSubmit {
+    display: block;
+    margin: auto;
+    width: 160px;
+    height: 56px;
+    line-height: 56px;
+    border: 1px solid #f90;
+    background-color: #f90;
+}
+
+.review-btnSubmit:hover {
+    display: block;
+    margin: auto;
+    width: 160px;
+    height: 56px;
+    line-height: 56px;
+    color: #f90;
+    border: 1px solid #f90;
+    background-color: #fff; 
+}
 
 
 

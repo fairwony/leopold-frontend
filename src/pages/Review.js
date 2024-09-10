@@ -3,11 +3,12 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./Review.css";
-import ReviewSub from "../components/ReviewSub";
+import ReviewTable from "../components/ReviewTable";
 
 export default function Review() {
   const reviewes = Array(14).fill(null);
-	return (
+
+  return (
     <>
       <WhiteHeader />
       <Main>
@@ -119,11 +120,19 @@ export default function Review() {
               </tr>
             </tbody>
             {reviewes.map((_, index) => (
-            <ReviewSub key={index} />
-          ))}
-
+              <ReviewTable key={index} />
+            ))}
           </table>
         </div>
+        {/* 글쓰기 버튼 */}
+        <div className="review-btn">
+          <span className="review-gRight">
+            <Link to="/review/detail" className="review-btnSubmit">
+              글쓰기
+            </Link>
+          </span>
+        </div>
+        {/*  */}
       </Main>
       <Footer />
     </>
