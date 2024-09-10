@@ -22,7 +22,7 @@ export default function Banner() {
         style={{ "--swiper-navigation-color": "white" }}
       >
         <SwiperSlide>
-          <img src="images\Home\슬라이드1.png"></img>
+          <img src="\images\Home\슬라이드1.png"></img>
           <div className="text-container">
             <p className="text1">Wired & Wireless Series</p>
             <p className="text2">MILK TURQUOISE</p>
@@ -30,7 +30,7 @@ export default function Banner() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="images\Home\슬라이드2.png"></img>
+          <img src="\images\Home\슬라이드2.png"></img>
           <div className="text-container">
             <p className="text1">Wired & Wireless Series</p>
             <p className="text2">CORAL BLUE</p>
@@ -38,7 +38,7 @@ export default function Banner() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="images\Home\슬라이드3.jpg"></img>
+          <img src="\images\Home\슬라이드3.jpg"></img>
           <div className="text-container">
             <p className="text1">The New CHERRY Switch</p>
             <p className="text2">MX24 Series</p>

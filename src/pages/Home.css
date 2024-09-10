@@ -104,6 +104,9 @@
     position: relative;
     margin: 70px auto;
 }
+.classic > img{
+    width: 1903px;
+}
 .classic-text{
     color: white;
     font-size: 52px;

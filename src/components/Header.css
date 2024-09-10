@@ -1,3 +1,13 @@
+@keyframes slide-fade-in-dropdown-animation {
+	0% {
+	  transform: translateY(-50px);
+	}
+  
+	100% {
+	  transform: translateY(0);
+	}
+  }
+
 .header-transparence {
 	background-color: transparent;
 	width: 100vw;
@@ -95,4 +105,69 @@
 .header-close {
 	margin: 47px 0px 0px 55px;
 	cursor: pointer;
+}
+
+.header-menu-container{
+	position: relative;
+	top:60px;
+	left: 60px;
+	width: 420px;
+}
+.header-menu-shopping{	
+	font-size: 25px;
+	font-weight: bold;
+}
+.show-icon{
+	width: 22px;
+	height: 22px;
+	margin-left: 350px;
+	cursor: pointer;
+}
+.show-icon1{
+	width: 22px;
+	height: 22px;
+	margin-left: 232px;
+	cursor: pointer;
+}
+
+.show-icon2{
+	width: 22px;
+	height: 22px;
+	margin-left: 174px;
+	cursor: pointer;
+}
+
+.header-menu-categoty1{
+	font-size: 22px;
+	font-weight: 400;
+	position: absolute;
+	top: 60px;
+	left: 22px;
+	display: none;
+}
+
+.header-menu-categoty2{
+	font-size: 19px;
+	font-weight: 400;
+	color: #5b5b5b;
+	position: relative;
+	top: 30px;
+	left: 29px;
+	display: none;
+}
+
+.header-menu-categoty3{
+	font-size: 16px;
+	font-weight: 400;
+	color: #757575;
+	position: relative;
+	top: 25px;
+	left: 42px;
+}
+
+.show{
+	display: block;
+}
+.show1{
+	display: block;
 }

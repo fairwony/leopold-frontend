@@ -4,19 +4,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { useState } from "react";
 
 export default function SmallBanner() {
-  const [isMousedOver, setIsMousedOver] = useState(true);
-
-  function handleMouseOver(){
-    setIsMousedOver(true);
-  }
-
-  function handleMouseOur(){
-    setIsMousedOver(true);
-  }
-
 
 
   return (
@@ -41,7 +30,7 @@ export default function SmallBanner() {
         <SwiperSlide className="small-banner">
         <img
             style={{ width: "260px", height: "260px", borderRadius: "10px", position:"relative" }}
-            src="images\Home\미니 슬라이드1.jpg"
+            src="\images\Home\미니 슬라이드1.jpg"
             alt="slide1"
           ></img>
            <div className="information-box">
@@ -54,7 +43,7 @@ export default function SmallBanner() {
         <SwiperSlide className="small-banner">
           <img
             style={{ width: "260px", height: "260px", borderRadius: "10px" }}
-            src="images\Home\미니 슬라이드2.jpg"
+            src="\images\Home\미니 슬라이드2.jpg"
             alt="slide2"
           ></img>
           <div className="information-box">
