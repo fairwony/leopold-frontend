@@ -14,6 +14,7 @@ import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
 import Shopping from "./pages/Shopping";
+import ReviewDetail from "./pages/ReviewDetail"
 
 export default function App() {
 	return (
@@ -26,6 +27,7 @@ export default function App() {
 				<Route path="/as" element={<AS />} />
 				<Route path="/asReception" element={<AsReception />} />
 				<Route path="/review" element={<Review />} />
+				<Route path="/review/detail" element={<ReviewDetail />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/forgotId" element={<ForgotId />} />
 				<Route path="/forgotPs" element={<ForgotPs />} />
