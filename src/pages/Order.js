@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
+import MyPageNav from "../components/MyPageNav";
 import OrderTable from "../components/OrderTable";
 import WhiteHeader from "../components/WhiteHeader";
 import "./Order.css";
@@ -14,13 +15,7 @@ export default function Order() {
 			<Main>
 				<p className="order-title">주문 내역 조회</p>
 				<div className="order">
-					<div className="order-nav">
-						<div className="order-nav-title">My Page</div>
-						<div className="order-nav-menu">주문 내역 조회</div>
-						<div className="order-nav-menu">관심 상품</div>
-						<div className="order-nav-menu">회원 정보 수정</div>
-						<div className="order-nav-menu">접수/문의 내역</div>
-					</div>
+					<MyPageNav />
 
 					<div className="order-main">
 						<div className="order-sort-wrapper">
