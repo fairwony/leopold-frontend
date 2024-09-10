@@ -20,7 +20,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/notice">
                   <div className="as-img">
-                    <img src="images\Download\cs_notice.svg" alt="확성기" />
+                    <img src="\images\Download\cs_notice.svg" alt="확성기" />
                   </div>
                   <br />
                   <div className="as-txt">공지사항</div>
@@ -29,7 +29,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/download">
                   <div className="as-img">
-                    <img src="images\Notice\cs_download.svg" alt="구름" />
+                    <img src="\images\Notice\cs_download.svg" alt="구름" />
                   </div>
                   <br />
                   <div className="as-txt">자료실</div>
@@ -38,7 +38,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/faq">
                   <div className="as-img">
-                    <img src="images\Notice\cs_faq.svg" alt="보고서" />
+                    <img src="\images\Notice\cs_faq.svg" alt="보고서" />
                   </div>
                   <br />
                   <div className="as-txt">FAQ</div>
@@ -47,7 +47,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/as">
                   <div className="as-img">
-                    <img src="images\AS\cs_as_on.svg" alt="스패너" />
+                    <img src="\images\AS\cs_as_on.svg" alt="스패너" />
                   </div>
                   <br />
                   <div className="as-txt">A/S 접수</div>
@@ -56,7 +56,7 @@ export default function AS() {
               <li className="as-on">
                 <Link to="/review">
                   <div className="as-img">
-                    <img src="images\Notice\cs_review.svg" alt="말풍선" />
+                    <img src="\images\Notice\cs_review.svg" alt="말풍선" />
                   </div>
                   <br />
                   <div className="as-txt">사용자 리뷰</div>
@@ -87,7 +87,7 @@ export default function AS() {
               <li className="as-has-sub">
                 <div className="as-move">
                   <span>
-                    <img src="images\FAQ\faq_q.svg" alt="Q" />
+                    <img src="\images\FAQ\faq_q.svg" alt="Q" />
                   </span>
                   {"A/S 정책 및 운영 방침"}
                   <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
@@ -103,7 +103,7 @@ export default function AS() {
                 <div className="as-has-sub-a">
                   <div className="as-wrap">
                     <span>
-                      <img src="images\FAQ\faq_a.svg" alt="A"></img>
+                      <img src="\images\FAQ\faq_a.svg" alt="A"></img>
                     </span>
                     <div>
                       <p>
