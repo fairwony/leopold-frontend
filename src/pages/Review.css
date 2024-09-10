@@ -160,24 +160,77 @@
 .review-base-paginate {
     width: 1340px;
     height: 40px;
-    margin: 40px 0;
+    margin: 40px auto;
     text-align: center;
-    /* border: 1px dotted black; */    
+    
 }
 
 .review-base-paginate>ol {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    vertical-align: top;
-    
-
 }
 
 .review-record {
     color: #939393;
-    display: inline-block;
     font-size: 14px;
+    width: 40px;
+    height: 40px;
+    margin: 0 8px;
+    line-height: 40px;  
 }
+/* 찾기 메뉴 */
+.review-board_search {
+    width: 1340px;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.review-board_search > fieldset {
+    display: block;
+    padding: 30px 0;
+    color: #1a1a1a;
+    font-weight: 400;
+    
+} 
+
+#review-search_date {
+    color: #1a1a1a;
+    border: 1px solid #d5d5d5;
+    margin: 0 8px 0 22px;
+    padding: 0 25px 0 8px;
+    height: 40px;
+}
+
+#review-search_key {
+    color: #1a1a1a;
+    border: 1px solid #d5d5d5;
+    margin: 0 8px 0 0;
+    padding: 0 25px 0 8px;
+    height: 40px;
+}
+
+#review-search {
+    border: 1px solid #d5d5d5;
+    padding: 2px 4px;
+    height: 40px;
+}
+
+#review-btn {
+    cursor: pointer;
+    font-size: 13px;
+    margin: 0 0 0 8px;
+    padding: 7px 27px;
+    border: 1px solid #bfbfbf;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+
+}
+
+
 
 
 
