@@ -10,7 +10,8 @@ export default function ShoppingDetailTable({ preview }) {
 					<input type="number" defaultValue={1} onChange={(e) => {
 						preview.quantity = parseInt(e.target.value);
 						console.log(preview);
-					}} />
+					}} />,
+					{preview.price}
 				</p>
 
 			</div>

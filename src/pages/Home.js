@@ -12,10 +12,10 @@ export default function Home() {
       <Header />
       <Main>
         <Banner></Banner>
-        <div style={{ overflowX: "hidden"}}>
+        <div>
           <div className="best-prouduct">
             <div className="yello-picture">
-              <img src="images\Home\사람.jpg"></img>
+              <img src="\images\Home\사람.jpg" alt="사람 이미지"></img>
             </div>
             <div className="best-prouduct-group">
             <p
@@ -43,19 +43,19 @@ export default function Home() {
             </p>
             <div className="leopold-group">
               <div className="bluetooth-container">
-                <img src="images\Home\Bluetooth.png"></img>
+                <img src="\images\Home\Bluetooth.png"></img>
                 <p className="leopold-boldtext">Bluetooth 5.1</p>
                 <p className="leopold-light">안정적이며 끊김 없는 무선 연결</p>
               </div>
               <div className="sound-container">
-                <img src="images\Home\Sound.png"></img>
+                <img src="\images\Home\Sound.png"></img>
                 <p className="leopold-boldtext">Sound Absorbing Pad</p>
                 <p className="leopold-light">
                   레오폴드 최초 도입 키보드 내부 흡음패드
                 </p>
               </div>
               <div className="pbt-container">
-                <img src="images\Home\PBT.png"></img>
+                <img src="\images\Home\PBT.png"></img>
                 <p className="leopold-boldtext">PBT Double-Shot</p>
                 <p className="leopold-light">자체 개발 PBT 이중사출 키캡</p>
               </div>
@@ -69,7 +69,7 @@ export default function Home() {
           </div>
 
           <div className="classic">
-            <img src="images\Home\클래식 배경.jpg" />
+            <img src="\images\Home\클래식 배경.jpg" />
             <p className="classic-text">Classic is, Leopold</p>
           </div>
 		  <div className="service-container">
@@ -82,21 +82,21 @@ export default function Home() {
             </p>
 			<div className="service-group">
 				<div className="service-box">
-					<img style={{marginTop:"35px"}} src="images\Home\문의.png"></img>
+					<img style={{marginTop:"35px"}} src="\images\Home\문의.png"></img>
 					<p className="service-boldtext">1:1 문의</p>
 					<p className="service-light">
 					궁금하신 사항을 문의해 주세요.  <br /> 최선을 다해 답변해 드리겠습니다.
 					</p>
 				</div>
 				<div className="service-box">
-					<img style={{marginTop:"35px"}} src="images\Home\AS.png"></img>
+					<img style={{marginTop:"35px"}} src="\images\Home\AS.png"></img>
 					<p className="service-boldtext">A/S 접수</p>
 					<p className="service-light">
 					도움이 필요하시면 언제든지 문의해주세요.  <br /> 최대한 빠르게 도움 드리겠습니다.
 					</p>
 				</div>
 				<div className="service-box">
-					<img style={{marginTop:"35px"}} src="images\Home\FAQ.png"></img>
+					<img style={{marginTop:"35px"}} src="\images\Home\FAQ.png"></img>
 					<p className="service-boldtext">FAQ</p>
 					<p className="service-light">
 					고객님들의 자주 묻는 질문을  <br /> 확인 해보세요.

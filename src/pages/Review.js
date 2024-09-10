@@ -99,11 +99,11 @@ export default function Review() {
                   {"Leopold"}
                 </td>
                 <td>
-                  <span className="review-txtNum">2023-8-29</span>
+                  <span className="review-txtNum">{"2023-8-29"}</span>
                 </td>
               </tr>
             </tbody>
-            <tbody>
+            <tbody className="review-board-list">
               <tr>
                 <td>{494}</td>
                 <td className="review-subject">
@@ -115,6 +115,8 @@ export default function Review() {
                   <span className="review-txtNum">{"2024-09-10"}</span>
                 </td>
               </tr>
+
+
             </tbody>
           </table>
         </div>
