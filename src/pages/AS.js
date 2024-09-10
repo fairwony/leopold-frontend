@@ -141,8 +141,12 @@ export default function AS() {
         {/* 접수하기 */}
         <div className="as-btn">
           <span className="as-gRight">
-            접수하기
+            <Link to="/asReception" className="as-btnSubmit">접수하기</Link>
           </span>
+        </div>
+        {/* 스스로 해결방법 */}
+        <div className="as-self">
+          <div className="as-tit"></div>
         </div>
 
       </Main>
