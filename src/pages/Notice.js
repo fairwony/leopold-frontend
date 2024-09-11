@@ -132,7 +132,9 @@ export default function Notice() {
                   textAlign: "left",
                 }}
               >
-                {"프리미엄 알파셀 장패드 신규 출시"}
+                <Link to={"/notice/detail"}>
+                  {"프리미엄 알파셀 장패드 신규 출시"}
+                </Link>
               </td>
               <td
                 className="notice-tbodyContent"
@@ -185,7 +187,7 @@ export default function Notice() {
         {/* 찾기 메뉴*/}
         <form>
           <div className="notice-board_search">
-            <fieldset >
+            <fieldset>
               <select id="notice-search_date">
                 <option value={"week"}>일주일</option>
                 <option value={"month"}>한달</option>
