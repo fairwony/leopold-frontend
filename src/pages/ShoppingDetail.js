@@ -13,6 +13,7 @@ export default function ShoppingDetail() {
 
 	const [preview, setPreview] = useState([]);
 
+	const [detailCategory, setDetailCategory] = useState(1);
 
 
 	const category4List = ["한글", "영문"];
@@ -167,8 +168,119 @@ export default function ShoppingDetail() {
 				</div>
 
 				<div className="sd-detail-category-container">
-					
+					<div className={detailCategory === 1
+						? "sd-detail-category-box-select" : "sd-detail-category-box-not-select"}
+						onClick={() => { setDetailCategory(1) }}>
+						구매 전 필독사항
+					</div>
+
+					<div className={detailCategory === 2
+						? "sd-detail-category-box-select" : "sd-detail-category-box-not-select"}
+						onClick={() => setDetailCategory(2)}>
+						상품 상세정보
+					</div>
+
+					<div className={detailCategory === 3
+						? "sd-detail-category-box-select" : "sd-detail-category-box-not-select"}
+						onClick={() => { setDetailCategory(3) }}>
+						상품 문의
+					</div>
+
+					<div className={detailCategory === 4
+						? "sd-detail-category-box-select" : "sd-detail-category-box-not-select"}
+						onClick={() => { setDetailCategory(4) }}>
+						구매 안내
+					</div>
 				</div>
+
+				{detailCategory === 1
+					? <img src="\images\Shopping\temp_intro.jpg" width={900}
+						style={{ margin: "150px auto 0px auto", display: "block" }} />
+					: undefined
+				}
+
+				{detailCategory === 2
+					? <img src="\images\Shopping\temp_detail.jpg" width={900}
+						style={{ margin: "150px auto 0px auto", display: "block" }} />
+					: undefined
+				}
+
+				{detailCategory === 3
+					?
+					<div className="sd-lower-section">
+						<p style={{ fontSize: 24, fontWeight: "bold", display: "flex", justifyContent: "center" }}>
+							상품문의
+						</p>
+					</div>
+					: undefined
+				}
+
+				{detailCategory === 4
+					?
+					<div className="sd-lower-section">
+						<table style={{ borderTop: "1px solid #ededed" }}>
+							<tr>
+								<td className="sd-intro-table-left">
+									<p>상품결제정보</p>
+								</td>
+								<td className="sd-intro-table-right">
+									<p>
+										[무통장입금 계좌 정보]
+										<br />국민은행 477401-01-100878   예금주 : 레오폴드(주)
+										<br />
+										<br />- 무통장입금의 경우 반드시 주문시 입력한 입금자명과 실제 입금자의 성명이 동일해야 합니다.
+										<br />입금자 성명이 다른 경우 입금확인이 불가합니다.
+										<br />- 주문 후 24시간 이내로 입금 및 결제되지 않은 주문건은 자동 취소 됩니다.
+									</p>
+								</td>
+							</tr>
+
+							<tr>
+								<td className="sd-intro-table-left">
+									<p>배송정보</p>
+								</td>
+								<td className="sd-intro-table-right">
+									<br />배송 방법 : 고객직접선택
+									<br />배송 지역 : 전국지역
+									<br />배송 비용 : 고객직접선택
+									<br />배송 기간 : 1일 ~ 3일
+									<br />배송 안내 : 오후 2시 이전 결제 완료 건에 한하여 당일 발송 되며, 그 이후 주문건은 영업일 기준 익일 발송됩니다.
+									<br />
+									<br />퀵서비스 및 방문수령을 원하시는 고객님께서는 배송방법을 퀵서비스로 설정하여 주문하신 후, 고객센터로 연락 부탁드립니다.
+									<br />(퀵서비스 : 고양시에서 출발하는 퀵서비스로 수도권 지역에 한하여 착불로 발송 가능하며, 지역별 배송비가 차등 적용됩니다.)
+								</td>
+							</tr>
+
+							<tr>
+								<td className="sd-intro-table-left">
+									<p>교환 및 반품정보</p>
+								</td>
+								<td className="sd-intro-table-right">
+									교환 및 반품 주소
+									<br />- 경기도 고양시 일산동구 하늘마을로 158, 대방트리플라온 B동 306호
+									<br />
+									<br />									교환 및 반품이 가능한 경우
+									<br />- 제품에 이상이 있는 경우 수령일로부터 7일 이내 반품 및 환불이 가능합니다.
+									<br />- 공급받으신 상품이 표시, 광고 내용과 다른 경우 수령일로부터 7일 이내 반품 및 환불이 가능합니다.
+									<br />
+									<br />
+									<br />교환 및 반품이 불가능한 경우
+									<br />- 제품 수령 후 소비자의 과실로 상품이 멸실 또는 훼손된 경우
+									<br />- 제품 박스에 부착된 봉인 스티커를 제거 후 박스를 개봉한 경우
+									<br />- 제품의 이상 유무를 확인하는 개봉 과정은 상관없으나, 개봉 후 이상이 없음에도 단순 변심으로 반품을 요청하는 경우
+									<br />- 시간의 경과에 의하여 재판매가 곤란할 정도로 재화등의 가치가 현저히 감소한 경우
+									<br />- 복제가 가능한 재화등의 포장을 훼손한 경우
+									<br />- 불량이 아닌 제품을 개봉 후 설치 또는 사용하여 상품의 가치가 상실된 경우
+									<br />
+									<br />
+									<br />※ 고객님의 마음이 바뀌어 단순 변심으로 교환 또는 반품을 하실 경우 왕복 배송 비용은 고객님께서 부담하셔야 합니다.
+									<br />(색상 교환, 사이즈 교환 등 포함)
+								</td>
+							</tr>
+						</table>
+					</div>
+					: undefined
+				}
 			</Main>
 			<Footer />
 		</div>
