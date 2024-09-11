@@ -60,6 +60,7 @@
 .noticeDetail-board-read {
     width: 1340px;
     margin: 0 auto;
+    font-family: 'Inter','Pretandard', 'sans-serif';
 }
 
 .noticeDetail-base-table > table {
@@ -79,7 +80,29 @@
     padding: 32px 0;
     font-size: 14px;
     color: #8a8a8a;
+    vertical-align: middle;
+    word-break: break-all;
+    word-wrap: break-word;
 }
+
+.noticeDetail-t01 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.noticeDetail-t02 span:not(:first-child)::before{
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background-color: #ddd;
+    margin: 0 12px;
+
+}
+
 
 
 
