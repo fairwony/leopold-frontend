@@ -152,11 +152,10 @@ export default function NoticeDetail() {
           </div>
           {/* 이전글/다음글 */}
           <div className="noticeDetail-board-movement">
-            <ul>
-              <li><strong>이전글</strong></li>
-              
-              {"프리미엄 알파셀 장패드 신규 출시"}
-            </ul>
+            <>
+              <strong>다음글</strong>
+              {"FC730MBT MX2A 코랄 블루 신제품 출시"}
+            </>
           </div>
         </div>
       </Main>
