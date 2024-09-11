@@ -59,8 +59,8 @@ export default function Cart() {
 					</div>
 
 					<div className="cart-funcion-section">
-						<button className="cart-small-button">삭제하기</button>
-						<button className="cart-small-button">삭제하기</button>
+						<button className="cart-small-button" style={{ width: 130 }}>장바구니 비우기</button>
+						<button className="cart-small-button">견적서 출력</button>
 					</div>
 				</div>
 
