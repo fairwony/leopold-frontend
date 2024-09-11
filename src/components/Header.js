@@ -24,20 +24,6 @@ export default function Header() {
   const [isMenuExtend, setIsMenuExtend] = useState(false);
 
 
-  const toggleBtn = document.querySelector('.show-icon');
-  const menu = document.querySelector('.header-menu-categoty1');
-
-  const toggleBtn2 = document.querySelector('.show-icon1');
-  const menu2 = document.querySelector('.header-menu-categoty2');
-
-  /* toggleBtn.addEventListener('click', () => {
-    menu.classList.toggle('show');
-  })
-
-  toggleBtn2.addEventListener('click', () => {
-    menu2.classList.toggle('show1');
-  }) */
-  
   return (
     <div className="Header">
       {isTop ? (
@@ -124,41 +110,59 @@ export default function Header() {
           className="header-close"
         />
         <div className="header-menu-container">
-          <ul style={{ display: "flex" }} className="header-menu-shopping">
-			      <li>쇼핑</li>
-              <img
-                className="show-icon"
-                src="\images\Header\add.png"
-                alt="add"
-              ></img>
-
-            <ul className="header-menu-categoty1">
-              <div style={{ display: "flex", width:"600px"}} >
-              <li>레오폴드키보드</li>
-              <img
-                className="show-icon1"
-                src="\images\Header\add.png"
-                alt="add"
-              ></img>
-              </div>
-              
-              <ul className="header-menu-categoty2">
-              <div style={{ display: "flex", width:"600px"}} >
-                <li>기계식 유·무선 키보드</li>
-                <img
-                className="show-icon2"
-                src="\images\Header\add.png"
-                alt="add"
-              ></img>
-              </div>
-              
-                <ul>
-                <li className="header-menu-categoty3">FC900RBT MX2A</li>
-                <li className="header-menu-categoty3">FC900RBT MX2A</li>
-                </ul>
+          <ul className="header-menu-shopping">
+            <li>
+              쇼핑
+              <ul className="header-menu-categoty1">
+                  <li style={{paddingBottom:"25px"}}>
+                    레오폴드 키보드
+                    <ul className="header-menu-categoty2">
+                        <li style={{paddingBottom:"25px"}}>
+                          기계식 유·무선 키보드
+                          <ul className="header-menu-categoty3">
+                            <li>FC900RBT MX2A</li>
+                            <li>FC900RBT</li>
+                            <li>NP900RBT</li>
+                            <li>FC750RBT MX24</li>
+                            <li>FC750RBT</li>
+                            <li>NP750RBT</li>
+                            <li>FC730MBT MX24</li>
+                            <li>FC630MBT MX24</li>
+                            <li>FC660MBT</li>
+                            <li>FC980MBT</li>
+                            <li>FC650MDSBT</li>
+                          </ul>
+                        </li>
+                        <li>기계식 유선 키보드
+                        <ul className="header-menu-categoty3" style={{paddingBottom:"30px"}}>
+                            <li>FC900R MX24</li>
+                            <li>FC900</li>
+                            <li>FC750R</li>
+                            <li>FC980M</li>
+                            <li>FC660M</li>
+                            <li>FC650MDS</li>
+                            <li>FC210TP</li>
+                          </ul>
+                        </li>
+                        <li  style={{paddingBottom:"30px"}}>정전용량 무접점</li>
+                    </ul>
+                  </li>
+                  <li>리얼포스 키보드
+                    <ul className="header-menu-categoty2">
+                      <li style={{paddingBottom:"25px"}}>R3</li>
+                      <li style={{paddingBottom:"55px"}}>R3TL</li>
+                    </ul>
+                  </li>
+                  <li>악세서리
+                    <ul className="header-menu-categoty2">
+                      <li style={{paddingBottom:"25px"}}>주변용품</li>
+                      <li style={{paddingBottom:"25px"}}>실리콘 키스킨</li>
+                      <li style={{paddingBottom:"25px"}}>악세서리 키캡</li>
+                      <li style={{paddingBottom:"25px"}}>기타용품</li>
+                    </ul>
+                  </li>
               </ul>
-              
-            </ul>
+            </li>
           </ul>
         </div>
       </div>

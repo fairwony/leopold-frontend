@@ -1,13 +1,9 @@
-import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-<<<<<<< HEAD
-=======
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Banner.css";
 import "./SmallBanner.css";
->>>>>>> 2b9209cb8274e116ade1de73312885bb9aa0c839
 
 export default function SmallBanner() {
 
