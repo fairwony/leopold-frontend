@@ -65,8 +65,46 @@ export default function DownloadDetail() {
             <h2>자료실</h2>
             <p>Download</p>
           </div>
-
-
+          {/* 게시판 */}
+          <div className="downloadDetail-board">
+            <div className="downloadDetail-base-table">
+              <table>
+                <tbody>
+                  <tr className="downloadDetail-bd_title">
+                    <td>
+                      <div className="downloadDetail-t01">
+                        {"리얼포스 소프트웨어 프로그램"}
+                      </div>
+                      <div className="downloadDetail-t02">
+                        <span>{"Leopold"}</span>
+                        <span>{"2024-08-29"}</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="downloadDetail-bd_content">
+                    <td>
+                      <div className="downloadDetail-fr-view">
+                        <p>
+                          {"리얼포스 소프트웨어 프로그램 다운로드 바로가기"}
+                        </p>
+                        <p>
+                          <span></span>
+                        </p>
+                        <p>
+                          <br />
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="noticeDetail-base-button">
+              <span>
+                <Link to={"/notice"}>목록</Link>
+              </span>
+            </div>
+          </div>
         </div>
       </Main>
       <Footer />
