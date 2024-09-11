@@ -21,7 +21,7 @@ export default function DownloadTable() {
                   color: "#9a9a9a",
                 }}
               >
-                {"매뉴얼"}
+                {"소프트웨어"}
               </td>
               <td
                 className="download-tbodyContent"
@@ -32,7 +32,7 @@ export default function DownloadTable() {
                   textAlign: "left",
                 }}
               >
-                {"FC730MBT MX2A Manual"}
+                {"리얼포스 소프트웨어 프로그램"}
               </td>
               <td
                 className="download-tbodyContent"

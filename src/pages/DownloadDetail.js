@@ -16,7 +16,7 @@ export default function DownloadDetail() {
               <li className="downloadDetail-on">
                 <Link to="/notice">
                   <div className="downloadDetail-img">
-                    <img src="\images\Notice\cs_notice_on.svg" alt="확성기" />
+                    <img src="\images\Download\cs_notice.svg" alt="확성기" />
                   </div>
                   <br />
                   <div className="downloadDetail-txt">공지사항</div>
@@ -25,7 +25,7 @@ export default function DownloadDetail() {
               <li className="downloadDetail-on">
                 <Link to="/download">
                   <div className="downloadDetail-img">
-                    <img src="\images\Notice\cs_download.svg" alt="구름" />
+                    <img src="\images\Download\cs_data_on.svg" alt="구름" />
                   </div>
                   <br />
                   <div className="downloadDetail-txt">자료실</div>
@@ -59,6 +59,11 @@ export default function DownloadDetail() {
                 </Link>
               </li>
             </ul>
+          </div>
+          {/* 제목 */}
+          <div className="downloadDetail-titleArea">
+            <h2>자료실</h2>
+            <p>Download</p>
           </div>
 
 

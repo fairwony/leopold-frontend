@@ -1,0 +1,65 @@
+#downloadDetail-container {
+    position: relative;
+    width: 100%;
+    min-width: 1600px;
+    margin: 0 auto;
+    zoom: 1;
+}
+/* 메뉴 바 */
+.downloadDetail-comm_title {
+    text-align: center;
+    margin: 208px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.downloadDetail-tab {
+    width: 1340px;
+    height: 120px;
+    display: flex;
+}
+
+.downloadDetail-on {
+    width: 268px;
+    height: 120px;
+}
+
+.downloadDetail-img,
+.downloadDetail-txt {
+    display: flex;
+    justify-content: center;
+}
+
+.downloadDetail-txt {
+    font-size: 20px;
+    color: #1a1a1a;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';
+}
+
+/* 제목 */
+.downloadDetail-titleArea {
+    height: 92px;
+    margin: 0 0 80px 0;
+    text-align: center;
+}
+
+.downloadDetail-titleArea>h2 {
+    font-size: 40px;
+    color: #1a1a1a;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.downloadDetail-titleArea>p {
+    font-family: 'Inter','Pretendard',sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #888888;
+    height: 28px;
+    letter-spacing: -0.36px;
+    line-height: 28px;
+    margin-top: 16px;
+}
