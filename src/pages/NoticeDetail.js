@@ -86,7 +86,8 @@ export default function NoticeDetail() {
                       <div className="noticeDetail-fr-view">
                         <p>
                           <img
-                            src="public\images\NoticeDetail\EC958CED8C8CEC858020EAB3B5ECA780.jpg"
+                            src="\images\NoticeDetail\EC958CED8C8CEC858020EAB3B5ECA780.jpg"
+                            alt="알파셀 장패드"
                             className="noticeDetail-fr-dib"
                           />
                         </p>
