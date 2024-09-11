@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
-import "./Home.css";
 import SmallBanner from "../components/SmallBanner";
+import "./Home.css";
 
 export default function Home() {
   return (

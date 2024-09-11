@@ -194,13 +194,13 @@ export default function ShoppingDetail() {
 				</div>
 
 				{detailCategory === 1
-					? <img src="\images\Shopping\temp_intro.jpg" width={900}
+					? <img src="\images\Shopping\temp_intro.jpg" width={900} alt="intro"
 						style={{ margin: "150px auto 0px auto", display: "block" }} />
 					: undefined
 				}
 
 				{detailCategory === 2
-					? <img src="\images\Shopping\temp_detail.jpg" width={900}
+					? <img src="\images\Shopping\temp_detail.jpg" width={900} alt="detail"
 						style={{ margin: "150px auto 0px auto", display: "block" }} />
 					: undefined
 				}
