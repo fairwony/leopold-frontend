@@ -8,7 +8,7 @@
 /* 메뉴 바 */
 .noticeDetail-comm_title {
     text-align: center;
-    margin: 208px 0;
+    margin: 208px 0 120px 0;
     display: flex;
     justify-content: center;
 }
