@@ -68,17 +68,23 @@ export default function NoticeDetail() {
         <div className="noticeDetail-board-read">
           <div className="noticeDetail-board">
             <div className="noticeDetail-base-table">
-                <table>
-                    <tr>
-                        <td>
-                            <div></div>
-                            <div>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+              <table>
+                <tbody>
+                  <tr className="noticeDetail-bd_title">
+                    <td>
+                      <div className="noticeDetail-t01">
+                        {"프리미엄 알파셀 장패드 신규 출시"}
+                      </div>
+                      <div className="noticeDetail-t02">
+                        <span>{"Leopold"}</span>
+                        <span>{"2024-08-29"}</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
