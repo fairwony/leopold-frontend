@@ -16,6 +16,8 @@ import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
+import DownloadDetail from "./pages/DownloadDetail";
+import NoticeDetail from "./pages/NoticeDetail";
 
 export default function App() {
 	return (
@@ -23,7 +25,10 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/notice" element={<Notice />} />
+				<Route path="/notice/detail" element={<NoticeDetail />} />
 				<Route path="/download" element={<Download />} />
+				<Route path="/download/detail" element={<DownloadDetail />} />
+				<Route path="/notice" element={<Notice />} />
 				<Route path="/faq" element={<FAQ />} />
 				<Route path="/as" element={<AS />} />
 				<Route path="/asReception" element={<AsReception />} />
