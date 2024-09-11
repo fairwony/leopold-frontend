@@ -88,7 +88,14 @@ export default function DownloadDetail() {
                           {"리얼포스 소프트웨어 프로그램 다운로드 바로가기"}
                         </p>
                         <p>
-                          <span></span>
+                          <br />
+                        </p>
+                        <p>
+                          <Link
+                            to={"https://www.realforce.co.jp/support/download/"}
+                          >
+                            {"https://www.realforce.co.jp/support/download/"}
+                          </Link>
                         </p>
                         <p>
                           <br />
@@ -99,11 +106,25 @@ export default function DownloadDetail() {
                 </tbody>
               </table>
             </div>
-            <div className="noticeDetail-base-button">
+            {/* 목록 버튼 */}
+            <div className="downloadDetail-base-button">
               <span>
-                <Link to={"/notice"}>목록</Link>
+                <Link to={"/download"}>목록</Link>
               </span>
             </div>
+          </div>
+           {/* 이전글/다음글 */}
+           <div className="downloadDetail-board-movement">
+            <ul>
+              <li className="downloadDetail-prev">
+                <strong>이전글</strong>
+                {"FC730MBT MX2A Manual"}
+              </li>
+              <li className="downloadDetail-next">
+                <strong>다음글</strong>
+                {"FC630MBT MX2A Manual"}
+              </li>
+            </ul>
           </div>
         </div>
       </Main>

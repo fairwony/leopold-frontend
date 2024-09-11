@@ -152,7 +152,9 @@ export default function Download() {
                   textAlign: "left",
                 }}
               >
-                {"리얼포스 소프트웨어 프로그램"}
+                <Link to={"/download/detail"}>
+                  {"리얼포스 소프트웨어 프로그램"}
+                </Link>
               </td>
               <td
                 className="download-tbodyContent"
@@ -196,7 +198,7 @@ export default function Download() {
         {/* 찾기 메뉴*/}
         <form>
           <div className="download-board_search">
-            <fieldset >
+            <fieldset>
               <select id="download-search_date">
                 <option value={"week"}>일주일</option>
                 <option value={"month"}>한달</option>
