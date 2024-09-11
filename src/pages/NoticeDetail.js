@@ -146,7 +146,9 @@ export default function NoticeDetail() {
             </table>
           </div>
           <div className="noticeDetail-base-button">
-            
+            <span>
+              <Link to={"/notice"}>목록</Link>
+            </span>
           </div>
         </div>
       </Main>

@@ -123,3 +123,34 @@
     font-weight: 400;
     color: #1a1a1a;
 }
+/* 목록 버튼 */
+.noticeDetail-base-button {
+    margin: 40px 0 40px 0;   
+}
+
+.noticeDetail-base-button>span {
+    display: inline-block;
+    width: 120px;
+    height: 48px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    font-size: 14px;
+}
+
+
+.noticeDetail-base-button>span:hover {
+    display: inline-block;
+    width: 120px;
+    height: 48px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
