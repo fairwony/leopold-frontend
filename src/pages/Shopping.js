@@ -6,8 +6,8 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./Shopping.css";
 
 export default function Shopping() {
-	const [category1, setCategory1] = useState(1);
-	const [category2, setCategory2s] = useState(1);
+	const [category1, setCategory1] = useState(3);
+	const [category2, setCategory2] = useState(1);
 
 	const category2List = ["FC900RBT MX2A", "FC900RBT", "NP900RBT", "FC750RBT MX2A", "FC750RBT", "NP750RBT", "FC730RBT MX2A", "FC730RBT MX2A", "FC630MBT MX2A", "FC660MBT", "FC980MBT", "FC650MDSBT"];
 
@@ -45,7 +45,7 @@ export default function Shopping() {
 				</div>
 
 				<div className="shopping-sort-container">
-					<p style={{ fontSize: 10, color: "#6a6a6a" }}>
+					<p style={{ fontSize: 12, color: "#6a6a6a" }}>
 						총 <span style={{ color: "black", fontWeight: "bold" }}>53</span> 개의 제품이 있습니다.
 					</p>
 
