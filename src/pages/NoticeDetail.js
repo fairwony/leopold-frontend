@@ -60,9 +60,27 @@ export default function NoticeDetail() {
           </ul>
         </div>
         {/* 제목 */}
-        <div className="notice-titleArea">
+        <div className="noticeDetail-titleArea">
           <h2>공지사항</h2>
           <p>Notice</p>
+        </div>
+        {/* 게시판 */}
+        <div className="noticeDetail-board-read">
+          <div className="noticeDetail-board">
+            <div className="noticeDetail-base-table">
+                <table>
+                    <tr>
+                        <td>
+                            <div></div>
+                            <div>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+          </div>
         </div>
       </Main>
       <Footer />
