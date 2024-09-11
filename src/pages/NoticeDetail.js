@@ -89,6 +89,7 @@ export default function NoticeDetail() {
                             src="\images\NoticeDetail\EC958CED8C8CEC858020EAB3B5ECA780.jpg"
                             alt="알파셀 장패드"
                             className="noticeDetail-fr-dib"
+                            style={{ width: "700px" }}
                           />
                         </p>
                         <p>

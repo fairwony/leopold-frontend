@@ -18,13 +18,14 @@
     height: 120px;
 }
 
-.noticeDetail-img, .noticeDetail-txt {
+.noticeDetail-img,
+.noticeDetail-txt {
     display: flex;
     justify-content: center;
 }
 
 .noticeDetail-txt {
-    font-size: 20px; 
+    font-size: 20px;
     color: #1a1a1a;
     font-weight: 500;
     line-height: 24px;
@@ -47,7 +48,7 @@
 }
 
 .noticeDetail-titleArea>p {
-    font-family: 'Inter','Pretendard', 'sans-serif';
+    font-family: 'Inter', 'Pretendard', 'sans-serif';
     font-size: 18px;
     font-weight: 400;
     color: #888888;
@@ -56,21 +57,22 @@
     line-height: 28px;
     margin-top: 16px;
 }
+
 /* 게시판 */
 .noticeDetail-board-read {
     width: 1340px;
     margin: 0 auto;
-    font-family: 'Inter','Pretandard', 'sans-serif';
+    font-family: 'Inter', 'Pretandard', 'sans-serif';
 }
 
-.noticeDetail-base-table > table {
+.noticeDetail-base-table>table {
     width: 1340px;
     text-align: center;
     border-top: 2px solid #1a1a1a;
     position: relative;
 }
 
-.noticeDetail-base-table > table>tbody {
+.noticeDetail-base-table>table>tbody {
     vertical-align: middle;
     line-height: 18px;
 }
@@ -93,17 +95,24 @@
     color: #1a1a1a;
 }
 
-.noticeDetail-t02 span:not(:first-child)::before{
+.noticeDetail-t02 span:not(:first-child)::before {
     content: '';
     display: inline-block;
     width: 1px;
     height: 12px;
     background-color: #ddd;
     margin: 0 12px;
-
 }
 
+.noticeDetail-bd_content>td {
+    padding: 40px 0 80px 0;
+    color: #8a8a8a;
+    font-size: 14px;
+    vertical-align: middle;
+    word-break: break-all;
+    word-wrap: break-word;
+}
 
-
-
-
+.noticeDetail-fr-view {
+    word-wrap: break-word;
+}
