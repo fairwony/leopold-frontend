@@ -116,9 +116,27 @@ export default function NoticeDetail() {
                         </p>
                         <p>
                           <br />
-                          <span>
-                            {"* 위 일정은 제반 상황에 따라 변경될 수 있습니다."}
-                          </span>
+                          <strong
+                            style={{
+                              fontWeight: "bolder",
+                              color: "rgb(26, 26, 26)",
+                              fontFamily: "Inter, Pretendard, sans-serif",
+                              fontSize: "28px",
+                              textAlign: "center",
+                              backgroundColor: "rgb(255, 255, 255)",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "rgb(58, 50, 195)",
+                                fontSize: "20px",
+                              }}
+                            >
+                              {
+                                "* 위 일정은 제반 상황에 따라 변경될 수 있습니다."
+                              }
+                            </span>
+                          </strong>
                         </p>
                       </div>
                     </td>
@@ -132,12 +150,13 @@ export default function NoticeDetail() {
               </span>
             </div>
           </div>
-          {/* 다음글 */}
+          {/* 이전글/다음글 */}
           <div className="noticeDetail-board-movement">
-            <span>
-              <strong>다음글</strong>
-              {"FC730MBT MX2A 코랄 블루 신제품 출시"}
-            </span>
+            <ul>
+              <li><strong>이전글</strong></li>
+              
+              {"프리미엄 알파셀 장패드 신규 출시"}
+            </ul>
           </div>
         </div>
       </Main>
