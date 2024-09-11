@@ -133,7 +133,7 @@ export default function Notice() {
                 }}
               >
                 <Link to={"/notice/detail"}>
-                  {"프리미엄 알파셀 장패드 신규 출시"}
+                  {"FC730MBT MX2A 코랄 블루 신제품 출시"}
                 </Link>
               </td>
               <td
