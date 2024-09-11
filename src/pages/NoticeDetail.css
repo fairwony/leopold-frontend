@@ -59,7 +59,7 @@
 }
 
 /* 게시판 */
-.noticeDetail-board-read {
+.noticeDetail-board {
     width: 1340px;
     margin: 0 auto;
     font-family: 'Inter', 'Pretandard', 'sans-serif';
@@ -115,4 +115,11 @@
 
 .noticeDetail-fr-view {
     word-wrap: break-word;
+}
+
+.noticeDetail-fr-view>p {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #1a1a1a;
 }
