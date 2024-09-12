@@ -128,7 +128,7 @@ export default function Review() {
         {/* 글쓰기 버튼 */}
         <div className="review-btn">
           <span className="review-gRight">
-            <Link to="/review/detail" className="review-btnSubmit">
+            <Link to="/review/write" className="review-btnSubmit">
               글쓰기
             </Link>
           </span>

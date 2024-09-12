@@ -2,7 +2,6 @@
     width: 1340px;
     height: 797px;
     margin: 0 auto;
-    background-color: antiquewhite;
  }
 
  .title-box{
@@ -12,7 +11,7 @@
     align-content: center;
     align-items: center;
     border-top: 2px solid black;
-    border-bottom: 1px solid #a2a2a2;
+    border-bottom: 1px solid #d9d9d9;
  }
 
  .title-text1{
@@ -44,9 +43,117 @@
 .content-box{
     width: 1340px;
     height: 163px;
+    border-bottom: 1px solid #d9d9d9;
 }
 
 .content-text{
     font-size: 14px;
-    padding-bottom: 23px;
+    padding: 23px 23px 0px 0px;
+    white-space: pre-wrap;
+}
+  
+.catalog-box{
+    width: 120px;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+    margin-top: 40px;
+}
+.catalog-box:hover{
+    background-color: #f9f5f5;
+    cursor: pointer;
+}
+
+.comment-container{
+    width: 1340px;
+    height: 130px;
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    margin-top: 40px;
+}
+
+.comment-box1{
+    width: 1340px;
+    height: 65px;
+    border-bottom: 1px solid #d9d9d9;
+    line-height: 65px;
+    display: flex;
+    align-items: center;
+}
+.comment-box2{
+    width: 1340px;
+    line-height: 65px;
+    display: flex;
+}
+
+.comment-name{
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.comment-text{
+    font-size: 14px;
+    padding-left: 20px;
+}
+
+.modify-container{
+    width: 95px;
+    height: 20px;
+    display: flex;
+    gap: 5px;
+    margin-left: 1049px;
+}
+
+.modify-box{
+    width: 45px;
+    height: 20px;
+    border: 1px solid #d9d9d9;
+    text-align: center;
+    font-size: 12px;
+    line-height: 10px;
+    background-color: white;
+}
+.modify-box:hover{
+    color: white;
+    background-color: #343434;
+}
+
+.write-comment-container{
+    width: 1340px;
+    height: 154px;
+    border-top: 1px solid #d9d9d9;
+    margin-top: 90px;
+}
+
+.write-comment-text{
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.write-comment-content{
+    width: 1100px;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+    resize: none;
+    outline: none;
+    margin-top: 15px;
+    font-family: inherit;
+}
+
+.write-comment-check{
+    width: 90px;
+    height: 30px;
+    background-color: #343434;
+    font-size: 13px;
+    text-align: center;
+    line-height: 15px;
+    color: white;
+    margin-top: 9px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
 }
