@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./NoticeTable.css";
 
 export default function NoticeTable() {
@@ -23,7 +24,9 @@ export default function NoticeTable() {
               textAlign: "left",
             }}
           >
-            {"프리미엄 알파셀 장패드 신규 출시"}
+            <Link to={"/notice/detail"}>
+              {"FC730MBT MX2A 코랄 블루 신제품 출시"}
+            </Link>
           </td>
           <td
             className="notice-tbodyContent"

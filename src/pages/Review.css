@@ -1,8 +1,7 @@
 /* 메뉴 바 */
 .review-comm_title {
     text-align: center;
-    margin: 208px 0;
-    /* border: 1px dotted black; */
+    margin: 208px 0 120px 0;
     display: flex;
     justify-content: center;
 }

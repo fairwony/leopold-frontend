@@ -12,13 +12,13 @@ export default function Download() {
     <>
       <WhiteHeader />
       <Main>
-        {/* 메뉴 바 */}
         <div className="download-comm_title">
+          {/* 메뉴 바 */}
           <ul className="download-tab">
             <li className="download-on">
               <Link to="/notice">
                 <div className="download-img">
-                  <img src="images\Download\cs_notice.svg" alt="확성기" />
+                  <img src="\images\Download\cs_notice.svg" alt="확성기" />
                 </div>
                 <br />
                 <div className="download-txt">공지사항</div>
@@ -27,7 +27,7 @@ export default function Download() {
             <li className="download-on">
               <Link to="/download">
                 <div className="download-img">
-                  <img src="/images/Download/cs_data_on.svg" alt="구름" />
+                  <img src="\images\Download\cs_data_on.svg" alt="구름" />
                 </div>
                 <br />
                 <div className="download-txt">자료실</div>
@@ -36,7 +36,7 @@ export default function Download() {
             <li className="download-on">
               <Link to="/faq">
                 <div className="download-img">
-                  <img src="images\Notice\cs_faq.svg" alt="보고서" />
+                  <img src="\images\Notice\cs_faq.svg" alt="보고서" />
                 </div>
                 <br />
                 <div className="download-txt">FAQ</div>
@@ -45,7 +45,7 @@ export default function Download() {
             <li className="download-on">
               <Link to="/as">
                 <div className="download-img">
-                  <img src="images\Notice\cs_as.svg" alt="스패너" />
+                  <img src="\images\Notice\cs_as.svg" alt="스패너" />
                 </div>
                 <br />
                 <div className="download-txt">A/S 접수</div>
@@ -54,7 +54,7 @@ export default function Download() {
             <li className="download-on">
               <Link to="/review">
                 <div className="download-img">
-                  <img src="images\Notice\cs_review.svg" alt="말풍선" />
+                  <img src="\images\Notice\cs_review.svg" alt="말풍선" />
                 </div>
                 <br />
                 <div className="download-txt">사용자 리뷰</div>
@@ -141,7 +141,7 @@ export default function Download() {
                   color: "#9a9a9a",
                 }}
               >
-                {"매뉴얼"}
+                {"소프트웨어"}
               </td>
               <td
                 className="download-tbodyContent"
@@ -152,7 +152,9 @@ export default function Download() {
                   textAlign: "left",
                 }}
               >
-                {"FC730MBT MX2A Manual"}
+                <Link to={"/download/detail"}>
+                  {"리얼포스 소프트웨어 프로그램"}
+                </Link>
               </td>
               <td
                 className="download-tbodyContent"
@@ -196,7 +198,7 @@ export default function Download() {
         {/* 찾기 메뉴*/}
         <form>
           <div className="download-board_search">
-            <fieldset >
+            <fieldset>
               <select id="download-search_date">
                 <option value={"week"}>일주일</option>
                 <option value={"month"}>한달</option>

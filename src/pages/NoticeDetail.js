@@ -9,63 +9,63 @@ export default function NoticeDetail() {
     <>
       <WhiteHeader />
       <Main>
-        {/* 메뉴 바 */}
-        <div className="noticeDetail-comm_title">
-          <ul className="noticeDetail-tab">
-            <li className="noticeDetail-on">
-              <Link to="/notice">
-                <div className="noticeDetail-img">
-                  <img src="\images\Notice\cs_notice_on.svg" alt="확성기" />
-                </div>
-                <br />
-                <div className="noticeDetail-txt">공지사항</div>
-              </Link>
-            </li>
-            <li className="noticeDetail-on">
-              <Link to="/download">
-                <div className="noticeDetail-img">
-                  <img src="\images\Notice\cs_download.svg" alt="구름" />
-                </div>
-                <br />
-                <div className="noticeDetail-txt">자료실</div>
-              </Link>
-            </li>
-            <li className="noticeDetail-on">
-              <Link to="/faq">
-                <div className="noticeDetail-img">
-                  <img src="\images\Notice\cs_faq.svg" alt="보고서" />
-                </div>
-                <br />
-                <div className="noticeDetail-txt">FAQ</div>
-              </Link>
-            </li>
-            <li className="noticeDetail-on">
-              <Link to="/as">
-                <div className="noticeDetail-img">
-                  <img src="\images\Notice\cs_as.svg" alt="스패너" />
-                </div>
-                <br />
-                <div className="noticeDetail-txt">A/S 접수</div>
-              </Link>
-            </li>
-            <li className="noticeDetail-on">
-              <Link to="/review">
-                <div className="noticeDetail-img">
-                  <img src="\images\Notice\cs_review.svg" alt="말풍선" />
-                </div>
-                <br />
-                <div className="noticeDetail-txt">사용자 리뷰</div>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        {/* 제목 */}
-        <div className="noticeDetail-titleArea">
-          <h2>공지사항</h2>
-          <p>Notice</p>
-        </div>
-        {/* 게시판 */}
-        <div className="noticeDetail-board-read">
+        <div id="noticeDetail-container">
+          {/* 메뉴 바 */}
+          <div className="noticeDetail-comm_title">
+            <ul className="noticeDetail-tab">
+              <li className="noticeDetail-on">
+                <Link to="/notice">
+                  <div className="noticeDetail-img">
+                    <img src="\images\Notice\cs_notice_on.svg" alt="확성기" />
+                  </div>
+                  <br />
+                  <div className="noticeDetail-txt">공지사항</div>
+                </Link>
+              </li>
+              <li className="noticeDetail-on">
+                <Link to="/download">
+                  <div className="noticeDetail-img">
+                    <img src="\images\Notice\cs_download.svg" alt="구름" />
+                  </div>
+                  <br />
+                  <div className="noticeDetail-txt">자료실</div>
+                </Link>
+              </li>
+              <li className="noticeDetail-on">
+                <Link to="/faq">
+                  <div className="noticeDetail-img">
+                    <img src="\images\Notice\cs_faq.svg" alt="보고서" />
+                  </div>
+                  <br />
+                  <div className="noticeDetail-txt">FAQ</div>
+                </Link>
+              </li>
+              <li className="noticeDetail-on">
+                <Link to="/as">
+                  <div className="noticeDetail-img">
+                    <img src="\images\Notice\cs_as.svg" alt="스패너" />
+                  </div>
+                  <br />
+                  <div className="noticeDetail-txt">A/S 접수</div>
+                </Link>
+              </li>
+              <li className="noticeDetail-on">
+                <Link to="/review">
+                  <div className="noticeDetail-img">
+                    <img src="\images\Notice\cs_review.svg" alt="말풍선" />
+                  </div>
+                  <br />
+                  <div className="noticeDetail-txt">사용자 리뷰</div>
+                </Link>
+              </li>
+            </ul>
+          </div>
+          {/* 제목 */}
+          <div className="noticeDetail-titleArea">
+            <h2>공지사항</h2>
+            <p>Notice</p>
+          </div>
+          {/* 게시판 */}
           <div className="noticeDetail-board">
             <div className="noticeDetail-base-table">
               <table>
@@ -73,7 +73,7 @@ export default function NoticeDetail() {
                   <tr className="noticeDetail-bd_title">
                     <td>
                       <div className="noticeDetail-t01">
-                        {"프리미엄 알파셀 장패드 신규 출시"}
+                        {"FC730MBT MX2A 코랄 블루 신제품 출시"}
                       </div>
                       <div className="noticeDetail-t02">
                         <span>{"Leopold"}</span>
@@ -86,63 +86,82 @@ export default function NoticeDetail() {
                       <div className="noticeDetail-fr-view">
                         <p>
                           <img
-                            src="\images\NoticeDetail\EC958CED8C8CEC858020EAB3B5ECA780.jpg"
-                            alt="알파셀 장패드"
+                            src={
+                              "/images/NoticeDetail/73020MX2A20EC8BA0EAB79CECB69CEC8B9C20EAB3B5ECA780.jpg"
+                            }
+                            alt={"FC730MBT MX2A"}
                             className="noticeDetail-fr-dib"
+                            sizes={"900px/1543px"}
                           />
                         </p>
                         <p>
-                          <br />
-                        </p>
-                        <p>
-                          <br />
-                        </p>
-                        <p>
                           <span>
-                            <strong>{"🧡프리미엄 알파셀 장패드 출시🧡"}</strong>
+                            <strong
+                              style={{
+                                fontWeight: "bolder",
+                                color: "rgb(26, 26, 26)",
+                                fontFamily: "Inter, Pretendard, sans-serif",
+                                fontSize: "28px",
+                                textAlign: "center",
+                                backgroundColor: "rgb(255, 255, 255)",
+                              }}
+                            >
+                              <span style={{ color: "rgb(255, 108, 0)" }}>
+                                {
+                                  "판매일정 : 2024년 9월 2일 월요일 오전 11시 판매 시작"
+                                }
+                              </span>
+                            </strong>
                           </span>
                         </p>
                         <p>
                           <br />
-                        </p>
-                        <p>{"안녕하세요. 레오폴드입니다."}</p>
-                        <p>
-                          {
-                            "키보드 악세서리 프리미엄 알파셀 장패드가 새롭게 출시될 예정입니다."
-                          }
-                        </p>
-                        <p>
-                          {"자세한 내용은 제품 상세 페이지 참고 부탁드립니다!"}
-                        </p>
-                        <p>
-                          <br />
-                        </p>
-                        <p>
-                          <strong>{"[ 상세페이지 바로가기 ]"}</strong>
-                        </p>
-                        <p>
-                          <br />
-                        </p>
-                        <p>
-                          <strong>
-                            <span>
+                          <strong
+                            style={{
+                              fontWeight: "bolder",
+                              color: "rgb(26, 26, 26)",
+                              fontFamily: "Inter, Pretendard, sans-serif",
+                              fontSize: "28px",
+                              textAlign: "center",
+                              backgroundColor: "rgb(255, 255, 255)",
+                            }}
+                          >
+                            <span
+                              style={{
+                                color: "rgb(58, 50, 195)",
+                                fontSize: "20px",
+                              }}
+                            >
                               {
-                                "판매일정 : 2024년 9월 2일 월요일 오전 11시부터 판매 시작"
+                                "* 위 일정은 제반 상황에 따라 변경될 수 있습니다."
                               }
                             </span>
                           </strong>
                         </p>
-                        <p>
-                          <br />
-                        </p>
-                        <p>{"많은 관심 부탁드립니다."}</p>
-                        <p>{"감사합니다."}</p>
                       </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <div className="noticeDetail-base-button">
+              <span>
+                <Link to={"/notice"}>목록</Link>
+              </span>
+            </div>
+          </div>
+          {/* 이전글/다음글 */}
+          <div className="noticeDetail-board-movement">
+            <ul>
+              <li className="noticeDetail-prev">
+                <strong>이전글</strong>
+                {"프리미엄 알파셀 장패드 신규 출시"}
+              </li>
+              <li className="noticeDetail-next">
+                <strong>다음글</strong>
+                {"키보드 러그 이벤트 당첨자 발표"}
+              </li>
+            </ul>
           </div>
         </div>
       </Main>

@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import AS from "./pages/AS";
 import AsReception from "./pages/AsReception";
+import Cart from "./pages/Cart";
 import Download from "./pages/Download";
+import DownloadDetail from "./pages/DownloadDetail";
 import FAQ from "./pages/FAQ";
 import ForgotId from "./pages/ForgotId";
 import ForgotPs from "./pages/ForgotPs";
@@ -10,14 +12,13 @@ import Join from "./pages/Join";
 import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
 import Notice from "./pages/Notice";
+import NoticeDetail from "./pages/NoticeDetail";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
-import DownloadDetail from "./pages/DownloadDetail";
-import NoticeDetail from "./pages/NoticeDetail";
 
 export default function App() {
 	return (
@@ -43,6 +44,7 @@ export default function App() {
 				<Route path="/order/detail" element={<OrderDetail />} />
 				<Route path="/shopping" element={<Shopping />} />
 				<Route path="/shopping/detail" element={<ShoppingDetail />} />
+				<Route path="/cart" element={<Cart />} />
 			</Routes>
 		</div>
 	);
