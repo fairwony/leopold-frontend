@@ -19,7 +19,7 @@ export default function One2one() {
                 </h2>
                 <p>Q&A</p>
               </div>
-              {/* 게시판 카테고리*/}
+              {/* 게시판 */}
               <div className="one2one-base-table">
                 <table>
                   <colgroup className="one2one-board-listHeader">
@@ -65,6 +65,29 @@ export default function One2one() {
                 </span>
               </div>
             </div>
+            {/* 찾기 메뉴*/}
+            <form>
+              <div className="one2one-board_search">
+                <fieldset>
+                  <select id="one2one-search_date">
+                    <option value={"week"}>일주일</option>
+                    <option value={"month"}>한달</option>
+                    <option value={"month3"}>세달</option>
+                    <option value={"all"}>전체</option>
+                  </select>
+
+                  <select id="one2one-search_key">
+                    <option value={"subject"}>제목</option>
+                    <option value={"content"}>내용</option>
+                    <option value={"writer_name"}>글쓴이</option>
+                    <option value={"member_id"}>아이디</option>
+                    <option value={"nick_name"}>별명</option>
+                  </select>
+                  <input id="one2one-search" />
+                  <span id="one2one-btn">찾기</span>
+                </fieldset>
+              </div>
+            </form>
           </div>
         </div>
       </Main>
