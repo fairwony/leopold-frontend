@@ -11,7 +11,7 @@ export default function One2one() {
       <Main>
         <div id="one2one-container">
           <div id="one2one-contents">
-            <div className="one2one-board-list">
+            <div className="one2one-board-listPackage">
               {/* 제목 */}
               <div className="one2one-board-title">
                 <h2>
@@ -19,7 +19,7 @@ export default function One2one() {
                 </h2>
                 <p>Q&A</p>
               </div>
-              {/* 게시판 */}
+              {/* 게시판 카테고리*/}
               <div className="one2one-base-table">
                 <table>
                   <colgroup className="one2one-board-listHeader">
@@ -38,12 +38,12 @@ export default function One2one() {
                       <th>답변</th>
                     </tr>
                   </thead>
+                  {/* 게시판 목록 */}
                   <tbody className="one2one-board-list">
                     <tr>
-                      <td>{494}</td>
+                      <td>{1}</td>
                       <td className="one2one-subject">
                         <Link to={"/one2one/detail"}>{"1:1 문의"}</Link>
-                        <span className="one2one-txtEm" />
                       </td>
                       <td>{"김****"}</td>
                       <td>
@@ -55,6 +55,14 @@ export default function One2one() {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+              {/* 글쓰기 버튼 */}
+              <div className="one2one-btn">
+                <span className="one2one-gRight">
+                  <Link to="/review/detail" className="one2one-btnSubmit">
+                    글쓰기
+                  </Link>
+                </span>
               </div>
             </div>
           </div>
