@@ -19,6 +19,7 @@ import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
+import ReviewNotice from "./pages/ReviewNotice";
 
 export default function App() {
 	return (
@@ -34,6 +35,7 @@ export default function App() {
 				<Route path="/as" element={<AS />} />
 				<Route path="/asReception" element={<AsReception />} />
 				<Route path="/review" element={<Review />} />
+				<Route path="/review/notice" element={<ReviewNotice />} />
 				<Route path="/review/detail" element={<ReviewDetail />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/forgotId" element={<ForgotId />} />
