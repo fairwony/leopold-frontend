@@ -29,7 +29,7 @@
     font-weight: 500;
     line-height: 24px;
     text-align: center;
-    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';
 }
 
 /* 제목 */
@@ -47,7 +47,7 @@
 }
 
 .faq-titleArea>p {
-    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';
     font-size: 18px;
     font-weight: 400;
     color: #888888;
@@ -63,7 +63,7 @@
     height: 67px;
     border-bottom: 1px solid #ededed;
     margin: auto;
-    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';
     font-weight: 400;
     font-size: 18px;
     color: #888888;
@@ -99,13 +99,11 @@
 /* Q&A */
 .faq-cboth_questions {
     width: 1340px;
-    height: 1043px;
     margin: auto;
 }
 
 .faq-has-sub {
     width: 1340px;
-    height: 242px;
     border-bottom: 1px solid #ededed;
     color: #353535;
     font-size: 18px;
@@ -115,10 +113,11 @@
 
 .faq-move {
     width: 1340px;
-    height: 88px;
     padding: 28px 0;
     cursor: pointer;
     line-height: 32px;
+    font-weight: 400;
+    color: #1a1a1a;
     display: flex;
     text-align: left;
 }
