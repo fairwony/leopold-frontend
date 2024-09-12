@@ -102,8 +102,11 @@
     text-align: left;
     line-height: 24px;
     padding: 28px 0 28px 32px;
-    color: #555;
     font-weight: 700;
+}
+
+.review-subject>strong {
+    color: #555;
 }
 
 .review-board-list {
