@@ -59,7 +59,7 @@ export default function One2one() {
               {/* 글쓰기 버튼 */}
               <div className="one2one-btn">
                 <span className="one2one-gRight">
-                  <Link to="/review/detail" className="one2one-btnSubmit">
+                  <Link to="/one2one/detail" className="one2one-btnSubmit">
                     글쓰기
                   </Link>
                 </span>
