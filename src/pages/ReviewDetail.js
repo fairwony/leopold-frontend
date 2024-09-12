@@ -77,6 +77,7 @@ export default function ReviewDetail() {
           <div className="content-box">
             <p className="content-text">
               안녕하세요
+              dddd
             </p>
           </div>
           <Link to="/review"><div className="catalog-box">목록</div></Link>

@@ -141,6 +141,7 @@
     resize: none;
     outline: none;
     margin-top: 15px;
+    font-family: inherit;
 }
 
 .write-comment-check{
