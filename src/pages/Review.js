@@ -67,9 +67,9 @@ export default function Review() {
           <h2>사용자 리뷰</h2>
           <p>User review</p>
         </div>
-        {/* 게시판 */}
         <div className="review-base-table">
-          <table border={1}>
+          {/* 게시판 카테고리 */}
+          <table>
             <colgroup className="review-board">
               <col style={{ width: "80px" }} />
               <col style={{ width: "auto" }} />
@@ -84,6 +84,7 @@ export default function Review() {
                 <th>작성일</th>
               </tr>
             </thead>
+            {/* 게시판 공지사항 */}
             <tbody className="review-board-notice">
               <tr>
                 <td>
@@ -111,7 +112,7 @@ export default function Review() {
                 <td>{494}</td>
                 <td className="review-subject">
                   <Link to={"/review/detail"}>{"굿"}</Link>
-                  <span className="review-txtEm" />
+                  <span className="review-txtEm"></span>
                 </td>
                 <td>{"김****"}</td>
                 <td>
@@ -127,7 +128,7 @@ export default function Review() {
         {/* 글쓰기 버튼 */}
         <div className="review-btn">
           <span className="review-gRight">
-            <Link to="/review/detail" className="review-btnSubmit">
+            <Link to="/review/write" className="review-btnSubmit">
               글쓰기
             </Link>
           </span>

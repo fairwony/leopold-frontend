@@ -113,13 +113,6 @@ export default function ReviewNotice() {
                       <p>
                         <span>
                           {
-                            "궁금하신 사항이나 문의 글은 1:1 문의 게시판을 통해 접수 부탁 드립니다."
-                          }
-                        </span>
-                      </p>
-                      <p>
-                        <span>
-                          {
                             "게시판 성격에 맞지 않는 내용이거나 욕설 등은 관리자에 의해 임의로 삭제 처리 될 수 있으니 참고해 주시기 바랍니다. "
                           }
                         </span>
@@ -149,6 +142,36 @@ export default function ReviewNotice() {
               <Link to={"/review"}>목록</Link>
             </span>
           </div>
+        </div>
+        {/* 댓글 달기 */}
+        <div className="reviewNotice-board-comment">
+          <form id="reviewNotice-commentWriteForm">
+            <div className="reviewNotice-board-commentWrite">
+              <div className="reviewNotice-input">
+                <strong>댓글 달기</strong>
+                <span>
+                  {"이름 : "}
+                  <input
+                    id="reviewNotice-comment_name"
+                    name="reviewNotice-comment_name"
+                  />
+                </span>
+                {"비밀번호 : "}
+                <input
+                  id="reviewNotice-comment_password"
+                  name="reviewNotice-comment_password"
+                  value type="password"
+                />
+              </div>
+              <div className="reviewNotice-view">
+                <textarea
+                  id="reviewNotice-comment"
+                  name="reviewNotice-comment"
+                />
+                <div className="reviewNotice-btn">확인</div>
+              </div>
+            </div>
+          </form>
         </div>
       </Main>
       <Footer />
