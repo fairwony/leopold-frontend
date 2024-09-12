@@ -65,10 +65,13 @@ export default function Support() {
               </li>
             </ul>
           </div>
+          {/* 네비게이션 바 */}
           <div className="box-container">
             <div className="support-box">
-              <img src="\images\Support\qna 1.png" alt="qna"></img>
-              <p style={{ paddingTop: "24px" }}>1:1 문의하기</p>
+              <Link to={"/one2one"}>
+                <img src="\images\Support\qna 1.png" alt="qna"></img>
+                <p style={{ paddingTop: "24px" }}>1:1 문의하기</p>
+              </Link>
             </div>
             <div className="support-box">
               <img src="\images\Support\contact 1.png" alt="contact"></img>
@@ -78,33 +81,45 @@ export default function Support() {
           <p className="offline-text">오프라인 매장안내</p>
           <div className="offline-box-container">
             <div className="offline-box">
-                <div className="location-box">
-                    <img src="\images\Support\map 1.png" alt="map"></img>
-                    <p className="location-text1">피씨기어</p>
-                    <p style={{paddingTop:"21px"}} className="location-text2">서울시 용산구 한강로2가 선인상가 21동 3층 105호</p>
-                    <div className="location-box2">
-                        <img style={{width:"14px", height:"14px"}} src="\images\Support\phone 1.png" alt="phone"></img>
-                        <p className="location-text2">02-701-8144</p>
-                    </div>
-                    <div className="goto-box">바로가기 →</div>
+              <div className="location-box">
+                <img src="\images\Support\map 1.png" alt="map"></img>
+                <p className="location-text1">피씨기어</p>
+                <p style={{ paddingTop: "21px" }} className="location-text2">
+                  서울시 용산구 한강로2가 선인상가 21동 3층 105호
+                </p>
+                <div className="location-box2">
+                  <img
+                    style={{ width: "14px", height: "14px" }}
+                    src="\images\Support\phone 1.png"
+                    alt="phone"
+                  ></img>
+                  <p className="location-text2">02-701-8144</p>
                 </div>
+                <div className="goto-box">바로가기 →</div>
+              </div>
             </div>
             <div className="offline-box">
-                <div className="location-box">
-                    <img src="\images\Support\map 1.png" alt="map"></img>
-                    <p className="location-text1">리더스키</p>
-                    <p style={{paddingTop:"21px"}} className="location-text2">서울시 용산구 한강로2가 314-1 용성비즈텔 B2 218호</p>
-                    <div className="location-box2">
-                        <img style={{width:"14px", height:"14px"}} src="\images\Support\phone 1.png" alt="phone"></img>
-                        <p className="location-text2">010-4231-3686</p>
-                    </div>
-                    <div className="goto-box">바로가기 →</div>
+              <div className="location-box">
+                <img src="\images\Support\map 1.png" alt="map"></img>
+                <p className="location-text1">리더스키</p>
+                <p style={{ paddingTop: "21px" }} className="location-text2">
+                  서울시 용산구 한강로2가 314-1 용성비즈텔 B2 218호
+                </p>
+                <div className="location-box2">
+                  <img
+                    style={{ width: "14px", height: "14px" }}
+                    src="\images\Support\phone 1.png"
+                    alt="phone"
+                  ></img>
+                  <p className="location-text2">010-4231-3686</p>
                 </div>
+                <div className="goto-box">바로가기 →</div>
+              </div>
             </div>
           </div>
         </div>
       </Main>
-      <Footer/>
+      <Footer />
     </>
   );
 }
