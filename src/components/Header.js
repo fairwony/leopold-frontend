@@ -235,6 +235,14 @@ export default function Header() {
 					<p className="header-c1">Global</p>
 
 					<div></div>
+
+          <div className="login-container">
+            <Link to ="/login"><p>로그인</p></Link>
+            <p>·</p>
+            <Link to ="/join"><p>회원가입</p></Link>
+          </div>
+
+          
 				</div>
 			</div>
 		</div>

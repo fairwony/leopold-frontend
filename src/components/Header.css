@@ -244,3 +244,19 @@
 	color: #878787;
 	font-size: 17px;
 }
+
+.login-container{
+	width: 156px;
+	height: 28px;
+	font-size: 18px;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.login-line{
+	width: 1px;
+	height: 26px;
+	background-color: #878787;
+}

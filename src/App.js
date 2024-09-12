@@ -19,6 +19,7 @@ import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
+import Support from "./pages/Support";
 
 export default function App() {
 	return (
@@ -45,6 +46,7 @@ export default function App() {
 				<Route path="/shopping" element={<Shopping />} />
 				<Route path="/shopping/detail" element={<ShoppingDetail />} />
 				<Route path="/cart" element={<Cart />} />
+				<Route path="/support" element={<Support />} />
 			</Routes>
 		</div>
 	);
