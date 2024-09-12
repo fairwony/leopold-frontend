@@ -67,12 +67,12 @@ export default function Support() {
           </div>
           {/* 네비게이션 바 */}
           <div className="box-container">
-            <div className="support-box">
-              <Link to={"/one2one"}>
+            <Link to={"/one2one"}>
+              <div className="support-box">
                 <img src="\images\Support\qna 1.png" alt="qna"></img>
                 <p style={{ paddingTop: "24px" }}>1:1 문의하기</p>
-              </Link>
-            </div>
+              </div>
+            </Link>
             <div className="support-box">
               <img src="\images\Support\contact 1.png" alt="contact"></img>
               <p style={{ paddingTop: "24px" }}>고객센터</p>

@@ -75,10 +75,10 @@ export default function ReviewDetail() {
             </div>
           </div>
           <div className="content-box">
-            <p className="content-text">
-              안녕하세요
-              dddd
-            </p>
+            <p className="content-text">안녕하세요</p>
+            <p className="content-text">빠르게 도착하여.. 수령해서 여기저기 
+              확인해보고 타자를 해보니 
+              개인적인 기준에는 만족감이 많습니다.</p>
           </div>
           <Link to="/review"><div className="catalog-box">목록</div></Link>
           <div className="comment-container">
