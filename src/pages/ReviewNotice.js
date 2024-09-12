@@ -143,12 +143,12 @@ export default function ReviewNotice() {
             </span>
           </div>
         </div>
-        {/* 댓글달기 */}
+        {/* 댓글 달기 */}
         <div className="reviewNotice-board-comment">
           <form id="reviewNotice-commentWriteForm">
             <div className="reviewNotice-board-commentWrite">
               <div className="reviewNotice-input">
-                <strong>댓글달기</strong>
+                <strong>댓글 달기</strong>
                 <span>
                   {"이름 : "}
                   <input
@@ -160,7 +160,7 @@ export default function ReviewNotice() {
                 <input
                   id="reviewNotice-comment_password"
                   name="reviewNotice-comment_password"
-                  value="password"
+                  value type="password"
                 />
               </div>
               <div className="reviewNotice-view">
