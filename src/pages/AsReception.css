@@ -1,0 +1,8 @@
+#asReception-container {
+    position: relative;
+    width: 100%;
+    min-width: 1600px;
+    margin: 0 auto;
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
