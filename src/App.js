@@ -15,11 +15,12 @@ import Notice from "./pages/Notice";
 import NoticeDetail from "./pages/NoticeDetail";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
+import Payment from "./pages/Payment";
 import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
+import ReviewNotice from "./pages/ReviewNotice";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
-import ReviewNotice from "./pages/ReviewNotice";
 
 export default function App() {
 	return (
@@ -47,6 +48,7 @@ export default function App() {
 				<Route path="/shopping" element={<Shopping />} />
 				<Route path="/shopping/detail" element={<ShoppingDetail />} />
 				<Route path="/cart" element={<Cart />} />
+				<Route path="/payment" element={<Payment />} />
 			</Routes>
 		</div>
 	);

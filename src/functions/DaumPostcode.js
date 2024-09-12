@@ -22,7 +22,7 @@ export default function DaumPostcode({ onComplete }) {
 	};
 
 	return (
-		<button type="button" onClick={openPostcode} className="join-search-address">
+		<button type="button" onClick={openPostcode} className="DaumPostcode">
 			주소검색
 		</button>
 	);
