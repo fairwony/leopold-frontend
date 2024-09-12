@@ -21,6 +21,7 @@ import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
 import Support from "./pages/Support";
 import ReviewNotice from "./pages/ReviewNotice";
+import WriteReview from "./pages/WriteReview";
 
 export default function App() {
 	return (
@@ -49,6 +50,7 @@ export default function App() {
 				<Route path="/shopping/detail" element={<ShoppingDetail />} />
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/support" element={<Support />} />
+				<Route path="/review/write" element={<WriteReview/>} />
 			</Routes>
 		</div>
 	);
