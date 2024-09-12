@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import Main from "../components/Main";
+import WhiteHeader from "../components/WhiteHeader";
 import "./ReviewDetail.css";
 import WhiteHeader from "../components/WhiteHeader";
 import { Link } from "react-router-dom";

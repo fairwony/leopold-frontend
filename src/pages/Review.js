@@ -94,7 +94,7 @@ export default function Review() {
                 </td>
                 <td className="review-subject">
                   <strong>
-                    <Link to={"/review/detail"}>{"사용자 리뷰 안내"}</Link>
+                    <Link to={"/review/notice"}>{"사용자 리뷰 안내"}</Link>
                   </strong>
                 </td>
                 <td>
