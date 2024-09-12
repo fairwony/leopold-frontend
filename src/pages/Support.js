@@ -67,11 +67,11 @@ export default function Support() {
           </div>
           <div className="box-container">
             <div className="support-box">
-              <img src="\images\Support\qna 1.png"></img>
+              <img src="\images\Support\qna 1.png" alt="qna"></img>
               <p style={{ paddingTop: "24px" }}>1:1 문의하기</p>
             </div>
             <div className="support-box">
-              <img src="\images\Support\contact 1.png"></img>
+              <img src="\images\Support\contact 1.png" alt="contact"></img>
               <p style={{ paddingTop: "24px" }}>고객센터</p>
             </div>
           </div>

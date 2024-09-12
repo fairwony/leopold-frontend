@@ -19,11 +19,8 @@ import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
-<<<<<<< HEAD
 import Support from "./pages/Support";
-=======
 import ReviewNotice from "./pages/ReviewNotice";
->>>>>>> 744da45e492e3d98660adadb6c9f7c9cdf4b213a
 
 export default function App() {
 	return (
