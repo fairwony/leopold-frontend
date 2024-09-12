@@ -1,11 +1,35 @@
+import { useState } from "react";
 import "./CartTable.css";
 
-export default function CartTable() {
+export default function CartTable({ selectList, setSelectList }) {
+	const [isChecked, setIsChecked] = useState(false);
+	let uid = 10;
+
+	function handleClickCheckBox(e) {
+		setIsChecked(e.target.checked);
+
+		if (e.target.checked === true) {
+			const newList = selectList?.map((listUid, index) => {
+				if (listUid !== uid) {
+					return listUid;
+				}
+			});
+			newList.push(uid);
+			setSelectList(newList);
+			console.log(newList);
+		} else {
+			const newList = selectList?.filter(listUid => listUid !== uid);
+			setSelectList(newList);
+			console.log(newList);
+		}
+	}
+
 	return (
 		<div className="cart-table">
 			<div className="cart-table-key-container">
 				<div className="cart-table-key-box" style={{ width: 52 }}>
-					<input type="checkbox" style={{ width: 20, height: 20 }} />
+					<input type="checkbox" style={{ width: 20, height: 20 }}
+						checked={isChecked} onChange={handleClickCheckBox} />
 				</div>
 
 				<div className="cart-table-key-box" style={{ width: 169 }}>
