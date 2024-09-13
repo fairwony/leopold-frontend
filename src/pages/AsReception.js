@@ -9,7 +9,6 @@ import EditorComponent from "../components/Editor";
 
 export default function AsReception() {
   
-
   return (
     <>
       <WhiteHeader />
@@ -90,7 +89,7 @@ export default function AsReception() {
                       </tr>
                       <tr>
                         <td colSpan={2} className="asReception-clear">
-                          <EditorComponent></EditorComponent>
+                          <EditorComponent />
                         </td>
                       </tr>
                     </tbody>
