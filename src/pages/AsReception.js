@@ -3,8 +3,14 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./AsReception.css";
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import FroalaEditorComponent from 'react-froala-wysiwyg';
+import EditorComponent from "../components/Editor";
 
 export default function AsReception() {
+  
+
   return (
     <>
       <WhiteHeader />
@@ -14,7 +20,7 @@ export default function AsReception() {
             <div className="asReception-board">
               {/* 메뉴 바 */}
               <div className="asReception-comm_title">
-                <ul className="aasReception-tab">
+                <ul className="asReception-tab">
                   <li className="asReception-on">
                     <Link to="/notice">
                       <div className="asReception-img">
@@ -23,7 +29,6 @@ export default function AsReception() {
                           alt="확성기"
                         />
                       </div>
-                      <br />
                       <div className="asReception-txt">공지사항</div>
                     </Link>
                   </li>
@@ -32,7 +37,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\Notice\cs_download.svg" alt="구름" />
                       </div>
-                      <br />
                       <div className="asReception-txt">자료실</div>
                     </Link>
                   </li>
@@ -41,7 +45,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\Notice\cs_faq.svg" alt="보고서" />
                       </div>
-                      <br />
                       <div className="asReception-txt">FAQ</div>
                     </Link>
                   </li>
@@ -50,7 +53,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\AS\cs_as_on.svg" alt="스패너" />
                       </div>
-                      <br />
                       <div className="asReception-txt">A/S 접수</div>
                     </Link>
                   </li>
@@ -59,7 +61,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\Notice\cs_review.svg" alt="말풍선" />
                       </div>
-                      <br />
                       <div className="asReception-txt">사용자 리뷰</div>
                     </Link>
                   </li>
@@ -70,6 +71,30 @@ export default function AsReception() {
                 <h2>A/S 접수</h2>
                 <p>After Service</p>
               </div>
+              {/* 에디터 */}
+              <form id="asReception-boardWrite">
+                <div className="asReception-base-table">
+                  <table border={1}>
+                    <colgroup>
+                      <col style={{ width: "130px" }} />
+                      <col style={{ width: "auto" }} />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th>제목</th>
+                        <td>
+                          <input id="asReception-subject" name="asReception-subject"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colSpan={2} className="asReception-clear">
+                          <EditorComponent></EditorComponent>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </form>
             </div>
           </div>
         </div>

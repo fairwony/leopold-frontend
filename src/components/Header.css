@@ -246,12 +246,11 @@
 }
 
 .login-container{
-	width: 156px;
 	height: 28px;
 	font-size: 18px;
 	margin-top: 20px;
 	display: flex;
-	justify-content: space-between;
+	gap: 20px;
 	align-items: center;
 }
 
