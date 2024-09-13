@@ -71,8 +71,29 @@ export default function AsReception() {
                 <h2>A/S 접수</h2>
                 <p>After Service</p>
               </div>
+              {/* 에디터 */}
               <form id="asReception-boardWrite">
-              <EditorComponent></EditorComponent>
+                <div className="asReception-base-table">
+                  <table border={1}>
+                    <colgroup>
+                      <col style={{ width: "130px" }} />
+                      <col style={{ width: "auto" }} />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th>제목</th>
+                        <td>
+                          <input id="asReception-subject" name="asReception-subject"/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colSpan={2} className="asReception-clear">
+                          <EditorComponent></EditorComponent>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </form>
             </div>
           </div>
