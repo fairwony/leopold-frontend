@@ -100,8 +100,10 @@ export default function AsReception() {
                   <span className="asReception-gLeft">
                     <Link to={"/as"}>목록</Link>
                   </span>
-                  <span className="asReception-btnSubmit">등록</span>
-                  <span className="asReception-btnBasic">취소</span>
+                  <div className="asReception-gRight">
+                    <span className="asReception-btnSubmit">등록</span>
+                    <span className="asReception-btnBasic">취소</span>
+                  </div>
                 </div>
               </form>
             </div>
