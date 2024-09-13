@@ -1,4 +1,4 @@
-import React from 'react';
+import "./Editor.css";
 
 // Require Editor CSS files.
 
@@ -8,13 +8,14 @@ import 'froala-editor/css/froala_editor.pkgd.min.css';
 
 import FroalaEditorComponent from 'react-froala-wysiwyg';
 
+
 // Render Froala Editor component.
 
 export default function EditorComponent (){
 
 return (
-  <div class="editor">
-    <FroalaEditorComponent tag="textarea" />
+  <div className="editor">
+    <FroalaEditorComponent tag="textarea"/>
   </div>
 );
 

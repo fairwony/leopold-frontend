@@ -6,6 +6,7 @@ import "./AsReception.css";
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import FroalaEditorComponent from 'react-froala-wysiwyg';
+import EditorComponent from "../components/Editor";
 
 export default function AsReception() {
   
@@ -71,7 +72,7 @@ export default function AsReception() {
                 <p>After Service</p>
               </div>
               <form id="asReception-boardWrite">
-              <FroalaEditorComponent tag='textarea'/>
+              <EditorComponent></EditorComponent>
               </form>
             </div>
           </div>
