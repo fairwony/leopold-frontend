@@ -3,8 +3,13 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./AsReception.css";
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import FroalaEditorComponent from 'react-froala-wysiwyg';
 
 export default function AsReception() {
+  
+
   return (
     <>
       <WhiteHeader />
@@ -66,7 +71,7 @@ export default function AsReception() {
                 <p>After Service</p>
               </div>
               <form id="asReception-boardWrite">
-                
+              <FroalaEditorComponent tag='textarea'/>
               </form>
             </div>
           </div>
