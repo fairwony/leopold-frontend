@@ -24,6 +24,7 @@ import ReviewNotice from "./pages/ReviewNotice";
 import WriteReview from "./pages/WriteReview";
 import One2one from "./pages/One2one";
 import One2OneDetail from "./pages/One2OneDetail";
+import WriteOne2one from "./pages/WriteOne2one";
 
 export default function App() {
 	return (
@@ -55,6 +56,7 @@ export default function App() {
 				<Route path="/review/write" element={<WriteReview/>} />
 				<Route path="/one2one" element={<One2one />} />
 				<Route path="/one2one/detail" element={<One2OneDetail />} />
+				<Route path="/one2one/write" element={<WriteOne2one />} />
 			</Routes>
 		</div>
 	);

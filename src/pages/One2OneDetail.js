@@ -19,12 +19,62 @@ export default function One2OneDetail() {
                 </h2>
                 <p>Q&A</p>
               </div>
-              </div>
+            </div>
           </div>
         </div>
-        {/* 조회 */}
+        {/* 질문 */}
         <div className="qna-container">
-            <div className="q-container"></div>
+          <div className="q-container">
+            <div className="qa-box">
+              <p className="qa-bold-text">제목</p>
+              <p className="qa-light-text">
+                레오폴드 제품 중에 2.4 GHz 제품이 있나요?
+              </p>
+            </div>
+            <div className="qa-box">
+              <p className="qa-bold-text">작성자</p>
+              <p style={{ width: "540px" }} className="qa-light-text">
+                홍길동
+              </p>
+              <p className="qa-bold-text">답변여부</p>
+              <p className="qa-light-text">O</p>
+            </div>
+            <div className="qa-box">
+              <p className="qa-bold-text">문의일시</p>
+              <p className="qa-light-text">2024-09-13</p>
+            </div>
+            <p
+              style={{ lineHeight: "108px", paddingLeft: "50px" }}
+              className="qa-light-text"
+            >
+              블루투스나 유선 연결 제품 말고 2.4 GHz 연결 제품이 있나요?
+            </p>
+          </div>
+          {/* 답변 */}
+          <div className="a-container">
+            <div className="qa-box">
+              <p className="qa-bold-text">답변자</p>
+              <p className="qa-light-text">운영자</p>
+            </div>
+            <div className="qa-box">
+              <p className="qa-bold-text">답변일시</p>
+              <p className="qa-light-text">2024-09-13 14:50:44</p>
+            </div>
+            <div className="a-box">
+              <p className="a-light-text">
+                안녕하세요 레오폴드 입니다
+                <br />
+                현재 판매 중인 제품에서 2.4GHz를 지원하는 제품은 없습니다.
+                <br />
+                감사합니다.
+              </p>
+            </div>
+            <Link to="/one2one">
+              <div style={{ marginTop: "115px" }} className="catalog-box">
+                목록
+              </div>
+            </Link>
+          </div>
         </div>
       </Main>
       <Footer />

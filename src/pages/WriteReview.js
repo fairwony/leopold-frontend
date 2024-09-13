@@ -67,7 +67,7 @@ export default function WriteReview() {
         {/* 글작성 */}
         <div className="write-container">
             <div className="write-title-container">
-                <p style={{fontSize:"15px"}}>제목</p>
+                <p style={{fontSize:"15px", width:"58px"}}>제목</p>
                 <textarea className="write-title-box"></textarea>
             </div>
             <div className="write-content-container">
