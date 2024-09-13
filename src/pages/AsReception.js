@@ -89,7 +89,7 @@ export default function AsReception() {
                       </tr>
                       <tr>
                         <td colSpan={2} className="asReception-clear">
-                          <EditorComponent />
+                          <EditorComponent></EditorComponent>
                         </td>
                       </tr>
                     </tbody>

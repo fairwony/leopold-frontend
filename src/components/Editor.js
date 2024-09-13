@@ -38,20 +38,32 @@ import FroalaEditorInput from "react-froala-wysiwyg/FroalaEditorInput";
 // Render Froala Editor component.
 
 export default function EditorComponent() {
-  let config = {
-    documentReady: true,
-    heightMin: 440,
-    events : {
-      'contentChanged' : function(e, editor) {
-        console.log('test');
-      }
-    }
-  };
-  
+
+  // let config = {
+  //   documentReady: true,
+  //   heightMin: 440,
+  //   events: {
+  //     contentChanged: function (e, editor) {
+  //       console.log("test");
+  //     },
+  //   },
+  // };
+
+  // const [model,setModel] = useState("Example Set");
+
+  // const handleModelChange= (event)=>{
+  //   setModel(event)
+  // }
+
   return (
     <>
       <div id="editor">
-      <FroalaEditorComponent tag="textarea" config={config}/>
+        <FroalaEditorComponent
+          tag="textarea"
+          // config={config}
+          // model={model}
+          // onModelChange={handleModelChange}
+        />
       </div>
     </>
   );
