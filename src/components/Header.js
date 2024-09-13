@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ContextSystem } from "../functions/MyContext";
 import "./Header.css";
 
 export default function Header() {
+	const { get, set } = useContext(ContextSystem);
+	const navigate = useNavigate();
+
 	const [isTop, setIsTop] = useState(true);
 
 	const handleScroll = () => {
@@ -236,13 +241,33 @@ export default function Header() {
 
 					<div></div>
 
-          <div className="login-container">
-            <Link to ="/login"><p>로그인</p></Link>
-            <p>·</p>
-            <Link to ="/join"><p>회원가입</p></Link>
-          </div>
+					<div className="login-container">
+						{get.isLogin ? <p style={{ cursor: "pointer" }} onClick={() => {
+							axios.post('http://localhost:8080/logout', {
+								withCredentials: true
+							})
+								.then((response) => {
+									console.log(response.data);
 
-          
+									localStorage.setItem('isLogin', 'false');
+									set.isLogin(false);
+
+									alert("로그아웃 되었습니다.");
+									navigate('/');
+								})
+								.catch((error) => {
+									console.log(error.response.data);
+
+									localStorage.setItem('isLogin', 'false');
+									set.isLogin(false);
+
+									alert("이미 세션이 종료된 상태입니다.");
+									navigate('/');
+								});
+						}}>로그아웃</p> : <Link to="/login"><p>로그인</p></Link>}
+						<p>·</p>
+						<Link to="/join"><p>회원가입</p></Link>
+					</div>
 				</div>
 			</div>
 		</div>

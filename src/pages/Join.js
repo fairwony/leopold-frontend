@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
@@ -6,6 +8,7 @@ import DaumPostcode from "../functions/DaumPostcode";
 import "./Join.css";
 
 export default function Join() {
+	const navigate = useNavigate();
 
 	const [isClause1Show, setIsClause1Show] = useState(false);
 	const [isClause2Show, setIsClause2Show] = useState(false);
@@ -50,6 +53,44 @@ export default function Join() {
 	};
 
 	const [isSamePassword, setIsSamePassword] = useState(true);
+
+
+
+
+	function handleClickJoin() {
+
+		let agreeSmsYn;
+		let agreeEmailYn;
+
+		if(agreeSms) agreeSmsYn = "y";
+		else agreeSmsYn = "n";
+
+		if(agreeEmail) agreeEmailYn = "y";
+		else agreeEmailYn = "n";
+
+		axios.post('http://localhost:8080/join', {
+			id: `${id}`,
+			password: `${password}`,
+			name: `${name}`,
+			zipcode: `${zipcode}`,
+			address: `${address}`,
+			addressDetail: `${addressDetail}`,
+			phoneAlt: `${phoneAlt1}-${phoneAlt2}-${phoneAlt3}`,
+			phone: `${phone1}-${phone2}-${phone3}`,
+			email: `${email}`,
+			agreeSmsYn: `${agreeSmsYn}`,
+			agreeEmailYn: `${agreeEmailYn}`
+		}, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				alert("회원가입 완료! 로그인 후 이용해 주세요.");
+				navigate("/login");
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			})
+	}
+
 
 	return (
 		<div className="Join">
@@ -514,7 +555,7 @@ export default function Join() {
 					</div>
 				</div>
 
-				<div className="join-finalJoin">
+				<div className="join-finalJoin" onClick={handleClickJoin}>
 					회원가입
 				</div>
 
