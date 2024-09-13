@@ -67,9 +67,9 @@ export default function Header() {
 								적립금 1,050P
 							</p>
 							<Link to="/support">
-							<p className="header-service" style={{ color: "white" }}>
-								고객지원
-							</p>
+								<p className="header-service" style={{ color: "white" }}>
+									고객지원
+								</p>
 							</Link>
 							<img src="\images\Header\search.png" alt="search_white"></img>
 							<img src="\images\Header\mypage.png" alt="mypage_white"></img>
@@ -102,7 +102,7 @@ export default function Header() {
 						<div className="header-container">
 							<p className="header-point">적립금 1,050P</p>
 							<Link to="/support">
-							<p className="header-service">고객지원</p>
+								<p className="header-service">고객지원</p>
 							</Link>
 							<img
 								src="\images\Header\h_search_black.png"
@@ -117,6 +117,7 @@ export default function Header() {
 					</div>
 				</div>
 			)}
+
 
 
 
@@ -247,7 +248,7 @@ export default function Header() {
 
 					<div className="login-container">
 						{get.isLogin ? <p style={{ cursor: "pointer" }} onClick={() => {
-							axios.post('http://localhost:8080/logout', {
+							axios.post('http://localhost:8080/logout', {}, {
 								withCredentials: true
 							})
 								.then((response) => {

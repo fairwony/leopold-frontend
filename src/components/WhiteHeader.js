@@ -45,7 +45,7 @@ export default function WhiteHeader() {
 					<div className="header-container">
 						<p className="header-point">적립금 1,050P</p>
 						<Link to="/support">
-						<p className="header-service">고객지원</p>
+							<p className="header-service">고객지원</p>
 						</Link>
 						<img
 							src="\images\Header\h_search_black.png"
@@ -60,6 +60,10 @@ export default function WhiteHeader() {
 				</div>
 			</div>
 
+
+
+
+
 			<div className={isMenuExtend ? "header-extend-yes" : "header-extend-no"}>
 				<img
 					src="\images\Header\close.png"
@@ -71,92 +75,38 @@ export default function WhiteHeader() {
 				/>
 
 				<div className="header-menu-container">
+
 					<div className="header-c1">
 						<p>쇼핑</p>
-						{is1Extend ? (
-							<div
-								className="header-minus"
-								onClick={() => {
-									setIs1Extend(!is1Extend);
-								}}
-							>
-								-
-							</div>
-						) : (
-							<div
-								className="header-plus"
-								onClick={() => {
-									setIs1Extend(!is1Extend);
-								}}
-							>
-								+
-							</div>
-						)}
+						{is1Extend
+							? <div className="header-minus"
+								onClick={() => { setIs1Extend(!is1Extend) }}>-</div>
+							: <div className="header-plus"
+								onClick={() => { setIs1Extend(!is1Extend) }}>+</div>}
 					</div>
 
-					<div
-						className={
-							is1Extend ? "header-c2-container" : "header-c2-container-hide"
-						}
-					>
+
+					<div className={is1Extend ? "header-c2-container" : "header-c2-container-hide"}>
 						<div className="header-c2">
 							<p>레오폴드 키보드</p>
-							{is1_1Extend ? (
-								<div
-									className="header-minus"
-									onClick={() => {
-										setIs1_1Extend(!is1_1Extend);
-									}}
-								>
-									-
-								</div>
-							) : (
-								<div
-									className="header-plus"
-									onClick={() => {
-										setIs1_1Extend(!is1_1Extend);
-									}}
-								>
-									+
-								</div>
-							)}
+							{is1_1Extend
+								? <div className="header-minus"
+									onClick={() => { setIs1_1Extend(!is1_1Extend) }}>-</div>
+								: <div className="header-plus"
+									onClick={() => { setIs1_1Extend(!is1_1Extend) }}>+</div>}
 						</div>
 
-						<div
-							className={
-								is1_1Extend ? "header-3-container" : "header-3-container-hide"
-							}
-						>
+						<div className={is1_1Extend ? "header-3-container" : "header-3-container-hide"}>
 							<div className="header-c3">
 								<p>기계식 유·무선 키보드</p>
-								{is1_1_1Extend ? (
-									<div
-										className="header-minus"
-										onClick={() => {
-											setIs1_1_1Extend(!is1_1_1Extend);
-										}}
-									>
-										-
-									</div>
-								) : (
-									<div
-										className="header-plus"
-										onClick={() => {
-											setIs1_1_1Extend(!is1_1_1Extend);
-										}}
-									>
-										+
-									</div>
-								)}
+								{is1_1_1Extend
+									? <div className="header-minus"
+										onClick={() => { setIs1_1_1Extend(!is1_1_1Extend) }}>-</div>
+									: <div className="header-plus"
+										onClick={() => { setIs1_1_1Extend(!is1_1_1Extend) }}>+</div>}
 							</div>
 
-							<div
-								className={
-									is1_1_1Extend
-										? "header-c4-container"
-										: "header-c4-container-hide"
-								}
-							>
+							<div className={is1_1_1Extend ? "header-c4-container" : "header-c4-container-hide"}>
 								<p className="header-c4">FC900RBT MX2A</p>
 								<p className="header-c4">FC900RBT</p>
 								<p className="header-c4">NP900RBT</p>
@@ -172,34 +122,14 @@ export default function WhiteHeader() {
 
 							<div className="header-c3">
 								<p>기계식 무선 키보드</p>
-								{is1_1_2Extend ? (
-									<div
-										className="header-minus"
-										onClick={() => {
-											setIs1_1_2Extend(!is1_1_2Extend);
-										}}
-									>
-										-
-									</div>
-								) : (
-									<div
-										className="header-plus"
-										onClick={() => {
-											setIs1_1_2Extend(!is1_1_2Extend);
-										}}
-									>
-										+
-									</div>
-								)}
+								{is1_1_2Extend
+									? <div className="header-minus"
+										onClick={() => { setIs1_1_2Extend(!is1_1_2Extend) }}>-</div>
+									: <div className="header-plus"
+										onClick={() => { setIs1_1_2Extend(!is1_1_2Extend) }}>+</div>}
 							</div>
 
-							<div
-								className={
-									is1_1_2Extend
-										? "header-c4-container"
-										: "header-c4-container-hide"
-								}
-							>
+							<div className={is1_1_2Extend ? "header-c4-container" : "header-c4-container-hide"}>
 								<p className="header-c4">FC900R MX2A</p>
 								<p className="header-c4">FC900R</p>
 								<p className="header-c4">FC750R</p>
@@ -214,70 +144,39 @@ export default function WhiteHeader() {
 							</div>
 						</div>
 
+
+
 						<div className="header-c2">
 							<p>리얼포스 키보드</p>
-							{is1_2Extend ? (
-								<div
-									className="header-minus"
-									onClick={() => {
-										setIs1_2Extend(!is1_2Extend);
-									}}
-								>
-									-
-								</div>
-							) : (
-								<div
-									className="header-plus"
-									onClick={() => {
-										setIs1_2Extend(!is1_2Extend);
-									}}
-								>
-									+
-								</div>
-							)}
+							{is1_2Extend
+								? <div className="header-minus"
+									onClick={() => { setIs1_2Extend(!is1_2Extend) }}>-</div>
+								: <div className="header-plus"
+									onClick={() => { setIs1_2Extend(!is1_2Extend) }}>+</div>}
 						</div>
 
-						<div
-							className={
-								is1_2Extend ? "header-3-container" : "header-3-container-hide"
-							}
-						></div>
+						<div className={is1_2Extend ? "header-3-container" : "header-3-container-hide"}>
+
+						</div>
+
+
 
 						<div className="header-c2">
 							<p>악세서리</p>
-							{is1_3Extend ? (
-								<div
-									className="header-minus"
-									onClick={() => {
-										setIs1_3Extend(!is1_3Extend);
-									}}
-								>
-									-
-								</div>
-							) : (
-								<div
-									className="header-plus"
-									onClick={() => {
-										setIs1_3Extend(!is1_3Extend);
-									}}
-								>
-									+
-								</div>
-							)}
+							{is1_3Extend
+								? <div className="header-minus"
+									onClick={() => { setIs1_3Extend(!is1_3Extend) }}>-</div>
+								: <div className="header-plus"
+									onClick={() => { setIs1_3Extend(!is1_3Extend) }}>+</div>}
 						</div>
 
-						<div
-							className={
-								is1_3Extend ? "header-3-container" : "header-3-container-hide"
-							}
-						></div>
+						<div className={is1_3Extend ? "header-3-container" : "header-3-container-hide"}>
+
+						</div>
 					</div>
 
-					<img
-						src="\images\Header\leopold_logo.png"
-						alt="logo"
-						style={{ marginTop: 10, width: 122 }}
-					/>
+					<img src="\images\Header\leopold_logo.png" alt="logo"
+						style={{ marginTop: 10, width: 122 }} />
 
 					<div></div>
 
@@ -291,7 +190,7 @@ export default function WhiteHeader() {
 
 					<div className="login-container">
 						{get.isLogin ? <p style={{ cursor: "pointer" }} onClick={() => {
-							axios.post('http://localhost:8080/logout', {
+							axios.post('http://localhost:8080/logout', {}, {
 								withCredentials: true
 							})
 								.then((response) => {
