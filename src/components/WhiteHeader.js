@@ -44,7 +44,9 @@ export default function WhiteHeader() {
 
 					<div className="header-container">
 						<p className="header-point">적립금 1,050P</p>
+						<Link to="/support">
 						<p className="header-service">고객지원</p>
+						</Link>
 						<img
 							src="\images\Header\h_search_black.png"
 							alt="search_black"

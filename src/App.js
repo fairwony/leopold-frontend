@@ -27,6 +27,7 @@ import ShoppingDetail from "./pages/ShoppingDetail";
 import Support from "./pages/Support";
 import Test from "./pages/Test";
 import WriteReview from "./pages/WriteReview";
+import WriteOne2one from "./pages/WriteOne2one";
 
 export default function App() {
 	return (
@@ -60,6 +61,7 @@ export default function App() {
 					<Route path="/review/write" element={<WriteReview />} />
 					<Route path="/one2one" element={<One2one />} />
 					<Route path="/one2one/detail" element={<One2OneDetail />} />
+					<Route path="/one2one/write" element={<WriteOne2one />} />
 					<Route path="/test" element={<Test />} />
 				</Routes>
 			</MyContext>
