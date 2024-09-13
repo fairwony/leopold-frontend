@@ -14,7 +14,7 @@ export default function AsReception() {
             <div className="asReception-board">
               {/* 메뉴 바 */}
               <div className="asReception-comm_title">
-                <ul className="aasReception-tab">
+                <ul className="asReception-tab">
                   <li className="asReception-on">
                     <Link to="/notice">
                       <div className="asReception-img">
@@ -23,7 +23,6 @@ export default function AsReception() {
                           alt="확성기"
                         />
                       </div>
-                      <br />
                       <div className="asReception-txt">공지사항</div>
                     </Link>
                   </li>
@@ -32,7 +31,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\Notice\cs_download.svg" alt="구름" />
                       </div>
-                      <br />
                       <div className="asReception-txt">자료실</div>
                     </Link>
                   </li>
@@ -41,7 +39,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\Notice\cs_faq.svg" alt="보고서" />
                       </div>
-                      <br />
                       <div className="asReception-txt">FAQ</div>
                     </Link>
                   </li>
@@ -50,7 +47,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\AS\cs_as_on.svg" alt="스패너" />
                       </div>
-                      <br />
                       <div className="asReception-txt">A/S 접수</div>
                     </Link>
                   </li>
@@ -59,7 +55,6 @@ export default function AsReception() {
                       <div className="asReception-img">
                         <img src="\images\Notice\cs_review.svg" alt="말풍선" />
                       </div>
-                      <br />
                       <div className="asReception-txt">사용자 리뷰</div>
                     </Link>
                   </li>
@@ -70,6 +65,9 @@ export default function AsReception() {
                 <h2>A/S 접수</h2>
                 <p>After Service</p>
               </div>
+              <form id="asReception-boardWrite">
+                
+              </form>
             </div>
           </div>
         </div>

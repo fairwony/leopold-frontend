@@ -13,17 +13,17 @@ import Login from "./pages/Login";
 import MyPage from "./pages/MyPage";
 import Notice from "./pages/Notice";
 import NoticeDetail from "./pages/NoticeDetail";
+import One2one from "./pages/One2one";
+import One2OneDetail from "./pages/One2OneDetail";
 import Order from "./pages/Order";
 import OrderDetail from "./pages/OrderDetail";
 import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
+import ReviewNotice from "./pages/ReviewNotice";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
 import Support from "./pages/Support";
-import ReviewNotice from "./pages/ReviewNotice";
 import WriteReview from "./pages/WriteReview";
-import One2one from "./pages/One2one";
-import One2OneDetail from "./pages/One2OneDetail";
 
 export default function App() {
 	return (
