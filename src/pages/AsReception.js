@@ -83,7 +83,10 @@ export default function AsReception() {
                       <tr>
                         <th>제목</th>
                         <td>
-                          <input id="asReception-subject" name="asReception-subject"/>
+                          <input
+                            id="asReception-subject"
+                            name="asReception-subject"
+                          />
                         </td>
                       </tr>
                       <tr>
@@ -93,6 +96,13 @@ export default function AsReception() {
                       </tr>
                     </tbody>
                   </table>
+                </div>
+                <div className="asReception-base-button">
+                  <span className="asReception-gLeft">
+                    <Link to={"/as"}>목록</Link>
+                  </span>
+                  <span>등록</span>
+                  <span>취소</span>
                 </div>
               </form>
             </div>
