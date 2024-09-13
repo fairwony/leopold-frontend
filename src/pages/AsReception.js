@@ -5,7 +5,6 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./AsReception.css";
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
-import FroalaEditorComponent from 'react-froala-wysiwyg';
 import EditorComponent from "../components/Editor";
 
 export default function AsReception() {
@@ -101,8 +100,8 @@ export default function AsReception() {
                   <span className="asReception-gLeft">
                     <Link to={"/as"}>목록</Link>
                   </span>
-                  <span>등록</span>
-                  <span>취소</span>
+                  <span className="asReception-btnSubmit">등록</span>
+                  <span className="asReception-btnBasic">취소</span>
                 </div>
               </form>
             </div>

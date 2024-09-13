@@ -102,3 +102,60 @@
     margin-right: 8px;
     font-size: 14px;
 }
+
+.asReception-base-button {
+    margin: 10px 0 40px;
+    padding: 40px 0 10px;
+}
+/* 목록 버튼 */
+.asReception-gLeft {
+    display: inline-block;
+    width: 160px;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #222;
+    font-size: 18px;
+}
+
+.asReception-gLeft:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+/* 등록 버튼 */
+.asReception-btnSubmit {
+    display: inline-block;
+    width: 160px;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    border: 1px solid #f90;
+    background-color: #f90;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Inter', 'Pretendard', 'sans-serif';   
+}
+
+.asReception-btnSubmit:hover {
+    color: #f90;
+    border: 1px solid #f90;
+    background-color: #fff; 
+}
+/* 취소 버튼 */
+.asReception-btnBasic {
+    display: inline-block;
+    width: 160px;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #222;
+    font-size: 18px;
+}
+
+.asReception-btnBasic:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
