@@ -1,6 +1,5 @@
 import "./Editor.css";
-import React from "react";
-import ReactDOM from "react-dom";
+
 // Require Editor CSS files.
 
 import "froala-editor/css/froala_style.min.css";
