@@ -243,6 +243,7 @@
 	height: 28px;
 	color: #878787;
 	font-size: 17px;
+	cursor: pointer;
 }
 
 .login-container{
