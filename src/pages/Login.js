@@ -15,7 +15,7 @@ export default function Login() {
 	const [password, setPassword] = useState();
 
 	function handleClickLogin() {
-		axios.post('http://localhost:8080/login', {
+		axios.post(`${process.env.REACT_APP_API_URL}/login`, {
 			id: `${id}`,
 			password: `${password}`
 		}, { withCredentials: true })
@@ -38,6 +38,7 @@ export default function Login() {
 		<div className="Login">
 			<WhiteHeader />
 			<Main>
+			
 				<p className="login-title">로그인</p>
 
 				<div className="login-key1">ID</div>

@@ -19,6 +19,12 @@ export default function WhiteHeader() {
 	const [is1_1_1Extend, setIs1_1_1Extend] = useState(false);
 	const [is1_1_2Extend, setIs1_1_2Extend] = useState(false);
 
+
+	function handleClickProduct(category) {
+		navigate(`/shopping?category=${category}&page=1&sort=new`);
+		setIsMenuExtend(false);
+	}
+
 	return (
 		<div className="WhiteHeader">
 			<div className="header-normal">
@@ -88,7 +94,7 @@ export default function WhiteHeader() {
 
 					<div className={is1Extend ? "header-c2-container" : "header-c2-container-hide"}>
 						<div className="header-c2">
-							<p>레오폴드 키보드</p>
+							<p style={{ cursor: "pointer" }} onClick={() => handleClickProduct(1)}>레오폴드 키보드</p>
 							{is1_1Extend
 								? <div className="header-minus"
 									onClick={() => { setIs1_1Extend(!is1_1Extend) }}>-</div>
@@ -98,7 +104,7 @@ export default function WhiteHeader() {
 
 						<div className={is1_1Extend ? "header-3-container" : "header-3-container-hide"}>
 							<div className="header-c3">
-								<p>기계식 유·무선 키보드</p>
+								<p style={{ cursor: "pointer" }} onClick={() => handleClickProduct(4)}>기계식 유·무선 키보드</p>
 								{is1_1_1Extend
 									? <div className="header-minus"
 										onClick={() => { setIs1_1_1Extend(!is1_1_1Extend) }}>-</div>
@@ -107,21 +113,21 @@ export default function WhiteHeader() {
 							</div>
 
 							<div className={is1_1_1Extend ? "header-c4-container" : "header-c4-container-hide"}>
-								<p className="header-c4">FC900RBT MX2A</p>
-								<p className="header-c4">FC900RBT</p>
-								<p className="header-c4">NP900RBT</p>
-								<p className="header-c4">FC750RBT MX2A</p>
-								<p className="header-c4">FC750RBT</p>
-								<p className="header-c4">NP750RBT</p>
-								<p className="header-c4">FC730MBT MX2A</p>
-								<p className="header-c4">FC630MBT MX2A</p>
-								<p className="header-c4">FC660MBT</p>
-								<p className="header-c4">FC980MBT</p>
-								<p className="header-c4">FC650MDSBT</p>
+								<p className="header-c4" onClick={() => handleClickProduct(7)}>FC900RBT MX2A</p>
+								<p className="header-c4" onClick={() => handleClickProduct(8)}>FC900RBT</p>
+								<p className="header-c4" onClick={() => handleClickProduct(9)}>NP900RBT</p>
+								<p className="header-c4" onClick={() => handleClickProduct(10)}>FC750RBT MX2A</p>
+								<p className="header-c4" onClick={() => handleClickProduct(11)}>FC750RBT</p>
+								<p className="header-c4" onClick={() => handleClickProduct(12)}>NP750RBT</p>
+								<p className="header-c4" onClick={() => handleClickProduct(13)}>FC730MBT MX2A</p>
+								<p className="header-c4" onClick={() => handleClickProduct(14)}>FC630MBT MX2A</p>
+								<p className="header-c4" onClick={() => handleClickProduct(15)}>FC660MBT</p>
+								<p className="header-c4" onClick={() => handleClickProduct(16)}>FC980MBT</p>
+								<p className="header-c4" onClick={() => handleClickProduct(17)}>FC650MDSBT</p>
 							</div>
 
 							<div className="header-c3">
-								<p>기계식 무선 키보드</p>
+								<p style={{ cursor: "pointer" }} onClick={() => handleClickProduct(5)}>기계식 무선 키보드</p>
 								{is1_1_2Extend
 									? <div className="header-minus"
 										onClick={() => { setIs1_1_2Extend(!is1_1_2Extend) }}>-</div>
@@ -130,17 +136,17 @@ export default function WhiteHeader() {
 							</div>
 
 							<div className={is1_1_2Extend ? "header-c4-container" : "header-c4-container-hide"}>
-								<p className="header-c4">FC900R MX2A</p>
-								<p className="header-c4">FC900R</p>
-								<p className="header-c4">FC750R</p>
-								<p className="header-c4">FC980M</p>
-								<p className="header-c4">FC660M</p>
-								<p className="header-c4">FC650MDS</p>
-								<p className="header-c4">FC210TP</p>
+								<p className="header-c4" onClick={() => handleClickProduct(18)}>FC900R MX2A</p>
+								<p className="header-c4" onClick={() => handleClickProduct(19)}>FC900R</p>
+								<p className="header-c4" onClick={() => handleClickProduct(20)}>FC750R</p>
+								<p className="header-c4" onClick={() => handleClickProduct(21)}>FC980M</p>
+								<p className="header-c4" onClick={() => handleClickProduct(22)}>FC660M</p>
+								<p className="header-c4" onClick={() => handleClickProduct(23)}>FC650MDS</p>
+								<p className="header-c4" onClick={() => handleClickProduct(24)}>FC210TP</p>
 							</div>
 
 							<div className="header-c3">
-								<p>정전용량 무접점</p>
+								<p style={{ cursor: "pointer" }} onClick={() => handleClickProduct(6)}>정전용량 무접점</p>
 							</div>
 						</div>
 
@@ -190,9 +196,7 @@ export default function WhiteHeader() {
 
 					<div className="login-container">
 						{get.isLogin ? <p style={{ cursor: "pointer" }} onClick={() => {
-							axios.post('http://localhost:8080/logout', {}, {
-								withCredentials: true
-							})
+							axios.post('http://localhost:8080/logout', {}, { withCredentials: true })
 								.then((response) => {
 									console.log(response.data);
 

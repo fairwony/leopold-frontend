@@ -13,20 +13,20 @@ export default function Join() {
 	const [isClause1Show, setIsClause1Show] = useState(false);
 	const [isClause2Show, setIsClause2Show] = useState(false);
 
-	const [id, setId] = useState();
-	const [password, setPassword] = useState();
-	const [passwordCheck, setPasswordCheck] = useState();
-	const [name, setName] = useState();
-	const [zipcode, setZipcode] = useState();
-	const [address, setAddress] = useState();
-	const [addressDetail, setAddressDetail] = useState();
-	const [phoneAlt1, setPhoneAlt1] = useState();
-	const [phoneAlt2, setPhoneAlt2] = useState();
-	const [phoneAlt3, setPhoneAlt3] = useState();
-	const [phone1, setPhone1] = useState();
-	const [phone2, setPhone2] = useState();
-	const [phone3, setPhone3] = useState();
-	const [email, setEmail] = useState();
+	const [id, setId] = useState("");
+	const [password, setPassword] = useState("");
+	const [passwordCheck, setPasswordCheck] = useState("");
+	const [name, setName] = useState("");
+	const [zipcode, setZipcode] = useState("");
+	const [address, setAddress] = useState("");
+	const [addressDetail, setAddressDetail] = useState("");
+	const [phoneAlt1, setPhoneAlt1] = useState("");
+	const [phoneAlt2, setPhoneAlt2] = useState("");
+	const [phoneAlt3, setPhoneAlt3] = useState("");
+	const [phone1, setPhone1] = useState("");
+	const [phone2, setPhone2] = useState("");
+	const [phone3, setPhone3] = useState("");
+	const [email, setEmail] = useState("");
 
 	const [agreeAll, setAgreeAll] = useState(false);
 	const [agreeClause1, setAgreeClause1] = useState(false);
@@ -53,7 +53,7 @@ export default function Join() {
 	};
 
 	const [isSamePassword, setIsSamePassword] = useState(true);
-
+	const [isUniqueId, setIsUniqueId] = useState(false);
 
 
 
@@ -62,10 +62,10 @@ export default function Join() {
 		let agreeSmsYn;
 		let agreeEmailYn;
 
-		if(agreeSms) agreeSmsYn = "y";
+		if (agreeSms) agreeSmsYn = "y";
 		else agreeSmsYn = "n";
 
-		if(agreeEmail) agreeEmailYn = "y";
+		if (agreeEmail) agreeEmailYn = "y";
 		else agreeEmailYn = "n";
 
 		axios.post('http://localhost:8080/join', {
@@ -75,7 +75,7 @@ export default function Join() {
 			zipcode: `${zipcode}`,
 			address: `${address}`,
 			addressDetail: `${addressDetail}`,
-			phoneAlt: `${phoneAlt1}-${phoneAlt2}-${phoneAlt3}`,
+			phoneAlt: (phoneAlt1 && phoneAlt2 && phoneAlt3 ? `${phoneAlt1}-${phoneAlt2}-${phoneAlt3}` : null),
 			phone: `${phone1}-${phone2}-${phone3}`,
 			email: `${email}`,
 			agreeSmsYn: `${agreeSmsYn}`,
