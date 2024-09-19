@@ -1,4 +1,6 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import ShoppingDetailTable from "../components/ShoppingDetailTable";
@@ -6,14 +8,35 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./ShoppingDetail.css";
 
 export default function ShoppingDetail() {
-	const category2 = "FC900RBT MX2A";
-	const category3 = "코랄 블루";
+	const navigate = useNavigate();
+	const [searchParams] = useSearchParams();
+	const uid = parseInt(searchParams.get("uid"));
+
+	const [category2, setCategory2] = useState("default");
+	const [category3, setCategory3] = useState("default");
 	const [category4, setCategory4] = useState("default");
 	const [category5, setCategory5] = useState("default");
 
 	const [preview, setPreview] = useState([]);
 
 	const [detailCategory, setDetailCategory] = useState(1);
+
+	const [product, setProduct] = useState({});
+
+	useEffect(() => {
+		axios.get(`http://localhost:8080/shopping/detail?uid=${uid}`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				setProduct(response.data);
+				setCategory2(response.data.productCategory);
+				setCategory3(response.data.color);
+				//성공적으로 데이터를 받았을 때 실행할 영역
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+				//에러가 떴을 때 실행할 영역
+			});
+	}, [])
 
 
 	const category4List = ["한글", "영문"];
@@ -56,7 +79,7 @@ export default function ShoppingDetail() {
 			return;
 		}
 
-		let price = 178000;
+		let price = product?.price * (1 - product?.discountRate);
 		if (e.target.value === "저소음 적축" || e.target.value === "백축" || e.target.value === "은축") {
 			price += 2500;
 		}
@@ -83,20 +106,26 @@ export default function ShoppingDetail() {
 			<Main>
 				<div style={{ margin: "208px auto 0px auto", display: "flex", gap: 80, width: 1280 }}>
 					<div className="sd-section1">
-						<img src="\images\MyPage\temp_cover.png" alt="cover" style={{ borderRadius: 30 }}
+						<img src={product?.coverUrl} alt="cover" style={{ borderRadius: 30 }}
 							width={638} height={638} />
 
 
 					</div>
 					<div className="sd-section2">
-						<p style={{ fontSize: 24, fontWeight: "bold" }}>FC900RBT MX2A 코랄 블루</p>
+						<p style={{ fontSize: 24, fontWeight: "bold" }}>{product?.productCategory} {product?.color}</p>
 
 						<div style={{ display: "flex", fontSize: 24, marginTop: 32, alignItems: "center" }}>
-							<p style={{ color: "#ff9924", fontWeight: "bold" }}>178,000</p>
+							<p style={{ color: "#ff9924", fontWeight: "bold" }}>{product?.price * (1 - product?.discountRate)}</p>
 							<p style={{ color: "#ff9924", fontWeight: "bold" }}>원</p>
-							<p style={{ fontSize: 20, color: "#c6c6c6", textDecoration: "line-through", marginLeft: 20 }}>178,000</p>
-							<p style={{ fontSize: 20, color: "#ff5a5a", marginLeft: 10 }}>10</p>
-							<p style={{ fontSize: 20, color: "#ff5a5a" }}>%</p>
+							{product?.discountRate !== 0.0
+								?
+								<div style={{ display: "flex", alignItems: "center" }}>
+									<p style={{ fontSize: 20, color: "#c6c6c6", textDecoration: "line-through", marginLeft: 20 }}>{product?.price}</p>
+									<p style={{ fontSize: 20, color: "#ff5a5a", marginLeft: 10 }}>{product?.discountRate * 100}</p>
+									<p style={{ fontSize: 20, color: "#ff5a5a" }}>%</p>
+								</div>
+								: undefined
+							}
 						</div>
 
 						<div className="sd-deliver-info">
@@ -199,7 +228,7 @@ export default function ShoppingDetail() {
 				}
 
 				{detailCategory === 2
-					? <img src="\images\Shopping\temp_detail.jpg" width={900} alt="detail"
+					? <img src={product?.detailUrl} width={900} alt="detail"
 						style={{ margin: "150px auto 0px auto", display: "block" }} />
 					: undefined
 				}

@@ -7,4 +7,10 @@
 	width: 317px;
 	height: 317px;
 	border-radius: 12px;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+
+.st-cover:hover {
+	transform: translate(0px, -4px);
 }

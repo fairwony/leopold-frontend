@@ -39,7 +39,7 @@ export default function Header() {
 
 
 	function handleClickProduct(category) {
-		navigate(`/shopping?category=${category}&page=1`);
+		navigate(`/shopping?category=${category}&page=1&sort=new`);
 		setIsMenuExtend(false);
 	}
 
