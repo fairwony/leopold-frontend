@@ -121,7 +121,6 @@ export default function ShoppingDetail() {
 							</select>
 						</div>
 
-
 						<div className="sd-category-box">
 							<p>스위치</p>
 

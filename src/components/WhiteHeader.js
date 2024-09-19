@@ -190,9 +190,7 @@ export default function WhiteHeader() {
 
 					<div className="login-container">
 						{get.isLogin ? <p style={{ cursor: "pointer" }} onClick={() => {
-							axios.post('http://localhost:8080/logout', {}, {
-								withCredentials: true
-							})
+							axios.post('http://localhost:8080/logout', {}, { withCredentials: true })
 								.then((response) => {
 									console.log(response.data);
 
