@@ -3,6 +3,7 @@ import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteReview.css";
 import Footer from "../components/Footer";
+import EditorComponent from "../components/Editor";
 
 export default function WriteReview() {
   return (
@@ -71,7 +72,9 @@ export default function WriteReview() {
                 <textarea className="write-title-box"></textarea>
             </div>
             <div className="write-content-container">
-                <div className="write-content-top"></div>
+                <div className="write-content-top">
+                  <EditorComponent />
+                </div>
                 <textarea className="write-content"></textarea>
             </div>
             <div className="ucc-container">

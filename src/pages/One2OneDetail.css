@@ -58,9 +58,22 @@
     text-align: center;
     line-height: 50px;
     font-size: 14px;
-    margin-top: 40px;
 }
-.catalog-box:hover{
+
+
+.one2one-catalog-box{
+    width: 120px;
+    height: 50px;
+    border: 1px solid #d9d9d9;
+    background-color: transparent;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+}
+
+.one2one-catalog-box:hover{
     background-color: #f9f5f5;
+    color: white;
+    background-color: #343434;
     cursor: pointer;
 }

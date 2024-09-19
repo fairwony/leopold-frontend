@@ -13,6 +13,8 @@ import FroalaEditorComponent from 'react-froala-wysiwyg';
 
 export default function EditorComponent (){
 
+  
+
 return (
   <div className="editor">
     <FroalaEditorComponent tag="textarea"/>

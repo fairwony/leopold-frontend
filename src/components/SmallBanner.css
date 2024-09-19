@@ -53,8 +53,9 @@
   position: absolute;
   top: 52px;
   left: 210px;
-  background-image: url(./icon_202307071543025600.png);
+  background-image: url(./smallbanner_cart_icon.png);
   background-size: cover;
+  cursor: pointer;
 }
 
 

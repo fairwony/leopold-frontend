@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./One2OneDetail.css";
+import "./ReviewDetail.css";
 
 export default function One2OneDetail() {
   return (
@@ -69,11 +70,14 @@ export default function One2OneDetail() {
                 감사합니다.
               </p>
             </div>
-            <Link to="/one2one">
-              <div style={{ marginTop: "115px" }} className="catalog-box">
-                목록
-              </div>
-            </Link>
+            <div style={{marginTop:"115px"}} className="review-catalog-container">
+              <Link to="/one2one">
+                <button className="catalog-box">
+                  목록
+                </button>
+              </Link>
+                <button className="one2one-catalog-box">삭제</button>
+            </div>
           </div>
         </div>
       </Main>

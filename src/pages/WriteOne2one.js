@@ -4,8 +4,27 @@ import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteOne2one.css";
 import "./WriteReview.css";
+import EditorComponent from "../components/Editor";
+import axios from "axios";
 
 export default function WriteOne2one() {
+
+window.onload = function(){
+const domainListEl = document.querySelector('#domain-list')
+const domainInputEl = document.querySelector('#domain-txt')
+
+domainListEl.addEventListener('change', (event) => {
+
+  if(event.target.value !== "type") {
+
+    domainInputEl.value = event.target.value
+    domainInputEl.disabled = true
+  } else { 
+    domainInputEl.value = ""
+    domainInputEl.disabled = false
+  }
+})}
+
   return (
     <>
       <WhiteHeader />
@@ -34,12 +53,13 @@ export default function WriteOne2one() {
               <p className="email-title">이메일</p>
               <textarea className="email-text-box"></textarea>
               <p style={{ color: "#9d9d9d", padding: "5px" }}>@</p>
-              <textarea className="email-text-box"></textarea>
-              <select className="select-box" name="email">
-                <option value="naver">naver.com</option>
-                <option value="gmail">gmail.com</option>
-                <option value="daum">daum.net</option>
-                <option value="nate">nate.com</option>
+              <input class="box" id="domain-txt" type="text" className="email-text-box"></input>
+              <select class="box" id="domain-list" className="select-box" name="email">
+                <option value="type">직접 입력</option>
+                <option value="naver.com">naver.com</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="daum.net">daum.net</option>
+                <option value="nate.com">nate.com</option>
               </select>
             </div>
             <div className="q-check-container">
@@ -54,7 +74,9 @@ export default function WriteOne2one() {
             </div>
           </div>
           <div style={{marginTop:"10px"}} className="write-content-container">
-            <div className="write-content-top"></div>
+            <div className="write-content-top">
+                <EditorComponent />
+            </div>
             <textarea className="write-content"></textarea>
           </div>
           <div className="catalog-container">
