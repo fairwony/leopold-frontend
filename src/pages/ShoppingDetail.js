@@ -1,14 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import ShoppingDetailTable from "../components/ShoppingDetailTable";
 import WhiteHeader from "../components/WhiteHeader";
+import { ContextSystem } from "../functions/MyContext";
 import "./ShoppingDetail.css";
 
 export default function ShoppingDetail() {
 	const navigate = useNavigate();
+	const { get } = useContext(ContextSystem);
 	const [searchParams] = useSearchParams();
 	const uid = parseInt(searchParams.get("uid"));
 
@@ -36,7 +38,7 @@ export default function ShoppingDetail() {
 				console.log(error.response.data);
 				//에러가 떴을 때 실행할 영역
 			});
-	}, [])
+	}, [uid])
 
 
 	const category4List = ["한글", "영문"];
@@ -95,6 +97,47 @@ export default function ShoppingDetail() {
 
 		console.log(previewTable);
 		setPreview([...preview, previewTable]);
+	}
+
+
+	function handleClickCart() {
+		console.log(preview);
+
+		if (get.isLogin === false) {
+			alert("로그인 후 이용해 주세요.");
+			navigate(`/login`);
+			return;
+		}
+
+		if (preview.length === 0) {
+			alert("상품을 선택해 주세요.");
+			return;
+		}
+
+		for (let i = 0; i < preview.length; i++) {
+			axios.post(`http://localhost:8080/cart`, {
+				category2: `${preview[i].category2}`,
+				category3: `${preview[i].category3}`,
+				category4: `${preview[i].category4}`,
+				category5: `${preview[i].category5}`,
+				quantity: `${preview[i].quantity}`
+			}, { withCredentials: true })
+				.then((response) => {
+					console.log(response.data);
+					//성공적으로 데이터를 보냈을 때 실행할 영역
+				})
+				.catch((error) => {
+					console.log(error.response.data);
+					//에러가 떴을 때 실행할 영역
+				});
+		}
+		
+		let confirm = window.confirm("성공적으로 등록되었습니다. 장바구니로 이동하시겠습니까?");
+		if (confirm) {
+			navigate('/cart');
+		} else {
+			navigate(-1);
+		}
 	}
 
 
@@ -184,7 +227,7 @@ export default function ShoppingDetail() {
 								<img src="\images\Shopping\interest.png" alt="interest" />
 							</button>
 
-							<button className="sd-cart-btn" onClick={() => { console.log(preview) }}>
+							<button className="sd-cart-btn" onClick={handleClickCart}>
 								장바구니
 							</button>
 
