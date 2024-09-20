@@ -1,4 +1,6 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CartTable from "../components/CartTable";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
@@ -6,7 +8,77 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./Cart.css";
 
 export default function Cart() {
+	const navigate = useNavigate();
+	const [cartList, setCartList] = useState([]);
 	const [selectList, setSelectList] = useState([]);
+
+	const [totalPrice, setTotalPrice] = useState(0);
+	const [totalDiscount, setTotalDiscount] = useState(0);
+
+	useEffect(() => {
+		axios.get(`http://localhost:8080/user/uid`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				axios.get(`http://localhost:8080/cart/list?uid=${response.data}`, { withCredentials: true })
+					.then((response) => {
+						console.log(response.data);
+						setCartList(response.data);
+
+						let totalPrice = 0;
+						let totalDiscount = 0;
+
+						for (let i = 0; i < response.data.length; i++) {
+							totalPrice += response.data[i].price * response.data[i].quantity;
+							totalDiscount += response.data[i].price * response.data[i].discountRate * response.data[i].quantity;
+						}
+
+						setTotalPrice(totalPrice);
+						setTotalDiscount(totalDiscount);
+					})
+					.catch((error) => {
+						console.log(error.response.data);
+						//에러가 떴을 때 실행할 영역
+					});
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			});
+	}, []);
+
+	const printCartList = cartList.map((cart, index) => {
+		return (
+			<CartTable cart={cart} selectList={selectList} setSelectList={setSelectList} key={index} />
+		)
+	})
+
+	function handleClickDeleteSelect() {
+		for (let i = 0; i < selectList.length; i++) {
+			axios.delete(`http://localhost:8080/cart?uid=${selectList[i]}`, { withCredentials: true })
+				.then((response) => {
+					console.log(response.data);
+				})
+				.catch((error) => {
+					console.log(error.response.data);
+				});
+		}
+		alert("선택한 상품이 삭제되었습니다.");
+		navigate(0);
+	}
+
+	function handleClickDeleteAll() {
+		for (let i = 0; i < cartList.length; i++) {
+			axios.delete(`http://localhost:8080/cart?uid=${cartList[i].uid}`, { withCredentials: true })
+				.then((response) => {
+					console.log(response.data);
+				})
+				.catch((error) => {
+					console.log(error.response.data);
+				});
+		}
+		alert("모든 상품이 삭제되었습니다.");
+		navigate(0);
+	}
+
 
 	return (
 		<div className="cart">
@@ -34,7 +106,7 @@ export default function Cart() {
 						수량
 					</div>
 					<div className="cart-key-box" style={{ width: 110 }}>
-						상품구매금액
+						상품금액
 					</div>
 					<div className="cart-key-box" style={{ width: 88 }}>
 						할인금액
@@ -53,31 +125,35 @@ export default function Cart() {
 					</div>
 				</div>
 
-				<CartTable selectList={selectList} setSelectList={setSelectList} />
+				{printCartList}
 
 				<div className="cart-function-container">
 					<div className="cart-funcion-section">
 						<p style={{ fontSize: 14, fontWeight: "bold" }}>선택상품을</p>
 						<button className="cart-small-button"
-							onClick={() => { console.log(selectList) }}>삭제하기</button>
+							onClick={handleClickDeleteSelect}>삭제하기</button>
 					</div>
 
 					<div className="cart-funcion-section">
-						<button className="cart-small-button" style={{ width: 130 }}>장바구니 비우기</button>
+						<button className="cart-small-button" style={{ width: 130 }}
+							onClick={handleClickDeleteAll}>장바구니 비우기</button>
 						<button className="cart-small-button">견적서 출력</button>
 					</div>
 				</div>
 
 				<div className="cart-total-table-th">
 					<div className="cart-tt-box" style={{ width: 227 }}>총 상품금액</div>
-					<div className="cart-tt-box" style={{ width: 256 }}></div>
+					<div className="cart-tt-box" style={{ width: 256 }}>총 할인금액</div>
 					<div className="cart-tt-box" style={{ width: 857 }}>결제예정금액</div>
 				</div>
 
 				<div className="cart-total-table-td">
-					<div className="cart-tt-box" style={{ width: 227 }}>178,000원</div>
-					<div className="cart-tt-box" style={{ width: 256 }}></div>
-					<div className="cart-tt-box" style={{ width: 857 }}>= 178,000원</div>
+					<div className="cart-tt-box" style={{ width: 227 }}>{totalPrice
+						?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</div>
+					<div className="cart-tt-box" style={{ width: 256, color: "#ff5a5a" }}>-{totalDiscount
+						?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</div>
+					<div className="cart-tt-box" style={{ width: 857 }}>= {(totalPrice - totalDiscount)
+						?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</div>
 				</div>
 
 				<div className="cart-small-title">

@@ -68,17 +68,11 @@ export default function Header() {
 						</Link>
 
 						<div className="header-container">
-							<p className="header-point" style={{ color: "white" }}>
-								적립금 1,050P
-							</p>
-							<Link to="/support">
-								<p className="header-service" style={{ color: "white" }}>
-									고객지원
-								</p>
-							</Link>
-							<img src="\images\Header\search.png" alt="search_white"></img>
-							<img src="\images\Header\mypage.png" alt="mypage_white"></img>
-							<img src="\images\Header\h_cart.png" alt="cart_white"></img>
+							<p className="header-point" style={{ color: "white" }}>적립금 1,050P</p>
+							<Link to="/support"><p className="header-service" style={{ color: "white" }}>고객지원</p></Link>
+							<img src="\images\Header\search.png" alt="search_white" />
+							<Link to="/mypage"><img src="\images\Header\mypage.png" alt="mypage_white" /></Link>
+							<Link to="/cart"><img src="\images\Header\h_cart.png" alt="cart_white" /></Link>
 						</div>
 					</div>
 				</div>
@@ -106,22 +100,15 @@ export default function Header() {
 
 						<div className="header-container">
 							<p className="header-point">적립금 1,050P</p>
-							<Link to="/support">
-								<p className="header-service">고객지원</p>
-							</Link>
-							<img
-								src="\images\Header\h_search_black.png"
-								alt="search_black"
-							></img>
-							<img
-								src="\images\Header\h_mypage_black.png"
-								alt="mypage_black"
-							></img>
-							<img src="\images\Header\h_cart_black.png" alt="cart_black"></img>
+							<Link to="/support"><p className="header-service">고객지원</p></Link>
+							<img src="\images\Header\h_search_black.png" alt="search_black" />
+							<Link to="/mypage"><img src="\images\Header\h_mypage_black.png" alt="mypage_black" /></Link>
+							<Link to="/cart"><img src="\images\Header\h_cart_black.png" alt="cart_black" /></Link>
 						</div>
 					</div>
 				</div>
-			)}
+			)
+			}
 
 
 
@@ -278,6 +265,6 @@ export default function Header() {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 }

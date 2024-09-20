@@ -18,8 +18,8 @@ import "froala-editor/js/plugins/align.min.js";
 import "froala-editor/js/languages/de.js";
 
 // Import a third-party plugin.
-import "froala-editor/js/third_party/image_tui.min.js";
 import "froala-editor/js/third_party/embedly.min.js";
+import "froala-editor/js/third_party/image_tui.min.js";
 import "froala-editor/js/third_party/spell_checker.min.js";
 
 // Include font-awesome css if required.
@@ -28,25 +28,11 @@ import "font-awesome/css/font-awesome.css";
 import "froala-editor/js/third_party/font_awesome.min.js";
 
 // Include special components if required.
-import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
-import FroalaEditorA from "react-froala-wysiwyg/FroalaEditorA";
-import FroalaEditorButton from "react-froala-wysiwyg/FroalaEditorButton";
-import FroalaEditorImg from "react-froala-wysiwyg/FroalaEditorImg";
-import FroalaEditorInput from "react-froala-wysiwyg/FroalaEditorInput";
 
 // Render Froala Editor component.
 
 export default function EditorComponent() {
 
-<<<<<<< HEAD
-  
-
-return (
-  <div className="editor">
-    <FroalaEditorComponent tag="textarea"/>
-  </div>
-);
-=======
   // let config = {
   //   documentReady: true,
   //   heightMin: 440,
@@ -56,7 +42,6 @@ return (
   //     },
   //   },
   // };
->>>>>>> 22eb8152461cbe98f7421dbc995483b948d8abc2
 
   // const [model,setModel] = useState("Example Set");
 

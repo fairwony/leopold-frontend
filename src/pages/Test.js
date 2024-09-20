@@ -13,6 +13,8 @@ export default function Test() {
 			})
 	}, [])
 
+	const stringValue = "<p>안녕하세요 레오폴드 입니다.</p><p><br /></p><p>키캡 재질은 상세페이지에 설명되어있습니다.</p><p>감사합니다.</p>";
+
 	return (
 		<>
 			<WhiteHeader />
@@ -28,6 +30,9 @@ export default function Test() {
 			}}>
 				현재 로그인된 유저정보 가져오기
 			</button>
+
+			<div dangerouslySetInnerHTML={{ __html: stringValue }} style={{ color: "red" }}></div>
+
 		</>
 	)
 }
