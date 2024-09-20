@@ -28,6 +28,11 @@ export default function Test() {
 			}}>
 				현재 로그인된 유저정보 가져오기
 			</button>
+
+
+			
+
+
 		</>
 	)
 }
