@@ -15,7 +15,7 @@ export default function Login() {
 	const [password, setPassword] = useState();
 
 	function handleClickLogin() {
-		axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+		axios.post(`http://localhost:8080/login`, {
 			id: `${id}`,
 			password: `${password}`
 		}, { withCredentials: true })
