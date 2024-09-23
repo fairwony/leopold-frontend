@@ -14,7 +14,6 @@
 }
 
 .asSub-move>span {
-    display: block;
     width: 80px;
     height: 32px;
     margin-right: 16px;
@@ -22,11 +21,38 @@
 }
 
 .asSub-move>svg {
-    display: block;
     width: 84px;
     height: 24px;
-    margin-left: 1000px;
+    margin-left: auto;
     padding: 0 30px;
     /* transform: rotate(-180deg); */
-    cursor: pointer;   
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.asSub-has-sub-a {
+    width: 1340px;
+    background-color: #f5f5f5;
+    padding: 28px 0;
+    color: #888888;
+    line-height: 32px;
+    border-top: 1px solid #ededed;
+}
+
+.asSub-wrap {
+    font-size: 14px;
+    display: flex;
+    width: 1340px;
+}
+
+.asSub-wrap>span {
+    display: block;
+    width: 80px;
+    margin-right: 16px;
+    text-align: center;
+}
+
+.asSub-wrap>div {
+    width: 1340px;
+    font-size: 14px;
 }
