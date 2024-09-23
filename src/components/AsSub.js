@@ -6,6 +6,7 @@ export default function AsSub({ list }) {
 
   return (
     <>
+    {/* Q */}
       <div
         className="asSub-move"
         onClick={() => setIsOpen((isOpen) => !isOpen)}
@@ -24,6 +25,7 @@ export default function AsSub({ list }) {
           />
         </svg>
       </div>
+    {/* A */}
       {isOpen && (
         <div className="asSub-has-sub-a">
           <div className="asSub-wrap">
