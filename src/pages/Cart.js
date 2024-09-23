@@ -52,6 +52,11 @@ export default function Cart() {
 	})
 
 	function handleClickDeleteSelect() {
+		if (selectList.length === 0) {
+			alert("선택한 상품이 존재하지 않습니다.");
+			return;
+		}
+
 		for (let i = 0; i < selectList.length; i++) {
 			axios.delete(`http://localhost:8080/cart?uid=${selectList[i]}`, { withCredentials: true })
 				.then((response) => {
@@ -66,6 +71,11 @@ export default function Cart() {
 	}
 
 	function handleClickDeleteAll() {
+		if (cartList.length === 0) {
+			alert("장바구니에 상품이 존재하지 않습니다.");
+			return;
+		}
+
 		for (let i = 0; i < cartList.length; i++) {
 			axios.delete(`http://localhost:8080/cart?uid=${cartList[i].uid}`, { withCredentials: true })
 				.then((response) => {
@@ -79,6 +89,41 @@ export default function Cart() {
 		navigate(0);
 	}
 
+	function handleClickBuy() {
+		if (cartList.length === 0) {
+			alert("장바구니에 상품이 존재하지 않습니다.");
+			return;
+		}
+
+		axios.delete(`http://localhost:8080/wish/delete`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+
+				const postRequests = cartList.map((cart) => {
+					axios.post(`http://localhost:8080/wish?cartUid=${cart.uid}`, {}, { withCredentials: true })
+						.then((response) => {
+							console.log(response.data);
+						})
+						.catch((error) => {
+							throw error;
+						});
+				});
+
+				Promise.all(postRequests)
+					.then(() => {
+						navigate("/payment");
+					})
+					.catch((error) => {
+						console.log(error.response ? error.response.data : error);
+					});
+			})
+			.catch((error) => {
+				console.log(error.response ? error.response.data : error);
+			});
+
+		
+
+	}
 
 	return (
 		<div className="cart">
@@ -137,7 +182,8 @@ export default function Cart() {
 					<div className="cart-funcion-section">
 						<button className="cart-small-button" style={{ width: 130 }}
 							onClick={handleClickDeleteAll}>장바구니 비우기</button>
-						<button className="cart-small-button">견적서 출력</button>
+						<button className="cart-small-button" style={{ backgroundColor: "#ff9900", color: "white" }}
+							onClick={handleClickBuy}>구매하기</button>
 					</div>
 				</div>
 

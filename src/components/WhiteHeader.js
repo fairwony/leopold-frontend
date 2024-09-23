@@ -1,10 +1,23 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextSystem } from "../functions/MyContext";
 import "./Header.css";
 
 export default function WhiteHeader() {
+	const [point, setPoint] = useState(0);
+
+	useEffect(() => {
+		axios.get(`http://localhost:8080/point`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				setPoint(response.data);
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			});
+	}, []);
+
 	const { get, set } = useContext(ContextSystem);
 	const navigate = useNavigate();
 
@@ -49,7 +62,9 @@ export default function WhiteHeader() {
 					</Link>
 
 					<div className="header-container">
-						<p className="header-point">적립금 1,050P</p>
+						{get.isLogin
+							? <p className="header-point">적립금 {point?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}P</p>
+							: undefined}
 						<Link to="/support"><p className="header-service">고객지원</p></Link>
 						<img src="\images\Header\h_search_black.png" alt="search_black" />
 						<Link to="/mypage"><img src="\images\Header\h_mypage_black.png" alt="mypage_black" /></Link>
@@ -205,7 +220,7 @@ export default function WhiteHeader() {
 									set.isLogin(false);
 
 									alert("이미 세션이 종료된 상태입니다.");
-									navigate('/');
+									navigate('/login');
 								});
 						}}>로그아웃</p> : <Link to="/login"><p>로그인</p></Link>}
 						<p>·</p>

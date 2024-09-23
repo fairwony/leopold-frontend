@@ -92,7 +92,6 @@ export default function CartTable({ cart, selectList, setSelectList }) {
 				</div>
 
 				<div className="cart-table-key-box" style={{ width: 152 }}>
-					<button className="cart-table-small-btn">주문하기</button>
 					<button className="cart-table-small-btn">관심상품</button>
 					<button className="cart-table-small-btn">삭제</button>
 				</div>
