@@ -25,9 +25,9 @@
     height: 24px;
     margin-left: auto;
     padding: 0 30px;
-    /* transform: rotate(-180deg); */
     cursor: pointer;
     font-weight: 400;
+    /* transform: rotate(-180deg); */
 }
 
 .asSub-has-sub-a {
@@ -37,12 +37,15 @@
     color: #888888;
     line-height: 32px;
     border-top: 1px solid #ededed;
+    /* display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;*/
 }
 
 .asSub-wrap {
     font-size: 14px;
     display: flex;
-    width: 1340px;
 }
 
 .asSub-wrap>span {

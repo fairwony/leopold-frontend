@@ -1,10 +1,15 @@
+import { useState } from "react";
 import "./AsSub.css";
 
 export default function AsSub({ list }) {
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <div className="asSub-move">
+      <div
+        className="asSub-move"
+        onClick={() => setIsOpen((isOpen) => !isOpen)}
+      >
         <span>
           <img src="images\FAQ\faq_q.svg" alt="Q" />
         </span>
@@ -19,15 +24,16 @@ export default function AsSub({ list }) {
           />
         </svg>
       </div>
-
-      <div className="asSub-has-sub-a">
-        <div className="asSub-wrap">
-          <span>
-            <img src="\images\FAQ\faq_a.svg" alt="A"></img>
-          </span>
-          <div dangerouslySetInnerHTML={{__html : list?.answer}} />
+      {isOpen && (
+        <div className="asSub-has-sub-a">
+          <div className="asSub-wrap">
+            <span>
+              <img src="\images\FAQ\faq_a.svg" alt="A"></img>
+            </span>
+            <div dangerouslySetInnerHTML={{ __html: list?.answer }} />
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
