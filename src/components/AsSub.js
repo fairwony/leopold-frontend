@@ -1,13 +1,19 @@
+import { useState } from "react";
 import "./AsSub.css";
 
-export default function AsSub() {
+export default function AsSub({ list }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <div className="asSub-move">
+      <div
+        className="asSub-move"
+        onClick={() => setIsOpen((isOpen) => !isOpen)}
+      >
         <span>
           <img src="images\FAQ\faq_q.svg" alt="Q" />
         </span>
-        {"A/S 비용 안내"}
+        {list?.question}
         <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
           <path
             d="M4 8L12 16L20 8"
@@ -18,6 +24,16 @@ export default function AsSub() {
           />
         </svg>
       </div>
+      {isOpen && (
+        <div className="asSub-has-sub-a">
+          <div className="asSub-wrap">
+            <span>
+              <img src="\images\FAQ\faq_a.svg" alt="A"></img>
+            </span>
+            <div dangerouslySetInnerHTML={{ __html: list?.answer }} />
+          </div>
+        </div>
+      )}
     </>
   );
 }
