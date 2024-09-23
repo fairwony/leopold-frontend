@@ -87,11 +87,12 @@
     color: #ededed;
 }
 
-#as-category-on {
+.as-category-on {
     color: #1a1a1a;
     border-bottom: 2px solid #f90;
     font-weight: 500;
 }
+
 /* Q&A */
 .as-cboth_questions {
     width: 1340px;

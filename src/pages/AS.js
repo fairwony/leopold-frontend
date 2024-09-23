@@ -105,14 +105,14 @@ export default function AS() {
           <div id="as-navi">
             <ul className="as-navi_cboth">
               <li
-                id={category === 1 ? "as-category-on" : ""}
+                className={category === 1 ? "as-category-on" : ""}
                 onClick={() => setCategory(1)}
               >
                 <span>A/S 필독사항</span>
               </li>
               <p>|</p>
               <li
-                id={category === 2 ? "as-category-on" : ""}
+                className={category === 2 ? "as-category-on" : ""}
                 onClick={() => setCategory(2)}
               >
                 <span>A/S 접수안내</span>
