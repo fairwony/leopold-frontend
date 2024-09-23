@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
-import "./ReviewDetail.css";
+import "./WriteReview.css";
 import Footer from "../components/Footer";
+import EditorComponent from "../components/Editor";
 
-export default function ReviewDetail() {
+export default function ReviewModify() {
   return (
     <>
       <WhiteHeader />
@@ -64,54 +65,33 @@ export default function ReviewDetail() {
           <h2>사용자 리뷰</h2>
           <p>User review</p>
         </div>
-        {/* 조회 */}
-        <div className="datail-contanier">
-          <div className="title-box">
-            <p className="title-text1">고민끝에 구매(FC900RBT)</p>
-            <div className="text2-box">
-              <p className="title-text2">김****</p>
-              <div className="title-line"></div>
-              <p className="title-text2">2024-08-29</p>
+        {/* 글작성 */}
+        <div className="write-container">
+            <div className="write-title-container">
+                <p style={{fontSize:"15px", width:"58px"}}>제목</p>
+                <textarea className="write-title-box"></textarea>
             </div>
-          </div>
-          <div className="content-box">
-            <p className="content-text">안녕하세요</p>
-            <p className="content-text">
-              빠르게 도착하여.. 수령해서 여기저기 확인해보고 타자를 해보니
-              개인적인 기준에는 만족감이 많습니다.
-            </p>
-          </div>
-          <div className="review-catalog-container">
-            <Link to="/review">
-              <button className="catalog-box">목록</button>
-            </Link>
-            <div className="delete-container">
-              <button className="catalog-box">삭제</button>
-              <Link to ="/review/modify">
-              <button className="review-modify-box">수정</button>
-              </Link>
+            <div className="write-content-container">
+                <div className="write-content-top">
+                  <EditorComponent />
+                </div>
+                <textarea className="write-content"></textarea>
             </div>
-          </div>
-          <div className="comment-container">
-            <div className="comment-box1">
-              <p className="comment-name">이****</p>
-              <p className="comment-text">2024-09-04</p>
-              <div className="modify-container">
-                <button className="modify-box">수정</button>
-                <button className="modify-box">삭제</button>
-              </div>
+            <div className="ucc-container">
+                <p style={{fontSize:"14px"}}>UCC URL</p>
+                <textarea className="ucc-box"></textarea>
             </div>
-            <div className="comment-box2">
-              <p className="comment-text">타자 칠 때 불편함은 없나요?</p>
+            <div className="guide-container">
+                <p style={{paddingBottom:"5px"}}>· 상품과 관련없는 내용 또는 이미지, 욕설/비방, 개인정보유출, 광고/홍보글 등 적절하지 않은 게시물은 별도의 고지없이 비공개 처리 될 수 있습니다.</p>
+                <p>· 작성된 게시물(사진, 동영상 포함)은 운영 및 마케팅에 활용될 수 있습니다.</p>
             </div>
-          </div>
-          <div className="write-comment-container">
-            <p className="write-comment-text">댓글달기</p>
-            <textarea className="write-comment-content"></textarea>
-            <div>
-              <button className="write-comment-check">확인</button>
+            <div className="catalog-container">
+                <Link to="/review"><button className="catalog-box2">목록</button></Link>
+                <div className="cancle-container">
+                <button className="register-box">수정</button>
+                <button className="catalog-box2">취소</button>
+                </div>
             </div>
-          </div>
         </div>
       </Main>
       <Footer />
