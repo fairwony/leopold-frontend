@@ -23,9 +23,12 @@ export default function Download() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`, {
-        withCredentials: true,
-      })
+      .get(
+        `http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         console.log(res.data);
         setDownloadList(res.data);
