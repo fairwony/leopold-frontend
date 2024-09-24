@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./One2one.css";
+import { useState } from "react";
+import axios from "axios";
 
 export default function One2one() {
+  
+
   return (
     <>
       <WhiteHeader />
@@ -39,6 +43,7 @@ export default function One2one() {
                     </tr>
                   </thead>
                   {/* 게시판 목록 */}
+                  
                   <tbody className="one2one-board-list">
                     <tr>
                       <td>{1}</td>
