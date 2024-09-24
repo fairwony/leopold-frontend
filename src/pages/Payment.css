@@ -7,7 +7,9 @@
 	margin: 0px auto;
 	border-left: 1px solid #c5c5c5;
 	border-right: 1px solid #c5c5c5;
+	border-bottom: 1px solid #c5c5c5;
 	background-color: #e8e8e8;
+	margin-bottom: 100px;
 }
 
 .payment-recent-box {

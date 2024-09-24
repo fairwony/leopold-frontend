@@ -95,7 +95,17 @@ export default function CartTable({ cart, selectList, setSelectList }) {
 
 				<div className="cart-table-key-box" style={{ width: 152 }}>
 					<button className="cart-table-small-btn">관심상품</button>
-					<button className="cart-table-small-btn">삭제</button>
+					<button className="cart-table-small-btn"
+						onClick={() => {
+							axios.delete(`http://localhost:8080/cart?uid=${cart?.uid}`, { withCredentials: true })
+								.then((response) => {
+									console.log(response.data);
+								})
+								.catch((error) => {
+									console.log(error.response.data);
+								});
+							navigate(0);
+						}}>삭제</button>
 				</div>
 			</div>
 		</div>

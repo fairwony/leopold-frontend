@@ -17,21 +17,23 @@ export default function Payment() {
 	const [isMyself, setIsMyself] = useState(false);
 
 
-	const [name, setName] = useState("");
+	const [receiver, setReceiver] = useState("");
 	const [zipcode, setZipcode] = useState("");
 	const [address, setAddress] = useState("");
 	const [addressDetail, setAddressDetail] = useState("");
 	const [phone1, setPhone1] = useState("");
 	const [phone2, setPhone2] = useState("");
 	const [phone3, setPhone3] = useState("");
+	const [email, setEmail] = useState("");
 	const [phoneAlt1, setPhoneAlt1] = useState("");
 	const [phoneAlt2, setPhoneAlt2] = useState("");
 	const [phoneAlt3, setPhoneAlt3] = useState("");
-	const [message, setMessage] = useState("");
+	const [message, setMessage] = useState("default");
 	const [messageSelf, setMessageSelf] = useState("");
+	const [account, setAccount] = useState("default");
+	const [holder, setHolder] = useState("");
 
 	const [point, setPoint] = useState('');
-	const userPoint = userInfo?.point;
 
 	const handleAddressComplete = (data) => {
 		let fullAddress = data.address;
@@ -67,13 +69,14 @@ export default function Payment() {
 				console.log(response.data);
 				setUserInfo(response.data);
 
-				setName(response.data.name);
+				setReceiver(response.data.name);
 				setZipcode(response.data.zipcode);
 				setAddress(response.data.address);
 				setAddressDetail(response.data.addressDetail);
 				setPhone1(response.data.phone.split("-")[0]);
 				setPhone2(response.data.phone.split("-")[1]);
 				setPhone3(response.data.phone.split("-")[2]);
+				setEmail(response.data.email);
 				setPhoneAlt1(response.data.phoneAlt.split("-")[0]);
 				setPhoneAlt2(response.data.phoneAlt.split("-")[1]);
 				setPhoneAlt3(response.data.phoneAlt.split("-")[2]);
@@ -101,7 +104,7 @@ export default function Payment() {
 		setMessageSelf("");
 
 		if (e.target.value === "sync") {
-			setName(userInfo?.name);
+			setReceiver(userInfo?.name);
 			setZipcode(userInfo?.zipcode);
 			setAddress(userInfo?.address);
 			setAddressDetail(userInfo?.addressDetail);
@@ -112,7 +115,7 @@ export default function Payment() {
 			setPhoneAlt2(userInfo?.phoneAlt.split("-")[1]);
 			setPhoneAlt3(userInfo?.phoneAlt.split("-")[2]);
 		} else {
-			setName("");
+			setReceiver("");
 			setZipcode("");
 			setAddress("");
 			setAddressDetail("");
@@ -139,6 +142,35 @@ export default function Payment() {
 		return sum + priceTotal;
 	}, 0);
 
+
+	function handleClickOrder() {
+		if(isMyself === true) setMessage(messageSelf);
+
+		axios.post(`http://localhost:8080/order`, {
+			receiver: `${receiver}`,
+			receiveMethod: `우체국택배`,
+			zipcode: `${zipcode}`,
+			address: `${address}`,
+			addressDetail: `${addressDetail}`,
+			phone: `${phone1}-${phone2}-${phone3}`,
+			email: `${email}`,
+			message: `${message}`,
+			deliverPrice: 3000,
+			status: `입금대기`,
+			finalPrice: `${priceTotalSum - discountTotalSum + 3000 - point}`,
+			paymentMethod: `무통장입금`,
+			account: `${account}`,
+			holder: `${holder}`
+		}, { withCredentials: true })
+			.then((response) => {
+				alert("주문 완료!");
+				console.log(response.data);
+			})
+			.catch((error) => {
+				alert("에러 발생");
+				console.log(error.response.data);
+			});
+	}
 
 
 	return (
@@ -171,7 +203,7 @@ export default function Payment() {
 					<div className="payment-addr-line">
 						<div className="payment-addr-key">받는사람</div>
 						<input className="payment-addr-input-1"
-							value={name} onChange={(e) => { setName(e.target.value) }} />
+							value={receiver} onChange={(e) => { setReceiver(e.target.value) }} />
 					</div>
 
 					<div className="payment-addr-line">
@@ -318,14 +350,14 @@ export default function Payment() {
 					<div className="payment-method-box-4">
 						<div style={{ display: "flex", alignItems: "center" }}>
 							<div className="payment-bank-key">입금은행</div>
-							<select className="payment-bank-value">
-								<option>:::선택해주세요:::</option>
+							<select className="payment-bank-value" onChange={(e) => { setAccount(e.target.value) }}>
+								<option value="default">:::선택해주세요:::</option>
 								<option>신한은행 110-234-5676890</option>
 							</select>
 						</div>
 						<div style={{ display: "flex", alignItems: "center" }}>
 							<div className="payment-bank-key">입금자명</div>
-							<input className="payment-bank-value" />
+							<input className="payment-bank-value" onChange={(e) => { setHolder(e.target.value) }} />
 						</div>
 					</div>
 				</div>
@@ -347,6 +379,34 @@ export default function Payment() {
 						?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
 				</div>
 			</PaymentContent>
+
+			<div style={{ width: 900, backgroundColor: "white" }}>
+				<div style={{
+					width: 900, height: 80, backgroundColor: "white", fontSize: 18, fontWeight: "bold",
+					display: "flex", justifyContent: "center", alignItems: "center"
+				}}>
+					주문 내용을 확인하였으며, 약관에 동의합니다.
+				</div>
+
+				<div style={{
+					width: 900, height: 50, backgroundColor: "#333333", fontSize: 18, fontWeight: "bold",
+					display: "flex", justifyContent: "center", alignItems: "center", color: "white", cursor: "pointer"
+				}} onClick={handleClickOrder}>
+					{(priceTotalSum - discountTotalSum + 3000 - point)
+						?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원 결제하기
+				</div>
+
+				<div style={{
+					width: 900, height: 150, backgroundColor: "#FAFAFD", fontSize: 13, color: "#797979",
+					display: "flex", flexDirection: "column", gap: 17,
+					paddingTop: 45, paddingLeft: 15
+				}}>
+					<p style={{ lineHeight: "1.5em" }}
+					> 무이자할부가 적용되지 않은 상품과 무이자할부가 가능한 상품을 동시에 구매할 경우 전체 주문 상품 금액에 대해 무이자할부가 적용되지 않습니다.
+						<br />무이자할부를 원하시는 경우 장바구니에서 무이자할부 상품만 선택하여 주문하여 주시기 바랍니다.</p>
+					<p> 최소 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
+				</div>
+			</div>
 		</div>
 	)
 }
