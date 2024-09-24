@@ -68,7 +68,7 @@ export default function Review() {
           <p>User review</p>
         </div>
         <div className="review-base-table">
-          {/* 게시판 카테고리 */}
+          {/* 리뷰 게시판 카테고리 */}
           <table>
             <colgroup className="review-board">
               <col style={{ width: "80px" }} />
@@ -84,7 +84,7 @@ export default function Review() {
                 <th>작성일</th>
               </tr>
             </thead>
-            {/* 게시판 공지사항 */}
+            {/* 리뷰 게시판 공지 */}
             <tbody className="review-board-notice">
               <tr>
                 <td>
@@ -107,6 +107,7 @@ export default function Review() {
                 </td>
               </tr>
             </tbody>
+            {/* 리뷰 게시판 내용 */}
             <tbody className="review-board-list">
               <tr>
                 <td>{494}</td>

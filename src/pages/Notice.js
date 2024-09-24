@@ -1,12 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import WhiteHeader from "../components/WhiteHeader";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./Notice.css";
 import NoticeTable from "../components/NoticeTable";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Notice() {
-  const notices = Array(15).fill(null);
+
+  const [queryParams] = useSearchParams();
+
+  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
+  const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
+  const [noticeList, setNoticeList] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/notices?page=${page}&size=${size}`, { withCredentials: true })
+      .then((res) => {
+        console.log(res.data);
+        setNoticeList(res.data);
+      })
+      .catch((err) => console.log(err.res.data));
+  }, [page, size]);
+
+  const printNoticeList = noticeList.map((list, index) => (
+    <NoticeTable list={list} key={index} />
+  ));
 
   return (
     <>
@@ -67,105 +89,30 @@ export default function Notice() {
           <h2>공지사항</h2>
           <p>Notice</p>
         </div>
-        {/* 표 제목 */}
-        <div>
+
+        <div className="notice-base-table">
           <table className="notice-thead">
-            <tr className="notice-theadTitle">
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "80px",
-                }}
-              >
-                번호
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "940px",
-                }}
-              >
-                제목
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "120px",
-                }}
-              >
-                작성자
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "120px",
-                }}
-              >
-                작성일
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "80px",
-                }}
-              >
-                조회
-              </th>
-            </tr>
-            {/* 표 내용 */}
-            <tr className="notice-tbody">
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "80px",
-                  color: "#1a1a1a",
-                }}
-              >
-                {18}
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "940px",
-                  color: "#555555",
-                  padding: "28px 0 28px 32px",
-                  textAlign: "left",
-                }}
-              >
-                <Link to={"/notice/detail"}>
-                  {"FC730MBT MX2A 코랄 블루 신제품 출시"}
-                </Link>
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "120px",
-                }}
-              >
-                <img src="images/Notice/ico_nick1.gif" />
-                {"Leopold"}
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "120px",
-                }}
-              >
-                <span>{"2024-08-29"}</span>
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "80px",
-                }}
-              >
-                <span>{315}</span>
-              </td>
-            </tr>
+            {/* 공지사항 게시판 카테고리 */}
+            <colgroup className="notice-board">
+              <col style={{ width: "80px" }} />
+              <col style={{ width: "auto" }} />
+              <col style={{ width: "120px" }} />
+              <col style={{ width: "120px" }} />
+              <col style={{ width: "80px" }} />
+            </colgroup>
+            <thead>
+              <tr className="notice-theadTitle">
+                <th className="notice-theadTitle">번호</th>
+                <th className="notice-theadTitle">제목</th>
+                <th className="notice-theadTitle">작성자</th>
+                <th className="notice-theadTitle">작성일</th>
+                <th className="notice-theadTitle">조회</th>
+              </tr>
+            </thead>
+            {/* 공지사항 게시판 내용 */}
+            {printNoticeList}
           </table>
-          {notices.map((_, index) => (
-            <NoticeTable key={index} />
-          ))}
+          
         </div>
         {/* 페이지 이동 화살표 */}
         <div className="notice-paging">

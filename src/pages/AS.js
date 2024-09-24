@@ -123,8 +123,8 @@ export default function AS() {
           <div className="as-cboth_questions">
             <ul>
               <li className="as-has-sub">
-                {category === 1 ? printAsList_1 : undefined}
-                {category === 2 ? printAsList_2 : undefined}
+                {category === 1 ? printAsList_1 : ""}
+                {category === 2 ? printAsList_2 : ""}
               </li>
             </ul>
           </div>
