@@ -4,6 +4,7 @@ import "./NoticeTable.css";
 export default function NoticeTable({list}) {
   return (
     <>
+    {/* 공지사항 게시판 내용 */}
       <tbody>
         <tr className="noticeTable-tbody">
           <td
