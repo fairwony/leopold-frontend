@@ -121,13 +121,13 @@ export default function Notice() {
         </div>
         {/* 페이지 이동 화살표 */}
         <Pagination
-          activePage={page} //현재 활성화된 페이지
-          itemsCountPerPage={size} //페이지당 아이템 수
-          totalItemsCount={noticeList[0]?.totalElements} //전체 아이템 수
-          pageRangeDisplayed={10} //페이지네이션에 표시할 페이지 범위
-          onChange={handlePageChange} //페이지 변경 시 호출되는 함수
-          itemClass="page-item" //각 페이지 아이템에 적용할 클래스명
-          linkClass="page-link" //각 페이지 링크에 적용할 클래스명
+          activePage={page} // 현재 활성화된 페이지
+          itemsCountPerPage={size} // 페이지당 아이템 수
+          totalItemsCount={noticeList[0]?.totalElements} // 전체 아이템 수
+          pageRangeDisplayed={10} // 페이지네이션에 표시할 페이지 범위
+          onChange={handlePageChange} // 페이지 변경 시 호출되는 함수
+          itemClass="page-item" // 각 페이지 아이템에 적용할 클래스명
+          linkClass="page-link" // 각 페이지 링크에 적용할 클래스명
         />
         {/* 찾기 메뉴*/}
         <form>
