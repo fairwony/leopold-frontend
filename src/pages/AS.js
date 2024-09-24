@@ -1,11 +1,11 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AsSub from "../components/AsSub";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./AS.css";
-import AsSub from "../components/AsSub";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 export default function AS() {
   const [category, setCategory] = useState(1);
@@ -123,7 +123,8 @@ export default function AS() {
           <div className="as-cboth_questions">
             <ul>
               <li className="as-has-sub">
-                {category === 1 ? printAsList_1 : printAsList_2}
+                {category === 1 ? printAsList_1 : undefined}
+                {category === 2 ? printAsList_2 : undefined}
               </li>
             </ul>
           </div>
