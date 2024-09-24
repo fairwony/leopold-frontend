@@ -9,6 +9,8 @@ import axios from "axios";
 import Pagination from "react-js-pagination";
 
 export default function Download() {
+  const [category, setCategory] = useState();
+
   const [queryParams] = useSearchParams();
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
