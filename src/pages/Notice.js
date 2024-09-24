@@ -98,7 +98,7 @@ export default function Notice() {
 
         <div className="notice-base-table">
           <table className="notice-thead">
-            {/* 공지사항 게시판 카테고리 */}
+            {/* 공지사항 게시판 목록 */}
             <colgroup className="notice-board">
               <col style={{ width: "80px" }} />
               <col style={{ width: "auto" }} />
@@ -115,7 +115,7 @@ export default function Notice() {
                 <th className="notice-theadTitle">조회</th>
               </tr>
             </thead>
-            {/* 공지사항 게시판 내용 */}
+            {/* 공지사항 게시판 목록 내용*/}
             {printNoticeList}
           </table>
         </div>

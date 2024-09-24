@@ -55,7 +55,7 @@
     line-height: 28px;
     margin-top: 16px;
 }
-/* 공지사항 게시판 카테고리 */
+/* 공지사항 게시판  */
 .notice-thead {
     width: 1340px;
     line-height: 1.5;
@@ -110,13 +110,13 @@
 
 .Notice .page-link {
     padding: 8px 16px;
-    color: #818181;
+    color: #939393;
     cursor: pointer;
 }
 
 .Notice .page-item.active .page-link {
     background-color: #f6f6f6;
-    color: #818181;
+    color: #1a1a1a;
 }
 
 .Notice .page-item:hover .page-link {

@@ -1,15 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./Download.css";
 import DownloadTable from "../components/DownloadTable";
 import WhiteHeader from "../components/WhiteHeader";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Pagination from "react-js-pagination";
 
 export default function Download() {
-  const downloads = Array(28).fill(null);
+  const [queryParams] = useSearchParams();
+
+  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
+  const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
+  const [downloadList, setDownloadList] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/downloads?page=${page}&size=${size}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setDownloadList(res.data);
+      })
+      .catch((err) => console.log(err.res.data));
+  }, [page, size]);
+
+  const printDownloadList = downloadList.map((list, index) => (
+    <DownloadTable list={list} key={index} />
+  ));
+
+  function handlePageChange(pageNumber) {
+    navigate(`/download?page=${pageNumber}&size=10`);
+  }
 
   return (
-    <>
+    <div className="Download">
       <WhiteHeader />
       <Main>
         <div className="download-comm_title">
@@ -78,110 +106,32 @@ export default function Download() {
             <option value={3}>문제해결</option>
           </select>
         </div>
-       
-        <div>
+
+        <div className="download-base-table">
           <table className="download-thead">
-            {/* 표 제목 */}
+            {/* 자료실 게시판 목록 */}
+            <colgroup className="notice-board">
+              <col style={{ width: "80px" }} />
+              <col style={{ width: "135px" }} />
+              <col style={{ width: "auto" }} />
+              <col style={{ width: "120px" }} />
+              <col style={{ width: "120px" }} />
+            </colgroup>
+            <thead>
             <tr className="download-theadTitle">
-              <th
-                className="download-theadTitle"
-                style={{
-                  width: "80px",
-                }}
-              >
-                번호
-              </th>
-              <th
-                className="download-theadTitle"
-                style={{
-                  width: "135px",
-                }}
-              >
-                카테고리
-              </th>
-              <th
-                className="download-theadTitle"
-                style={{
-                  width: "885px",
-                }}
-              >
-                제목
-              </th>
-              <th
-                className="download-theadTitle"
-                style={{
-                  width: "120px",
-                }}
-              >
-                작성자
-              </th>
-              <th
-                className="download-theadTitle"
-                style={{
-                  width: "120px",
-                }}
-              >
-                작성일
-              </th>
+              <th className="download-theadTitle">번호</th>
+              <th className="download-theadTitle">카테고리</th>
+              <th className="download-theadTitle">제목</th>
+              <th className="download-theadTitle">작성자</th>
+              <th className="download-theadTitle">작성일</th>
             </tr>
-            {/* 표 내용 */}
-            <tr className="download-tbody">
-              <td
-                className="download-tbodyContent"
-                style={{
-                  width: "80px",
-                  color: "#1a1a1a",
-                }}
-              >
-                {29}
-              </td>
-              <td
-                className="download-tbodyContent"
-                style={{
-                  width: "135px",
-                  color: "#9a9a9a",
-                }}
-              >
-                {"소프트웨어"}
-              </td>
-              <td
-                className="download-tbodyContent"
-                style={{
-                  width: "885px",
-                  color: "#555555",
-                  padding: "28px 0 28px 32px",
-                  textAlign: "left",
-                }}
-              >
-                <Link to={"/download/detail"}>
-                  {"리얼포스 소프트웨어 프로그램"}
-                </Link>
-              </td>
-              <td
-                className="download-tbodyContent"
-                style={{
-                  width: "120px",
-                }}
-              >
-                <img src="images/Notice/ico_nick1.gif" />
-                {"Leopold"}
-              </td>
-              <td
-                className="download-tbodyContent"
-                style={{
-                  width: "120px",
-                }}
-              >
-                <span>{"2024-07-31"}</span>
-              </td>
-            </tr>
+            </thead>
+            {/* 자료실 게시판 목록 내용 */}
+            {printDownloadList}
           </table>
-          {downloads.map((_, index) => (
-            <DownloadTable key={index} />
-          ))}
         </div>
         {/* 페이지 이동 화살표 */}
-        <div className="download-paging">
+        {/* <div className="download-paging">
           <ul className="download-ul">
             <li>&lt;</li>
             <li
@@ -195,7 +145,16 @@ export default function Download() {
             </li>
             <li>&gt;</li>
           </ul>
-        </div>
+        </div> */}
+        <Pagination
+          activePage={page} // 현재 활성화된 페이지
+          itemsCountPerPage={size} // 페이지당 아이템 수
+          totalItemsCount={downloadList[0]?.totalElements} // 전체 아이템 수
+          pageRangeDisplayed={10} // 페이지네이션에 표시할 페이지 범위
+          onChange={handlePageChange} // 페이지 변경 시 호출되는 함수
+          itemClass="page-item" // 각 페이지 아이템에 적용할 클래스명
+          linkClass="page-link" // 각 페이지 링크에 적용할 클래스명
+        />
         {/* 찾기 메뉴*/}
         <form>
           <div className="download-board_search">
@@ -221,6 +180,6 @@ export default function Download() {
         </form>
       </Main>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -76,8 +76,7 @@
 .download-thead {
     width: 1340px;
     line-height: 1.5;
-    margin: 0 auto;
-    
+    margin: 0 auto; 
 }
 
 .download-theadTitle {
@@ -107,7 +106,7 @@
     
 }
 /* 페이지 이동 화살표 */
-.download-paging {
+/* .download-paging {
     width: 1340px;
     height: 40px;
     margin: 40px auto;
@@ -129,6 +128,33 @@
     font-weight: 400;
     margin: 0 8px;
     line-height: 40px;
+} */
+.Download .pagination {
+    width: 1340px;
+    height: 40px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Download .page-item {
+    margin: 0px 7px;
+}
+
+.Download .page-link {
+    padding: 8px 16px;
+    color: #939393;
+    cursor: pointer;
+}
+
+.Download .page-item.active .page-link {
+    background-color: #f6f6f6;
+    color: #1a1a1a;
+}
+
+.Download .page-item:hover .page-link {
+    background-color: #f6f6f6;
 }
 /* 찾기 메뉴 */
 .download-board_search {
@@ -174,5 +200,4 @@
     height: 40px;
     display: inline-flex;
     align-items: center;
-
 }
