@@ -11,11 +11,16 @@ import Pagination from "react-js-pagination";
 export default function Download() {
   const [category, setCategory] = useState();
 
+  const [downloadList, setDownloadList] = useState([]);
+  const [downloadList_1, setDownloadList_1] = useState([]);
+  const [downloadList_2, setDownloadList_2] = useState([]);
+  const [downloadList_3, setDownloadList_3] = useState([]);
+
   const [queryParams] = useSearchParams();
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
-  const [downloadList, setDownloadList] = useState([]);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,11 +31,32 @@ export default function Download() {
       .then((res) => {
         console.log(res.data);
         setDownloadList(res.data);
+        setDownloadList_1(
+          res.data.filter(downloadList => downloadList.category === 1)
+        );
+        setDownloadList_2(
+          res.data.filter(downloadList => downloadList.category === 2)
+        );
+        setDownloadList_3(
+          res.data.filter(downloadList => downloadList.category === 3)
+        );
       })
       .catch((err) => console.log(err.res.data));
   }, [page, size]);
 
   const printDownloadList = downloadList.map((list, index) => (
+    <DownloadTable list={list} key={index} />
+  ));
+
+  const printDownloadList_1 = downloadList_1.map((list, index) => (
+    <DownloadTable list={list} key={index} />
+  ));
+
+  const printDownloadList_2 = downloadList_2.map((list, index) => (
+    <DownloadTable list={list} key={index} />
+  ));
+
+  const printDownloadList_3 = downloadList_3.map((list, index) => (
     <DownloadTable list={list} key={index} />
   ));
 
@@ -100,12 +126,16 @@ export default function Download() {
         {/* 카테고리 바 */}
         <div className="download-boardSort">
           <select id="download-board_category" name="board_category">
-            <option value selected={"selected"}>
-              전체
+            <option value={"selected"}>전체</option>
+            <option value={1} onClick={() => setCategory(1)}>
+              매뉴얼
             </option>
-            <option value={1}>매뉴얼</option>
-            <option value={2}>소프트웨어</option>
-            <option value={3}>문제해결</option>
+            <option value={2} onClick={() => setCategory(2)}>
+              소프트웨어
+            </option>
+            <option value={3} onClick={() => setCategory(3)}>
+              문제해결
+            </option>
           </select>
         </div>
 
@@ -120,16 +150,18 @@ export default function Download() {
               <col style={{ width: "120px" }} />
             </colgroup>
             <thead>
-            <tr className="download-theadTitle">
-              <th className="download-theadTitle">번호</th>
-              <th className="download-theadTitle">카테고리</th>
-              <th className="download-theadTitle">제목</th>
-              <th className="download-theadTitle">작성자</th>
-              <th className="download-theadTitle">작성일</th>
-            </tr>
+              <tr className="download-theadTitle">
+                <th className="download-theadTitle">번호</th>
+                <th className="download-theadTitle">카테고리</th>
+                <th className="download-theadTitle">제목</th>
+                <th className="download-theadTitle">작성자</th>
+                <th className="download-theadTitle">작성일</th>
+              </tr>
             </thead>
-            {/* 자료실 게시판 목록 내용 */}
-            {printDownloadList}
+            {/* 자료실 게시판 목록 내용 */}         
+            {category === 1 ? printDownloadList_1 : ""}
+            {category === 2 ? printDownloadList_2 : ""}
+            {category === 3 ? printDownloadList_3 : ""}
           </table>
         </div>
         {/* 페이지 이동 화살표 */}
