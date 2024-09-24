@@ -122,7 +122,6 @@
 .Notice .page-item:hover .page-link {
     background-color: #f6f6f6;
 }
-
 /* 찾기 메뉴 */
 .notice-board_search {
     width: 1340px;
@@ -168,5 +167,4 @@
     height: 40px;
     display: inline-flex;
     align-items: center;
-
 }
