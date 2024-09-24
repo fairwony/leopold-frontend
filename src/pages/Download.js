@@ -26,7 +26,7 @@ export default function Download() {
       .get(
         `http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`,
         {
-          withCredentials: true,
+          withCredentials: true
         }
       )
       .then((res) => {
