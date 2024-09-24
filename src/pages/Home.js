@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -80,6 +81,7 @@ export default function Home() {
 			그 이상의 가치를 느끼게 해드립니다
             </p>
 			<div className="service-group">
+        <Link to = "/one2one">
 				<div className="service-box">
 					<img style={{marginTop:"35px"}} src="\images\Home\문의.png"></img>
 					<p className="service-boldtext">1:1 문의</p>
@@ -87,6 +89,9 @@ export default function Home() {
 					궁금하신 사항을 문의해 주세요.  <br /> 최선을 다해 답변해 드리겠습니다.
 					</p>
 				</div>
+        </Link>
+        
+        <Link to = "/as">
 				<div className="service-box">
 					<img style={{marginTop:"35px"}} src="\images\Home\AS.png"></img>
 					<p className="service-boldtext">A/S 접수</p>
@@ -94,6 +99,9 @@ export default function Home() {
 					도움이 필요하시면 언제든지 문의해주세요.  <br /> 최대한 빠르게 도움 드리겠습니다.
 					</p>
 				</div>
+        </Link>
+
+        <Link to = "/faq">
 				<div className="service-box">
 					<img style={{marginTop:"35px"}} src="\images\Home\FAQ.png"></img>
 					<p className="service-boldtext">FAQ</p>
@@ -101,7 +109,9 @@ export default function Home() {
 					고객님들의 자주 묻는 질문을  <br /> 확인 해보세요.
 					</p>
 				</div>
+        </Link>
 			</div>
+      
 		  </div>
         </div>
       </Main>

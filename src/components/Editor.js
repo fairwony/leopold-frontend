@@ -26,6 +26,7 @@ import "froala-editor/js/third_party/spell_checker.min.js";
 // install using "npm install font-awesome --save"
 import "font-awesome/css/font-awesome.css";
 import "froala-editor/js/third_party/font_awesome.min.js";
+import { useState } from "react";
 
 // Include special components if required.
 
@@ -48,6 +49,7 @@ export default function EditorComponent() {
   // const handleModelChange= (event)=>{
   //   setModel(event)
   // }
+
 
   return (
     <>
