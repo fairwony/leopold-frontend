@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./DownloadTable.css";
 
-export default function DownloadTable({ list, index }) {
+export default function DownloadTable({ list, index, page, size }) {
 
 	return (
 		<>
@@ -14,7 +14,7 @@ export default function DownloadTable({ list, index }) {
 							color: "#1a1a1a",
 						}}
 					>
-						{list.totalElements - index}
+						{list.totalElements - ((page - 1) * size + index)}
 					</td>
 					<td
 						className="downloadTable-tbodyContent"

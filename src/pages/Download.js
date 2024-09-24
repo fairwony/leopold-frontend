@@ -35,11 +35,11 @@ export default function Download() {
 	}, [page, size, categoryUid]);
 
 	const printDownloadList = downloadList.map((list, index) => (
-		<DownloadTable list={list} key={index} index={index} />
+		<DownloadTable list={list} key={index} index={index} page={page} size={size} />
 	));
 
 	function handlePageChange(pageNum) {
-		navigate(`/download?page=${pageNum}&size=10`);
+		navigate(`/download?page=${pageNum}&size=10&category=${categoryUid}`);
 	}
 
 	function handleChangeSort(e) {
