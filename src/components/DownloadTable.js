@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./DownloadTable.css";
 
 export default function DownloadTable() {
+  
   return (
     <>
       <table className="downloadTable">

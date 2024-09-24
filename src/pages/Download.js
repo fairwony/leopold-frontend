@@ -78,9 +78,10 @@ export default function Download() {
             <option value={3}>문제해결</option>
           </select>
         </div>
-        {/* 표 제목 */}
+       
         <div>
           <table className="download-thead">
+            {/* 표 제목 */}
             <tr className="download-theadTitle">
               <th
                 className="download-theadTitle"
