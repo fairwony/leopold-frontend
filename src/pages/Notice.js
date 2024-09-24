@@ -32,8 +32,8 @@ export default function Notice() {
     <NoticeTable list={list} key={index} />
   ));
 
-  function handlePageChange(pageNumber) {
-    navigate(`/notice?page=${pageNumber}&size=10`);
+  function handlePageChange(pageNum) {
+    navigate(`/notice?page=${pageNum}&size=10`);
   }
 
   return (

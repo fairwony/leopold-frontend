@@ -32,8 +32,8 @@ export default function Download() {
     <DownloadTable list={list} key={index} />
   ));
 
-  function handlePageChange(pageNumber) {
-    navigate(`/download?page=${pageNumber}&size=10`);
+  function handlePageChange(pageNum) {
+    navigate(`/download?page=${pageNum}&size=10`);
   }
 
   return (
