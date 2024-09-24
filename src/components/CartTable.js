@@ -65,7 +65,8 @@ export default function CartTable({ cart, selectList, setSelectList }) {
 				</div>
 
 				<div className="cart-table-key-box" style={{ width: 110 }}>
-					<p style={{ fontWeight: "bold" }}>{cart?.price * cart?.quantity}원</p>
+					<p style={{ fontWeight: "bold" }}>{(cart?.price * cart?.quantity)
+						?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
 				</div>
 
 				{cart?.discountRate === 0
@@ -75,7 +76,8 @@ export default function CartTable({ cart, selectList, setSelectList }) {
 					</div>
 					:
 					<div className="cart-table-key-box" style={{ width: 88, color: "#ff5a5a" }}>
-						-{cart?.price * cart?.discountRate * cart?.quantity}원
+						-{(cart?.price * cart?.discountRate * cart?.quantity)
+							?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
 					</div>
 				}
 
