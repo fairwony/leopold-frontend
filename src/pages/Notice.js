@@ -6,9 +6,9 @@ import "./Notice.css";
 import NoticeTable from "../components/NoticeTable";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Pagination from "react-js-pagination";
 
 export default function Notice() {
-
   const [queryParams] = useSearchParams();
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
@@ -18,7 +18,9 @@ export default function Notice() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/notices?page=${page}&size=${size}`, { withCredentials: true })
+      .get(`http://localhost:8080/notices?page=${page}&size=${size}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res.data);
         setNoticeList(res.data);
@@ -30,8 +32,13 @@ export default function Notice() {
     <NoticeTable list={list} key={index} />
   ));
 
+  function handlePageChange() {
+    
+    navigate(`/notice?page=1&size=10`);
+  }
+
   return (
-    <>
+    <div className="Notice">
       <WhiteHeader />
       <Main>
         {/* 메뉴 바 */}
@@ -112,25 +119,17 @@ export default function Notice() {
             {/* 공지사항 게시판 내용 */}
             {printNoticeList}
           </table>
-          
         </div>
         {/* 페이지 이동 화살표 */}
-        <div className="notice-paging">
-          <ul className="notice-ul">
-            <li>&lt;</li>
-            <li
-              style={{
-                color: "#1a1a1a",
-                fontWeight: "700",
-                cursor: "pointer",
-              }}
-            >
-              1
-            </li>
-            <li>2</li>
-            <li>&gt;</li>
-          </ul>
-        </div>
+        <Pagination
+          activePage={page} //현재 활성화된 페이지
+          itemsCountPerPage={size} //페이지당 아이템 수
+          totalItemsCount={noticeList[0]?.totalElements} //전체 아이템 수
+          pageRangeDisplayed={10} //페이지네이션에 표시할 페이지 범위
+          onChange={handlePageChange} //페이지 변경 시 호출되는 함수
+          itemClass="page-item" //각 페이지 아이템에 적용할 클래스명
+          linkClass="page-link" //각 페이지 링크에 적용할 클래스명
+        />
         {/* 찾기 메뉴*/}
         <form>
           <div className="notice-board_search">
@@ -156,6 +155,6 @@ export default function Notice() {
         </form>
       </Main>
       <Footer />
-    </>
+    </div>
   );
 }
