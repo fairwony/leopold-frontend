@@ -1,60 +1,44 @@
 import { Link } from "react-router-dom";
 import "./NoticeTable.css";
 
-export default function NoticeTable() {
+export default function NoticeTable({list}) {
   return (
     <>
-      <table className="noticeTable">
-        <tr className="notice-tbody">
+    {/* 공지사항 게시판 내용 */}
+      <tbody>
+        <tr className="noticeTable-tbody">
           <td
-            className="notice-tbodyContent"
+            className="noticeTable-tbodyContent"
             style={{
-              width: "80px",
               color: "#1a1a1a",
             }}
           >
-            {18}
+            {list.uid}
           </td>
           <td
-            className="notice-tbodyContent"
+            className="noticeTable-tbodyContent"
             style={{
-              width: "940px",
               color: "#555555",
               padding: "28px 0 28px 32px",
               textAlign: "left",
             }}
           >
             <Link to={"/notice/detail"}>
-              {"FC730MBT MX2A 코랄 블루 신제품 출시"}
+              {list.title}
             </Link>
           </td>
-          <td
-            className="notice-tbodyContent"
-            style={{
-              width: "120px",
-            }}
-          >
+          <td className="noticeTable-tbodyContent">
             <img src="images/Notice/ico_nick1.gif" />
             {"Leopold"}
           </td>
-          <td
-            className="notice-tbodyContent"
-            style={{
-              width: "120px",
-            }}
-          >
-            <span>{"2024-08-29"}</span>
+          <td className="noticeTable-tbodyContent">
+            <span>{list.writeDate}</span>
           </td>
-          <td
-            className="notice-tbodyContent"
-            style={{
-              width: "80px",
-            }}
-          >
-            <span>{315}</span>
+          <td className="noticeTable-tbodyContent">
+            <span>{list.hit}</span>
           </td>
         </tr>
-      </table>
+      </tbody>
     </>
   );
 }

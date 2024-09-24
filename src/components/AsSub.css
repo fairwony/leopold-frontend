@@ -27,7 +27,10 @@
     padding: 0 30px;
     cursor: pointer;
     font-weight: 400;
-    /* transform: rotate(-180deg); */
+}
+
+.asSub-arrow-up {
+   transform: rotate(180deg);
 }
 
 .asSub-has-sub-a {
@@ -37,10 +40,18 @@
     color: #888888;
     line-height: 32px;
     border-top: 1px solid #ededed;
-    /* display: none;
+    max-height: 1000px;
+    transition: 0.5s;
+}
+
+.asSub-has-sub-b {
+    width: 1340px;
+    background-color: #f5f5f5;
+    color: #888888;
+    line-height: 32px;
+    max-height: 0px;
     overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.2s ease-out;*/
+    transition: 0.5s;
 }
 
 .asSub-wrap {

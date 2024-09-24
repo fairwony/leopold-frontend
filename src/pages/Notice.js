@@ -1,15 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import WhiteHeader from "../components/WhiteHeader";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./Notice.css";
 import NoticeTable from "../components/NoticeTable";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Pagination from "react-js-pagination";
 
 export default function Notice() {
-  const notices = Array(15).fill(null);
+  const [queryParams] = useSearchParams();
+
+  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
+  const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
+  const [noticeList, setNoticeList] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/notices?page=${page}&size=${size}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res.data);
+        setNoticeList(res.data);
+      })
+      .catch((err) => console.log(err.res.data));
+  }, [page, size]);
+
+  const printNoticeList = noticeList.map((list, index) => (
+    <NoticeTable list={list} key={index} />
+  ));
+
+  function handlePageChange(pageNum) {
+    navigate(`/notice?page=${pageNum}&size=10`);
+  }
 
   return (
-    <>
+    <div className="Notice">
       <WhiteHeader />
       <Main>
         {/* 메뉴 바 */}
@@ -67,123 +95,40 @@ export default function Notice() {
           <h2>공지사항</h2>
           <p>Notice</p>
         </div>
-        {/* 표 제목 */}
-        <div>
+
+        <div className="notice-base-table">
           <table className="notice-thead">
-            <tr className="notice-theadTitle">
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "80px",
-                }}
-              >
-                번호
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "940px",
-                }}
-              >
-                제목
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "120px",
-                }}
-              >
-                작성자
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "120px",
-                }}
-              >
-                작성일
-              </th>
-              <th
-                className="notice-theadTitle"
-                style={{
-                  width: "80px",
-                }}
-              >
-                조회
-              </th>
-            </tr>
-            {/* 표 내용 */}
-            <tr className="notice-tbody">
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "80px",
-                  color: "#1a1a1a",
-                }}
-              >
-                {18}
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "940px",
-                  color: "#555555",
-                  padding: "28px 0 28px 32px",
-                  textAlign: "left",
-                }}
-              >
-                <Link to={"/notice/detail"}>
-                  {"FC730MBT MX2A 코랄 블루 신제품 출시"}
-                </Link>
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "120px",
-                }}
-              >
-                <img src="images/Notice/ico_nick1.gif" />
-                {"Leopold"}
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "120px",
-                }}
-              >
-                <span>{"2024-08-29"}</span>
-              </td>
-              <td
-                className="notice-tbodyContent"
-                style={{
-                  width: "80px",
-                }}
-              >
-                <span>{315}</span>
-              </td>
-            </tr>
+            {/* 공지사항 게시판 목록 */}
+            <colgroup className="notice-board">
+              <col style={{ width: "80px" }} />
+              <col style={{ width: "auto" }} />
+              <col style={{ width: "120px" }} />
+              <col style={{ width: "120px" }} />
+              <col style={{ width: "80px" }} />
+            </colgroup>
+            <thead>
+              <tr className="notice-theadTitle">
+                <th className="notice-theadTitle">번호</th>
+                <th className="notice-theadTitle">제목</th>
+                <th className="notice-theadTitle">작성자</th>
+                <th className="notice-theadTitle">작성일</th>
+                <th className="notice-theadTitle">조회</th>
+              </tr>
+            </thead>
+            {/* 공지사항 게시판 목록 내용*/}
+            {printNoticeList}
           </table>
-          {notices.map((_, index) => (
-            <NoticeTable key={index} />
-          ))}
         </div>
         {/* 페이지 이동 화살표 */}
-        <div className="notice-paging">
-          <ul className="notice-ul">
-            <li>&lt;</li>
-            <li
-              style={{
-                color: "#1a1a1a",
-                fontWeight: "700",
-                cursor: "pointer",
-              }}
-            >
-              1
-            </li>
-            <li>2</li>
-            <li>&gt;</li>
-          </ul>
-        </div>
+        <Pagination
+          activePage={page} // 현재 활성화된 페이지
+          itemsCountPerPage={size} // 페이지당 아이템 수
+          totalItemsCount={noticeList[0]?.totalElements} // 전체 아이템 수
+          pageRangeDisplayed={10} // 페이지네이션에 표시할 페이지 범위
+          onChange={handlePageChange} // 페이지 변경 시 호출되는 함수
+          itemClass="page-item" // 각 페이지 아이템에 적용할 클래스명
+          linkClass="page-link" // 각 페이지 링크에 적용할 클래스명
+        />
         {/* 찾기 메뉴*/}
         <form>
           <div className="notice-board_search">
@@ -209,6 +154,6 @@ export default function Notice() {
         </form>
       </Main>
       <Footer />
-    </>
+    </div>
   );
 }

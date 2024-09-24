@@ -87,7 +87,7 @@
     color: #ededed;
 }
 
-#as-category-on {
+.as-category-on {
     color: #1a1a1a;
     border-bottom: 2px solid #f90;
     font-weight: 500;
@@ -106,32 +106,6 @@
     font-size: 18px;
     font-weight: 400;
     text-align: left;
-}
-
-.as-move {
-    width: 1340px;
-    height: 88px;
-    padding: 28px 0;
-    cursor: pointer;
-    line-height: 32px;
-    display: flex;
-}
-
-.as-move>span {
-    display: block;
-    width: 80px;
-    height: 32px;
-    margin-right: 16px;
-    text-align: center;
-}
-
-.as-move>svg {
-    display: block;
-    width: 84px;
-    height: 24px;
-    margin-left: 943px;
-    transform: rotate(-180deg);
-    cursor: pointer;   
 }
 /* 접수하기 버튼*/
 .as-btn {
