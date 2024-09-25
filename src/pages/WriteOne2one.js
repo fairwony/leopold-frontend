@@ -22,6 +22,10 @@ export default function WriteOne2one() {
     if(email2==="type") emailDomain = email3;
     else emailDomain = email2;
 
+    if(title == "" || content == ""){
+      alert("제목 또는 내용을 입력하세요.");
+    }
+
     axios
       .post(
         "http://localhost:8080/one2one/write",

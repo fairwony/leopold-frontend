@@ -25,33 +25,53 @@ export default function One2OneDetail() {
 
   useEffect(()=>{
     axios.get(`http://localhost:8080/one2one/${uid}`)
-    .then((resp) => {
-      setOne2One(resp.data);
-    })
-    .catch((e)=> {
-      console.log(e);
-    })
-  }, [])
+    .then((res)=>{
+      setOne2One(res.data);
+  })
+  .catch((e)=>{
+      console.log(e);    
+  });
+}, [])
 
-  const handleDelte=() => {
-    axios.delete(`http://localhost:8080/one2one/delete/${uid}`,{
-      data:{
-        deleteYn:"y"
-      },
-      withCredentials:true
-    })
-    if(window.confirm("해당 문의를 삭제하시겠습니까?")){
-      alert("삭제 완료!")
-    }
+const handleDelte=() => {
+  axios.delete(`http://localhost:8080/one2one/delete/${uid}`,{
+    data:{
+      deleteYn:"y"
+    },
+    withCredentials:true
+  })
+  if(window.confirm("해당 문의를 삭제하시겠습니까?")){
+    alert("삭제 완료!")
+    navigate(`/one2one`)
   }
 
-const localDateTime1 = one2One?.writeDate;
+}
 
-const format1 = localDateTime1.replace('T', ' ');
+// 시간 설정
+const date = new Date(one2One?.writeDate);
 
-const localDateTime2 = one2One?.answerDate;
+const year = date?.getFullYear();
 
-const format2 = localDateTime2.replace('T', ' ');
+const month = String(date.getMonth() + 1)?.padStart(2, '0');
+
+const day = String(date.getDate())?.padStart(2, '0');
+
+const hours = String(date.getHours()).padStart(2, '0'); 
+const minutes = String(date.getMinutes()).padStart(2, '0'); 
+const seconds = String(date.getSeconds()).padStart(2, '0'); 
+
+const date2 = new Date(one2One?.answerDate);
+
+const year2 = date2?.getFullYear();
+
+const month2 = String(date2.getMonth() + 1)?.padStart(2, '0');
+
+const day2 = String(date2.getDate())?.padStart(2, '0');
+
+const hours2 = String(date2.getHours()).padStart(2, '0'); 
+const minutes2 = String(date2.getMinutes()).padStart(2, '0'); 
+const seconds2 = String(date2.getSeconds()).padStart(2, '0'); 
+
 
 
 
@@ -92,7 +112,7 @@ const format2 = localDateTime2.replace('T', ' ');
             </div>
             <div className="qa-box">
               <p className="qa-bold-text">문의일시</p>
-              <p className="qa-light-text">{format1}</p>
+              <p className="qa-light-text">{year}.{month}.{day} {hours}:{minutes}:{seconds}</p>
             </div>
             <p
               style={{ lineHeight: "108px", paddingLeft: "50px" }}
@@ -109,7 +129,7 @@ const format2 = localDateTime2.replace('T', ' ');
             </div>
             <div className="qa-box">
               <p className="qa-bold-text">답변일시</p>
-              <p className="qa-light-text">{format2}</p>
+              <p className="qa-light-text">{year2}.{month2}.{day2} {hours2}:{minutes2}:{seconds2}</p>
             </div>
             <div className="a-box">
               <p className="a-light-text" dangerouslySetInnerHTML={{ __html: one2One.answer }}>
@@ -125,29 +145,29 @@ const format2 = localDateTime2.replace('T', ' ');
                 onClick={handleDelte}>삭제</button>
             </div>
           </div>) : 
-          <div className="a-container">
-          <div className="qa-box">
-            <p className="qa-bold-text">답변자</p>
-            <p className="qa-light-text"></p>
-          </div>
-          <div className="qa-box">
-            <p className="qa-bold-text">답변일시</p>
-            <p className="qa-light-text">{one2One.answerDate}</p>
-          </div>
-          <div className="a-box">
-            <p className="a-light-text" dangerouslySetInnerHTML={{ __html: one2One.answer }}>
-            </p>
-          </div>
-          <div style={{marginTop:"115px"}} className="review-catalog-container">
-            <Link to="/one2one">
-              <button className="catalog-box">
-                목록
-              </button>
-            </Link>
-              <button className="one2one-catalog-box"
-              onClick={handleDelte}>삭제</button>
-          </div>
-        </div>}
+           <div className="a-container">
+            <div className="qa-box">
+              <p className="qa-bold-text">답변자</p>
+              <p className="qa-light-text"></p>
+            </div>
+            <div className="qa-box">
+              <p className="qa-bold-text">답변일시</p>
+              <p className="qa-light-text"></p>
+            </div>
+            <div className="a-box">
+              <p className="a-light-text" dangerouslySetInnerHTML={{ __html: one2One.answer }}>
+              </p>
+            </div>
+            <div style={{marginTop:"115px"}} className="review-catalog-container">
+              <Link to="/one2one">
+                <button className="catalog-box">
+                  목록
+                </button>
+              </Link>
+                <button className="one2one-catalog-box"
+                onClick={handleDelte}>삭제</button>
+            </div>
+          </div>}
         </div>
       </Main>
       <Footer />

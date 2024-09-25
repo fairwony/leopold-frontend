@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-export default function One2OneTable({list, index}) {
+export default function One2OneTable({list}) {
 
 const date = new Date(list?.writeDate);
 
@@ -10,7 +10,6 @@ const month = String(date.getMonth() + 1)?.padStart(2, '0');
 
 const day = String(date.getDate())?.padStart(2, '0');
 
-const { one2one } = useParams();
 
 
 
@@ -22,7 +21,7 @@ const { one2one } = useParams();
                     <tr>
                       <td>{list.uid}</td>
                       <td className="one2one-subject">
-                        <Link key={index} to={`/one2one/detail/${index}`}>{list.title}</Link>
+                        <Link to={`/one2one/${list.uid}`}>{list.title}</Link>
                       </td>
                       <td>{list.name}</td>
                       <td>
