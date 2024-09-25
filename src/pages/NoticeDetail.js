@@ -15,7 +15,6 @@ export default function NoticeDetail() {
   const [notice, setNotice] = useState();
 
   const { uid } = useParams();
-  console.log(uid);
 
   const navigate = useNavigate();
 
@@ -114,12 +113,12 @@ export default function NoticeDetail() {
                   <tr className="noticeDetail-bd_content">
                     <td>
                       <div className="noticeDetail-fr-view">
-                        {/* <img
-                          src="/images/NoticeDetail/73020MX2A20EC8BA0EAB79CECB69CEC8B9C20EAB3B5ECA780.jpg"
-                          alt={"FC730MBT MX2A"}
+                        <img
+                          src={notice?.imageUrl}
+                          alt={notice?.title}
                           className="noticeDetail-fr-dib"
                           sizes={"900px/1543px"}
-                        /> */}
+                        />
                         <p
                           dangerouslySetInnerHTML={{ __html: notice?.content }}
                         />
