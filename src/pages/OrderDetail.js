@@ -156,7 +156,7 @@ export default function OrderDetail() {
 						</tr>
 						<tr>
 							<td className="od-order-info-key">배송메시지</td>
-							<td className="od-order-info-value">{order?.message}</td>
+							<td className="od-order-info-value">{order?.message !== "default" ? order?.message : "-"}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">배송업체</td>

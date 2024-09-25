@@ -4,7 +4,7 @@ export default function OrderDetailTable({ wish }) {
 	return (
 		<div className="OrderDetailTable">
 			<div className="odt-cover-box">
-				<img src="\images\MyPage\temp_cover.png" alt="cover" className="odt-cover" />
+				<img src={wish?.coverUrl} alt="cover" className="odt-cover" />
 			</div>
 
 			<div className="odt-info-box">

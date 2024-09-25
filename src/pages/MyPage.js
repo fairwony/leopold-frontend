@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import MyPageNav from "../components/MyPageNav";
@@ -7,6 +10,24 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./MyPage.css";
 
 export default function MyPage() {
+	const navigate = useNavigate();
+	const [orderList, setOrderList] = useState([]);
+
+	useEffect(() => {
+		axios.get(`http://localhost:8080/order/list`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				setOrderList(response.data);
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			});
+	}, []);
+
+	const printOrderTable = orderList.map((order, index) => (
+		<OrderTable orderInfo={order} key={index} />
+	));
+
 	return (
 		<div className="MyPage">
 			<WhiteHeader />
@@ -53,7 +74,8 @@ export default function MyPage() {
 
 						<div className="mypage-title2">
 							<p className="mypage-title2-p1">최근 주문 내역</p>
-							<p className="mypage-title2-p2">최근 주문 더보기 &gt;</p>
+							<p className="mypage-title2-p2"
+								onClick={() => { navigate("/order") }}>최근 주문 더보기 &gt;</p>
 						</div>
 
 						<div className="mypage-recent-title">
@@ -82,8 +104,9 @@ export default function MyPage() {
 							</div>
 						</div>
 
-						<OrderTable />
-						<OrderTable />
+						{printOrderTable[0]}
+						{printOrderTable[1]}
+						{printOrderTable[2]}
 
 						<div className="mypage-title2">
 							<p className="mypage-title2-p1">문의 내역</p>

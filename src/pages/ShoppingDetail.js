@@ -131,7 +131,7 @@ export default function ShoppingDetail() {
 					//에러가 떴을 때 실행할 영역
 				});
 		}
-		
+
 		let confirm = window.confirm("성공적으로 등록되었습니다. 장바구니로 이동하시겠습니까?");
 		if (confirm) {
 			navigate('/cart');
@@ -158,12 +158,14 @@ export default function ShoppingDetail() {
 						<p style={{ fontSize: 24, fontWeight: "bold" }}>{product?.productCategory} {product?.color}</p>
 
 						<div style={{ display: "flex", fontSize: 24, marginTop: 32, alignItems: "center" }}>
-							<p style={{ color: "#ff9924", fontWeight: "bold" }}>{product?.price * (1 - product?.discountRate)}</p>
+							<p style={{ color: "#ff9924", fontWeight: "bold" }}>{(product?.price * (1 - product?.discountRate))
+								?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
 							<p style={{ color: "#ff9924", fontWeight: "bold" }}>원</p>
 							{product?.discountRate !== 0.0
 								?
 								<div style={{ display: "flex", alignItems: "center" }}>
-									<p style={{ fontSize: 20, color: "#c6c6c6", textDecoration: "line-through", marginLeft: 20 }}>{product?.price}</p>
+									<p style={{ fontSize: 20, color: "#c6c6c6", textDecoration: "line-through", marginLeft: 20 }}>{product?.price
+										?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
 									<p style={{ fontSize: 20, color: "#ff5a5a", marginLeft: 10 }}>{product?.discountRate * 100}</p>
 									<p style={{ fontSize: 20, color: "#ff5a5a" }}>%</p>
 								</div>

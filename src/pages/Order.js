@@ -1,4 +1,6 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import MyPageNav from "../components/MyPageNav";
@@ -7,7 +9,24 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./Order.css";
 
 export default function Order() {
-	const [sort] = useState(4);
+	const [sort, setSort] = useState(4);
+	const navigate = useNavigate();
+	const [orderList, setOrderList] = useState([]);
+
+	useEffect(() => {
+		axios.get(`http://localhost:8080/order/list`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				setOrderList(response.data);
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			});
+	}, []);
+
+	const printOrderTable = orderList.map((order, index) => (
+		<OrderTable orderInfo={order} key={index} />
+	));
 
 	return (
 		<div className="Order">
@@ -19,27 +38,33 @@ export default function Order() {
 
 					<div className="order-main">
 						<div className="order-sort-wrapper">
-							<div className={sort === 1 ? "order-sort-box-y" : "order-sort-box-n"}>
+							<div className={sort === 1 ? "order-sort-box-y" : "order-sort-box-n"}
+								onClick={() => { setSort(1) }}>
 								<p>오늘</p>
 							</div>
 
-							<div className={sort === 2 ? "order-sort-box-y" : "order-sort-box-n"}>
+							<div className={sort === 2 ? "order-sort-box-y" : "order-sort-box-n"}
+								onClick={() => { setSort(2) }}>
 								<p>1주일</p>
 							</div>
 
-							<div className={sort === 3 ? "order-sort-box-y" : "order-sort-box-n"}>
+							<div className={sort === 3 ? "order-sort-box-y" : "order-sort-box-n"}
+								onClick={() => { setSort(3) }}>
 								<p>1개월</p>
 							</div>
 
-							<div className={sort === 4 ? "order-sort-box-y" : "order-sort-box-n"}>
+							<div className={sort === 4 ? "order-sort-box-y" : "order-sort-box-n"}
+								onClick={() => { setSort(4) }}>
 								<p>3개월</p>
 							</div>
 
-							<div className={sort === 5 ? "order-sort-box-y" : "order-sort-box-n"}>
+							<div className={sort === 5 ? "order-sort-box-y" : "order-sort-box-n"}
+								onClick={() => { setSort(5) }}>
 								<p>6개월</p>
 							</div>
 
-							<div className={sort === 6 ? "order-sort-box-y" : "order-sort-box-n"}>
+							<div className={sort === 6 ? "order-sort-box-y" : "order-sort-box-n"}
+								onClick={() => { setSort(6) }}>
 								<p>전체</p>
 							</div>
 						</div>
@@ -78,9 +103,8 @@ export default function Order() {
 							</div>
 						</div>
 
-						<OrderTable />
-						<OrderTable />
-						<OrderTable />
+						{printOrderTable}
+
 					</div>
 				</div>
 			</Main>

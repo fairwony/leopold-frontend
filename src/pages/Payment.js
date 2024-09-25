@@ -64,7 +64,7 @@ export default function Payment() {
 	}
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/test/info`, { withCredentials: true })
+		axios.get(`http://localhost:8080/user`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setUserInfo(response.data);
@@ -308,7 +308,7 @@ export default function Payment() {
 						}} />
 
 					<button className="payment-point-btn"
-						onClick={() => { setPoint(userInfo?.point?.toString()); }}>전액 사용</button>
+						onClick={() => { setPoint(userInfo?.point); }}>전액 사용</button>
 				</div>
 
 				<div className="payment-point-wrapper">보유 포인트: {userInfo?.point?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}P</div>

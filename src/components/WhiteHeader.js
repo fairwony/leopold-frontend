@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ContextSystem } from "../functions/MyContext";
 import "./Header.css";
 
 export default function WhiteHeader() {
+	const location = useLocation();
 	const [point, setPoint] = useState(0);
 
 	useEffect(() => {
@@ -16,7 +17,7 @@ export default function WhiteHeader() {
 			.catch((error) => {
 				console.log(error.response.data);
 			});
-	}, []);
+	}, [location]);
 
 	const { get, set } = useContext(ContextSystem);
 	const navigate = useNavigate();
