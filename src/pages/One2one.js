@@ -1,12 +1,19 @@
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate, useSearchParams} from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./One2one.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function One2one() {
+  const [queryParams] = useSearchParams();
+
+  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
+  const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
+  const [one2OneList, setOne2OneList] = useState([]);
+
+  
   
 
   return (

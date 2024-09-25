@@ -4,7 +4,6 @@ import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteOne2one.css";
 import "./WriteReview.css";
-import EditorComponent from "../components/Editor";
 import axios from "axios";
 import { useState } from "react";
 import FroalaEditor from "react-froala-wysiwyg";
