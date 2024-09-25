@@ -1,9 +1,4 @@
-import {
-  Link,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./NoticeDetail.css";
