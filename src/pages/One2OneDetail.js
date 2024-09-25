@@ -1,11 +1,81 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./One2OneDetail.css";
 import "./ReviewDetail.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function One2OneDetail() {
+  const [one2One, setOne2One] = useState({
+    title:"",
+    name:"",
+    writeDate:"",
+    content:"",
+    answerYn:"",
+    answer:"",
+    answerDate:"",
+    deleteYn:""
+  });
+
+  const {uid} = useParams();
+
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    axios.get(`http://localhost:8080/one2one/${uid}`)
+    .then((res)=>{
+      setOne2One(res.data);
+  })
+  .catch((e)=>{
+      console.log(e);    
+  });
+}, [])
+
+const handleDelte=() => {
+  axios.delete(`http://localhost:8080/one2one/delete/${uid}`,{
+    data:{
+      deleteYn:"y"
+    },
+    withCredentials:true
+  })
+  if(window.confirm("해당 문의를 삭제하시겠습니까?")){
+    alert("삭제 완료!")
+    navigate(`/one2one`)
+  }
+
+}
+
+// 시간 설정
+const date = new Date(one2One?.writeDate);
+
+const year = date?.getFullYear();
+
+const month = String(date.getMonth() + 1)?.padStart(2, '0');
+
+const day = String(date.getDate())?.padStart(2, '0');
+
+const hours = String(date.getHours()).padStart(2, '0'); 
+const minutes = String(date.getMinutes()).padStart(2, '0'); 
+const seconds = String(date.getSeconds()).padStart(2, '0'); 
+
+const date2 = new Date(one2One?.answerDate);
+
+const year2 = date2?.getFullYear();
+
+const month2 = String(date2.getMonth() + 1)?.padStart(2, '0');
+
+const day2 = String(date2.getDate())?.padStart(2, '0');
+
+const hours2 = String(date2.getHours()).padStart(2, '0'); 
+const minutes2 = String(date2.getMinutes()).padStart(2, '0'); 
+const seconds2 = String(date2.getSeconds()).padStart(2, '0'); 
+
+
+
+
+
   return (
     <>
       <WhiteHeader />
@@ -29,45 +99,40 @@ export default function One2OneDetail() {
             <div className="qa-box">
               <p className="qa-bold-text">제목</p>
               <p className="qa-light-text">
-                레오폴드 제품 중에 2.4 GHz 제품이 있나요?
+              {one2One.title}
               </p>
             </div>
             <div className="qa-box">
               <p className="qa-bold-text">작성자</p>
               <p style={{ width: "540px" }} className="qa-light-text">
-                홍길동
+                {one2One.name}
               </p>
               <p className="qa-bold-text">답변여부</p>
-              <p className="qa-light-text">O</p>
+              <p className="qa-light-text">{one2One.answerYn == "y" ? "O" : "X"}</p>
             </div>
             <div className="qa-box">
               <p className="qa-bold-text">문의일시</p>
-              <p className="qa-light-text">2024-09-13</p>
+              <p className="qa-light-text">{year}.{month}.{day} {hours}:{minutes}:{seconds}</p>
             </div>
             <p
               style={{ lineHeight: "108px", paddingLeft: "50px" }}
-              className="qa-light-text"
+              className="qa-light-text" dangerouslySetInnerHTML={{ __html: one2One.content }}
             >
-              블루투스나 유선 연결 제품 말고 2.4 GHz 연결 제품이 있나요?
             </p>
           </div>
           {/* 답변 */}
-          <div className="a-container">
+         {one2One.answerYn == "y" ? (
+         <div className="a-container">
             <div className="qa-box">
               <p className="qa-bold-text">답변자</p>
               <p className="qa-light-text">운영자</p>
             </div>
             <div className="qa-box">
               <p className="qa-bold-text">답변일시</p>
-              <p className="qa-light-text">2024-09-13 14:50:44</p>
+              <p className="qa-light-text">{year2}.{month2}.{day2} {hours2}:{minutes2}:{seconds2}</p>
             </div>
             <div className="a-box">
-              <p className="a-light-text">
-                안녕하세요 레오폴드 입니다
-                <br />
-                현재 판매 중인 제품에서 2.4GHz를 지원하는 제품은 없습니다.
-                <br />
-                감사합니다.
+              <p className="a-light-text" dangerouslySetInnerHTML={{ __html: one2One.answer }}>
               </p>
             </div>
             <div style={{marginTop:"115px"}} className="review-catalog-container">
@@ -76,9 +141,33 @@ export default function One2OneDetail() {
                   목록
                 </button>
               </Link>
-                <button className="one2one-catalog-box">삭제</button>
+                <button className="one2one-catalog-box"
+                onClick={handleDelte}>삭제</button>
             </div>
-          </div>
+          </div>) : 
+           <div className="a-container">
+            <div className="qa-box">
+              <p className="qa-bold-text">답변자</p>
+              <p className="qa-light-text"></p>
+            </div>
+            <div className="qa-box">
+              <p className="qa-bold-text">답변일시</p>
+              <p className="qa-light-text"></p>
+            </div>
+            <div className="a-box">
+              <p className="a-light-text" dangerouslySetInnerHTML={{ __html: one2One.answer }}>
+              </p>
+            </div>
+            <div style={{marginTop:"115px"}} className="review-catalog-container">
+              <Link to="/one2one">
+                <button className="catalog-box">
+                  목록
+                </button>
+              </Link>
+                <button className="one2one-catalog-box"
+                onClick={handleDelte}>삭제</button>
+            </div>
+          </div>}
         </div>
       </Main>
       <Footer />

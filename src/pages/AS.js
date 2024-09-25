@@ -59,7 +59,7 @@ export default function AS() {
                 </Link>
               </li>
               <li className="as-on">
-                <Link to="/download">
+                <Link to="/downloads">
                   <div className="as-img">
                     <img src="\images\Notice\cs_download.svg" alt="구름" />
                   </div>

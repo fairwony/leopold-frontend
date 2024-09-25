@@ -51,7 +51,7 @@ export default function Notice() {
               </Link>
             </li>
             <li className="notice-on">
-              <Link to="/download">
+              <Link to="/downloads">
                 <div className="notice-img">
                   <img src="\images\Notice\cs_download.svg" alt="구름" />
                 </div>

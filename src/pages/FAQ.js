@@ -1,12 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import "./FAQ.css";
 import WhiteHeader from "../components/WhiteHeader";
 import FaqSub from "../components/FaqSub";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function FAQ() {
-  const faqs = Array(9).fill(null);
+  const [queryParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [faq, setFaq] = useState([]);
+
+  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 10;
+  const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
+  const categoryUid = queryParams.get("category") ? parseInt(queryParams.get("category")) : 1;
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/faq?page=${page}&size=${size}&category=${categoryUid}`)
+      .then((response) => {
+        console.log(response.data);
+        setFaq(response.data);
+  })
+      .catch((error) => {
+        alert(error.response.data);
+      });
+  }, [page,size,categoryUid]);
 
   return (
     <>
@@ -25,7 +45,7 @@ export default function FAQ() {
               </Link>
             </li>
             <li className="faq-on">
-              <Link to="/download">
+              <Link to="/downloads">
                 <div className="faq-img">
                   <img src="images\Notice\cs_download.svg" alt="구름" />
                 </div>
@@ -127,9 +147,9 @@ export default function FAQ() {
             </li>
 
             <li>
-            {faqs.map((_, index) => (
-            <FaqSub key={index} />
-          ))}
+              {/* {faqs.map((_, index) => (
+                <FaqSub key={index} />
+              ))} */}
             </li>
           </ul>
         </div>

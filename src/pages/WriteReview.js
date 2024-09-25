@@ -1,11 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteReview.css";
 import Footer from "../components/Footer";
 import EditorComponent from "../components/Editor";
+import { useState } from "react";
+import axios from "axios";
+import FroalaEditor from "react-froala-wysiwyg";
 
 export default function WriteReview() {
+  const navigate = useNavigate();
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [video, setVideo]=useState("");
+
+  const handleSubmit = () => {
+
+    axios.post("http://localhost:8080/review/write",
+      {
+        title: `${title}`,
+        content: `${content}`,
+      },
+      {
+        withCredentials: true,
+      }
+    )
+    .then((resp) => {
+      alert("작성 완료!");
+    })
+    .catch((e) => {
+      alert("로그인이 필요합니다!")
+    });
+  }
+
   return (
     <>
       <WhiteHeader />
@@ -63,17 +91,28 @@ export default function WriteReview() {
         {/* 제목 */}
         <div className="review-titleArea">
           <h2>사용자 리뷰</h2>
-          <p>User review</p>
+          <p>User review
+            {title}, {content}
+          </p>
         </div>
         {/* 글작성 */}
         <div className="write-container">
             <div className="write-title-container">
                 <p style={{fontSize:"15px", width:"58px"}}>제목</p>
-                <textarea className="write-title-box"></textarea>
+                <textarea className="write-title-box"
+                onChange={(e) =>{
+                  setTitle(e.target.value);
+                }}></textarea>
             </div>
             <div className="write-content-container">
                 <div className="write-content-top">
-                  <EditorComponent />
+                <FroalaEditor
+                tag="textarea"
+                model={content}
+                onModelChange={(model) => {
+                  setContent(model);
+                }}
+              />
                 </div>
                 <textarea className="write-content"></textarea>
             </div>
@@ -88,8 +127,8 @@ export default function WriteReview() {
             <div className="catalog-container">
                 <Link to="/review"><button className="catalog-box2">목록</button></Link>
                 <div className="cancle-container">
-                <button className="register-box">등록</button>
-                <button className="catalog-box2">취소</button>
+                <button className="register-box" onClick={handleSubmit}>등록</button>
+                <button className="catalog-box2" onClick={()=>{navigate(-1)}} >취소</button>
                 </div>
             </div>
         </div>

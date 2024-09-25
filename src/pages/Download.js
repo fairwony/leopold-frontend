@@ -36,11 +36,11 @@ export default function Download() {
 	));
 
 	function handlePageChange(pageNum) {
-		navigate(`/download?page=${pageNum}&size=10&category=${categoryUid}`);
+		navigate(`/downloads?page=${pageNum}&size=10&category=${categoryUid}`);
 	}
 
 	function handleChangeSort(e) {
-		navigate(`/download?page=1&size=10&category=${e.target.value}`);
+		navigate(`/downloads?page=1&size=10&category=${e.target.value}`);
 	}
 
 	return (
@@ -60,7 +60,7 @@ export default function Download() {
 							</Link>
 						</li>
 						<li className="download-on">
-							<Link to="/download">
+							<Link to="/downloads">
 								<div className="download-img">
 									<img src="\images\Download\cs_data_on.svg" alt="구름" />
 								</div>

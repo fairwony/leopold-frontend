@@ -1,9 +1,4 @@
-import {
-  Link,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./NoticeDetail.css";
@@ -54,7 +49,7 @@ export default function NoticeDetail() {
                 </Link>
               </li>
               <li className="noticeDetail-on">
-                <Link to="/download">
+                <Link to="/downloads">
                   <div className="noticeDetail-img">
                     <img src="\images\Notice\cs_download.svg" alt="구름" />
                   </div>

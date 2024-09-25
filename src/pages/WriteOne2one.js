@@ -4,7 +4,6 @@ import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteOne2one.css";
 import "./WriteReview.css";
-import EditorComponent from "../components/Editor";
 import axios from "axios";
 import { useState } from "react";
 import FroalaEditor from "react-froala-wysiwyg";
@@ -22,6 +21,10 @@ export default function WriteOne2one() {
     let emailDomain;
     if(email2==="type") emailDomain = email3;
     else emailDomain = email2;
+
+    if(title == "" || content == ""){
+      alert("제목 또는 내용을 입력하세요.");
+    }
 
     axios
       .post(

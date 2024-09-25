@@ -39,8 +39,8 @@ export default function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/notices" element={<Notice />} />
 					<Route path="/notice/:uid" element={<NoticeDetail />} />
-					<Route path="/download" element={<Download />} />
-					<Route path="/download/detail" element={<DownloadDetail />} />
+					<Route path="/downloads" element={<Download />} />
+					<Route path="/download/:uid" element={<DownloadDetail />} />
 					<Route path="/notice" element={<Notice />} />
 					<Route path="/faq" element={<FAQ />} />
 					<Route path="/as" element={<AS />} />
@@ -62,7 +62,7 @@ export default function App() {
 					<Route path="/support" element={<Support />} />
 					<Route path="/review/write" element={<WriteReview />} />
 					<Route path="/one2one" element={<One2one />} />
-					<Route path="/one2one/detail" element={<One2OneDetail />} />
+					<Route path="/one2one/:uid" element={<One2OneDetail />} />
 					<Route path="/one2one/write" element={<WriteOne2one />} />
 					<Route path="/review/modify" element={<ReviewModify />} />
 					<Route path="/test" element={<Test />} />

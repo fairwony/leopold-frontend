@@ -19,7 +19,7 @@ export default function Support() {
           <div className="notice-comm_title">
             <ul style={{ marginTop: "-130px" }} className="notice-tab">
               <li className="notice-on">
-                <Link to="/notice">
+                <Link to="/notices">
                   <div className="notice-img">
                     <img src="images\Download\cs_notice.svg" alt="확성기" />
                   </div>
@@ -28,7 +28,7 @@ export default function Support() {
                 </Link>
               </li>
               <li className="notice-on">
-                <Link to="/download">
+                <Link to="/downloads">
                   <div className="notice-img">
                     <img src="\images\Notice\cs_download.svg" alt="구름" />
                   </div>
