@@ -5,6 +5,7 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./One2one.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import One2OneTable from "../components/One2OneTable";
 
 export default function One2one() {
   const [queryParams] = useSearchParams();
@@ -13,11 +14,26 @@ export default function One2one() {
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
   const [one2OneList, setOne2OneList] = useState([]);
 
+  useEffect(() => {
+    axios.get(`http://localhost:8080/one2ones?page=${page}&size=${size}`, {
+      withCredentials: true,
+    })
+    .then((res) => {
+      console.log(res.data);
+      setOne2OneList(res.data);
+    })
+    .catch((err) => console.log(err.res.data));
+  }, [page, size])
+
   
-  
+  const printOne2OneList = one2OneList["list"]?.map((list, index)=>(
+    <One2OneTable list={list} key={index} />
+  ))
+
+
 
   return (
-    <>
+    <div className="One2One">
       <WhiteHeader />
       <Main>
         <div id="one2one-container">
@@ -50,22 +66,7 @@ export default function One2one() {
                     </tr>
                   </thead>
                   {/* 게시판 목록 */}
-                  
-                  <tbody className="one2one-board-list">
-                    <tr>
-                      <td>{1}</td>
-                      <td className="one2one-subject">
-                        <Link to={"/one2one/detail"}>{"1:1 문의"}</Link>
-                      </td>
-                      <td>{"김****"}</td>
-                      <td>
-                        <span className="one2one-txtNum">{"2024-09-03"}</span>
-                      </td>
-                      <td>
-                        <span className="one2one-txtOx">{"O"}</span>
-                      </td>
-                    </tr>
-                  </tbody>
+                  {printOne2OneList}
                 </table>
               </div>
               {/* 글쓰기 버튼 */}
@@ -81,6 +82,6 @@ export default function One2one() {
         </div>
       </Main>
       <Footer />
-    </>
+    </div>
   );
 }
