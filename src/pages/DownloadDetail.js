@@ -109,7 +109,7 @@ export default function DownloadDetail() {
             {/* 목록 버튼 */}
             <div className="downloadDetail-base-button">
               <span>
-                <Link to={"/download"}>목록</Link>
+                <Link to={"/downloads"}>목록</Link>
               </span>
             </div>
           </div>
