@@ -22,10 +22,7 @@ export default function Download() {
 	useEffect(() => {
 		axios
 			.get(
-				`http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`,
-				{
-					withCredentials: true
-				}
+				`http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`
 			)
 			.then((res) => {
 				console.log(res.data);
@@ -54,7 +51,7 @@ export default function Download() {
 					{/* 메뉴 바 */}
 					<ul className="download-tab">
 						<li className="download-on">
-							<Link to="/notice">
+							<Link to="/notices">
 								<div className="download-img">
 									<img src="\images\Download\cs_notice.svg" alt="확성기" />
 								</div>
