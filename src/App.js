@@ -36,10 +36,10 @@ export default function App() {
 			<MyContext>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/notice" element={<Notice />} />
-					<Route path="/notice/detail" element={<NoticeDetail />} />
-					<Route path="/download" element={<Download />} />
-					<Route path="/download/detail" element={<DownloadDetail />} />
+					<Route path="/notices" element={<Notice />} />
+					<Route path="/notice/:uid" element={<NoticeDetail />} />
+					<Route path="/downloads" element={<Download />} />
+					<Route path="/download/:uid" element={<DownloadDetail />} />
 					<Route path="/notice" element={<Notice />} />
 					<Route path="/faq" element={<FAQ />} />
 					<Route path="/as" element={<AS />} />

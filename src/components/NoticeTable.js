@@ -23,7 +23,7 @@ export default function NoticeTable({list}) {
               textAlign: "left",
             }}
           >
-            <Link to={"/notice/detail"}>
+            <Link to={`/notice/${list.uid}`}>
               {list.title}
             </Link>
           </td>

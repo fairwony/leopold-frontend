@@ -16,7 +16,7 @@ export default function FAQ() {
         <div className="faq-comm_title">
           <ul className="faq-tab">
             <li className="faq-on">
-              <Link to="/notice">
+              <Link to="/notices">
                 <div className="faq-img">
                   <img src="images\Download\cs_notice.svg" alt="확성기" />
                 </div>
@@ -25,7 +25,7 @@ export default function FAQ() {
               </Link>
             </li>
             <li className="faq-on">
-              <Link to="/download">
+              <Link to="/downloads">
                 <div className="faq-img">
                   <img src="images\Notice\cs_download.svg" alt="구름" />
                 </div>

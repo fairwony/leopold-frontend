@@ -22,10 +22,7 @@ export default function Download() {
 	useEffect(() => {
 		axios
 			.get(
-				`http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`,
-				{
-					withCredentials: true
-				}
+				`http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`
 			)
 			.then((res) => {
 				console.log(res.data);
@@ -39,11 +36,11 @@ export default function Download() {
 	));
 
 	function handlePageChange(pageNum) {
-		navigate(`/download?page=${pageNum}&size=10&category=${categoryUid}`);
+		navigate(`/downloads?page=${pageNum}&size=10&category=${categoryUid}`);
 	}
 
 	function handleChangeSort(e) {
-		navigate(`/download?page=1&size=10&category=${e.target.value}`);
+		navigate(`/downloads?page=1&size=10&category=${e.target.value}`);
 	}
 
 	return (
@@ -54,7 +51,7 @@ export default function Download() {
 					{/* 메뉴 바 */}
 					<ul className="download-tab">
 						<li className="download-on">
-							<Link to="/notice">
+							<Link to="/notices">
 								<div className="download-img">
 									<img src="\images\Download\cs_notice.svg" alt="확성기" />
 								</div>
@@ -63,7 +60,7 @@ export default function Download() {
 							</Link>
 						</li>
 						<li className="download-on">
-							<Link to="/download">
+							<Link to="/downloads">
 								<div className="download-img">
 									<img src="\images\Download\cs_data_on.svg" alt="구름" />
 								</div>

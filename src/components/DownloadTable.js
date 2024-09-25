@@ -32,7 +32,7 @@ export default function DownloadTable({ list, index, page, size }) {
 							textAlign: "left",
 						}}
 					>
-						<Link to={"/download/detail"}>
+						<Link to={`/download/${list.uid}`}>
 							{list.title}
 						</Link>
 					</td>

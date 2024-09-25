@@ -20,7 +20,7 @@ export default function AsReception() {
               <div className="asReception-comm_title">
                 <ul className="asReception-tab">
                   <li className="asReception-on">
-                    <Link to="/notice">
+                    <Link to="/notices">
                       <div className="asReception-img">
                         <img
                           src="\images\Download\cs_notice.svg"
@@ -31,7 +31,7 @@ export default function AsReception() {
                     </Link>
                   </li>
                   <li className="asReception-on">
-                    <Link to="/download">
+                    <Link to="/downloads">
                       <div className="asReception-img">
                         <img src="\images\Notice\cs_download.svg" alt="구름" />
                       </div>

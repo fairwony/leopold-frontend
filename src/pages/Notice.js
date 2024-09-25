@@ -18,14 +18,12 @@ export default function Notice() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/notices?page=${page}&size=${size}`, {
-        withCredentials: true,
-      })
+      .get(`http://localhost:8080/notices?page=${page}&size=${size}`)
       .then((res) => {
         console.log(res.data);
         setNoticeList(res.data);
       })
-      .catch((err) => console.log(err.res.data));
+      .catch((err) => alert(err.res.data));
   }, [page, size]);
 
   const printNoticeList = noticeList.map((list, index) => (
@@ -33,7 +31,7 @@ export default function Notice() {
   ));
 
   function handlePageChange(pageNum) {
-    navigate(`/notice?page=${pageNum}&size=10`);
+    navigate(`/notices?page=${pageNum}&size=10`);
   }
 
   return (
@@ -44,7 +42,7 @@ export default function Notice() {
         <div className="notice-comm_title">
           <ul className="notice-tab">
             <li className="notice-on">
-              <Link to="/notice">
+              <Link to="/notices">
                 <div className="notice-img">
                   <img src="\images\Notice\cs_notice_on.svg" alt="확성기" />
                 </div>
@@ -53,7 +51,7 @@ export default function Notice() {
               </Link>
             </li>
             <li className="notice-on">
-              <Link to="/download">
+              <Link to="/downloads">
                 <div className="notice-img">
                   <img src="\images\Notice\cs_download.svg" alt="구름" />
                 </div>

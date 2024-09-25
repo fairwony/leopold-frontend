@@ -13,7 +13,7 @@ export default function ReviewNotice() {
         <div className="reviewNotice-comm_title">
           <ul className="reviewNotice-tab">
             <li className="reviewNotice-on">
-              <Link to="/notice">
+              <Link to="/notices">
                 <div className="reviewNotice-img">
                   <img src="\images\Download\cs_notice.svg" alt="확성기" />
                 </div>
@@ -22,7 +22,7 @@ export default function ReviewNotice() {
               </Link>
             </li>
             <li className="reviewNotice-on">
-              <Link to="/download">
+              <Link to="/downloads">
                 <div className="reviewNotice-img">
                   <img src="\images\Notice\cs_download.svg" alt="구름" />
                 </div>

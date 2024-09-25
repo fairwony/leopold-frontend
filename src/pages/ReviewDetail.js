@@ -13,7 +13,7 @@ export default function ReviewDetail() {
         <div className="review-comm_title">
           <ul className="review-tab">
             <li className="review-on">
-              <Link to="/notice">
+              <Link to="/notices">
                 <div className="review-img">
                   <img src="\images\Download\cs_notice.svg" alt="확성기" />
                 </div>
@@ -22,7 +22,7 @@ export default function ReviewDetail() {
               </Link>
             </li>
             <li className="review-on">
-              <Link to="/download">
+              <Link to="/downloads">
                 <div className="review-img">
                   <img src="\images\Notice\cs_download.svg" alt="구름" />
                 </div>
