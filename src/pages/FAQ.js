@@ -25,7 +25,7 @@ export default function FAQ() {
               </Link>
             </li>
             <li className="faq-on">
-              <Link to="/download">
+              <Link to="/downloads">
                 <div className="faq-img">
                   <img src="images\Notice\cs_download.svg" alt="구름" />
                 </div>

@@ -14,7 +14,7 @@ export default function DownloadDetail() {
           <div className="downloadDetail-comm_title">
             <ul className="downloadDetail-tab">
               <li className="downloadDetail-on">
-                <Link to="/notice">
+                <Link to="/notices">
                   <div className="downloadDetail-img">
                     <img src="\images\Download\cs_notice.svg" alt="확성기" />
                   </div>
@@ -23,7 +23,7 @@ export default function DownloadDetail() {
                 </Link>
               </li>
               <li className="downloadDetail-on">
-                <Link to="/download">
+                <Link to="/downloads">
                   <div className="downloadDetail-img">
                     <img src="\images\Download\cs_data_on.svg" alt="구름" />
                   </div>
