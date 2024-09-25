@@ -9,14 +9,16 @@ export default function PaymentHeader() {
 			<div className="ph-upper">
 				<div className="ph-upper-size1">
 					<img src="\images\Payment\navigate_before.png" alt="before"
-						onClick={() => { navigate(-1) }} />
+						onClick={() => { navigate("/") }} />
 				</div>
 
 				<p>레오폴드</p>
 
 				<div className="ph-upper-size1">
-					<img src="\images\Payment\bag-04.png" alt="bag" />
-					<img src="\images\Payment\user-profile-01.png" alt="profile" />
+					<img src="\images\Payment\bag-04.png" alt="bag"
+						onClick={() => { navigate("/cart") }} />
+					<img src="\images\Payment\user-profile-01.png" alt="profile"
+						onClick={() => { navigate("/mypage") }} />
 				</div>
 			</div>
 

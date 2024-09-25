@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import MyPageNav from "../components/MyPageNav";
@@ -6,6 +9,50 @@ import WhiteHeader from "../components/WhiteHeader";
 import "./OrderDetail.css";
 
 export default function OrderDetail() {
+	const navigate = useNavigate();
+	const [SearchParams] = useSearchParams();
+	const orderUid = parseInt(SearchParams.get("orderUid"));
+
+	const [order, setOrder] = useState({});
+	const [wishList, setWishList] = useState([]);
+
+	useEffect(() => {
+		axios.get(`http://localhost:8080/order?orderUid=${orderUid}`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				setOrder(response.data.order);
+				setWishList(response.data.wishList);
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			});
+	}, []);
+
+	const date = new Date(order?.date);
+	const year = date?.getFullYear();
+	const month = String(date.getMonth() + 1)?.padStart(2, '0');
+	const day = String(date.getDate())?.padStart(2, '0');
+	const hour = String(date.getHours())?.padStart(2, '0');
+	const minute = String(date.getMinutes())?.padStart(2, '0');
+	const second = String(date.getSeconds())?.padStart(2, '0');
+	const orderNum = String(order?.uid).padStart(8, '0');
+
+	const printWishList = wishList.map((wish, index) => (
+		<OrderDetailTable wish={wish} key={index} />
+	));
+
+	function handleClickCancel() {
+		axios.delete(`http://localhost:8080/order?orderUid=${orderUid}`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				alert("주문이 취소되었습니다.")
+				navigate(0);
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			});
+	}
+
 	return (
 		<div className="OrderDetail">
 			<WhiteHeader />
@@ -20,21 +67,21 @@ export default function OrderDetail() {
 
 						<tr>
 							<td className="od-order-info-key">주문번호</td>
-							<td className="od-order-info-value">20240903-0000021</td>
+							<td className="od-order-info-value">{year}{month}{day}-{orderNum}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">주문일자</td>
-							<td className="od-order-info-value">2024-09-03 09:26:57</td>
+							<td className="od-order-info-value">{year}-{month}-{day} {hour}:{minute}:{second}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">주문자</td>
-							<td className="od-order-info-value">권혁민</td>
+							<td className="od-order-info-value">{order?.name}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">주문처리상태</td>
 							<td className="od-order-info-value" style={{ display: "flex", gap: "15px" }}>
-								<p>입금전</p>
-								<button className="od-cancel-btn">주문취소</button>
+								<p>{order?.status}</p>
+								{order?.status !== "주문취소" ? <button className="od-cancel-btn" onClick={handleClickCancel}>주문취소</button> : undefined}
 							</td>
 						</tr>
 
@@ -42,14 +89,15 @@ export default function OrderDetail() {
 
 						<tr>
 							<td className="od-order-info-key">총 주문금액</td>
-							<td className="od-order-info-value" style={{ fontWeight: "bold" }}>181,000원</td>
+							<td className="od-order-info-value" style={{ fontWeight: "bold" }}>
+								{order?.finalPrice?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">주문처리상태</td>
 							<td className="od-order-info-value">
 								<div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-									<p style={{ fontWeight: "bold" }}>무통장입금</p>
-									<p>입금자: 권혁민, 계좌번호: 국민은행 477401-01-100878 (레오폴드(주))</p>
+									<p style={{ fontWeight: "bold" }}>{order?.paymentMethod}</p>
+									<p>입금자: {order?.holder}, 계좌번호: {order?.account} (레오폴드(주))</p>
 								</div>
 							</td>
 						</tr>
@@ -78,43 +126,41 @@ export default function OrderDetail() {
 							</div>
 						</div>
 
-						<OrderDetailTable />
-						<OrderDetailTable />
+						{printWishList}
 
 						<div className="od-total-box">
-							<p>상품구매금액 178,000 + 배송비: 3000 =&nbsp;</p>
-							<p style={{ fontSize: "18px", fontWeight: "bold" }}>합계 181,000원</p>
+							<p>상품구매금액 {(order?.finalPrice - 3000)?.toString()
+								?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} + 배송비: {order?.deliverPrice?.toString()
+									?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} =&nbsp;</p>
+							<p style={{ fontSize: "18px", fontWeight: "bold" }}>합계 {order?.finalPrice?.toString()
+								?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
 						</div>
 
 						<div className="od-title-2">주문정보</div>
 
 						<tr>
 							<td className="od-order-info-key">받으시는 분</td>
-							<td className="od-order-info-value">권혁민</td>
+							<td className="od-order-info-value">{order?.receiver}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">우편번호</td>
-							<td className="od-order-info-value">40205</td>
+							<td className="od-order-info-value">{order?.zipcode}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">주소</td>
-							<td className="od-order-info-value">경북 울릉군 북면 현포2길 121 울릉도독도해양자원연구센터 B동 101호</td>
-						</tr>
-						<tr>
-							<td className="od-order-info-key">일반전화</td>
-							<td className="od-order-info-value">02-428-1526</td>
+							<td className="od-order-info-value">{order?.address} {order?.addressDetial}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">휴대전화</td>
-							<td className="od-order-info-value">010-3002-0014</td>
+							<td className="od-order-info-value">{order?.phone}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">배송메시지</td>
-							<td className="od-order-info-value">부재 시, 문 앞에 두고 가주세요.</td>
+							<td className="od-order-info-value">{order?.message}</td>
 						</tr>
 						<tr>
 							<td className="od-order-info-key">배송업체</td>
-							<td className="od-order-info-value">우체국택배</td>
+							<td className="od-order-info-value">{order?.receiveMethod}</td>
 						</tr>
 
 						<div className="od-title-2">이용안내</div>

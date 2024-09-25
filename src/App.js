@@ -3,6 +3,7 @@ import MyContext from "./functions/MyContext";
 import AS from "./pages/AS";
 import AsReception from "./pages/AsReception";
 import Cart from "./pages/Cart";
+import Complete from "./pages/Complete";
 import Download from "./pages/Download";
 import DownloadDetail from "./pages/DownloadDetail";
 import FAQ from "./pages/FAQ";
@@ -21,14 +22,14 @@ import OrderDetail from "./pages/OrderDetail";
 import Payment from "./pages/Payment";
 import Review from "./pages/Review";
 import ReviewDetail from "./pages/ReviewDetail";
+import ReviewModify from "./pages/ReviewModify";
 import ReviewNotice from "./pages/ReviewNotice";
 import Shopping from "./pages/Shopping";
 import ShoppingDetail from "./pages/ShoppingDetail";
 import Support from "./pages/Support";
 import Test from "./pages/Test";
-import WriteReview from "./pages/WriteReview";
 import WriteOne2one from "./pages/WriteOne2one";
-import ReviewModify from "./pages/ReviewModify";
+import WriteReview from "./pages/WriteReview";
 
 export default function App() {
 	return (
@@ -65,6 +66,7 @@ export default function App() {
 					<Route path="/one2one/write" element={<WriteOne2one />} />
 					<Route path="/review/modify" element={<ReviewModify />} />
 					<Route path="/test" element={<Test />} />
+					<Route path="/complete" element={<Complete />} />
 				</Routes>
 			</MyContext>
 		</div>

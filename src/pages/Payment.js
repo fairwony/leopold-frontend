@@ -77,9 +77,11 @@ export default function Payment() {
 				setPhone2(response.data.phone.split("-")[1]);
 				setPhone3(response.data.phone.split("-")[2]);
 				setEmail(response.data.email);
-				setPhoneAlt1(response.data.phoneAlt.split("-")[0]);
-				setPhoneAlt2(response.data.phoneAlt.split("-")[1]);
-				setPhoneAlt3(response.data.phoneAlt.split("-")[2]);
+				if (response.data.phoneAlt) {
+					setPhoneAlt1(response.data.phoneAlt.split("-")[0]);
+					setPhoneAlt2(response.data.phoneAlt.split("-")[1]);
+					setPhoneAlt3(response.data.phoneAlt.split("-")[2]);
+				}
 			})
 			.catch((error) => {
 				console.log(error.response.data);
@@ -87,6 +89,10 @@ export default function Payment() {
 
 		axios.get(`http://localhost:8080/wish`, { withCredentials: true })
 			.then((response) => {
+				if (response.data.length === 0) {
+					alert("잘못된 접근입니다.");
+					navigate("/");
+				}
 				console.log(response.data);
 				setWishList(response.data);
 			})
@@ -111,9 +117,11 @@ export default function Payment() {
 			setPhone1(userInfo?.phone.split("-")[0]);
 			setPhone2(userInfo?.phone.split("-")[1]);
 			setPhone3(userInfo?.phone.split("-")[2]);
-			setPhoneAlt1(userInfo?.phoneAlt.split("-")[0]);
-			setPhoneAlt2(userInfo?.phoneAlt.split("-")[1]);
-			setPhoneAlt3(userInfo?.phoneAlt.split("-")[2]);
+			if (userInfo?.phoneAlt) {
+				setPhoneAlt1(userInfo?.phoneAlt.split("-")[0]);
+				setPhoneAlt2(userInfo?.phoneAlt.split("-")[1]);
+				setPhoneAlt3(userInfo?.phoneAlt.split("-")[2]);
+			}
 		} else {
 			setReceiver("");
 			setZipcode("");
@@ -144,7 +152,7 @@ export default function Payment() {
 
 
 	function handleClickOrder() {
-		if(isMyself === true) setMessage(messageSelf);
+		if (isMyself === true) setMessage(messageSelf);
 
 		axios.post(`http://localhost:8080/order`, {
 			receiver: `${receiver}`,
@@ -160,10 +168,12 @@ export default function Payment() {
 			finalPrice: `${priceTotalSum - discountTotalSum + 3000 - point}`,
 			paymentMethod: `무통장입금`,
 			account: `${account}`,
-			holder: `${holder}`
+			holder: `${holder}`,
+			point: `${point}`
 		}, { withCredentials: true })
 			.then((response) => {
 				alert("주문 완료!");
+				navigate(`/complete?orderUid=${response.data}`)
 				console.log(response.data);
 			})
 			.catch((error) => {

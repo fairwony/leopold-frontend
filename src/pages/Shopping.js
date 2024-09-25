@@ -10,9 +10,9 @@ import "./Shopping.css";
 export default function Shopping() {
 	const navigate = useNavigate();
 	const [searchParams] = useSearchParams();
-	const category = parseInt(searchParams.get("category"));
-	const page = parseInt(searchParams.get("page"));
-	const sort = searchParams.get("sort");
+	const category = searchParams.get("category") ? parseInt(searchParams.get("category")) : 1;
+	const page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1;
+	const sort = searchParams.get("sort") ? searchParams.get("sort") : "new";
 
 	const [productList, setProductList] = useState([]);
 
