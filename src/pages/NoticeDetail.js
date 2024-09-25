@@ -1,10 +1,42 @@
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./NoticeDetail.css";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function NoticeDetail() {
+  const [notice, setNotice] = useState();
+
+  const { uid } = useParams();
+  console.log(uid);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/notice/${uid}`)
+      .then((response) => {
+        console.log(response.data);
+        setNotice(response.data);
+      })
+      .catch((error) => alert(error.response.data));
+  }, []);
+
+  const handleClickPrev = (e) => {
+    navigate(``);
+  };
+
+  const handleClickNext = (e) => {
+    navigate(``);
+  };
+
   return (
     <>
       <WhiteHeader />
@@ -14,7 +46,7 @@ export default function NoticeDetail() {
           <div className="noticeDetail-comm_title">
             <ul className="noticeDetail-tab">
               <li className="noticeDetail-on">
-                <Link to="/notice">
+                <Link to="/notices">
                   <div className="noticeDetail-img">
                     <img src="\images\Notice\cs_notice_on.svg" alt="확성기" />
                   </div>
@@ -72,28 +104,26 @@ export default function NoticeDetail() {
                 <tbody>
                   <tr className="noticeDetail-bd_title">
                     <td>
-                      <div className="noticeDetail-t01">
-                        {"FC730MBT MX2A 코랄 블루 신제품 출시"}
-                      </div>
+                      <div className="noticeDetail-t01">{notice?.title}</div>
                       <div className="noticeDetail-t02">
                         <span>{"Leopold"}</span>
-                        <span>{"2024-08-29"}</span>
+                        <span>{notice?.writeDate}</span>
                       </div>
                     </td>
                   </tr>
                   <tr className="noticeDetail-bd_content">
                     <td>
                       <div className="noticeDetail-fr-view">
-                        <p>
-                          <img
-                            src={
-                              "/images/NoticeDetail/73020MX2A20EC8BA0EAB79CECB69CEC8B9C20EAB3B5ECA780.jpg"
-                            }
-                            alt={"FC730MBT MX2A"}
-                            className="noticeDetail-fr-dib"
-                            sizes={"900px/1543px"}
-                          />
-                        </p>
+                        {/* <img
+                          src="/images/NoticeDetail/73020MX2A20EC8BA0EAB79CECB69CEC8B9C20EAB3B5ECA780.jpg"
+                          alt={"FC730MBT MX2A"}
+                          className="noticeDetail-fr-dib"
+                          sizes={"900px/1543px"}
+                        /> */}
+                        <p
+                          dangerouslySetInnerHTML={{ __html: notice?.content }}
+                        />
+
                         <p>
                           <span>
                             <strong
@@ -107,9 +137,9 @@ export default function NoticeDetail() {
                               }}
                             >
                               <span style={{ color: "rgb(255, 108, 0)" }}>
-                                {
+                                {/* {
                                   "판매일정 : 2024년 9월 2일 월요일 오전 11시 판매 시작"
-                                }
+                                } */}
                               </span>
                             </strong>
                           </span>
@@ -132,9 +162,9 @@ export default function NoticeDetail() {
                                 fontSize: "20px",
                               }}
                             >
-                              {
+                              {/* {
                                 "* 위 일정은 제반 상황에 따라 변경될 수 있습니다."
-                              }
+                              } */}
                             </span>
                           </strong>
                         </p>
@@ -146,18 +176,18 @@ export default function NoticeDetail() {
             </div>
             <div className="noticeDetail-base-button">
               <span>
-                <Link to={"/notice"}>목록</Link>
+                <Link to={"/notices"}>목록</Link>
               </span>
             </div>
           </div>
           {/* 이전글/다음글 */}
           <div className="noticeDetail-board-movement">
             <ul>
-              <li className="noticeDetail-prev">
+              <li className="noticeDetail-prev" onClick={handleClickPrev}>
                 <strong>이전글</strong>
                 {"프리미엄 알파셀 장패드 신규 출시"}
               </li>
-              <li className="noticeDetail-next">
+              <li className="noticeDetail-next" onClick={handleClickNext}>
                 <strong>다음글</strong>
                 {"키보드 러그 이벤트 당첨자 발표"}
               </li>

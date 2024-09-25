@@ -15,7 +15,7 @@ export default function AS() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/as`, { withCredentials: true })
+      .get(`http://localhost:8080/as`)
       .then((res) => {
         console.log(res.data);
 
@@ -50,7 +50,7 @@ export default function AS() {
           <div className="as-comm_title">
             <ul className="as-tab">
               <li className="as-on">
-                <Link to="/notice">
+                <Link to="/notices">
                   <div className="as-img">
                     <img src="\images\Download\cs_notice.svg" alt="확성기" />
                   </div>
