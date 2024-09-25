@@ -27,7 +27,7 @@ export default function NoticeDetail() {
         setNotice(response.data);
       })
       .catch((error) => alert(error.response.data));
-  }, []);
+  }, [uid]);
 
   const handleClickPrev = (e) => {
     navigate(``);
