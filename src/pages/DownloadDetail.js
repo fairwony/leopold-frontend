@@ -1,10 +1,36 @@
 import "./DownloadDetail.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function DownloadDetail() {
+  const [download, setDownload] = useState();
+
+  const {uid} = useParams();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+    .get(`http://localhost:8080/download/${uid}`)
+    .then((response) => {
+      console.log(response.data);
+      setDownload(response.data);
+    })
+    .catch((error) => alert(error.response.data));
+  }, [uid]);
+
+  const handleClickPrev = (e) => {
+    navigate(``);
+  };
+
+  const handleClickNext = (e) => {
+    navigate(``);
+  };
+
   return (
     <>
       <WhiteHeader />
@@ -73,29 +99,27 @@ export default function DownloadDetail() {
                   <tr className="downloadDetail-bd_title">
                     <td>
                       <div className="downloadDetail-t01">
-                        {"리얼포스 소프트웨어 프로그램"}
+                        {download?.title}
                       </div>
                       <div className="downloadDetail-t02">
                         <span>{"Leopold"}</span>
-                        <span>{"2024-08-29"}</span>
+                        <span>{download?.writeDate}</span>
                       </div>
                     </td>
                   </tr>
                   <tr className="downloadDetail-bd_content">
                     <td>
                       <div className="downloadDetail-fr-view">
-                        <p>
-                          {"리얼포스 소프트웨어 프로그램 다운로드 바로가기"}
-                        </p>
+                        <p dangerouslySetInnerHTML={{ __html: download?.content}} />
                         <p>
                           <br />
                         </p>
                         <p>
-                          <Link
+                          {/* <Link
                             to={"https://www.realforce.co.jp/support/download/"}
                           >
                             {"https://www.realforce.co.jp/support/download/"}
-                          </Link>
+                          </Link> */}
                         </p>
                         <p>
                           <br />
