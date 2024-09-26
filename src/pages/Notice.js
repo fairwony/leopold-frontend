@@ -10,12 +10,11 @@ import Pagination from "react-js-pagination";
 
 export default function Notice() {
   const [queryParams] = useSearchParams();
-
+  const navigate = useNavigate();
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
   const [noticeList, setNoticeList] = useState([]);
-  const navigate = useNavigate();
-
+  
   useEffect(() => {
     axios
       .get(`http://localhost:8080/notices?page=${page}&size=${size}`)
@@ -25,11 +24,9 @@ export default function Notice() {
       })
       .catch((err) => alert(err.res.data));
   }, [page, size]);
-
-  const printNoticeList = noticeList.map((list, index) => (
-    <NoticeTable list={list} key={index} />
-  ));
-
+  // const printNoticeList = noticeList.map((list, index) => (
+  //   <NoticeTable list={list} key={index} />
+  // ));
   function handlePageChange(pageNum) {
     navigate(`/notices?page=${pageNum}&size=10`);
   }
@@ -114,7 +111,9 @@ export default function Notice() {
               </tr>
             </thead>
             {/* 공지사항 게시판 목록 내용*/}
-            {printNoticeList}
+            {noticeList.map((list, index) => (
+              <NoticeTable list={list} key={index} />
+            ))}
           </table>
         </div>
         {/* 페이지 이동 화살표 */}

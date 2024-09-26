@@ -9,7 +9,6 @@ import "./AS.css";
 
 export default function AS() {
   const [category, setCategory] = useState(1);
-
   const [asList_1, setAsList_1] = useState([]);
   const [asList_2, setAsList_2] = useState([]);
 
@@ -18,11 +17,9 @@ export default function AS() {
       .get(`http://localhost:8080/as`)
       .then((res) => {
         console.log(res.data);
-
         setAsList_1(
           res.data.filter(asList => asList.category === 1)
         );
-
         setAsList_2(
           res.data.filter(asList => asList.category === 2)
         );
@@ -31,14 +28,6 @@ export default function AS() {
         console.log(err.res.data);
       });
   }, []);
-
-  const printAsList_1 = asList_1.map((list, index) => (
-    <AsSub list={list} key={index} />
-  ));
-
-  const printAsList_2 = asList_2.map((list, index) => (
-    <AsSub list={list} key={index} />
-  ));
 
   return (
     <>
@@ -123,8 +112,16 @@ export default function AS() {
           <div className="as-cboth_questions">
             <ul>
               <li className="as-has-sub">
-                {category === 1 ? printAsList_1 : ""}
-                {category === 2 ? printAsList_2 : ""}
+                {category === 1
+                  ? asList_1.map((list, index) => (
+                      <AsSub list={list} key={index} />
+                    ))
+                  : ""}
+                {category === 2
+                  ? asList_2.map((list, index) => (
+                      <AsSub list={list} key={index} />
+                    ))
+                  : ""}
               </li>
             </ul>
           </div>

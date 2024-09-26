@@ -9,7 +9,7 @@ export default function AsSub({ list }) {
       {/* Q */}
       <div
         className="asSub-move"
-        onClick={() => setIsOpen((isOpen) => !isOpen)}
+        onClick={() => setIsOpen(isOpen => !isOpen)}
       >
         <span>
           <img src="images\FAQ\faq_q.svg" alt="Q" />
@@ -35,7 +35,7 @@ export default function AsSub({ list }) {
       <div className={isOpen ? "asSub-has-sub-a" : "asSub-has-sub-b"}>
         <div className="asSub-wrap">
           <span>
-            <img src="\images\FAQ\faq_a.svg" alt="A"></img>
+            <img src="\images\FAQ\faq_a.svg" alt="A" />
           </span>
           <div dangerouslySetInnerHTML={{ __html: list?.answer }} />
         </div>
