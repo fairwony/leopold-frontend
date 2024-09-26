@@ -2,9 +2,9 @@ import { useRef } from "react";
 import "./FaqSub.css";
 
 export default function FaqSub({faq}) {
-  const contentEl = useRef();
-  const { handleToggle, active, faq, page, size } = props;
-  const { header, id, text } = faq;
+  // const contentEl = useRef();
+  // const { handleToggle, active, faq, page, size } = props;
+  // const { header, id, text } = faq;
 
   return (
     <>
