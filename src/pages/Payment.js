@@ -296,6 +296,11 @@ export default function Payment() {
 
 							value = value.replace(/\D/g, '');
 
+							if (value === ''){
+								setPoint('');
+								return;
+							}
+
 							if (parseInt(value) > userInfo?.point) {
 								value = userInfo.point.toString();
 							}
