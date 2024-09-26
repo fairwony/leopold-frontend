@@ -154,6 +154,11 @@ export default function Payment() {
 	function handleClickOrder() {
 		if (isMyself === true) setMessage(messageSelf);
 
+		let pointValue = 0;
+		if (point !== '') {
+			pointValue = parseInt(point);
+		}
+
 		axios.post(`http://localhost:8080/order`, {
 			receiver: `${receiver}`,
 			receiveMethod: `우체국택배`,
@@ -169,7 +174,7 @@ export default function Payment() {
 			paymentMethod: `무통장입금`,
 			account: `${account}`,
 			holder: `${holder}`,
-			point: `${point}`
+			point: `${pointValue}`
 		}, { withCredentials: true })
 			.then((response) => {
 				alert("주문 완료!");
@@ -289,22 +294,13 @@ export default function Payment() {
 						onChange={(e) => {
 							let value = e.target.value;
 
-							// 숫자가 아닌 문자는 제거
 							value = value.replace(/\D/g, '');
 
-							// 입력 값이 비어 있으면 상태를 빈 문자열로 설정하고 종료
-							if (value === '') {
-								setPoint('');
-								return;
-							}
-
-							// 입력 값이 보유 포인트를 초과하면 보유 포인트로 설정
 							if (parseInt(value) > userInfo?.point) {
 								value = userInfo.point.toString();
 							}
 
-							// 상태 업데이트
-							setPoint(value);
+							setPoint(parseInt(value));
 						}} />
 
 					<button className="payment-point-btn"
