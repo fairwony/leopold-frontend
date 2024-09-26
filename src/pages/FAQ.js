@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 export default function FAQ() {
   const [queryParams] = useSearchParams();
   const navigate = useNavigate();
+  const [category, setCategory] = useState(1);
+
   const [faq, setFaq] = useState([]);
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 10;
@@ -90,19 +92,31 @@ export default function FAQ() {
         {/* 네비게이션 바 */}
         <div id="faq_navi">
           <ul className="faq-navi_cboth">
-            <li data-tab="1" id="faq-on2">
+            <li
+              className={category === 1 ? "faq-category-on" : ""}
+              onClick={() => setCategory(1)}
+            >
               <span>주문/결제/배송</span>
             </li>
             <p>|</p>
-            <li data-tab="2">
+            <li
+              className={category === 2 ? "faq-category-on" : ""}
+              onClick={() => setCategory(2)}
+            >
               <span>취소/교환/반품</span>
             </li>
             <p>|</p>
-            <li data-tab="3">
+            <li
+              className={category === 3 ? "faq-category-on" : ""}
+              onClick={() => setCategory(3)}
+            >
               <span>상품/기술지원</span>
             </li>
             <p>|</p>
-            <li data-tab="4">
+            <li
+              className={category === 4 ? "faq-category-on" : ""}
+              onClick={() => setCategory(4)}
+            >
               <span>기타</span>
             </li>
           </ul>
