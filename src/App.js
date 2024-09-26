@@ -47,7 +47,7 @@ export default function App() {
 					<Route path="/asReception" element={<AsReception />} />
 					<Route path="/review" element={<Review />} />
 					<Route path="/review/notice" element={<ReviewNotice />} />
-					<Route path="/review/detail" element={<ReviewDetail />} />
+					<Route path="/review/:uid" element={<ReviewDetail />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/forgotId" element={<ForgotId />} />
 					<Route path="/forgotPs" element={<ForgotPs />} />

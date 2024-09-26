@@ -1,10 +1,63 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./ReviewDetail.css";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ReviewDetail() {
+
+  const [review, setReview] = useState({
+    title:"",
+    name:"",
+    writeDate:"",
+    content:"",
+    deleteYn:""
+  });
+
+  const [content, setContent] = useState("");
+
+
+  // 시간 설정
+  const date = new Date(review?.writeDate);
+  const year = date?.getFullYear();
+  const month = String(date.getMonth() + 1)?.padStart(2, '0');
+  const day = String(date.getDate())?.padStart(2, '0');
+
+  const {uid} = useParams();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/review/${uid}`)
+    .then((res) =>{
+      setReview(res.data);
+    })
+    .catch((e)=>{
+      console.log(e);
+    })
+  },[])
+
+  const handleSubmit = () =>{
+    axios.post(`http://localhost:8080/comment/write/${uid}`,
+      {
+        content: `${content}`
+      },
+      {
+        withCredentials: true,
+      }
+    )
+    .then((resp) => {
+      navigate("/review/${uid}")
+      alert("댓글 작성 완료!");
+    })
+    .catch((e) => {
+      alert("로그인이 필요합니다!")
+    });
+  }
+
+
   return (
     <>
       <WhiteHeader />
@@ -67,18 +120,15 @@ export default function ReviewDetail() {
         {/* 조회 */}
         <div className="datail-contanier">
           <div className="title-box">
-            <p className="title-text1">고민끝에 구매(FC900RBT)</p>
+            <p className="title-text1">{review.title}</p>
             <div className="text2-box">
-              <p className="title-text2">김****</p>
+              <p className="title-text2">{review.name}</p>
               <div className="title-line"></div>
-              <p className="title-text2">2024-08-29</p>
+              <p className="title-text2">{year}.{month}.{day}</p>
             </div>
           </div>
           <div className="content-box">
-            <p className="content-text">안녕하세요</p>
-            <p className="content-text">
-              빠르게 도착하여.. 수령해서 여기저기 확인해보고 타자를 해보니
-              개인적인 기준에는 만족감이 많습니다.
+            <p className="content-text" dangerouslySetInnerHTML={{ __html: review.content }}>
             </p>
           </div>
           <div className="review-catalog-container">
@@ -92,24 +142,29 @@ export default function ReviewDetail() {
               </Link>
             </div>
           </div>
+          {/* 댓글 조회 */}
           <div className="comment-container">
             <div className="comment-box1">
-              <p className="comment-name">이****</p>
-              <p className="comment-text">2024-09-04</p>
+              <p className="comment-name">이름</p>
+              <p className="comment-text">2023-04-23</p>
               <div className="modify-container">
                 <button className="modify-box">수정</button>
                 <button className="modify-box">삭제</button>
               </div>
             </div>
             <div className="comment-box2">
-              <p className="comment-text">타자 칠 때 불편함은 없나요?</p>
+              <p className="comment-text">내용</p>
             </div>
           </div>
+          {/* 댓글 작성*/}
           <div className="write-comment-container">
             <p className="write-comment-text">댓글달기</p>
-            <textarea className="write-comment-content"></textarea>
+            <textarea className="write-comment-content"
+            onChange={(e) =>{
+              setContent(e.target.value);
+            }}></textarea>
             <div>
-              <button className="write-comment-check">확인</button>
+              <button className="write-comment-check" onClick={handleSubmit}>확인</button>
             </div>
           </div>
         </div>

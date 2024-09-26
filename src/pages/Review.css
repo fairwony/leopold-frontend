@@ -57,7 +57,6 @@
 /* 게시판 */
 .review-base-table {
     width: 1340px;
-    height: 1392px;
     margin: auto; 
 }
 
@@ -98,7 +97,7 @@
     text-align: left;
     line-height: 24px;
     padding: 28px 0 28px 32px;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .review-subject>strong {
@@ -227,9 +226,30 @@
     align-items: center;
 }
 
+.Review .pagination {
+    width: 1340px;
+    height: 40px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.Review .page-item {
+    margin: 0px 7px;
+}
 
+.Review .page-link {
+    padding: 8px 16px;
+    color: #939393;
+    cursor: pointer;
+}
 
+.Review .page-item.active .page-link {
+    background-color: #f6f6f6;
+    color: #1a1a1a;
+}
 
-
-
+.Review .page-item:hover .page-link {
+    background-color: #f6f6f6;
+}

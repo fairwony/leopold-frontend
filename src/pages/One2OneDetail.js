@@ -40,34 +40,30 @@ const handleDelte=() => {
     },
     withCredentials:true
   })
-  if(window.confirm("해당 문의를 삭제하시겠습니까?")){
+  .then((resp)=>{
+    window.confirm("해당 문의를 삭제하시겠습니까?")
     alert("삭제 완료!")
     navigate(`/one2one`)
-  }
+  })
+  .catch((e) => {
+    alert("본인이 작성한 문의만 삭제할 수 있습니다.")
+  })
 
 }
 
 // 시간 설정
 const date = new Date(one2One?.writeDate);
-
 const year = date?.getFullYear();
-
 const month = String(date.getMonth() + 1)?.padStart(2, '0');
-
 const day = String(date.getDate())?.padStart(2, '0');
-
 const hours = String(date.getHours()).padStart(2, '0'); 
 const minutes = String(date.getMinutes()).padStart(2, '0'); 
 const seconds = String(date.getSeconds()).padStart(2, '0'); 
 
 const date2 = new Date(one2One?.answerDate);
-
 const year2 = date2?.getFullYear();
-
 const month2 = String(date2.getMonth() + 1)?.padStart(2, '0');
-
 const day2 = String(date2.getDate())?.padStart(2, '0');
-
 const hours2 = String(date2.getHours()).padStart(2, '0'); 
 const minutes2 = String(date2.getMinutes()).padStart(2, '0'); 
 const seconds2 = String(date2.getSeconds()).padStart(2, '0'); 
@@ -108,7 +104,7 @@ const seconds2 = String(date2.getSeconds()).padStart(2, '0');
                 {one2One.name}
               </p>
               <p className="qa-bold-text">답변여부</p>
-              <p className="qa-light-text">{one2One.answerYn == "y" ? "O" : "X"}</p>
+              <p className="qa-light-text">{one2One.answerYn === "y" ? "O" : "X"}</p>
             </div>
             <div className="qa-box">
               <p className="qa-bold-text">문의일시</p>
@@ -121,7 +117,7 @@ const seconds2 = String(date2.getSeconds()).padStart(2, '0');
             </p>
           </div>
           {/* 답변 */}
-         {one2One.answerYn == "y" ? (
+         {one2One.answerYn === "y" ? (
          <div className="a-container">
             <div className="qa-box">
               <p className="qa-bold-text">답변자</p>

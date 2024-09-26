@@ -1,4 +1,4 @@
-import { Link, useNavigate, useSearchParams} from "react-router-dom";
+import { Link, useSearchParams} from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";

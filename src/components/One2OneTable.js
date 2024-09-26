@@ -1,17 +1,11 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function One2OneTable({list}) {
 
 const date = new Date(list?.writeDate);
-
 const year = date?.getFullYear();
-
 const month = String(date.getMonth() + 1)?.padStart(2, '0');
-
 const day = String(date.getDate())?.padStart(2, '0');
-
-
-
 
 
   return (
@@ -28,7 +22,7 @@ const day = String(date.getDate())?.padStart(2, '0');
                         <span className="one2one-txtNum">{year}.{month}.{day}</span>
                       </td>
                       <td>
-                        <span className="one2one-txtOx">{list.answerYn == "y" ? "O" : "X"}</span>
+                        <span className="one2one-txtOx">{list.answerYn === "y" ? "O" : "X"}</span>
                       </td>
                     </tr>
                   </tbody>
