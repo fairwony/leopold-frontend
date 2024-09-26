@@ -45,13 +45,13 @@ export default function FAQ() {
       });
   }, [page, size, categoryUid]);
 
-  const handleCategoryClick = (id) => {
-    navigate(`/faq?page=1&size=10&category=${id}`);
+  const handleCategoryClick = (categoryUid) => {
+    navigate(`/faq?page=1&size=10&category=${categoryUid}`);
   };
 
-  const printFaqList = faqList.map((faq, index) => (
-    <FaqSub faq={faq} key={index} index={index} page={page} size={size} />
-  ));
+  // const printFaqList = faqList.map((faq, index) => (
+  //   <FaqSub faq={faq} key={faqList.uid} index={index} page={page} size={size} />
+  // ));
 
   return (
     <>
@@ -144,11 +144,23 @@ export default function FAQ() {
             </li>
           </ul>
         </div>
-        {/* Q&A */}
+        {/* Q & A */}
         <div className="faq-cboth_questions">
           <ul>
             <li className="faq-has-sub"></li>
-            <li>{printFaqList}</li>
+            <li>
+              {faqList.map((faq, index) => (
+              <FaqSub
+                faq={faq}
+                key={index}
+                index={index}
+                page={page}
+                size={size}
+                // handleToggle={}
+                // active={}
+              />
+              ))}
+            </li>
           </ul>
         </div>
         {/* 페이지 이동 화살표 */}

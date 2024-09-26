@@ -7,14 +7,13 @@
     display: flex;
     font-family: 'Inter', 'Pretendard', sans-serif;
     border-bottom: 1px solid #ededed;
-    color: #353535;
+    color: #1a1a1a;
     font-size: 18px;
     font-weight: 400;
     text-align: left;
 }
 
 .faqSub-move>span {
-    display: block;
     width: 80px;
     height: 32px;
     margin-right: 16px;
@@ -22,10 +21,30 @@
 }
 
 .faqSub-move>svg {
-    display: block;
     width: 84px;
     height: 24px;
-    margin-left: 943px;
+    margin-left: auto;
     /* transform: rotate(-180deg); */
-    cursor: pointer;   
+    padding: 0 30px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.faqSub-has-sub-a {
+    background-color: #f5f5f5;
+    padding: 28px 0;
+    color: #888888;
+    line-height: 32px;
+    border-top: 1px solid #ededed;
+}
+
+.faqSub-wrap {
+    display: flex;
+}
+
+.faqSub-wrap>span {
+    width: 80px;
+    height: 96px;
+    margin-right: 16px;
+    text-align: center;
 }

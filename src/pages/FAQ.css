@@ -107,62 +107,6 @@
     font-weight: 400;
     text-align: left;
 }
-
-.faq-move {
-    width: 1340px;
-    padding: 28px 0;
-    cursor: pointer;
-    line-height: 32px;
-    font-weight: 400;
-    color: #1a1a1a;
-    display: flex;
-    text-align: left;
-}
-
-.faq-move>span {
-    display: block;
-    width: 80px;
-    height: 32px;
-    margin-right: 16px;
-    text-align: center;
-}
-
-.faq-move>svg {
-    display: block;
-    width: 84px;
-    height: 24px;
-    margin-left: 943px;
-    transform: rotate(-180deg);
-    cursor: pointer;   
-}
-
-.faq-has-sub-a {
-    width: 1340px;
-    height:153px;
-    background-color: #f5f5f5;
-    padding: 28px 0;
-    color: #888888;
-    line-height: 32px;
-    border-top: 1px solid #ededed;
-}
-
-.faq-wrap {
-    display: flex;
-    width: 1340px;
-    height: 96px;
-}
-
-.faq-wrap>span {
-    width: 80px;
-    height: 96px;
-    margin-right: 16px;
-    text-align: center;
-}
-
-.faq-wrap>div {
-    width: auto;
-    height: auto;
-}
 /* 페이지 이동 화살표 */
 .faq-paging {
     width: 1340px;

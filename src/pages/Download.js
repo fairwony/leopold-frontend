@@ -133,7 +133,7 @@ export default function Download() {
             {downloadList.map((list, index) => (
               <DownloadTable
                 list={list}
-                key={list.uid}
+                key={index}
                 index={index}
                 page={page}
                 size={size}

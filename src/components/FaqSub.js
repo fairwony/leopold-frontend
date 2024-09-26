@@ -1,10 +1,8 @@
 import { useRef } from "react";
 import "./FaqSub.css";
 
-export default function FaqSub({faq}) {
+export default function FaqSub({ faq }) {
   // const contentEl = useRef();
-  // const { handleToggle, active, faq, page, size } = props;
-  // const { header, id, text } = faq;
 
   return (
     <>
@@ -26,15 +24,10 @@ export default function FaqSub({faq}) {
       <div className="faqSub-has-sub-a">
         <div className="faqSub-wrap">
           <span>
-            <img src="images\FAQ\faq_a.svg" alt="A"></img>
+            <img src="images\FAQ\faq_a.svg" alt="A" />
           </span>
           <div>
-            <p>{"결제 완료된 주문 건은 직접 변경이 불가능합니다."}</p>
-            <p>
-              {
-                "변경을 원하실 경우 1:1 문의게시판을 이용하시거나, 고객센터로 연락 바랍니다."
-              }
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: faq?.answer }} />
             <p>
               <br></br>
             </p>
