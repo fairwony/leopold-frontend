@@ -18,11 +18,9 @@ export default function AS() {
       .get(`http://localhost:8080/as`)
       .then((res) => {
         console.log(res.data);
-
         setAsList_1(
           res.data.filter(asList => asList.category === 1)
         );
-
         setAsList_2(
           res.data.filter(asList => asList.category === 2)
         );

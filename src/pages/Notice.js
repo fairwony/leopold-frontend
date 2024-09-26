@@ -10,12 +10,11 @@ import Pagination from "react-js-pagination";
 
 export default function Notice() {
   const [queryParams] = useSearchParams();
-
+  const navigate = useNavigate();
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
   const [noticeList, setNoticeList] = useState([]);
-  const navigate = useNavigate();
-
+  
   useEffect(() => {
     axios
       .get(`http://localhost:8080/notices?page=${page}&size=${size}`)

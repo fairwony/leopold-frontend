@@ -28,7 +28,7 @@ export default function FAQ() {
       .catch((error) => {
         alert(error.response.data);
       });
-  }, [page,size,categoryUid]);
+  }, [page, size, categoryUid]);
 
   return (
     <>

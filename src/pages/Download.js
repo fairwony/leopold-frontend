@@ -10,14 +10,12 @@ import "./Download.css";
 
 export default function Download() {
 	const [downloadList, setDownloadList] = useState([]);
-
+	const navigate = useNavigate();
 	const [queryParams] = useSearchParams();
 
 	const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
 	const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
 	const categoryUid = queryParams.get("category") ? parseInt(queryParams.get("category")) : 0;
-
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		axios
