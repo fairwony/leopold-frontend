@@ -1,8 +1,6 @@
-import { useRef } from "react";
 import "./FaqSub.css";
 
 export default function FaqSub({ faq }) {
-  // const contentEl = useRef();
 
   return (
     <>
