@@ -109,7 +109,8 @@
 	align-items: center;
 }
 
-.Join .DaumPostcode {
+.Join .DaumPostcode,
+.Modify .DaumPostcode {
 	width: 92px;
 	height: 40px;
 	border: 1px solid #e9e9e9;
@@ -117,6 +118,7 @@
 	background-color: transparent;
 	cursor: pointer;
 }
+
 
 .join-phoneWrapper {
 	display: flex;
@@ -221,4 +223,17 @@
 	height: 0px;
 	overflow: hidden;
 	opacity: 0;
+}
+
+.join-finalModify {
+	width: 200px;
+	height: 56px;
+	background-color: #fe9900;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
 }

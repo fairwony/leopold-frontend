@@ -57,6 +57,40 @@ export default function Header() {
 		setIsMenuExtend(false);
 	}
 
+	function handleClickMyPage() {
+		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				navigate("/mypage");
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+				alert("로그인 후 이용해 주세요.");
+
+				localStorage.setItem('isLogin', 'false');
+				set.isLogin(false);
+
+				navigate("/login");
+			});
+	}
+
+	function handleClickCart() {
+		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				navigate("/cart");
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+				alert("로그인 후 이용해 주세요.");
+
+				localStorage.setItem('isLogin', 'false');
+				set.isLogin(false);
+
+				navigate("/login");
+			});
+	}
+
 	return (
 		<div className="Header">
 			{isTop ? (
@@ -87,8 +121,8 @@ export default function Header() {
 								: undefined}
 							<Link to="/support"><p className="header-service" style={{ color: "white" }}>고객지원</p></Link>
 							<img src="\images\Header\search.png" alt="search_white" />
-							<Link to="/mypage"><img src="\images\Header\mypage.png" alt="mypage_white" /></Link>
-							<Link to="/cart"><img src="\images\Header\h_cart.png" alt="cart_white" /></Link>
+							<img src="\images\Header\mypage.png" alt="mypage_white" onClick={handleClickMyPage} />
+							<img src="\images\Header\h_cart.png" alt="cart_white" onClick={handleClickCart} />
 						</div>
 					</div>
 				</div>
@@ -120,8 +154,8 @@ export default function Header() {
 								: undefined}
 							<Link to="/support"><p className="header-service">고객지원</p></Link>
 							<img src="\images\Header\h_search_black.png" alt="search_black" />
-							<Link to="/mypage"><img src="\images\Header\h_mypage_black.png" alt="mypage_black" /></Link>
-							<Link to="/cart"><img src="\images\Header\h_cart_black.png" alt="cart_black" /></Link>
+							<img src="\images\Header\h_mypage_black.png" alt="mypage_black" onClick={handleClickMyPage} />
+							<img src="\images\Header\h_cart_black.png" alt="cart_black" onClick={handleClickCart} />
 						</div>
 					</div>
 				</div>
@@ -278,8 +312,9 @@ export default function Header() {
 									navigate('/login');
 								});
 						}}>로그아웃</p> : <Link to="/login"><p>로그인</p></Link>}
-						<p>·</p>
-						<Link to="/join"><p>회원가입</p></Link>
+
+						{get.isLogin ? undefined : <p>·</p>}
+						{get.isLogin ? undefined : <Link to="/join"><p>회원가입</p></Link>}
 					</div>
 				</div>
 			</div>

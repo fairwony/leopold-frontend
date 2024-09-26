@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
@@ -7,20 +7,33 @@ import MyPageNav from "../components/MyPageNav";
 import OrderTable from "../components/OrderTable";
 import QnaTableMini from "../components/QnaTableMini";
 import WhiteHeader from "../components/WhiteHeader";
+import { ContextSystem } from "../functions/MyContext";
 import "./MyPage.css";
 
 export default function MyPage() {
+	const {get, set} = useContext(ContextSystem);
 	const navigate = useNavigate();
 	const [orderList, setOrderList] = useState([]);
+	const [waitLength, setWaitLength] = useState(0);
 
 	useEffect(() => {
 		axios.get(`http://localhost:8080/order/list`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setOrderList(response.data);
+
+				const waitList = response.data.filter((orderInfo) => {
+					return orderInfo?.order?.status === "입금대기";
+				});
+				setWaitLength(waitList.length);
 			})
 			.catch((error) => {
-				console.log(error.response.data);
+				alert(error.response.data);
+
+				localStorage.setItem('isLogin', 'false');
+				set.isLogin(false);
+
+				navigate("/login");
 			});
 	}, []);
 
@@ -41,7 +54,7 @@ export default function MyPage() {
 						<div className="mypage-status">
 							<div className="mypage-status-box1">
 								<p className="mypage-status-p1">입금대기</p>
-								<p className="mypage-status-p2">1</p>
+								<p className="mypage-status-p2">{waitLength}</p>
 							</div>
 
 							<div className="mypage-status-box2">

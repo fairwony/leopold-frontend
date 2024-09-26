@@ -140,6 +140,17 @@ export default function ShoppingDetail() {
 		}
 	}
 
+	function handleClickInterest() {
+		axios.post(`http://localhost:8080/interest?productUid=${uid}`, {}, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				alert("상품을 관심상품 목록에 추가했습니다.");
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+			});
+	}
+
 
 
 
@@ -225,7 +236,7 @@ export default function ShoppingDetail() {
 						</div>
 
 						<div style={{ display: "flex", gap: 17, marginTop: 32 }}>
-							<button className="sd-interest-btn">
+							<button className="sd-interest-btn" onClick={handleClickInterest}>
 								<img src="\images\Shopping\interest.png" alt="interest" />
 							</button>
 

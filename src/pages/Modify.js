@@ -1,30 +1,21 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import DaumPostcode from "../functions/DaumPostcode";
+import { ContextSystem } from "../functions/MyContext";
 import "./Join.css";
 
-export default function Join() {
-	const navigate = useNavigate();
+export default function Modify() {
+	const { get, set } = useContext(ContextSystem);
 
-	useEffect(() => {
-		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
-			.then((response) => {
-				console.log(response.data);
-				navigate("/");
-			})
-			.catch((error) => {
-				console.log(error.response.data);
-			});
-	}, []);
+	const navigate = useNavigate();
 
 	const [isClause1Show, setIsClause1Show] = useState(false);
 	const [isClause2Show, setIsClause2Show] = useState(false);
 
-	const [id, setId] = useState("");
 	const [password, setPassword] = useState("");
 	const [passwordCheck, setPasswordCheck] = useState("");
 	const [name, setName] = useState("");
@@ -40,10 +31,48 @@ export default function Join() {
 	const [email, setEmail] = useState("");
 
 	const [agreeAll, setAgreeAll] = useState(false);
-	const [agreeClause1, setAgreeClause1] = useState(false);
-	const [agreeClause2, setAgreeClause2] = useState(false);
+	const [agreeClause1, setAgreeClause1] = useState(true);
+	const [agreeClause2, setAgreeClause2] = useState(true);
 	const [agreeSms, setAgreeSms] = useState(false);
 	const [agreeEmail, setAgreeEmail] = useState(false);
+
+	useEffect(() => {
+		axios.get(`http://localhost:8080/user`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				
+				setName(response.data.name);
+				setZipcode(response.data.zipcode);
+				setAddress(response.data.address);
+				setAddressDetail(response.data.addressDetail);
+				setPhone1(response.data.phone.split("-")[0]);
+				setPhone2(response.data.phone.split("-")[1]);
+				setPhone3(response.data.phone.split("-")[2]);
+				setEmail(response.data.email);
+
+				if (response.data.phoneAlt) {
+					setPhoneAlt1(response.data.phoneAlt.split("-")[0]);
+					setPhoneAlt2(response.data.phoneAlt.split("-")[1]);
+					setPhoneAlt3(response.data.phoneAlt.split("-")[2]);
+				}
+
+				if (response.data.agreeEmailYn === 'y') {
+					setAgreeEmail(true);
+				}
+
+				if (response.data.agreeSmsYn === 'y') {
+					setAgreeSms(true);
+				}
+			})
+			.catch((error) => {
+				alert(error.response.data);
+
+				localStorage.setItem('isLogin', 'false');
+				set.isLogin(false);
+
+				navigate("/login");
+			});
+	}, []);
 
 	const handleAddressComplete = (data) => {
 		let fullAddress = data.address;
@@ -61,24 +90,13 @@ export default function Join() {
 
 		setAddress(fullAddress);
 		setZipcode(data.zonecode);
+		setAddressDetail("");
 	};
 
 	const [isSamePassword, setIsSamePassword] = useState(true);
-	const [isUniqueId, setIsUniqueId] = useState(false);
 
 
 	function handleClickJoin() {
-
-		if (id === "") {
-			alert("아이디를 입력해 주세요.");
-			return;
-		}
-
-		if (isUniqueId === false) {
-			alert("아이디 중복 확인을 해 주세요.");
-			return;
-		}
-
 		if (password === "") {
 			alert("비밀번호를 입력해 주세요.");
 			return;
@@ -128,8 +146,7 @@ export default function Join() {
 		if (agreeEmail) agreeEmailYn = "y";
 		else agreeEmailYn = "n";
 
-		axios.post('http://localhost:8080/join', {
-			id: `${id}`,
+		axios.patch('http://localhost:8080/user', {
 			password: `${password}`,
 			name: `${name}`,
 			zipcode: `${zipcode}`,
@@ -143,33 +160,19 @@ export default function Join() {
 		}, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
-				alert("회원가입 완료! 로그인 후 이용해 주세요.");
-				navigate("/login");
+				alert("회원정보가 수정되었습니다.");
+				navigate(-1);
 			})
 			.catch((error) => {
 				console.log(error.response.data);
-			})
-	}
-
-	function handleClickUnique() {
-		axios.post(`http://localhost:8080/isUnique?id=${id}`, {}, { withCredentials: true })
-			.then((response) => {
-				console.log(response.data);
-				setIsUniqueId(true);
-				alert("사용 가능한 아이디입니다.");
-			})
-			.catch((error) => {
-				console.log(error.response.data);
-				alert("이미 사용 중인 아이디입니다.");
 			});
 	}
 
-
 	return (
-		<div className="Join">
+		<div className="Modify">
 			<WhiteHeader />
 			<Main>
-				<p className="join-title">회원가입</p>
+				<p className="join-title">회원정보수정</p>
 
 				<div className="join-small-title-wrapper">
 					<p className="join-small-title">기본정보</p>
@@ -177,22 +180,6 @@ export default function Join() {
 				</div>
 
 				<div className="join-info-wrapper">
-					<tr>
-						<td className="join-key">
-							아이디<span className="join-red-star">*</span>
-						</td>
-						<td className="join-value">
-							<div className="join-address-line">
-								<input className="join-input1"
-									onChange={(e) => {
-										setId(e.target.value);
-										setIsUniqueId(false);
-									}} />
-								<button className="join-search-address" onClick={handleClickUnique}>중복확인</button>
-							</div>
-						</td>
-					</tr>
-
 					<tr>
 						<td className="join-key">
 							비밀번호<span className="join-red-star">*</span>
@@ -231,7 +218,7 @@ export default function Join() {
 							이름<span className="join-red-star">*</span>
 						</td>
 						<td className="join-value">
-							<input className="join-input1"
+							<input className="join-input1" defaultValue={name}
 								onChange={(e) => { setName(e.target.value) }} />
 						</td>
 					</tr>
@@ -249,7 +236,7 @@ export default function Join() {
 								</div>
 								<input className="join-input3" placeholder="기본 주소"
 									value={address} readOnly />
-								<input className="join-input3" placeholder="나머지 주소 (선택 입력 가능)"
+								<input className="join-input3" placeholder="나머지 주소 (선택 입력 가능)" defaultValue={addressDetail}
 									onChange={(e) => { setAddressDetail(e.target.value) }} />
 							</div>
 						</td>
@@ -261,13 +248,16 @@ export default function Join() {
 						</td>
 						<td className="join-value">
 							<div className="join-phoneWrapper">
-								<input maxLength={4} className="join-input4"
+								<input maxLength={4} className="join-input4" defaultValue={phoneAlt1}
+									onFocus={() => { setPhoneAlt1("") }}
 									onChange={(e) => { setPhoneAlt1(e.target.value) }} />
 								<p className="join-hyphen">-</p>
-								<input maxLength={4} className="join-input4"
+								<input maxLength={4} className="join-input4" defaultValue={phoneAlt2}
+									onFocus={() => { setPhoneAlt2("") }}
 									onChange={(e) => { setPhoneAlt2(e.target.value) }} />
 								<p className="join-hyphen">-</p>
-								<input maxLength={4} className="join-input4"
+								<input maxLength={4} className="join-input4" defaultValue={phoneAlt3}
+									onFocus={() => { setPhoneAlt3("") }}
 									onChange={(e) => { setPhoneAlt3(e.target.value) }} />
 							</div>
 						</td>
@@ -279,13 +269,16 @@ export default function Join() {
 						</td>
 						<td className="join-value">
 							<div className="join-phoneWrapper">
-								<input maxLength={4} className="join-input4"
+								<input maxLength={4} className="join-input4" defaultValue={phone1}
+									onFocus={() => { setPhone1("") }}
 									onChange={(e) => { setPhone1(e.target.value) }} />
 								<p className="join-hyphen">-</p>
-								<input maxLength={4} className="join-input4"
+								<input maxLength={4} className="join-input4" defaultValue={phone2}
+									onFocus={() => { setPhone2("") }}
 									onChange={(e) => { setPhone2(e.target.value) }} />
 								<p className="join-hyphen">-</p>
-								<input maxLength={4} className="join-input4"
+								<input maxLength={4} className="join-input4" defaultValue={phone3}
+									onFocus={() => { setPhone3("") }}
 									onChange={(e) => { setPhone3(e.target.value) }} />
 							</div>
 						</td>
@@ -296,7 +289,7 @@ export default function Join() {
 							이메일<span className="join-red-star">*</span>
 						</td>
 						<td className="join-value">
-							<input type="email" className="join-input1"
+							<input type="email" className="join-input1" defaultValue={email}
 								onChange={(e) => { setEmail(e.target.value) }} />
 						</td>
 					</tr>
@@ -631,12 +624,18 @@ export default function Join() {
 					</div>
 				</div>
 
-				<div className="join-finalJoin" onClick={handleClickJoin}>
-					회원가입
+				<div style={{ display: "flex", gap: 30, justifyContent: "center", marginTop: 60 }}>
+					<div className="join-finalModify" onClick={handleClickJoin}>
+						회원 정보 수정
+					</div>
+
+					<div className="join-finalModify" onClick={() => { navigate(-1) }}>
+						취소
+					</div>
 				</div>
 
-			</Main >
+			</Main>
 			<Footer />
-		</div >
+		</div>
 	)
 }
