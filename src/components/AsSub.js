@@ -9,7 +9,7 @@ export default function AsSub({ list }) {
       {/* Q */}
       <div
         className="asSub-move"
-        onClick={() => setIsOpen((isOpen) => !isOpen)}
+        onClick={() => setIsOpen(isOpen => !isOpen)}
       >
         <span>
           <img src="images\FAQ\faq_q.svg" alt="Q" />

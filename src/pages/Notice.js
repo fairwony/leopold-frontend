@@ -24,11 +24,9 @@ export default function Notice() {
       })
       .catch((err) => alert(err.res.data));
   }, [page, size]);
-
-  const printNoticeList = noticeList.map((list, index) => (
-    <NoticeTable list={list} key={index} />
-  ));
-
+  // const printNoticeList = noticeList.map((list, index) => (
+  //   <NoticeTable list={list} key={index} />
+  // ));
   function handlePageChange(pageNum) {
     navigate(`/notices?page=${pageNum}&size=10`);
   }
@@ -113,7 +111,9 @@ export default function Notice() {
               </tr>
             </thead>
             {/* 공지사항 게시판 목록 내용*/}
-            {printNoticeList}
+            {noticeList.map((list, index) => (
+              <NoticeTable list={list} key={index} />
+            ))}
           </table>
         </div>
         {/* 페이지 이동 화살표 */}

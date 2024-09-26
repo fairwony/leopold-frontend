@@ -10,25 +10,48 @@ import { useEffect, useState } from "react";
 export default function FAQ() {
   const [queryParams] = useSearchParams();
   const navigate = useNavigate();
-  const [category, setCategory] = useState(1);
 
-  const [faq, setFaq] = useState([]);
+  const [faqList, setFaqList] = useState([]);
+  const [totalElements, setTotalElements] = useState();
+
+  const [active, setActive] = useState();
+
+  const handleToggle = (index) => {
+    if (active === index) {
+      setActive(null);
+    } else {
+      setActive(index);
+    }
+  };
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
-  const categoryUid = queryParams.get("category") ? parseInt(queryParams.get("category")) : 1;
+  const categoryUid = queryParams.get("category")
+    ? parseInt(queryParams.get("category"))
+    : 1;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/faq?page=${page}&size=${size}&category=${categoryUid}`)
+      .get(
+        `http://localhost:8080/faq?page=${page}&size=${size}&category=${categoryUid}`
+      )
       .then((response) => {
         console.log(response.data);
-        setFaq(response.data);
-  })
+        setFaqList(response.data.list);
+        setTotalElements(response.data.totalElements);
+      })
       .catch((error) => {
         alert(error.response.data);
       });
   }, [page, size, categoryUid]);
+
+  const handleCategoryClick = (id) => {
+    navigate(`/faq?page=1&size=10&category=${id}`);
+  };
+
+  const printFaqList = faqList.map((faq, index) => (
+    <FaqSub faq={faq} key={index} />
+  ));
 
   return (
     <>
@@ -93,29 +116,29 @@ export default function FAQ() {
         <div id="faq_navi">
           <ul className="faq-navi_cboth">
             <li
-              className={category === 1 ? "faq-category-on" : ""}
-              onClick={() => setCategory(1)}
+              className={categoryUid == 1 ? "faq-category-on" : ""}
+              onClick={() => handleCategoryClick(1)}
             >
               <span>주문/결제/배송</span>
             </li>
             <p>|</p>
             <li
-              className={category === 2 ? "faq-category-on" : ""}
-              onClick={() => setCategory(2)}
+              className={categoryUid == 2 ? "faq-category-on" : ""}
+              onClick={() => handleCategoryClick(2)}
             >
               <span>취소/교환/반품</span>
             </li>
             <p>|</p>
             <li
-              className={category === 3 ? "faq-category-on" : ""}
-              onClick={() => setCategory(3)}
+              className={categoryUid == 3 ? "faq-category-on" : ""}
+              onClick={() => handleCategoryClick(3)}
             >
               <span>상품/기술지원</span>
             </li>
             <p>|</p>
             <li
-              className={category === 4 ? "faq-category-on" : ""}
-              onClick={() => setCategory(4)}
+              className={categoryUid == 4 ? "faq-category-on" : ""}
+              onClick={() => handleCategoryClick(4)}
             >
               <span>기타</span>
             </li>
@@ -124,50 +147,10 @@ export default function FAQ() {
         {/* Q&A */}
         <div className="faq-cboth_questions">
           <ul>
-            <li className="faq-has-sub">
-              <div className="faq-move">
-                <span>
-                  <img src="images\FAQ\faq_q.svg" alt="Q" />
-                </span>
-                {"주문 내역을 변경할 수 있나요?"}
-                <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 8L12 16L20 8"
-                    stroke="#1A1A1A"
-                    strokeWidth={1.2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              <div className="faq-has-sub-a">
-                <div className="faq-wrap">
-                  <span>
-                    <img src="images\FAQ\faq_a.svg" alt="A"></img>
-                  </span>
-                  <div>
-                    <p>{"결제 완료된 주문 건은 직접 변경이 불가능합니다."}</p>
-                    <p>
-                      {
-                        "변경을 원하실 경우 1:1 문의게시판을 이용하시거나, 고객센터로 연락 바랍니다."
-                      }
-                    </p>
-                    <p>
-                      <br></br>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              {/* {faqs.map((_, index) => (
-                <FaqSub key={index} />
-              ))} */}
-            </li>
+            <li className="faq-has-sub"></li>
+            <li>{printFaqList}</li>
           </ul>
         </div>
-
         {/* 페이지 이동 화살표 */}
         <div className="faq-paging">
           <ul className="faq-ul">
