@@ -158,7 +158,7 @@ export default function AS() {
             </div>
 
             <div>
-              <Link to={"/download"}>
+              <Link to={"/downloads"}>
                 <div className="as-img2">
                   <img src="\images\AS\faq02.png" alt="자료실" />
                 </div>
@@ -172,7 +172,7 @@ export default function AS() {
             </div>
 
             <div>
-              <Link to={"/download"}>
+              <Link to={"/downloads"}>
                 <div className="as-img2">
                   <img src="\images\AS\faq03.png" alt="리포트" />
                 </div>

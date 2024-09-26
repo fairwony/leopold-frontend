@@ -14,7 +14,7 @@ export default function FAQ() {
 
   const [faq, setFaq] = useState([]);
 
-  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 10;
+  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
   const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 10;
   const categoryUid = queryParams.get("category") ? parseInt(queryParams.get("category")) : 1;
 
