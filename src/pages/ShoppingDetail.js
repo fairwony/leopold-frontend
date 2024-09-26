@@ -144,7 +144,7 @@ export default function ShoppingDetail() {
 		axios.post(`http://localhost:8080/interest?productUid=${uid}`, {}, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
-				alert("상품을 관심상품 목록에 추가했습니다.");
+				alert("상품을 관심상품으로 추가했습니다.");
 			})
 			.catch((error) => {
 				console.log(error.response.data);
