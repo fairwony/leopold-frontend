@@ -26,8 +26,13 @@ export default function FaqSub({ faq }) {
           </span>
           <div>
             <p dangerouslySetInnerHTML={{ __html: faq?.answer }} />
+            <br />
             <p>
-              <br></br>
+              <img
+                src={faq?.imageUrl}
+                alt={faq?.imageUrl}
+                className="faqSub-fr-dib"
+              />
             </p>
           </div>
         </div>

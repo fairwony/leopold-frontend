@@ -44,7 +44,10 @@
 
 .faqSub-wrap>span {
     width: 80px;
-    height: 96px;
     margin-right: 16px;
     text-align: center;
+}
+
+.faqSub-fr-dib {
+    width: 926px;
 }

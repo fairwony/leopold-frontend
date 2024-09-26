@@ -14,7 +14,7 @@ export default function FAQ() {
   const [faqList, setFaqList] = useState([]);
   const [totalElements, setTotalElements] = useState();
 
-  const [active, setActive] = useState();
+  const [active, setActive] = useState(null);
 
   const handleToggle = (index) => {
     if (active === index) {
