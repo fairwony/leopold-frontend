@@ -21,7 +21,7 @@
  }
 
  .text2-box{
-    width: 157px;
+    width: 150px;
     height: 20px;
     display: flex;
     justify-content: space-between;
@@ -42,13 +42,14 @@
 
 .content-box{
     width: 1340px;
-    height: 163px;
+    padding: 50px 0px;
+    max-height: 650px;
     border-bottom: 1px solid #d9d9d9;
 }
 
 .content-text{
     font-size: 14px;
-    padding: 23px 23px 0px 0px;
+    line-height: 25px;
     white-space: pre-wrap;
 }
 

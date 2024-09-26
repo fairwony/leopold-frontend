@@ -76,7 +76,7 @@ export default function ReviewNotice() {
                     </div>
                     <div className="reviewNotice-t02">
                       <span>{"Leopold"}</span>
-                      <span>{"2023-08-29"}</span>
+                      <span>{"2023.08.29"}</span>
                     </div>
                   </td>
                 </tr>
@@ -145,33 +145,13 @@ export default function ReviewNotice() {
         </div>
         {/* 댓글 달기 */}
         <div className="reviewNotice-board-comment">
-          <form id="reviewNotice-commentWriteForm">
-            <div className="reviewNotice-board-commentWrite">
-              <div className="reviewNotice-input">
-                <strong>댓글 달기</strong>
-                <span>
-                  {"이름 : "}
-                  <input
-                    id="reviewNotice-comment_name"
-                    name="reviewNotice-comment_name"
-                  />
-                </span>
-                {"비밀번호 : "}
-                <input
-                  id="reviewNotice-comment_password"
-                  name="reviewNotice-comment_password"
-                  value type="password"
-                />
-              </div>
-              <div className="reviewNotice-view">
-                <textarea
-                  id="reviewNotice-comment"
-                  name="reviewNotice-comment"
-                />
-                <div className="reviewNotice-btn">확인</div>
-              </div>
+        <div className="write-comment-container">
+            <p className="write-comment-text">댓글달기</p>
+            <textarea className="write-comment-content"></textarea>
+            <div>
+              <button className="write-comment-check">확인</button>
             </div>
-          </form>
+          </div>
         </div>
       </Main>
       <Footer />

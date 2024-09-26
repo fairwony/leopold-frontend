@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import FroalaEditor from "react-froala-wysiwyg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
@@ -17,17 +17,31 @@ export default function WriteOne2one() {
   const [email2, setEmail2] = useState("");
   const [email3, setEmail3] = useState("");
 
-  const handleSubmit = () => {
+  const writeText = useCallback((e) => {
+    setEmail2(e.target.value);
+  }, []);
+
+  const handleSubmit = async (e) => {
+    if (title === "") {
+      alert("제목을 입력해주세요.");
+      return;
+    }else if (content === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }else if (email1 === ""){
+      alert("이메일을 입력해 주세요.")
+      return;
+    }
+  
+
     let emailDomain;
-    if(email2==="type") emailDomain = email3;
+    if (email2 === "type") emailDomain = email3;
     else emailDomain = email2;
 
-    if(title == "" || content == ""){
-      alert("제목 또는 내용을 입력하세요.");
-    }
+    e.preventDefault();
 
-    axios
-      .post(
+    try {
+      const res = await axios.post(
         "http://localhost:8080/one2one/write",
         {
           title: `${title}`,
@@ -37,13 +51,16 @@ export default function WriteOne2one() {
         {
           withCredentials: true,
         }
-      )
-      .then((resp) => {
+      );
+      if (res.status === 200) {
+        navigate("/one2one");
         alert("작성 완료!");
-      })
-      .catch((e) => {
-        alert("로그인이 필요합니다!");
-      });
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        error.response?.status === 401 && alert("로그인이 필요합니다.");
+      }
+    }
   };
 
   return (
@@ -90,6 +107,7 @@ export default function WriteOne2one() {
               <p style={{ color: "#9d9d9d", padding: "5px" }}>@</p>
               {email2 === "type" ? (
                 <input
+                  className="email-text-box"
                   onChange={(e) => {
                     setEmail3(e.target.value);
                   }}
@@ -98,10 +116,10 @@ export default function WriteOne2one() {
 
               {email2 !== "type" ? (
                 <input
-                  class="box"
                   value={email2}
                   type="text"
                   className="email-text-box"
+                  onChange={writeText}
                 ></input>
               ) : undefined}
               <select
@@ -146,12 +164,27 @@ export default function WriteOne2one() {
           </div>
 
           <div className="catalog-container">
-            <Link to="/review">
-              <button className="catalog-box2">목록</button>
-            </Link>
+            <button
+              className="catalog-box2"
+              onClick={() => {
+                navigate("/one2one");
+              }}
+            >
+              목록
+            </button>
+
             <div className="cancle-container">
-              <button className="register-box" onClick={handleSubmit}>등록</button>
-              <button className="catalog-box2" onClick={()=>{navigate(-1)}} >취소</button>
+              <button type="button" className="register-box" onClick={handleSubmit}>
+                등록
+              </button>
+              <button
+                className="catalog-box2"
+                onClick={() => {
+                  navigate("/one2one");
+                }}
+              >
+                취소
+              </button>
             </div>
           </div>
         </form>

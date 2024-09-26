@@ -1,15 +1,47 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./Review.css";
 import ReviewTable from "../components/ReviewTable";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Pagination from "react-js-pagination";
 
 export default function Review() {
-  const reviewes = Array(14).fill(null);
+
+  const [queryParams] = useSearchParams();
+
+  const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
+  const size = queryParams.get("size") ? parseInt(queryParams.get("size")) : 6;
+  const [reviewList, setReviewList] = useState([]);
+  const [totalElements, setTotalElements] = useState();
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/reviews?page=${page}&size=${size}`,{
+        withCredentials:true,
+    })
+    .then((res) => {
+      console.log(res.data);
+      setReviewList(res.data);
+      setTotalElements(res.data.totalElements);
+    })
+    .catch((err) => console.log(err.res.data));
+  },[page, size])
+
+  const printReviewList = reviewList["list"]?.map((list, index)=>(
+    <ReviewTable list={list} key={index} />
+  ))
+
+  function handlePageChange(pageNum) {
+    navigate(`/review?page=${pageNum}&size=6`);
+  }
+
 
   return (
-    <>
+    <div className="Review">
       <WhiteHeader />
       <Main>
         {/* 메뉴 바 */}
@@ -108,22 +140,7 @@ export default function Review() {
               </tr>
             </tbody>
             {/* 리뷰 게시판 내용 */}
-            <tbody className="review-board-list">
-              <tr>
-                <td>{494}</td>
-                <td className="review-subject">
-                  <Link to={"/review/detail"}>{"굿"}</Link>
-                  <span className="review-txtEm"></span>
-                </td>
-                <td>{"김****"}</td>
-                <td>
-                  <span className="review-txtNum">{"2024-09-10"}</span>
-                </td>
-              </tr>
-            </tbody>
-            {reviewes.map((_, index) => (
-              <ReviewTable key={index} />
-            ))}
+            {printReviewList}
           </table>
         </div>
         {/* 글쓰기 버튼 */}
@@ -135,31 +152,15 @@ export default function Review() {
           </span>
         </div>
         {/* 페이지 이동 화살표 */}
-        <div className="review-base-paginate">
-          <ol>
-            <li className="review-record">&lt;</li>
-            <li
-              className="review-record"
-              style={{
-                color: "#1a1a1a",
-                fontWeight: "700",
-                cursor: "pointer",
-              }}
-            >
-              1
-            </li>
-            <li className="review-record">2</li>
-            <li className="review-record">3</li>
-            <li className="review-record">4</li>
-            <li className="review-record">5</li>
-            <li className="review-record">6</li>
-            <li className="review-record">7</li>
-            <li className="review-record">8</li>
-            <li className="review-record">9</li>
-            <li className="review-record">10</li>
-            <li className="review-record">&gt;</li>
-          </ol>
-        </div>
+        <Pagination
+          activePage={page}// 현재 활성화된 페이지
+          itemsCountPerPage={size} // 페이지당 아이템 수
+          totalItemsCount={totalElements} // 전체 아이템 수
+          pageRangeDisplayed={5} // 페이지네이션에 표시할 페이지 범위
+          onChange={handlePageChange} // 페이지 변경 시 호출되는 함수
+          itemClass="page-item"// 각 페이지 아이템에 적용할 클래스명
+          linkClass="page-link" // 각 페이지 링크에 적용할 클래스명
+        />
         {/* 찾기 메뉴*/}
         <form>
           <div className="review-board_search">
@@ -185,6 +186,6 @@ export default function Review() {
         </form>
       </Main>
       <Footer />
-    </>
+    </div>
   );
 }

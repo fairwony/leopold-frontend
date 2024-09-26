@@ -3,7 +3,6 @@ import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteReview.css";
 import Footer from "../components/Footer";
-import EditorComponent from "../components/Editor";
 import { useState } from "react";
 import axios from "axios";
 import FroalaEditor from "react-froala-wysiwyg";
@@ -13,9 +12,15 @@ export default function WriteReview() {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [video, setVideo]=useState("");
 
   const handleSubmit = () => {
+    if (title === "") {
+      alert("제목을 입력해주세요.");
+      return;
+    }else if (content === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }
 
     axios.post("http://localhost:8080/review/write",
       {
@@ -27,6 +32,7 @@ export default function WriteReview() {
       }
     )
     .then((resp) => {
+      navigate("/review")
       alert("작성 완료!");
     })
     .catch((e) => {
