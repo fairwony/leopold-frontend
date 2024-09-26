@@ -50,7 +50,7 @@ export default function FAQ() {
   };
 
   const printFaqList = faqList.map((faq, index) => (
-    <FaqSub faq={faq} key={index} />
+    <FaqSub faq={faq} key={index} index={index} page={page} size={size} />
   ));
 
   return (

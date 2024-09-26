@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import "./DownloadTable.css";
 
 export default function DownloadTable({ list, index, page, size }) {
-
 	return (
 		<>
 			{/* 자료실 게시판 목록 내용 */}
