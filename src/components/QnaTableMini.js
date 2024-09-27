@@ -1,23 +1,27 @@
 import "./QnaTableMini.css";
 
-export default function QnaTableMini() {
+export default function QnaTableMini({ qna, index }) {
+	const date = new Date(qna?.date);
+	const year = date?.getFullYear();
+	const month = String(date?.getMonth() + 1)?.padStart(2, '0');
+	const day = String(date?.getDate())?.padStart(2, '0');
+
 	return (
-		<div className="qtm">
+		<div className="qtm" style={{borderBottom: "1px solid #dfdfdf"}}>
 			<div className="qtm-center" style={{ width: "70px" }}>
-				1
+				{index + 1}
 			</div>
 
 			<div className="qtm-title">
-				<p className="qtm-title-p">레오폴드 제품 중에 2.4 GHz 제품이 있나요?</p>
-				<img src="\images\MyPage\new.png" alt="new" />
+				<p className="qtm-title-p">{qna?.title}</p>
 			</div>
 
 			<div className="qtm-date qtm-center">
-				2024-09-02
+				{year}-{month}-{day}
 			</div>
 
 			<div className="qtm-answer qtm-center">
-				O
+				{qna?.answerYn === "y" ? "O" : "X"}
 			</div>
 		</div>
 	)

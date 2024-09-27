@@ -54,4 +54,35 @@
 	border: 1px solid #ddd;
 	font-size: 13px;
 	color: #222;
+	cursor: pointer;
+}
+
+.Interest .pagination {
+	display: flex;
+	margin: 42px auto 0px auto;
+}
+
+.Interest .page-item {
+	margin: 0px 7px;
+}
+
+.Interest .page-link {
+	padding: 8px 16px;
+	border: 1px solid #e2e2e2;
+	color: #818181;
+	cursor: pointer;
+}
+
+.Interest .page-item.active .page-link {
+	background-color: #ececec;
+	color: #818181;
+}
+
+.Interest .page-item:hover .page-link {
+	background-color: #ececec;
+}
+
+.pagination-wrapper {
+	display: flex;
+	justify-content: center;
 }
