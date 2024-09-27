@@ -11,7 +11,6 @@ import "font-awesome/css/font-awesome.css";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
 
 export default function AsReception() {
   const navigate = useNavigate();
@@ -36,8 +35,8 @@ export default function AsReception() {
 
   const handleTitleChange = (e) => setTitle(e.target.value);
 
-  const handleContentChange = (content) => {
-    setContent(content);
+  const handleContentChange = (model) => {
+    setContent(model);
     // 내용이 변경될 때마다 contentChanged 상태를 true로 설정
     setIsContentChanged(true);
   };
@@ -168,12 +167,12 @@ export default function AsReception() {
                         <td colSpan={2} className="asReception-clear">
                           <FroalaEditor
                             tag="textarea"
-                            config={{
-                              immediateReactModelUpdate: true,
-                              events: {
-                                contentChanged: () => setIsContentChanged(true),
-                              },
-                            }}
+                            // config={{
+                            //   immediateReactModelUpdate: true,
+                            //   events: {
+                            //     contentChanged: () => setIsContentChanged(true),
+                            //   },
+                            // }}
                             model={content}
                             onModelChange={handleContentChange}
                           />

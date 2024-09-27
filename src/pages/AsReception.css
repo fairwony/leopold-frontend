@@ -128,9 +128,9 @@
 }
 /* 등록 버튼 */
 .asReception-gRight {
- margin-left: auto;
- display: flex;
- gap: 3px;
+    margin-left: auto;
+    display: flex;
+    gap: 3px;
 }
 
 .asReception-btnSubmit {
