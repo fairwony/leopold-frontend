@@ -42,7 +42,7 @@ export default function WriteOne2one() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/one2one/write",
+        `${process.env.REACT_APP_API_URL}/one2one/write`,
         {
           title: `${title}`,
           content: `${content}`,
@@ -151,16 +151,18 @@ export default function WriteOne2one() {
             style={{ marginTop: "10px" }}
             className="write-content-container"
           >
-            <div className="write-content-top">
               <FroalaEditor
                 tag="textarea"
                 model={content}
                 onModelChange={(model) => {
                   setContent(model);
                 }}
+                config={{
+                  height: 450, //고정된 높이
+                  heightMin: 400, //최소 높이
+                  autoGrow: false //높이 자동 조절 비활성화
+                }}
               />
-            </div>
-            <textarea className="write-content"></textarea>
           </div>
 
           <div className="catalog-container">

@@ -21,7 +21,7 @@ export default function ReviewModify() {
 
 
   useEffect(()=>{
-    axios.get(`http://localhost:8080/review/${uid}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/review/${uid}`)
     .then((res)=>{
       setModifyReview(res.data);
       setContent(res.data.content);
@@ -38,7 +38,7 @@ export default function ReviewModify() {
 
     e.preventDefault();
 
-    axios.patch(`http://localhost:8080/review/${uid}`,
+    axios.patch(`${process.env.REACT_APP_API_URL}/review/${uid}`,
       {
         title: `${title}`,
         content: `${content}`,
@@ -139,9 +139,13 @@ export default function ReviewModify() {
                 <FroalaEditor
                 tag="textarea"
                 model={content}
-                
                 onModelChange={(model) => {
                   setContent(model)
+                }}
+                config={{
+                  height: 450, //고정된 높이
+                  heightMin: 400, //최소 높이
+                  autoGrow: false //높이 자동 조절 비활성화
                 }}
               />
                 </div>

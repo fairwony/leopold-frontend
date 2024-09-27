@@ -42,7 +42,7 @@ export default function ReviewDetail() {
 
   // 리뷰 조회
   useEffect(() => {
-    axios.get(`http://localhost:8080/review/${uid}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/review/${uid}`)
     .then((res) =>{
       setReview(res.data);
     })
@@ -50,7 +50,7 @@ export default function ReviewDetail() {
       console.log(e);
     })
 
-    axios.get(`http://localhost:8080/comment/${uid}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/comment/${uid}`)
     .then((resp)=>{
       console.log(resp.data);
       setComment(resp.data);
@@ -62,7 +62,7 @@ export default function ReviewDetail() {
 
   // 리뷰 삭제
   const handleDelete=()=>{
-    axios.delete(`http://localhost:8080/review/${uid}`,{
+    axios.delete(`${process.env.REACT_APP_API_URL}/review/${uid}`,{
       data:{
         deleteYn:"y"
       },
@@ -85,7 +85,7 @@ export default function ReviewDetail() {
 
   // 댓글 작성
   const handleSubmit = () =>{
-    axios.post(`http://localhost:8080/comment/write/${uid}`,
+    axios.post(`${process.env.REACT_APP_API_URL}/comment/write/${uid}`,
       {
         content: `${content}`
       },
