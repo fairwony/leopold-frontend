@@ -42,10 +42,6 @@ export default function AsReception() {
     setIsContentChanged(true);
   };
 
-  // const handleContentChangedEvent = () => {
-  //   setIsContentChanged(true);
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // 제목이 없을 경우 경고
@@ -61,7 +57,7 @@ export default function AsReception() {
     // 서버에 데이터 전송
     axios
       .post(
-        "http://localhost:8080/asReception",
+        `http://localhost:8080/asReception`,
         {
           title: title,
           content: content,
