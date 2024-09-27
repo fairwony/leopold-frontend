@@ -30,7 +30,9 @@ export default function AsReception() {
     ※ 'Do not remove' 스티커 및 A/S 스티커 고의적인 훼손은 임의 분해 및 개조로 취급되며,
     개인 및 제3자를 포함한 임의 개조, 윤활 및 분해 흔적이 있는 경우 유·무상 포함 A/S 불가 대상으로 '별도 연락 없이 착불 반송' 되오니 참고 부탁드립니다.</p>`);
 
-  const handleContentChange = (model) => setContent(model);
+  const handleTitleChange = (e) => setTitle(e.target.value);
+
+  const handleContentChange = model => setContent(model);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +46,7 @@ export default function AsReception() {
         { withCredentials: true }
       )
       .then((response) => {
+        console.log(response);
         alert(response.data);
         navigate("/as");
       })
@@ -125,8 +128,10 @@ export default function AsReception() {
                         <th>제목</th>
                         <td>
                           <input
+                            type="text"
+                            value={title}
                             id="asReception-subject"
-                            name="asReception-subject"
+                            onChange={handleTitleChange}
                           />
                         </td>
                       </tr>
