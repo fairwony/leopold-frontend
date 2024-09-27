@@ -134,6 +134,7 @@
 }
 
 .as-btnSubmit:hover {
+    cursor: pointer;
     color: #f90;
     border: 1px solid #f90;
     background-color: #fff; 
