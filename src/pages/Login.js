@@ -26,7 +26,7 @@ export default function Login() {
 				set.isLogin(true);
 
 				alert("로그인 성공!");
-				navigate(-1);
+				navigate("/");
 			})
 			.catch((error) => {
 				console.log(error.response.data);

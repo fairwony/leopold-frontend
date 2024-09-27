@@ -37,7 +37,7 @@ export default function Modify() {
 	const [agreeEmail, setAgreeEmail] = useState(false);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/user`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/user`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				
@@ -146,7 +146,7 @@ export default function Modify() {
 		if (agreeEmail) agreeEmailYn = "y";
 		else agreeEmailYn = "n";
 
-		axios.patch('http://localhost:8080/user', {
+		axios.patch(`${process.env.REACT_APP_API_URL}/user`, {
 			password: `${password}`,
 			name: `${name}`,
 			zipcode: `${zipcode}`,

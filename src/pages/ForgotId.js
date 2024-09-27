@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
@@ -7,6 +8,7 @@ import "./ForgotId.css";
 
 export default function ForgotId() {
 	const [isEmail, setIsEmail] = useState(true);
+	const navigate = useNavigate();
 
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -16,20 +18,26 @@ export default function ForgotId() {
 
 	function handleClickFind() {
 		if (isEmail) {
-			axios.get(`http://localhost:8080/id/${name}/${email}`, { withCredentials: true })
+			axios.get(`${process.env.REACT_APP_API_URL}/idByEmail?name=${name}&email=${email}`, { withCredentials: true })
 				.then((response) => {
 					console.log(response.data);
+					alert(`회원님의 아이디는 ${response.data} 입니다. 로그인 창으로 이동합니다.`);
+					navigate("/login");
 				})
 				.catch((error) => {
 					console.log(error.response.data);
+					alert("아이디를 찾을 수 없습니다.");
 				});
 		} else {
-			axios.get(`http://localhost:8080/id/${name}/${phone1}-${phone2}-${phone3}`, { withCredentials: true })
+			axios.get(`${process.env.REACT_APP_API_URL}/idByPhone?name=${name}&phone=${phone1}-${phone2}-${phone3}`, { withCredentials: true })
 				.then((response) => {
 					console.log(response.data);
+					alert(`회원님의 아이디는 ${response.data} 입니다. 로그인 창으로 이동합니다.`);
+					navigate("/login");
 				})
 				.catch((error) => {
 					console.log(error.response.data);
+					alert("아이디를 찾을 수 없습니다.");
 				});
 		}
 	}

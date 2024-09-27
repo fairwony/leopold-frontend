@@ -29,7 +29,7 @@ export default function CartTable({ cart, selectList, setSelectList }) {
 	}
 
 	function handleClickNewQuantity() {
-		axios.patch(`http://localhost:8080/cart/quantity?uid=${uid}&quantity=${newQuantity}`, {}, { withCredentials: true })
+		axios.patch(`${process.env.REACT_APP_API_URL}/cart/quantity?uid=${uid}&quantity=${newQuantity}`, {}, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				navigate(0);
@@ -94,10 +94,9 @@ export default function CartTable({ cart, selectList, setSelectList }) {
 				</div>
 
 				<div className="cart-table-key-box" style={{ width: 152 }}>
-					<button className="cart-table-small-btn">관심상품</button>
 					<button className="cart-table-small-btn"
 						onClick={() => {
-							axios.delete(`http://localhost:8080/cart?uid=${cart?.uid}`, { withCredentials: true })
+							axios.delete(`${process.env.REACT_APP_API_URL}/cart?uid=${cart?.uid}`, { withCredentials: true })
 								.then((response) => {
 									console.log(response.data);
 									alert("상품이 장바구니에서 삭제되었습니다.");
