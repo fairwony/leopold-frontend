@@ -11,7 +11,7 @@ export default function Join() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/isLogin`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				navigate("/");
@@ -128,7 +128,7 @@ export default function Join() {
 		if (agreeEmail) agreeEmailYn = "y";
 		else agreeEmailYn = "n";
 
-		axios.post('http://localhost:8080/join', {
+		axios.post(`${process.env.REACT_APP_API_URL}/join`, {
 			id: `${id}`,
 			password: `${password}`,
 			name: `${name}`,
@@ -152,7 +152,7 @@ export default function Join() {
 	}
 
 	function handleClickUnique() {
-		axios.post(`http://localhost:8080/isUnique?id=${id}`, {}, { withCredentials: true })
+		axios.post(`${process.env.REACT_APP_API_URL}/isUnique?id=${id}`, {}, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setIsUniqueId(true);

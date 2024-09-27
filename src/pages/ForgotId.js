@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
@@ -7,11 +8,31 @@ import "./ForgotId.css";
 export default function ForgotId() {
 	const [isEmail, setIsEmail] = useState(true);
 
-	const [name, setName] = useState();
-	const [email, setEmail] = useState();
-	const [phone1, setPhone1] = useState();
-	const [phone2, setPhone2] = useState();
-	const [phone3, setPhone3] = useState();
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone1, setPhone1] = useState("");
+	const [phone2, setPhone2] = useState("");
+	const [phone3, setPhone3] = useState("");
+
+	function handleClickFind() {
+		if (isEmail) {
+			axios.get(`http://localhost:8080/id/${name}/${email}`, { withCredentials: true })
+				.then((response) => {
+					console.log(response.data);
+				})
+				.catch((error) => {
+					console.log(error.response.data);
+				});
+		} else {
+			axios.get(`http://localhost:8080/id/${name}/${phone1}-${phone2}-${phone3}`, { withCredentials: true })
+				.then((response) => {
+					console.log(response.data);
+				})
+				.catch((error) => {
+					console.log(error.response.data);
+				});
+		}
+	}
 
 	return (
 		<div className="ForgotId">
@@ -67,9 +88,7 @@ export default function ForgotId() {
 					</div>
 				}
 
-				<button className="forgotId-button">확인</button>
-
-				<p>{name}, {email}, {phone1}, {phone2}, {phone3}</p>
+				<button className="forgotId-button" onClick={handleClickFind}>확인</button>
 
 			</Main>
 			<Footer />

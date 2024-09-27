@@ -4,7 +4,7 @@ import WhiteHeader from "../components/WhiteHeader";
 
 export default function Test() {
 	useEffect(() => {
-		axios.get('http://localhost:8080/test', { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/test`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 			})
@@ -20,7 +20,7 @@ export default function Test() {
 			<WhiteHeader />
 
 			<button style={{ display: "flex", margin: "200px auto 0px auto" }} onClick={() => {
-				axios.get('http://localhost:8080/test/info', { withCredentials: true })
+				axios.get(`${process.env.REACT_APP_API_URL}/test/info`, { withCredentials: true })
 					.then((response) => {
 						console.log(response.data);
 					})
