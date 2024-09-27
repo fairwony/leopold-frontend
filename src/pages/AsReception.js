@@ -8,6 +8,7 @@ import FroalaEditor from "react-froala-wysiwyg";
 import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
 import "font-awesome/css/font-awesome.css";
+import "froala-editor/js/plugins.pkgd.min.js";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -49,7 +50,7 @@ export default function AsReception() {
       return;
     }
     // 내용이 기본값과 같거나 변경되지 않은 경우 경고 
-    if (!isContentChanged) {
+    else if (!isContentChanged) {
       alert("내용이 변경되지 않았습니다. 내용을 수정한 후 다시 시도해주세요.");
       return;
     }

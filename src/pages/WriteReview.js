@@ -1,12 +1,12 @@
+import axios from "axios";
+import "froala-editor/js/plugins/align.min.js";
+import { useState } from "react";
+import FroalaEditor from "react-froala-wysiwyg";
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteReview.css";
-import Footer from "../components/Footer";
-import { useState } from "react";
-import axios from "axios";
-import FroalaEditor from "react-froala-wysiwyg";
-import "froala-editor/js/plugins/align.min.js";
 
 export default function WriteReview() {
   const navigate = useNavigate();

@@ -64,7 +64,7 @@ export default function Payment() {
 	}
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/user`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/user`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setUserInfo(response.data);
@@ -87,7 +87,7 @@ export default function Payment() {
 				console.log(error.response.data);
 			});
 
-		axios.get(`http://localhost:8080/wish`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/wish`, { withCredentials: true })
 			.then((response) => {
 				if (response.data.length === 0) {
 					alert("잘못된 접근입니다.");
@@ -184,7 +184,7 @@ export default function Payment() {
 			return;
 		}
 
-		axios.post(`http://localhost:8080/order`, {
+		axios.post(`${process.env.REACT_APP_API_URL}/order`, {
 			receiver: `${receiver}`,
 			receiveMethod: `우체국택배`,
 			zipcode: `${zipcode}`,

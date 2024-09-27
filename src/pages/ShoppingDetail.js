@@ -26,7 +26,7 @@ export default function ShoppingDetail() {
 	const [product, setProduct] = useState({});
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/shopping/detail?uid=${uid}`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/shopping/detail?uid=${uid}`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setProduct(response.data);
@@ -115,7 +115,7 @@ export default function ShoppingDetail() {
 		}
 
 		for (let i = 0; i < preview.length; i++) {
-			axios.post(`http://localhost:8080/cart`, {
+			axios.post(`${process.env.REACT_APP_API_URL}/cart`, {
 				category2: `${preview[i].category2}`,
 				category3: `${preview[i].category3}`,
 				category4: `${preview[i].category4}`,
@@ -141,7 +141,7 @@ export default function ShoppingDetail() {
 	}
 
 	function handleClickInterest() {
-		axios.post(`http://localhost:8080/interest?productUid=${uid}`, {}, { withCredentials: true })
+		axios.post(`${process.env.REACT_APP_API_URL}/interest?productUid=${uid}`, {}, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				alert("상품을 관심상품으로 추가했습니다.");

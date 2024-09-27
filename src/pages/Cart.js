@@ -16,10 +16,10 @@ export default function Cart() {
 	const [totalDiscount, setTotalDiscount] = useState(0);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/user/uid`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/user/uid`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
-				axios.get(`http://localhost:8080/cart/list?uid=${response.data}`, { withCredentials: true })
+				axios.get(`${process.env.REACT_APP_API_URL}/cart/list?uid=${response.data}`, { withCredentials: true })
 					.then((response) => {
 						console.log(response.data);
 						setCartList(response.data);
@@ -58,7 +58,7 @@ export default function Cart() {
 		}
 
 		for (let i = 0; i < selectList.length; i++) {
-			axios.delete(`http://localhost:8080/cart?uid=${selectList[i]}`, { withCredentials: true })
+			axios.delete(`${process.env.REACT_APP_API_URL}/cart?uid=${selectList[i]}`, { withCredentials: true })
 				.then((response) => {
 					console.log(response.data);
 				})
@@ -77,7 +77,7 @@ export default function Cart() {
 		}
 
 		for (let i = 0; i < cartList.length; i++) {
-			axios.delete(`http://localhost:8080/cart?uid=${cartList[i].uid}`, { withCredentials: true })
+			axios.delete(`${process.env.REACT_APP_API_URL}/cart?uid=${cartList[i].uid}`, { withCredentials: true })
 				.then((response) => {
 					console.log(response.data);
 				})
@@ -95,12 +95,12 @@ export default function Cart() {
 			return;
 		}
 
-		axios.delete(`http://localhost:8080/wish/delete`, { withCredentials: true })
+		axios.delete(`${process.env.REACT_APP_API_URL}/wish/delete`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 
 				const postRequests = cartList.map((cart) => {
-					axios.post(`http://localhost:8080/wish?cartUid=${cart.uid}`, {}, { withCredentials: true })
+					axios.post(`${process.env.REACT_APP_API_URL}/wish?cartUid=${cart.uid}`, {}, { withCredentials: true })
 						.then((response) => {
 							console.log(response.data);
 						})

@@ -18,7 +18,7 @@ export default function MyPage() {
 	const [waitLength, setWaitLength] = useState(0);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/order/list`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/order/list`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setOrderList(response.data);
@@ -37,7 +37,7 @@ export default function MyPage() {
 				navigate("/login");
 			});
 
-		axios.get(`http://localhost:8080/one2ones/mypage`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/one2ones/mypage`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setQnaList(response.data);

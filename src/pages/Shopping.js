@@ -17,7 +17,7 @@ export default function Shopping() {
 	const [productList, setProductList] = useState([]);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/shopping?category=${category}&page=${page}&sort=${sort}`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/shopping?category=${category}&page=${page}&sort=${sort}`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setProductList(response.data);

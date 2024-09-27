@@ -23,7 +23,7 @@ export default function Interest() {
 	const [selectedUidList, setSelectedUidList] = useState([]);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/interest?page=${page}`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/interest?page=${page}`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setInterestList(response.data.list);
@@ -46,7 +46,7 @@ export default function Interest() {
 
 	function handleClickDeleteSelected() {
 		selectedUidList?.map((selectedUid) => {
-			axios.delete(`http://localhost:8080/interest?interestUid=${selectedUid}`, { withCredentials: true })
+			axios.delete(`${process.env.REACT_APP_API_URL}/interest?interestUid=${selectedUid}`, { withCredentials: true })
 				.then((response) => {
 					console.log(response.data);
 				}).catch((error) => {
@@ -59,7 +59,7 @@ export default function Interest() {
 	}
 
 	function handleClickDeleteAll() {
-		axios.delete(`http://localhost:8080/interest/all`, { withCredentials: true })
+		axios.delete(`${process.env.REACT_APP_API_URL}/interest/all`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				alert("관심 상품 목록을 비웠습니다.");

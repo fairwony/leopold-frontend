@@ -14,13 +14,36 @@ export default function FAQ() {
   const [faqList, setFaqList] = useState([]);
   const [totalElements, setTotalElements] = useState();
 
-  const [active, setActive] = useState(null);
+  const [activeCategory1, setActiveCategory1] = useState(null); // 카테고리 1의 토글 상태
+  const [activeCategory2, setActiveCategory2] = useState(null); // 카테고리 2의 토글 상태
+  const [activeCategory3, setActiveCategory3] = useState(null); // 카테고리 3의 토글 상태
+  const [activeCategory4, setActiveCategory4] = useState(null); // 카테고리 4의 토글 상태
 
-  const handleToggle = (index) => {
-    if (active === index) {
-      setActive(null);
-    } else {
-      setActive(index);
+  // 현재 선택된 index가 다시 클릭되면 닫기, 아니면 열기
+  const handleToggle = (index, category) => {
+    switch (category) {
+      case 1:
+        setActiveCategory1((prevActive) =>
+          prevActive === index ? null : index
+        );
+        break;
+      case 2:
+        setActiveCategory2((prevActive) =>
+          prevActive === index ? null : index
+        );
+        break;
+      case 3:
+        setActiveCategory3((prevActive) =>
+          prevActive === index ? null : index
+        );
+        break;
+      case 4:
+        setActiveCategory4((prevActive) =>
+          prevActive === index ? null : index
+        );
+        break;
+      default:
+        break;
     }
   };
 
@@ -147,18 +170,54 @@ export default function FAQ() {
         {/* Q & A */}
         <div className="faq-cboth_questions">
           <ul>
-            <li className="faq-has-sub"></li>
-            <li>
-              {faqList.map((faq, index) => (
-              <FaqSub
-                faq={faq}
-                key={index}
-                index={index}
-                page={page}
-                size={size}
-                // handleToggle={}
-                // active={}
-              />
+            <li className="faq-has-sub">
+            {categoryUid === 1 &&
+              faqList.map((faq, index) => (
+                <FaqSub
+                  faq={faq}
+                  key={index}
+                  index={index}
+                  page={page}
+                  size={size}
+                  handleToggle={() => handleToggle(index, 1)} // 카테고리 1의 토글
+                  active={activeCategory1 === index} // 카테고리 1의 활성화 상태
+                />
+              ))}
+              {categoryUid === 2 &&
+              faqList.map((faq, index) => (
+                <FaqSub
+                  faq={faq}
+                  key={index}
+                  index={index}
+                  page={page}
+                  size={size}
+                  handleToggle={() => handleToggle(index, 1)} // 카테고리 2의 토글
+                  active={activeCategory2 === index} // 카테고리 2의 활성화 상태
+                />
+              ))}
+              {categoryUid === 3 &&
+              faqList.map((faq, index) => (
+                <FaqSub
+                  faq={faq}
+                  key={index}
+                  index={index}
+                  page={page}
+                  size={size}
+                  handleToggle={() => handleToggle(index, 1)} // 카테고리 3의 토글
+                  active={activeCategory3 === index} // 카테고리 3의 활성화 상태
+                />
+              ))}
+              {categoryUid === 4 &&
+              faqList.map((faq, index) => (
+                <FaqSub
+                  faq={faq}
+                  key={index}
+                  index={index}
+                  page={page}
+                  size={size}
+                  handleToggle={() => handleToggle(index, 1)} // 카테고리 4의 토글
+                  active={activeCategory4 === index} // 카테고리 4의 활성화 상태
+                />
               ))}
             </li>
           </ul>
