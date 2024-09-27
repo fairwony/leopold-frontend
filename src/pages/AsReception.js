@@ -7,53 +7,84 @@ import "./AsReception.css";
 import FroalaEditor from "react-froala-wysiwyg";
 import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
+import "font-awesome/css/font-awesome.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
 
 export default function AsReception() {
   const navigate = useNavigate();
 
-  const [title, setTitle] = useState("");
-  const [content, setContent] =
-    useState(`<p>[A/S 필독 사항] 확인 후 접수 부탁드리며, 반드시 '하단 양식 작성' 및 '댓글 안내 확인' 후 발송하여 주시기 바랍니다.
+  const defaultContent = `<p>[A/S 필독 사항] 확인 후 접수 부탁드리며, 반드시 '하단 양식 작성' 및 '댓글 안내 확인' 후 발송하여 주시기 바랍니다.
     접수 정보 오 기재 및 누락, 수리 규정 및 댓글 안내 미 확인으로 인한 분실 및 불이익은 당 사에서 책임지지 않습니다.
     정확하게 작성하지 않는 경우 제품이 누락되거나 수리 기간이 지연될 수 있습니다. <br />
     <br />
-    - 성 함 : <br />
-    - 연락처 : <br />
-    - 주 소 : <br />
-    - Part No : <br />
-    - Serial No: <br />
-    - 증 상 : <br />
+    - 성 함 :&nbsp; <br />
+    - 연락처 :&nbsp; <br />
+    - 주 소 :&nbsp; <br />
+    - Part No :&nbsp; <br />
+    - Serial No:&nbsp; <br />
+    - 증 상 :&nbsp; <br />
     <br />
     ※ 'Do not remove' 스티커 및 A/S 스티커 고의적인 훼손은 임의 분해 및 개조로 취급되며,
-    개인 및 제3자를 포함한 임의 개조, 윤활 및 분해 흔적이 있는 경우 유·무상 포함 A/S 불가 대상으로 '별도 연락 없이 착불 반송' 되오니 참고 부탁드립니다.</p>`);
+    개인 및 제3자를 포함한 임의 개조, 윤활 및 분해 흔적이 있는 경우 유·무상 포함 A/S 불가 대상으로 '별도 연락 없이 착불 반송' 되오니 참고 부탁드립니다.</p>`;
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState(defaultContent);
+  const [isContentChanged, setIsContentChanged] = useState(false);
 
   const handleTitleChange = (e) => setTitle(e.target.value);
 
-  const handleContentChange = model => setContent(model);
+  const handleContentChange = (content) => {
+    setContent(content);
+    // 내용이 변경될 때마다 contentChanged 상태를 true로 설정
+    setIsContentChanged(true);
+  };
+
+  // const handleContentChangedEvent = () => {
+  //   setIsContentChanged(true);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // 제목이 없을 경우 경고
+    if (title === "") {
+      alert("제목을 작성해 주세요.");
+      return;
+    }
+    // 내용이 기본값과 같거나 변경되지 않은 경우 경고 
+    else if (!isContentChanged || content === defaultContent) {
+      alert("내용이 변경되지 않았습니다. 내용을 수정한 후 다시 시도해주세요.");
+      return;
+    }
+    // 서버에 데이터 전송
     axios
       .post(
         "http://localhost:8080/asReception",
         {
-          title: `${title}`,
-          content: `${content}`,
+          title: title,
+          content: content,
         },
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
         alert(response.data);
+        setTitle(""); // 제목 초기화
+        setContent(defaultContent); // 내용 초기화
+        setIsContentChanged(false); // 내용 변경상태 초기화
         navigate("/as");
       })
       .catch((error) => {
         alert(error.response.data);
       });
   };
+
+  useEffect(() => {
+    if(content === defaultContent) {
+      setIsContentChanged(false);
+    }
+  },[content, defaultContent]);
 
   return (
     <>
@@ -116,7 +147,7 @@ export default function AsReception() {
                 <p>After Service</p>
               </div>
               {/* 에디터 */}
-              <form id="asReception-boardWrite">
+              <form id="asReception-boardWrite" onSubmit={handleSubmit}>
                 <div className="asReception-base-table">
                   <table border={1}>
                     <colgroup>
@@ -139,7 +170,12 @@ export default function AsReception() {
                         <td colSpan={2} className="asReception-clear">
                           <FroalaEditor
                             tag="textarea"
-                            config={{}}
+                            config={{
+                              immediateReactModelUpdate: true,
+                              events: {
+                                contentChanged: () => setIsContentChanged(true),
+                              },
+                            }}
                             model={content}
                             onModelChange={handleContentChange}
                           />
@@ -153,8 +189,12 @@ export default function AsReception() {
                     <Link to={"/as"}>목록</Link>
                   </span>
                   <div className="asReception-gRight">
-                    <span className="asReception-btnSubmit" onClick={handleSubmit}>등록</span>
-                    <span className="asReception-btnBasic">취소</span>
+                    <button type="submit" className="asReception-btnSubmit">
+                      등록
+                    </button>
+                    <span className="asReception-btnBasic">
+                      <Link to={"/as"}>취소</Link>
+                    </span>
                   </div>
                 </div>
               </form>
