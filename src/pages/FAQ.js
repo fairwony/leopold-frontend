@@ -145,17 +145,58 @@ export default function FAQ() {
         <div className="faq-cboth_questions">
           <ul>
             <li className="faq-has-sub">
-              {faqList.map((faq, index) => (
-              <FaqSub
-                faq={faq}
-                key={index}
-                index={index}
-                page={page}
-                size={size}
-                handleToggle={handleToggle} // 토글 함수 전달
-                active={active} // 현재 활성화된 인덱스
-              />
-              ))}
+              {categoryUid === 1
+                ? faqList.map((faq, index) => (
+                    <FaqSub
+                      faq={faq}
+                      key={index}
+                      index={index}
+                      page={page}
+                      size={size}
+                      handleToggle={handleToggle} // 토글 함수 전달
+                      active={active} // 현재 활성화된 인덱스
+                    />
+                  ))
+                : ""}
+              {categoryUid === 2
+                ? faqList.map((faq, index) => (
+                    <FaqSub
+                      faq={faq}
+                      key={index}
+                      index={index}
+                      page={page}
+                      size={size}
+                      handleToggle={handleToggle} // 토글 함수 전달
+                      active={active} // 현재 활성화된 인덱스
+                    />
+                  ))
+                : ""}
+              {categoryUid === 3
+                ? faqList.map((faq, index) => (
+                    <FaqSub
+                      faq={faq}
+                      key={index}
+                      index={index}
+                      page={page}
+                      size={size}
+                      handleToggle={handleToggle} // 토글 함수 전달
+                      active={active} // 현재 활성화된 인덱스
+                    />
+                  ))
+                : ""}
+              {categoryUid === 4
+                ? faqList.map((faq, index) => (
+                    <FaqSub
+                      faq={faq}
+                      key={index}
+                      index={index}
+                      page={page}
+                      size={size}
+                      handleToggle={handleToggle} // 토글 함수 전달
+                      active={active} // 현재 활성화된 인덱스
+                    />
+                  ))
+                : ""}
             </li>
           </ul>
         </div>
