@@ -20,7 +20,7 @@ export default function Review() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/reviews?page=${page}&size=${size}`,{
+    axios.get(`${process.env.REACT_APP_API_URL}/reviews?page=${page}&size=${size}`,{
         withCredentials:true,
     })
     .then((res) => {
@@ -38,6 +38,7 @@ export default function Review() {
   function handlePageChange(pageNum) {
     navigate(`/review?page=${pageNum}&size=6`);
   }
+
 
 
   return (

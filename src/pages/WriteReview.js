@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import { useState } from "react";
 import axios from "axios";
 import FroalaEditor from "react-froala-wysiwyg";
+import "froala-editor/js/plugins/align.min.js";
 
 export default function WriteReview() {
   const navigate = useNavigate();
@@ -123,8 +124,7 @@ export default function WriteReview() {
                 setContent(model);
               }}
               config={{
-                height: 450, //고정된 높이
-                heightMin: 400, //최소 높이
+                heightMin: 450, //최소 높이
                 autoGrow: false //높이 자동 조절 비활성화
               }}
             />
