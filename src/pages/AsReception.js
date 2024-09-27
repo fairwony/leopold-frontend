@@ -32,28 +32,28 @@ export default function AsReception() {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState(defaultContent);
-  const [isContentChanged, setIsContentChanged] = useState(false);
+  // const [isContentChanged, setIsContentChanged] = useState(false);
 
   const handleTitleChange = (e) => setTitle(e.target.value);
 
-  const handleContentChange = (model) => {
-    setContent(model);
-    // 내용이 변경될 때마다 contentChanged 상태를 true로 설정
-    setIsContentChanged(true);
-  };
+  // const handleContentChange = (model) => {
+  //   setContent(model);
+  //   // 내용이 변경될 때마다 contentChanged 상태를 true로 설정
+  //   setIsContentChanged(true);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // 제목이 없을 경우 경고
-    if (title === "") {
-      alert("제목을 작성해 주세요.");
-      return;
-    }
-    // 내용이 기본값과 같거나 변경되지 않은 경우 경고 
-    else if (!isContentChanged) {
-      alert("내용이 변경되지 않았습니다. 내용을 수정한 후 다시 시도해주세요.");
-      return;
-    }
+    // if (title === "") {
+    //   alert("제목을 작성해 주세요.");
+    //   return;
+    // }
+    // // 내용이 기본값과 같거나 변경되지 않은 경우 경고 
+    // else if (!isContentChanged) {
+    //   alert("내용이 변경되지 않았습니다. 내용을 수정한 후 다시 시도해주세요.");
+    //   return;
+    // }
     // 서버에 데이터 전송
     axios
       .post(
@@ -66,9 +66,9 @@ export default function AsReception() {
       )
       .then((response) => {
         alert(response.data);
-        setTitle(""); // 제목 초기화
-        setContent(defaultContent); // 내용 초기화
-        setIsContentChanged(false); // 내용 변경상태 초기화
+        // setTitle(""); // 제목 초기화
+        // setContent(defaultContent); // 내용 초기화
+        // setIsContentChanged(false); // 내용 변경상태 초기화
         navigate("/as");
       })
       .catch((error) => {
@@ -76,13 +76,13 @@ export default function AsReception() {
       });
   };
 
-  useEffect(() => {
-    if(content === defaultContent) {
-      setIsContentChanged(false);  
-    } else {
-      setIsContentChanged(true);
-    }
-  },[content, defaultContent]);
+  // useEffect(() => {
+  //   if(content === defaultContent) {
+  //     setIsContentChanged(false);  
+  //   } else {
+  //     setIsContentChanged(true);
+  //   }
+  // },[content, defaultContent]);
 
   return (
     <>
@@ -169,14 +169,14 @@ export default function AsReception() {
                           <FroalaEditor
                             tag="textarea"
                             config={{
-                              immediateReactModelUpdate: true,
-                              events: {
-                                contentChanged: () => setIsContentChanged(true),
-                              },
+                              // immediateReactModelUpdate: true,
+                              // events: {
+                              //   contentChanged: () => setIsContentChanged(true),
+                              // },
                               heightMin:440
                             }}
                             model={content}
-                            onModelChange={handleContentChange}
+                            // onModelChange={handleContentChange}
                           />
                         </td>
                       </tr>
