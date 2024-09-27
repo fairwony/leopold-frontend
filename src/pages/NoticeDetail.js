@@ -112,8 +112,7 @@ export default function NoticeDetail() {
                           src={notice?.imageUrl}
                           alt={notice?.title}
                           className="noticeDetail-fr-dib"
-                          sizes={"900px/1543px"}
-                        />
+                        />            
                         <p
                           dangerouslySetInnerHTML={{ __html: notice?.content }}
                         />
