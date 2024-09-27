@@ -1,11 +1,66 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteReview.css";
 import Footer from "../components/Footer";
-import EditorComponent from "../components/Editor";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import FroalaEditor from "react-froala-wysiwyg";
 
 export default function ReviewModify() {
+  const[modifyReview, setModifyReview] = useState({
+    title:"",
+    content:""
+  })
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const navigate = useNavigate();
+  const {uid} = useParams();
+
+
+  useEffect(()=>{
+    axios.get(`http://localhost:8080/review/${uid}`)
+    .then((res)=>{
+      setModifyReview(res.data);
+      setContent(res.data.content);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },[])
+
+
+  const handleSubmit = (e) =>{
+
+
+
+    e.preventDefault();
+
+    axios.patch(`http://localhost:8080/review/${uid}`,
+      {
+        title: `${title}`,
+        content: `${content}`,
+      },
+      {
+        withCredentials:true
+      })
+      .then((res)=>{
+        navigate(`/review/${uid}`)
+        alert("수정 완료!");
+      })
+      .catch((err)=>{
+        if (axios.isAxiosError(err)) {
+          err.response?.status === 401 && alert("로그인이 필요합니다.");
+        }
+        if (axios.isAxiosError(err)) {
+          err.response?.status === 403 && alert("본인이 작성한 글만 수정할 수 있습니다.");
+        }
+        console.log(err);
+      })
+  }
+
   return (
     <>
       <WhiteHeader />
@@ -63,19 +118,33 @@ export default function ReviewModify() {
         {/* 제목 */}
         <div className="review-titleArea">
           <h2>사용자 리뷰</h2>
-          <p>User review</p>
+          <p>User review
+          {title}, {content}
+          </p>
+          
         </div>
         {/* 글작성 */}
         <div className="write-container">
             <div className="write-title-container">
                 <p style={{fontSize:"15px", width:"58px"}}>제목</p>
-                <textarea className="write-title-box"></textarea>
+                <textarea className="write-title-box" defaultValue={modifyReview.title}
+                onChange={(e) =>{
+                  setTitle(e.target.value);
+                }}
+                ></textarea>
             </div>
             <div className="write-content-container">
                 <div className="write-content-top">
-                  <EditorComponent />
+                  
+                <FroalaEditor
+                tag="textarea"
+                model={content}
+                
+                onModelChange={(model) => {
+                  setContent(model)
+                }}
+              />
                 </div>
-                <textarea className="write-content"></textarea>
             </div>
             <div className="ucc-container">
                 <p style={{fontSize:"14px"}}>UCC URL</p>
@@ -88,8 +157,10 @@ export default function ReviewModify() {
             <div className="catalog-container">
                 <Link to="/review"><button className="catalog-box2">목록</button></Link>
                 <div className="cancle-container">
-                <button className="register-box">수정</button>
-                <button className="catalog-box2">취소</button>
+                <button className="register-box" onClick={handleSubmit}>수정</button>
+                <button className="catalog-box2" onClick={() => {
+                  navigate(`/review/${uid}`);
+                }}>취소</button>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ import WhiteHeader from "../components/WhiteHeader";
 
 export default function Test() {
 	useEffect(() => {
-		axios.get('http://localhost:8080/test', { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/test`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 			})

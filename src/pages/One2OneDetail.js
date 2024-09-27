@@ -23,8 +23,9 @@ export default function One2OneDetail() {
 
   const navigate = useNavigate();
 
+// 문의 조회
   useEffect(()=>{
-    axios.get(`http://localhost:8080/one2one/${uid}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/one2one/${uid}`)
     .then((res)=>{
       setOne2One(res.data);
   })
@@ -33,20 +34,25 @@ export default function One2OneDetail() {
   });
 }, [])
 
-const handleDelte=() => {
-  axios.delete(`http://localhost:8080/one2one/delete/${uid}`,{
+// 문의 삭제
+const handleDelete=() => {
+  axios.delete(`${process.env.REACT_APP_API_URL}/one2one/delete/${uid}`,{
     data:{
       deleteYn:"y"
     },
     withCredentials:true
   })
   .then((resp)=>{
-    window.confirm("해당 문의를 삭제하시겠습니까?")
-    alert("삭제 완료!")
-    navigate(`/one2one`)
+    if (window.confirm("해당 글을 삭제하시겠습니까?") === true){ 
+      alert("삭제 완료!")
+      navigate(`/one2one`)
+  }else{
+      alert("취소되었습니다.")
+      return false;
+  }
   })
   .catch((e) => {
-    alert("본인이 작성한 문의만 삭제할 수 있습니다.")
+    alert("본인이 작성한 글만 삭제할 수 있습니다.")
   })
 
 }
@@ -138,7 +144,7 @@ const seconds2 = String(date2.getSeconds()).padStart(2, '0');
                 </button>
               </Link>
                 <button className="one2one-catalog-box"
-                onClick={handleDelte}>삭제</button>
+                onClick={handleDelete}>삭제</button>
             </div>
           </div>) : 
            <div className="a-container">
@@ -161,7 +167,7 @@ const seconds2 = String(date2.getSeconds()).padStart(2, '0');
                 </button>
               </Link>
                 <button className="one2one-catalog-box"
-                onClick={handleDelte}>삭제</button>
+                onClick={handleDelete}>삭제</button>
             </div>
           </div>}
         </div>
