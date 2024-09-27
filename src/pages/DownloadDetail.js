@@ -15,7 +15,7 @@ export default function DownloadDetail() {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8080/download/${uid}`)
+    .get(`${process.env.REACT_APP_API_URL}/download/${uid}`)
     .then((response) => {
       console.log(response.data);
       setDownload(response.data);

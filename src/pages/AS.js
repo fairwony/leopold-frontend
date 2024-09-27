@@ -17,7 +17,7 @@ export default function AS() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/as`)
+      .get(`${process.env.REACT_APP_API_URL}/as`)
       .then((res) => {
         console.log(res.data);
         setAsList_1(
