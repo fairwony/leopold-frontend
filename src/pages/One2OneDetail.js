@@ -36,25 +36,27 @@ export default function One2OneDetail() {
 
 // 문의 삭제
 const handleDelete=() => {
-  axios.delete(`${process.env.REACT_APP_API_URL}/one2one/delete/${uid}`,{
-    data:{
-      deleteYn:"y"
-    },
-    withCredentials:true
-  })
-  .then((resp)=>{
-    if (window.confirm("해당 글을 삭제하시겠습니까?") === true){ 
+  if (window.confirm("해당 글을 삭제하시겠습니까?") === true){ 
+    axios.delete(`${process.env.REACT_APP_API_URL}/one2one/delete/${uid}`,{
+      data:{
+        deleteYn:"y"
+      },
+      withCredentials:true
+    })
+    .then((resp)=>{
       alert("삭제 완료!")
       navigate(`/one2one`)
+      
+    })
+    .catch((e) => {
+      alert("본인이 작성한 글만 삭제할 수 있습니다.")
+    })
   }else{
-      alert("취소되었습니다.")
-      return false;
-  }
-  })
-  .catch((e) => {
-    alert("본인이 작성한 글만 삭제할 수 있습니다.")
-  })
-
+    alert("취소되었습니다.")
+    return false;
+  
+  
+}
 }
 
 // 시간 설정

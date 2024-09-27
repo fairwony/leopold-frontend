@@ -100,10 +100,7 @@ export default function WriteReview() {
         {/* 제목 */}
         <div className="review-titleArea">
           <h2>사용자 리뷰</h2>
-          <p>
-            User review
-            {title}, {content}
-          </p>
+          <p>User review</p>
         </div>
         {/* 글작성 */}
         <div className="write-container">
@@ -125,7 +122,7 @@ export default function WriteReview() {
               }}
               config={{
                 heightMin: 450, //최소 높이
-                autoGrow: false //높이 자동 조절 비활성화
+                autoGrow: false, //높이 자동 조절 비활성화
               }}
             />
           </div>

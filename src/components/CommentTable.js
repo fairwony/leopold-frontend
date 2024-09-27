@@ -24,14 +24,14 @@ export default function CommentTable({ list }) {
 
   // 댓글 삭제
   const handleDelete = () => {
-    axios
+    if (window.confirm("해당 글을 삭제하시겠습니까?") === true){
+      axios
       .delete(`${process.env.REACT_APP_API_URL}/comment/${list?.uid}`, {
         withCredentials: true,
       })
       .then((resp) => {
-          alert("삭제 완료!");
-          navigate(0);
-
+        alert("삭제 완료!");
+        navigate(0);
       })
       .catch((err) => {
         console.log(err);
@@ -42,8 +42,12 @@ export default function CommentTable({ list }) {
           err.response?.status === 403 &&
             alert("본인이 작성한 댓글만 삭제할 수 있습니다.");
         }
-      });
-  };
+      })
+    }else{
+      alert("취소되었습니다.")
+      return false;
+    }
+  }
 
   return (
     <>

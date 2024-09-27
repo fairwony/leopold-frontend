@@ -8,20 +8,19 @@ import axios from "axios";
 import CommentTable from "../components/CommentTable";
 
 export default function ReviewDetail() {
-
   const [review, setReview] = useState({
-    title:"",
-    name:"",
-    writeDate:"",
-    content:"",
-    deleteYn:""
+    title: "",
+    name: "",
+    writeDate: "",
+    content: "",
+    deleteYn: "",
   });
 
-  const[comment, setComment] = useState({
-    name:"",
-    writeDate:"",
-    content:""
-  })
+  const [comment, setComment] = useState({
+    name: "",
+    writeDate: "",
+    content: "",
+  });
 
   const [content, setContent] = useState("");
 
@@ -38,83 +37,85 @@ export default function ReviewDetail() {
   } else if (length >= 4) {
     name = name[0] + "*" + name.slice(-1);
   }
-  
 
   // 시간 설정
   const date = new Date(review?.writeDate);
   const year = date?.getFullYear();
-  const month = String(date.getMonth() + 1)?.padStart(2, '0');
-  const day = String(date.getDate())?.padStart(2, '0');
+  const month = String(date.getMonth() + 1)?.padStart(2, "0");
+  const day = String(date.getDate())?.padStart(2, "0");
 
-  const {uid} = useParams();
+  const { uid } = useParams();
 
   const navigate = useNavigate();
 
   // 리뷰 조회
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/review/${uid}`)
-    .then((res) =>{
-      setReview(res.data);
-    })
-    .catch((e)=>{
-      console.log(e);
-    })
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/review/${uid}`)
+      .then((res) => {
+        setReview(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
 
-    axios.get(`${process.env.REACT_APP_API_URL}/comment/${uid}`)
-    .then((resp)=>{
-      console.log(resp.data);
-      setComment(resp.data);
-      setCommentList(resp.data);
-    })
-    .catch((error)=> 
-    console.log(error));
-  },[])
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/comment/${uid}`)
+      .then((resp) => {
+        console.log(resp.data);
+        setComment(resp.data);
+        setCommentList(resp.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   // 리뷰 삭제
-  const handleDelete=()=>{
-    axios.delete(`${process.env.REACT_APP_API_URL}/review/${uid}`,{
-      data:{
-        deleteYn:"y"
-      },
-      withCredentials:true
-    })
-    .then((resp)=>{
-      if (window.confirm("해당 글을 삭제하시겠습니까?") === true){ 
-          alert("삭제 완료!")
-          navigate(`/review`)
-      }else{
-          alert("취소되었습니다.")
-          return false;
-      }
-    })
-    .catch((e)=>{
-      alert("본인이 작성한 글만 삭제할 수 있습니다.")
-    })
-  }
-
+  const handleDelete = () => {
+    if (window.confirm("해당 글을 삭제하시겠습니까?") === true) {
+      axios
+        .delete(`${process.env.REACT_APP_API_URL}/review/${uid}`, {
+          data: {
+            deleteYn: "y",
+          },
+          withCredentials: true,
+        })
+        .then((resp) => {
+          alert("삭제 완료!");
+          navigate(`/review`);
+        })
+        .catch((e) => {
+          alert("본인이 작성한 글만 삭제할 수 있습니다.");
+        });
+    } else {
+      alert("취소되었습니다.");
+      return;
+    }
+  };
 
   // 댓글 작성
-  const handleSubmit = () =>{
-    axios.post(`${process.env.REACT_APP_API_URL}/comment/write/${uid}`,
-      {
-        content: `${content}`
-      },
-      {
-        withCredentials: true,
-      }
-    )
-    .then((resp) => {
-      navigate(`/review/${uid}`)
-    })
-    .catch((e) => {
-      alert("로그인이 필요합니다!")
-    });
-  }
+  const handleSubmit = () => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/comment/write/${uid}`,
+        {
+          content: `${content}`,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((resp) => {
+        navigate(`/review/${uid}`);
+      })
+      .catch((e) => {
+        alert("로그인이 필요합니다!");
+      });
+  };
 
   // 댓글 조회
-  const printCommentList = commentList?.map((list) =>(
+  const printCommentList = commentList?.map((list) => (
     <CommentTable list={list} />
-  ))
+  ));
 
   return (
     <>
@@ -182,21 +183,27 @@ export default function ReviewDetail() {
             <div className="text2-box">
               <p className="title-text2">{name}</p>
               <div className="title-line"></div>
-              <p className="title-text2">{year}.{month}.{day}</p>
+              <p className="title-text2">
+                {year}.{month}.{day}
+              </p>
             </div>
           </div>
           <div className="content-box">
-            <p className="content-text" dangerouslySetInnerHTML={{ __html: review.content }}>
-            </p>
+            <p
+              className="content-text"
+              dangerouslySetInnerHTML={{ __html: review.content }}
+            ></p>
           </div>
           <div className="review-catalog-container">
             <Link to="/review">
               <button className="catalog-box">목록</button>
             </Link>
             <div className="delete-container">
-              <button className="catalog-box" onClick={handleDelete}>삭제</button>
-              <Link to ={`/review/modify/${uid}`}>
-              <button className="review-modify-box">수정</button>
+              <button className="catalog-box" onClick={handleDelete}>
+                삭제
+              </button>
+              <Link to={`/review/modify/${uid}`}>
+                <button className="review-modify-box">수정</button>
               </Link>
             </div>
           </div>
@@ -205,10 +212,12 @@ export default function ReviewDetail() {
           {/* 댓글 작성*/}
           <form className="write-comment-container" onSubmit={handleSubmit}>
             <p className="write-comment-text">댓글달기</p>
-            <textarea className="write-comment-content"
-            onChange={(e) =>{
-              setContent(e.target.value);
-            }}></textarea>
+            <textarea
+              className="write-comment-content"
+              onChange={(e) => {
+                setContent(e.target.value);
+              }}
+            ></textarea>
             <div>
               <button className="write-comment-check">확인</button>
             </div>

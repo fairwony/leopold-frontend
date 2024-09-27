@@ -26,14 +26,13 @@ export default function WriteOne2one() {
     if (title === "") {
       alert("제목을 입력해주세요.");
       return;
-    }else if (content === "") {
+    } else if (content === "") {
       alert("내용을 입력해주세요.");
       return;
-    }else if (email1 === ""){
-      alert("이메일을 입력해 주세요.")
+    } else if (email1 === "") {
+      alert("이메일을 입력해 주세요.");
       return;
     }
-  
 
     let emailDomain;
     if (email2 === "type") emailDomain = email3;
@@ -77,9 +76,7 @@ export default function WriteOne2one() {
                   <font>1:1문의</font>
                 </h2>
                 <p>Q&A</p>
-                <p style={{ color: "black" }}>
-                  {title},{content},{email1},{email2},{email3}
-                </p>
+                <p style={{ color: "black" }}></p>
               </div>
             </div>
           </div>
@@ -152,17 +149,17 @@ export default function WriteOne2one() {
             style={{ marginTop: "10px" }}
             className="write-content-container"
           >
-              <FroalaEditor
-                tag="textarea"
-                model={content}
-                onModelChange={(model) => {
-                  setContent(model);
-                }}
-                config={{
-                  heightMin: 450, //최소 높이
-                  autoGrow: false //높이 자동 조절 비활성화
-                }}
-              />
+            <FroalaEditor
+              tag="textarea"
+              model={content}
+              onModelChange={(model) => {
+                setContent(model);
+              }}
+              config={{
+                heightMin: 450, //최소 높이
+                autoGrow: false, //높이 자동 조절 비활성화
+              }}
+            />
           </div>
 
           <div className="catalog-container">
@@ -176,7 +173,11 @@ export default function WriteOne2one() {
             </button>
 
             <div className="cancle-container">
-              <button type="button" className="register-box" onClick={handleSubmit}>
+              <button
+                type="button"
+                className="register-box"
+                onClick={handleSubmit}
+              >
                 등록
               </button>
               <button

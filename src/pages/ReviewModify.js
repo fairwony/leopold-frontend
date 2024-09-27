@@ -9,58 +9,67 @@ import FroalaEditor from "react-froala-wysiwyg";
 import "froala-editor/js/plugins/align.min.js";
 
 export default function ReviewModify() {
-  const[modifyReview, setModifyReview] = useState({
-    title:"",
-    content:""
-  })
+  const [modifyReview, setModifyReview] = useState({
+    title: "",
+    content: "",
+  });
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const navigate = useNavigate();
-  const {uid} = useParams();
+  const { uid } = useParams();
 
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/review/${uid}`)
+      .then((res) => {
+        setModifyReview(res.data);
+        setContent(res.data.content);
+        setTitle(res.data.title);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-  useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_API_URL}/review/${uid}`)
-    .then((res)=>{
-      setModifyReview(res.data);
-      setContent(res.data.content);
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
-  },[])
-
-
-  const handleSubmit = (e) =>{
-
-
+  const handleSubmit = (e) => {
+    if (title === "") {
+      alert("제목을 입력해주세요.");
+      return;
+    } else if (content === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }
 
     e.preventDefault();
 
-    axios.patch(`${process.env.REACT_APP_API_URL}/review/${uid}`,
-      {
-        title: `${title}`,
-        content: `${content}`,
-      },
-      {
-        withCredentials:true
-      })
-      .then((res)=>{
-        navigate(`/review/${uid}`)
+    axios
+      .patch(
+        `${process.env.REACT_APP_API_URL}/review/${uid}`,
+        {
+          title: `${title}`,
+          content: `${content}`,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        navigate(`/review/${uid}`);
         alert("수정 완료!");
       })
-      .catch((err)=>{
+      .catch((err) => {
         if (axios.isAxiosError(err)) {
           err.response?.status === 401 && alert("로그인이 필요합니다.");
         }
         if (axios.isAxiosError(err)) {
-          err.response?.status === 403 && alert("본인이 작성한 글만 수정할 수 있습니다.");
+          err.response?.status === 403 &&
+            alert("본인이 작성한 글만 수정할 수 있습니다.");
         }
         console.log(err);
-      })
-  }
+      });
+  };
 
   return (
     <>
@@ -119,54 +128,68 @@ export default function ReviewModify() {
         {/* 제목 */}
         <div className="review-titleArea">
           <h2>사용자 리뷰</h2>
-          <p>User review
-          {title}, {content}
-          </p>
-          
+          <p>User review</p>
         </div>
         {/* 글작성 */}
         <div className="write-container">
-            <div className="write-title-container">
-                <p style={{fontSize:"15px", width:"58px"}}>제목</p>
-                <textarea className="write-title-box" defaultValue={modifyReview.title}
-                onChange={(e) =>{
-                  setTitle(e.target.value);
-                }}
-                ></textarea>
-            </div>
-            <div className="write-content-container">
-                <div className="write-content-top">
-                  
-                <FroalaEditor
+          <div className="write-title-container">
+            <p style={{ fontSize: "15px", width: "58px" }}>제목</p>
+            <textarea
+              className="write-title-box"
+              defaultValue={title}
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            ></textarea>
+          </div>
+          <div className="write-content-container">
+            <div className="write-content-top">
+              <FroalaEditor
                 tag="textarea"
                 model={content}
                 onModelChange={(model) => {
-                  setContent(model)
+                  setContent(model);
                 }}
                 config={{
                   heightMin: 450, //최소 높이
-                  autoGrow: false //높이 자동 조절 비활성화
+                  autoGrow: false, //높이 자동 조절 비활성화
                 }}
               />
-                </div>
             </div>
-            <div className="ucc-container">
-                <p style={{fontSize:"14px"}}>UCC URL</p>
-                <textarea className="ucc-box"></textarea>
-            </div>
-            <div className="guide-container">
-                <p style={{paddingBottom:"5px"}}>· 상품과 관련없는 내용 또는 이미지, 욕설/비방, 개인정보유출, 광고/홍보글 등 적절하지 않은 게시물은 별도의 고지없이 비공개 처리 될 수 있습니다.</p>
-                <p>· 작성된 게시물(사진, 동영상 포함)은 운영 및 마케팅에 활용될 수 있습니다.</p>
-            </div>
-            <div className="catalog-container">
-                <Link to="/review"><button className="catalog-box2">목록</button></Link>
-                <div className="cancle-container">
-                <button className="register-box" onClick={handleSubmit}>수정</button>
-                <button className="catalog-box2" onClick={() => {
+          </div>
+          <div className="ucc-container">
+            <p style={{ fontSize: "14px" }}>UCC URL</p>
+            <textarea className="ucc-box"></textarea>
+          </div>
+          <div className="guide-container">
+            <p style={{ paddingBottom: "5px" }}>
+              · 상품과 관련없는 내용 또는 이미지, 욕설/비방, 개인정보유출,
+              광고/홍보글 등 적절하지 않은 게시물은 별도의 고지없이 비공개 처리
+              될 수 있습니다.
+            </p>
+            <p>
+              · 작성된 게시물(사진, 동영상 포함)은 운영 및 마케팅에 활용될 수
+              있습니다.
+            </p>
+          </div>
+          <div className="catalog-container">
+            <Link to="/review">
+              <button className="catalog-box2">목록</button>
+            </Link>
+            <div className="cancle-container">
+              <button className="register-box" onClick={handleSubmit}>
+                수정
+              </button>
+              <button
+                className="catalog-box2"
+                onClick={() => {
                   navigate(`/review/${uid}`);
-                }}>취소</button>
-                </div>
+                }}
+              >
+                취소
+              </button>
             </div>
+          </div>
         </div>
       </Main>
       <Footer />
