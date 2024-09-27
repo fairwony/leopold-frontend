@@ -5,6 +5,7 @@ import "./ReviewDetail.css";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CommentTable from "../components/CommentTable";
 
 export default function ReviewDetail() {
 
@@ -16,8 +17,18 @@ export default function ReviewDetail() {
     deleteYn:""
   });
 
+  const[comment, setComment] = useState({
+    name:"",
+    writeDate:"",
+    content:""
+  })
+
   const [content, setContent] = useState("");
 
+  const [commentList, setCommentList] = useState([]);
+
+  // * 표시
+  
 
   // 시간 설정
   const date = new Date(review?.writeDate);
@@ -29,6 +40,7 @@ export default function ReviewDetail() {
 
   const navigate = useNavigate();
 
+  // 리뷰 조회
   useEffect(() => {
     axios.get(`http://localhost:8080/review/${uid}`)
     .then((res) =>{
@@ -37,8 +49,41 @@ export default function ReviewDetail() {
     .catch((e)=>{
       console.log(e);
     })
+
+    axios.get(`http://localhost:8080/comment/${uid}`)
+    .then((resp)=>{
+      console.log(resp.data);
+      setComment(resp.data);
+      setCommentList(resp.data);
+    })
+    .catch((error)=> 
+    console.log(error));
   },[])
 
+  // 리뷰 삭제
+  const handleDelete=()=>{
+    axios.delete(`http://localhost:8080/review/${uid}`,{
+      data:{
+        deleteYn:"y"
+      },
+      withCredentials:true
+    })
+    .then((resp)=>{
+      if (window.confirm("해당 글을 삭제하시겠습니까?") === true){ 
+          alert("삭제 완료!")
+          navigate(`/review`)
+      }else{
+          alert("취소되었습니다.")
+          return false;
+      }
+    })
+    .catch((e)=>{
+      alert("본인이 작성한 글만 삭제할 수 있습니다.")
+    })
+  }
+
+
+  // 댓글 작성
   const handleSubmit = () =>{
     axios.post(`http://localhost:8080/comment/write/${uid}`,
       {
@@ -49,14 +94,17 @@ export default function ReviewDetail() {
       }
     )
     .then((resp) => {
-      navigate("/review/${uid}")
-      alert("댓글 작성 완료!");
+      navigate(`/review/${uid}`)
     })
     .catch((e) => {
       alert("로그인이 필요합니다!")
     });
   }
 
+  // 댓글 조회
+  const printCommentList = commentList?.map((list) =>(
+    <CommentTable list={list} />
+  ))
 
   return (
     <>
@@ -136,37 +184,25 @@ export default function ReviewDetail() {
               <button className="catalog-box">목록</button>
             </Link>
             <div className="delete-container">
-              <button className="catalog-box">삭제</button>
-              <Link to ="/review/modify">
+              <button className="catalog-box" onClick={handleDelete}>삭제</button>
+              <Link to ={`/review/modify/${uid}`}>
               <button className="review-modify-box">수정</button>
               </Link>
             </div>
           </div>
           {/* 댓글 조회 */}
-          <div className="comment-container">
-            <div className="comment-box1">
-              <p className="comment-name">이름</p>
-              <p className="comment-text">2023-04-23</p>
-              <div className="modify-container">
-                <button className="modify-box">수정</button>
-                <button className="modify-box">삭제</button>
-              </div>
-            </div>
-            <div className="comment-box2">
-              <p className="comment-text">내용</p>
-            </div>
-          </div>
+          {printCommentList}
           {/* 댓글 작성*/}
-          <div className="write-comment-container">
+          <form className="write-comment-container" onSubmit={handleSubmit}>
             <p className="write-comment-text">댓글달기</p>
             <textarea className="write-comment-content"
             onChange={(e) =>{
               setContent(e.target.value);
             }}></textarea>
             <div>
-              <button className="write-comment-check" onClick={handleSubmit}>확인</button>
+              <button className="write-comment-check">확인</button>
             </div>
-          </div>
+          </form>
         </div>
       </Main>
       <Footer />
