@@ -124,11 +124,9 @@ export default function ShoppingDetail() {
 			}, { withCredentials: true })
 				.then((response) => {
 					console.log(response.data);
-					//성공적으로 데이터를 보냈을 때 실행할 영역
 				})
 				.catch((error) => {
 					console.log(error.response.data);
-					//에러가 떴을 때 실행할 영역
 				});
 		}
 
@@ -151,6 +149,9 @@ export default function ShoppingDetail() {
 			});
 	}
 
+	function handleClickBuy() {
+		alert("상품을 장바구니에 담아주세요");
+	}
 
 
 
@@ -236,16 +237,12 @@ export default function ShoppingDetail() {
 						</div>
 
 						<div style={{ display: "flex", gap: 17, marginTop: 32 }}>
-							<button className="sd-interest-btn" onClick={handleClickInterest}>
+							<button className="sd-interest-btn sd-custom-btn1" onClick={handleClickInterest}>
 								<img src="\images\Shopping\interest.png" alt="interest" />
 							</button>
 
-							<button className="sd-cart-btn" onClick={handleClickCart}>
-								장바구니
-							</button>
-
-							<button className="sd-buy-btn">
-								바로 구매
+							<button className="sd-cart-btn sd-custom-btn1" onClick={handleClickCart}>
+								선택한 상품을 장바구니에 담기
 							</button>
 						</div>
 					</div>

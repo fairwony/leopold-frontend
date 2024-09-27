@@ -85,14 +85,15 @@
 }
 
 .sd-cart-btn {
-	width: 227px;
+	width: 500px;
 	height: 72px;
-	border: 1px solid #565656;
-	background-color: white;
+	border: none;
+	background-color: #ff9900;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 18px;
+	color: white;
 	cursor: pointer;
 }
 
@@ -165,4 +166,12 @@
 	border-bottom: 1px solid #ededed;
 	vertical-align: middle;
 	line-height: 1.5em;
+}
+
+.sd-custom-btn1:hover {
+	background-color: #f5f5f5;
+}
+
+.sd-cart-btn:hover {
+	background-color: #dfaf63;
 }
