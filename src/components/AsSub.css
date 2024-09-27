@@ -34,7 +34,6 @@
 }
 
 .asSub-has-sub-a {
-    width: 1340px;
     background-color: #f5f5f5;
     padding: 28px 0;
     color: #888888;
@@ -45,10 +44,10 @@
 }
 
 .asSub-has-sub-b {
-    width: 1340px;
     background-color: #f5f5f5;
     color: #888888;
     line-height: 32px;
+    border-top: 1px solid #ededed;
     max-height: 0px;
     overflow: hidden;
     transition: 0.5s;

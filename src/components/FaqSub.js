@@ -10,7 +10,13 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
           <img src="images\FAQ\faq_q.svg" alt="Q" />
         </span>
         {faq?.question}
-        <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
+        <svg
+          width={24}
+          height={24}
+          viewBox="0 0 24 24"
+          fill="none"
+          className={active ? "faqSub-arrow-active" : "faqSub-arrow"}
+        >
           <path
             d="M4 8L12 16L20 8"
             stroke="#1A1A1A"
@@ -20,8 +26,8 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
           />
         </svg>
       </div>
-      {isActive && (
-        <div className="faqSub-has-sub-a">
+      {active && (
+        <div className={`faqSub-has-sub-a ${active ? "active" : ""}`}>
           <div className="faqSub-wrap">
             <span>
               <img src="images\FAQ\faq_a.svg" alt="A" />
