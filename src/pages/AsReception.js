@@ -1,14 +1,59 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./AsReception.css";
-import 'froala-editor/css/froala_style.min.css';
-import 'froala-editor/css/froala_editor.pkgd.min.css';
-import EditorComponent from "../components/Editor";
+import FroalaEditor from "react-froala-wysiwyg";
+
+import "froala-editor/js/plugins.pkgd.min.js";
+import "froala-editor/js/plugins/align.min.js";
+
+import { useState } from "react";
+import axios from "axios";
 
 export default function AsReception() {
-  
+  const navigate = useNavigate();
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] =
+    useState(`<p>[A/S 필독 사항] 확인 후 접수 부탁드리며, 반드시 '하단 양식 작성' 및 '댓글 안내 확인' 후 발송하여 주시기 바랍니다.
+    접수 정보 오 기재 및 누락, 수리 규정 및 댓글 안내 미 확인으로 인한 분실 및 불이익은 당 사에서 책임지지 않습니다.
+    정확하게 작성하지 않는 경우 제품이 누락되거나 수리 기간이 지연될 수 있습니다. <br />
+    <br />
+    - 성 함 : <br />
+    - 연락처 : <br />
+    - 주 소 : <br />
+    - Part No : <br />
+    - Serial No: <br />
+    - 증 상 : <br />
+    <br />
+    ※ 'Do not remove' 스티커 및 A/S 스티커 고의적인 훼손은 임의 분해 및 개조로 취급되며,
+    개인 및 제3자를 포함한 임의 개조, 윤활 및 분해 흔적이 있는 경우 유·무상 포함 A/S 불가 대상으로 '별도 연락없이 착불 반송' 되오니 참고 부탁드립니다.</p>`);
+
+  const [model, setModel] = useState("Example Set");
+
+  const handleContentChange = (model) => setContent(model);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:8080/asReception",
+        {
+          title: title,
+          content: content,
+        },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        alert(response.data);
+        navigate("/as");
+      })
+      .catch((error) => {
+        alert(error.response.data);
+      });
+  };
+
   return (
     <>
       <WhiteHeader />
@@ -89,7 +134,11 @@ export default function AsReception() {
                       </tr>
                       <tr>
                         <td colSpan={2} className="asReception-clear">
-                          <EditorComponent></EditorComponent>
+                          <FroalaEditor
+                            tag="textarea"
+                            model={content}
+                            onModelChange={handleContentChange}
+                          />
                         </td>
                       </tr>
                     </tbody>
@@ -100,7 +149,7 @@ export default function AsReception() {
                     <Link to={"/as"}>목록</Link>
                   </span>
                   <div className="asReception-gRight">
-                    <span className="asReception-btnSubmit">등록</span>
+                    <span className="asReception-btnSubmit" onClick={handleSubmit}>등록</span>
                     <span className="asReception-btnBasic">취소</span>
                   </div>
                 </div>
