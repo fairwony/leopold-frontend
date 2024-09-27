@@ -3,10 +3,10 @@ import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./AsReception.css";
-import FroalaEditor from "react-froala-wysiwyg";
 
-import "froala-editor/js/plugins.pkgd.min.js";
-import "froala-editor/js/plugins/align.min.js";
+import FroalaEditor from "react-froala-wysiwyg";
+import "froala-editor/css/froala_style.min.css";
+import "froala-editor/css/froala_editor.pkgd.min.css";
 
 import { useState } from "react";
 import axios from "axios";
@@ -28,9 +28,7 @@ export default function AsReception() {
     - 증 상 : <br />
     <br />
     ※ 'Do not remove' 스티커 및 A/S 스티커 고의적인 훼손은 임의 분해 및 개조로 취급되며,
-    개인 및 제3자를 포함한 임의 개조, 윤활 및 분해 흔적이 있는 경우 유·무상 포함 A/S 불가 대상으로 '별도 연락없이 착불 반송' 되오니 참고 부탁드립니다.</p>`);
-
-  const [model, setModel] = useState("Example Set");
+    개인 및 제3자를 포함한 임의 개조, 윤활 및 분해 흔적이 있는 경우 유·무상 포함 A/S 불가 대상으로 '별도 연락 없이 착불 반송' 되오니 참고 부탁드립니다.</p>`);
 
   const handleContentChange = (model) => setContent(model);
 
@@ -40,8 +38,8 @@ export default function AsReception() {
       .post(
         "http://localhost:8080/asReception",
         {
-          title: title,
-          content: content,
+          title: `${title}`,
+          content: `${content}`,
         },
         { withCredentials: true }
       )
@@ -136,6 +134,7 @@ export default function AsReception() {
                         <td colSpan={2} className="asReception-clear">
                           <FroalaEditor
                             tag="textarea"
+                            config={{}}
                             model={content}
                             onModelChange={handleContentChange}
                           />
