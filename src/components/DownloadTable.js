@@ -36,7 +36,7 @@ export default function DownloadTable({ list, index, page, size }) {
 						</Link>
 					</td>
 					<td className="downloadTable-tbodyContent">
-						<img src="images/Notice/ico_nick1.gif" />
+						<img src="images/Notice/ico_nick1.gif" alt="이모티콘"/>
 						{"Leopold"}
 					</td>
 					<td className="downloadTable-tbodyContent">

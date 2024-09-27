@@ -17,7 +17,7 @@ export default function Notice() {
   
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/notices?page=${page}&size=${size}`)
+      .get(`${process.env.REACT_APP_API_URL}/notices?page=${page}&size=${size}`)
       .then((res) => {
         console.log(res.data);
         setNoticeList(res.data);

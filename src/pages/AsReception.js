@@ -57,7 +57,7 @@ export default function AsReception() {
     // 서버에 데이터 전송
     axios
       .post(
-        `http://localhost:8080/asReception`,
+        `${process.env.REACT_APP_API_URL}/asReception`,
         {
           title: title,
           content: content,

@@ -20,7 +20,7 @@ export default function Download() {
 	useEffect(() => {
 		axios
 			.get(
-				`http://localhost:8080/downloads?page=${page}&size=${size}&category=${categoryUid}`
+				`${process.env.REACT_APP_API_URL}/downloads?page=${page}&size=${size}&category=${categoryUid}`
 			)
 			.then((res) => {
 				console.log(res.data);

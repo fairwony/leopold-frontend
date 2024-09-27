@@ -33,7 +33,7 @@ export default function FAQ() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/faq?page=${page}&size=${size}&category=${categoryUid}`
+        `${process.env.REACT_APP_API_URL}/faq?page=${page}&size=${size}&category=${categoryUid}`
       )
       .then((response) => {
         console.log(response.data);

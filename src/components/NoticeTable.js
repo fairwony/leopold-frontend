@@ -28,7 +28,7 @@ export default function NoticeTable({list}) {
             </Link>
           </td>
           <td className="noticeTable-tbodyContent">
-            <img src="images/Notice/ico_nick1.gif" />
+            <img src="images/Notice/ico_nick1.gif" alt="이모티콘"/>
             {"Leopold"}
           </td>
           <td className="noticeTable-tbodyContent">
