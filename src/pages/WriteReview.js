@@ -32,7 +32,7 @@ export default function WriteReview() {
       }
     )
     .then((resp) => {
-      navigate("/review")
+      navigate(`/review`)
       alert("작성 완료!");
     })
     .catch((e) => {
@@ -120,7 +120,6 @@ export default function WriteReview() {
                 }}
               />
                 </div>
-                <textarea className="write-content"></textarea>
             </div>
             <div className="ucc-container">
                 <p style={{fontSize:"14px"}}>UCC URL</p>
@@ -134,7 +133,9 @@ export default function WriteReview() {
                 <Link to="/review"><button className="catalog-box2">목록</button></Link>
                 <div className="cancle-container">
                 <button className="register-box" onClick={handleSubmit}>등록</button>
-                <button className="catalog-box2" onClick={()=>{navigate(-1)}} >취소</button>
+                <button className="catalog-box2" onClick={() => {
+                  navigate(`/review`);
+                }} >취소</button>
                 </div>
             </div>
         </div>

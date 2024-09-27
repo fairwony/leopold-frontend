@@ -66,7 +66,7 @@ export default function App() {
 					<Route path="/one2one" element={<One2one />} />
 					<Route path="/one2one/:uid" element={<One2OneDetail />} />
 					<Route path="/one2one/write" element={<WriteOne2one />} />
-					<Route path="/review/modify" element={<ReviewModify />} />
+					<Route path="/review/modify/:uid" element={<ReviewModify />} />
 					<Route path="/test" element={<Test />} />
 					<Route path="/complete" element={<Complete />} />
 					<Route path="/modify" element={<Modify />} />

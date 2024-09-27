@@ -1,6 +1,5 @@
  .datail-contanier{
     width: 1340px;
-    height: 797px;
     margin: 0 auto;
  }
 
@@ -134,7 +133,7 @@
     height: 20px;
     display: flex;
     gap: 5px;
-    margin-left: 1049px;
+    margin-left: 1090px;
 }
 
 .modify-box{
@@ -149,6 +148,7 @@
 .modify-box:hover{
     color: white;
     background-color: #343434;
+    cursor: pointer;
 }
 
 .write-comment-container{

@@ -15,7 +15,7 @@ export default function NoticeDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/notice/${uid}`)
+      .get(`${process.env.REACT_APP_API_URL}/notice/${uid}`)
       .then((response) => {
         console.log(response.data);
         setNotice(response.data);

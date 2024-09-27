@@ -15,7 +15,7 @@ export default function One2one() {
   const [one2OneList, setOne2OneList] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/one2ones?page=${page}&size=${size}`, {
+    axios.get(`${process.env.REACT_APP_API_URL}/one2ones?page=${page}&size=${size}`, {
       withCredentials: true,
     })
     .then((res) => {
