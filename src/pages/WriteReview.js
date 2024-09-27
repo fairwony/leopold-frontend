@@ -120,7 +120,6 @@ export default function WriteReview() {
                 }}
               />
                 </div>
-                <textarea className="write-content"></textarea>
             </div>
             <div className="ucc-container">
                 <p style={{fontSize:"14px"}}>UCC URL</p>

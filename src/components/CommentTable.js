@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function CommentTable({ list }) {
   const navigate = useNavigate();
@@ -11,7 +11,16 @@ export default function CommentTable({ list }) {
   const day = String(date.getDate())?.padStart(2, "0");
 
   // * 표시
-  
+  const length = list?.name?.length;
+  let name = list?.name;
+
+  if (length === 2) {
+    name = name[0] + "*" + name[1];
+  } else if (length === 3) {
+    name = name[0] + "*" + name[2];
+  } else if (length >= 4) {
+    name = name[0] + "*" + name.slice(-1);
+  }
 
   // 댓글 삭제
   const handleDelete = () => {
@@ -44,7 +53,7 @@ export default function CommentTable({ list }) {
     <>
       <div className="comment-container">
         <div className="comment-box1">
-          <p className="comment-name">{list.name}</p>
+          <p className="comment-name">{name}</p>
           <p className="comment-text">
             {year}.{month}.{day}
           </p>

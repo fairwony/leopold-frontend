@@ -25,7 +25,7 @@ export default function One2OneDetail() {
 
 // 문의 조회
   useEffect(()=>{
-    axios.get(`http://localhost:8080/one2one/${uid}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/one2one/${uid}`)
     .then((res)=>{
       setOne2One(res.data);
   })
@@ -36,7 +36,7 @@ export default function One2OneDetail() {
 
 // 문의 삭제
 const handleDelete=() => {
-  axios.delete(`http://localhost:8080/one2one/delete/${uid}`,{
+  axios.delete(`${process.env.REACT_APP_API_URL}/one2one/delete/${uid}`,{
     data:{
       deleteYn:"y"
     },
