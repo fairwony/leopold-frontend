@@ -147,7 +147,7 @@ export default function ShoppingDetail() {
 				alert("상품을 관심상품으로 추가했습니다.");
 			})
 			.catch((error) => {
-				console.log(error.response.data);
+				alert(error.response.data);
 			});
 	}
 

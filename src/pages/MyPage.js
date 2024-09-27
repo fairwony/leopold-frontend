@@ -11,9 +11,10 @@ import { ContextSystem } from "../functions/MyContext";
 import "./MyPage.css";
 
 export default function MyPage() {
-	const {get, set} = useContext(ContextSystem);
+	const { get, set } = useContext(ContextSystem);
 	const navigate = useNavigate();
 	const [orderList, setOrderList] = useState([]);
+	const [qnaList, setQnaList] = useState([]);
 	const [waitLength, setWaitLength] = useState(0);
 
 	useEffect(() => {
@@ -35,11 +36,24 @@ export default function MyPage() {
 
 				navigate("/login");
 			});
+
+		axios.get(`http://localhost:8080/one2ones/mypage`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				setQnaList(response.data);
+			})
+			.catch((error) => {
+				alert(error.response.data);
+			});
 	}, []);
 
 	const printOrderTable = orderList.map((order, index) => (
 		<OrderTable orderInfo={order} key={index} />
 	));
+
+	const printQnaTableMini = qnaList?.map((qna, index) => (
+		<QnaTableMini qna={qna} key={index} index={index} />
+	))
 
 	return (
 		<div className="MyPage">
@@ -123,7 +137,8 @@ export default function MyPage() {
 
 						<div className="mypage-title2">
 							<p className="mypage-title2-p1">문의 내역</p>
-							<p className="mypage-title2-p2">문의 내역 더보기 &gt;</p>
+							<p className="mypage-title2-p2"
+							onClick={()=>{navigate(`/one2one`)}}>문의 내역 더보기 &gt;</p>
 						</div>
 
 						<div className="mypage-recent-title">
@@ -144,7 +159,7 @@ export default function MyPage() {
 							</div>
 						</div>
 
-						<QnaTableMini />
+						{printQnaTableMini}
 					</div>
 				</div>
 			</Main>

@@ -19,10 +19,6 @@ export default function MyPageNav() {
 			<div className="mpn-menu">
 				<Link to={"/modify"}><p>회원 정보 수정</p></Link>
 			</div>
-
-			<div className="mpn-menu">
-				<p>접수/문의 내역</p>
-			</div>
 		</div >
 	)
 }
