@@ -159,6 +159,31 @@ export default function Payment() {
 			pointValue = parseInt(point);
 		}
 
+		if (receiver === "") {
+			alert("받는사람을 정확히 입력해 주세요.");
+			return;
+		}
+
+		if (zipcode === "" || address === "" ) {
+			alert("주소를 정확히 입력해 주세요.");
+			return;
+		}
+
+		if (phone1 === "" || phone2 === "" || phone3 === "") {
+			alert("휴대전화번호를 정확히 입력해 주세요.");
+			return;
+		}
+
+		if (account === "default") {
+			alert("입금은행을 선택해 주세요.");
+			return;
+		}
+
+		if (holder === "") {
+			alert("입금자명을 입력해 주세요.");
+			return;
+		}
+
 		axios.post(`http://localhost:8080/order`, {
 			receiver: `${receiver}`,
 			receiveMethod: `우체국택배`,
@@ -177,7 +202,7 @@ export default function Payment() {
 			point: `${pointValue}`
 		}, { withCredentials: true })
 			.then((response) => {
-				alert("주문 완료!");
+				alert("주문이 완료되었습니다. 감사합니다!");
 				navigate(`/complete?orderUid=${response.data}`)
 				console.log(response.data);
 			})
@@ -296,7 +321,7 @@ export default function Payment() {
 
 							value = value.replace(/\D/g, '');
 
-							if (value === ''){
+							if (value === '') {
 								setPoint('');
 								return;
 							}

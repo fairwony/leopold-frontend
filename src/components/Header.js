@@ -57,6 +57,57 @@ export default function Header() {
 		setIsMenuExtend(false);
 	}
 
+	function handleClickMyPage() {
+		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				navigate("/mypage");
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+				alert("로그인 후 이용해 주세요.");
+
+				localStorage.setItem('isLogin', 'false');
+				set.isLogin(false);
+
+				navigate("/login");
+			});
+	}
+
+	function handleClickCart() {
+		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				navigate("/cart");
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+				alert("로그인 후 이용해 주세요.");
+
+				localStorage.setItem('isLogin', 'false');
+				set.isLogin(false);
+
+				navigate("/login");
+			});
+	}
+
+	function handleClickInterest() {
+		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+			.then((response) => {
+				console.log(response.data);
+				navigate("/interest");
+			})
+			.catch((error) => {
+				console.log(error.response.data);
+				alert("로그인 후 이용해 주세요.");
+
+				localStorage.setItem('isLogin', 'false');
+				set.isLogin(false);
+
+				navigate("/login");
+			});
+	}
+
 	return (
 		<div className="Header">
 			{isTop ? (
@@ -86,9 +137,9 @@ export default function Header() {
 								? <p className="header-point" style={{ color: "white" }}>적립금 {point?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}P</p>
 								: undefined}
 							<Link to="/support"><p className="header-service" style={{ color: "white" }}>고객지원</p></Link>
-							<img src="\images\Header\search.png" alt="search_white" />
-							<Link to="/mypage"><img src="\images\Header\mypage.png" alt="mypage_white" /></Link>
-							<Link to="/cart"><img src="\images\Header\h_cart.png" alt="cart_white" /></Link>
+							<img src="\images\Shopping\white_interest.png" alt="search_white" onClick={handleClickInterest} />
+							<img src="\images\Header\mypage.png" alt="mypage_white" onClick={handleClickMyPage} />
+							<img src="\images\Header\h_cart.png" alt="cart_white" onClick={handleClickCart} />
 						</div>
 					</div>
 				</div>
@@ -119,9 +170,9 @@ export default function Header() {
 								? <p className="header-point">적립금 {point?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}P</p>
 								: undefined}
 							<Link to="/support"><p className="header-service">고객지원</p></Link>
-							<img src="\images\Header\h_search_black.png" alt="search_black" />
-							<Link to="/mypage"><img src="\images\Header\h_mypage_black.png" alt="mypage_black" /></Link>
-							<Link to="/cart"><img src="\images\Header\h_cart_black.png" alt="cart_black" /></Link>
+							<img src="\images\Shopping\interest.png" alt="search_black" onClick={handleClickInterest} />
+							<img src="\images\Header\h_mypage_black.png" alt="mypage_black" onClick={handleClickMyPage} />
+							<img src="\images\Header\h_cart_black.png" alt="cart_black" onClick={handleClickCart} />
 						</div>
 					</div>
 				</div>
@@ -215,7 +266,7 @@ export default function Header() {
 
 
 						<div className="header-c2">
-							<p>리얼포스 키보드</p>
+							<p style={{ color: "gray" }}>리얼포스 키보드</p>
 							{is1_2Extend
 								? <div className="header-minus"
 									onClick={() => { setIs1_2Extend(!is1_2Extend) }}>-</div>
@@ -230,7 +281,7 @@ export default function Header() {
 
 
 						<div className="header-c2">
-							<p>악세서리</p>
+							<p style={{ color: "gray" }}>악세서리</p>
 							{is1_3Extend
 								? <div className="header-minus"
 									onClick={() => { setIs1_3Extend(!is1_3Extend) }}>-</div>
@@ -248,11 +299,11 @@ export default function Header() {
 
 					<div></div>
 
-					<p className="header-c1">Contact</p>
+					<p className="header-c1" style={{ cursor: "pointer" }} onClick={() => { navigate("/support") }}>Contact</p>
 
 					<div></div>
 
-					<p className="header-c1">Global</p>
+					<p className="header-c1" style={{ cursor: "pointer" }} onClick={() => { navigate("/review") }}>Review</p>
 
 					<div></div>
 
@@ -278,8 +329,9 @@ export default function Header() {
 									navigate('/login');
 								});
 						}}>로그아웃</p> : <Link to="/login"><p>로그인</p></Link>}
-						<p>·</p>
-						<Link to="/join"><p>회원가입</p></Link>
+
+						{get.isLogin ? undefined : <p>·</p>}
+						{get.isLogin ? undefined : <Link to="/join"><p>회원가입</p></Link>}
 					</div>
 				</div>
 			</div>

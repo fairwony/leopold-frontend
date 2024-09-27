@@ -1,12 +1,12 @@
+import axios from "axios";
+import { useCallback, useState } from "react";
+import FroalaEditor from "react-froala-wysiwyg";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteOne2one.css";
 import "./WriteReview.css";
-import axios from "axios";
-import { useCallback, useState } from "react";
-import FroalaEditor from "react-froala-wysiwyg";
 
 export default function WriteOne2one() {
   const navigate = useNavigate();

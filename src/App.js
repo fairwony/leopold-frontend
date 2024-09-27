@@ -10,8 +10,10 @@ import FAQ from "./pages/FAQ";
 import ForgotId from "./pages/ForgotId";
 import ForgotPs from "./pages/ForgotPs";
 import Home from "./pages/Home";
+import Interest from "./pages/Interest";
 import Join from "./pages/Join";
 import Login from "./pages/Login";
+import Modify from "./pages/Modify";
 import MyPage from "./pages/MyPage";
 import Notice from "./pages/Notice";
 import NoticeDetail from "./pages/NoticeDetail";
@@ -67,6 +69,8 @@ export default function App() {
 					<Route path="/review/modify/:uid" element={<ReviewModify />} />
 					<Route path="/test" element={<Test />} />
 					<Route path="/complete" element={<Complete />} />
+					<Route path="/modify" element={<Modify />} />
+					<Route path="/interest" element={<Interest />} />
 				</Routes>
 			</MyContext>
 		</div>

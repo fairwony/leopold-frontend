@@ -38,7 +38,7 @@ export default function Login() {
 		<div className="Login">
 			<WhiteHeader />
 			<Main>
-			
+
 				<p className="login-title">로그인</p>
 
 				<div className="login-key1">ID</div>
@@ -64,9 +64,6 @@ export default function Login() {
 				</div>
 
 				<Link to={"/join"}><button className="login-join-button">회원가입</button></Link>
-
-				<p>{id}, {password}</p>
-
 			</Main>
 			<Footer />
 		</div>

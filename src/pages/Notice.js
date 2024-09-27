@@ -27,8 +27,8 @@ export default function Notice() {
   // const printNoticeList = noticeList.map((list, index) => (
   //   <NoticeTable list={list} key={index} />
   // ));
-  function handlePageChange(pageNum) {
-    navigate(`/notices?page=${pageNum}&size=10`);
+  function handlePageChange(page) {
+    navigate(`/notices?page=${page}&size=10`);
   }
 
   return (

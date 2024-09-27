@@ -13,16 +13,12 @@ export default function MyPageNav() {
 			</div>
 
 			<div className="mpn-menu">
-				<p>관심 상품</p>
+				<Link to={"/interest"}><p>관심 상품</p></Link>
 			</div>
 
 			<div className="mpn-menu">
-				<p>회원 정보 수정</p>
+				<Link to={"/modify"}><p>회원 정보 수정</p></Link>
 			</div>
-
-			<div className="mpn-menu">
-				<p>접수/문의 내역</p>
-			</div>
-		</div>
+		</div >
 	)
 }

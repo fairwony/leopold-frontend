@@ -100,11 +100,12 @@ export default function CartTable({ cart, selectList, setSelectList }) {
 							axios.delete(`http://localhost:8080/cart?uid=${cart?.uid}`, { withCredentials: true })
 								.then((response) => {
 									console.log(response.data);
+									alert("상품이 장바구니에서 삭제되었습니다.");
+									navigate(0);
 								})
 								.catch((error) => {
 									console.log(error.response.data);
 								});
-							navigate(0);
 						}}>삭제</button>
 				</div>
 			</div>
