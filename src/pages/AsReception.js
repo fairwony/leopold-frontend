@@ -167,12 +167,13 @@ export default function AsReception() {
                         <td colSpan={2} className="asReception-clear">
                           <FroalaEditor
                             tag="textarea"
-                            // config={{
-                            //   immediateReactModelUpdate: true,
-                            //   events: {
-                            //     contentChanged: () => setIsContentChanged(true),
-                            //   },
-                            // }}
+                            config={{
+                              immediateReactModelUpdate: true,
+                              events: {
+                                contentChanged: () => setIsContentChanged(true),
+                              },
+                              heightMin:440
+                            }}
                             model={content}
                             onModelChange={handleContentChange}
                           />
