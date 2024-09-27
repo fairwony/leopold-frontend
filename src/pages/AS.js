@@ -1,16 +1,19 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import AsSub from "../components/AsSub";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./AS.css";
+import { ContextSystem } from "../functions/MyContext";
 
 export default function AS() {
+  const navigate = useNavigate();
   const [category, setCategory] = useState(1);
   const [asList_1, setAsList_1] = useState([]);
   const [asList_2, setAsList_2] = useState([]);
+  const {get , set} = useContext(ContextSystem);
 
   useEffect(() => {
     axios
@@ -28,6 +31,14 @@ export default function AS() {
         console.log(err.res.data);
       });
   }, []);
+
+  function handleClickButton() {
+    if(get.isLogin === false) {
+      alert("회원에게만 글쓰기 권한이 있습니다.");
+    }else {
+      navigate("/asReception")
+    }
+  }
 
   return (
     <>
@@ -129,9 +140,9 @@ export default function AS() {
         {/* 접수하기 버튼*/}
         <div className="as-btn">
           <span className="as-gRight">
-            <Link to="/asReception" className="as-btnSubmit">
+            <div className="as-btnSubmit" onClick={handleClickButton}>
               접수하기
-            </Link>
+            </div>
           </span>
         </div>
         {/* 스스로 해결방법 */}
