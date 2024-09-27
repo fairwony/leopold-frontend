@@ -50,7 +50,7 @@ export default function AsReception() {
       return;
     }
     // 내용이 기본값과 같거나 변경되지 않은 경우 경고 
-    else if (!isContentChanged || content === defaultContent) {
+    if (!isContentChanged) {
       alert("내용이 변경되지 않았습니다. 내용을 수정한 후 다시 시도해주세요.");
       return;
     }
@@ -78,7 +78,9 @@ export default function AsReception() {
 
   useEffect(() => {
     if(content === defaultContent) {
-      setIsContentChanged(false);
+      setIsContentChanged(false);  
+    } else {
+      setIsContentChanged(true);
     }
   },[content, defaultContent]);
 
