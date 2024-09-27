@@ -25,17 +25,13 @@ export default function CommentTable({ list }) {
   // 댓글 삭제
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:8080/comment/${list?.uid}`, {
+      .delete(`${process.env.REACT_APP_API_URL}/comment/${list?.uid}`, {
         withCredentials: true,
       })
       .then((resp) => {
-        if (window.confirm("해당 댓글을 삭제하시겠습니까?") === true) {
           alert("삭제 완료!");
           navigate(0);
-        } else {
-          alert("취소되었습니다.");
-          return false;
-        }
+
       })
       .catch((err) => {
         console.log(err);

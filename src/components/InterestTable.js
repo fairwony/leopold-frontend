@@ -43,7 +43,7 @@ export default function InterestTable({ interest, selectedUidList, setSelectedUi
 			<div className="interest-table-td2" style={{ alignItems: "center", width: 195 }}>
 				<button className="interest-table-delte"
 					onClick={() => {
-						axios.delete(`http://localhost:8080/interest?interestUid=${interest.uid}`, { withCredentials: true })
+						axios.delete(`${process.env.REACT_APP_API_URL}/interest?interestUid=${interest.uid}`, { withCredentials: true })
 							.then((response) => {
 								console.log(response.data);
 								alert("상품이 삭제되었습니다.");

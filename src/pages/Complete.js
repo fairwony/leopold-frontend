@@ -14,7 +14,7 @@ export default function Complete() {
 	const [wishList, setWishList] = useState([]);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/order?orderUid=${orderUid}`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/order?orderUid=${orderUid}`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setOrder(response.data.order);

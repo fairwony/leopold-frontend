@@ -9,7 +9,7 @@ export default function Header() {
 	const [point, setPoint] = useState(0);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/point`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/point`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setPoint(response.data);
@@ -58,7 +58,7 @@ export default function Header() {
 	}
 
 	function handleClickMyPage() {
-		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/isLogin`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				navigate("/mypage");
@@ -75,7 +75,7 @@ export default function Header() {
 	}
 
 	function handleClickCart() {
-		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/isLogin`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				navigate("/cart");
@@ -92,7 +92,7 @@ export default function Header() {
 	}
 
 	function handleClickInterest() {
-		axios.get(`http://localhost:8080/isLogin`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/isLogin`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				navigate("/interest");
@@ -309,7 +309,7 @@ export default function Header() {
 
 					<div className="login-container">
 						{get.isLogin ? <p style={{ cursor: "pointer" }} onClick={() => {
-							axios.post('http://localhost:8080/logout', {}, { withCredentials: true })
+							axios.post(`${process.env.REACT_APP_API_URL}/logout`, {}, { withCredentials: true })
 								.then((response) => {
 									console.log(response.data);
 

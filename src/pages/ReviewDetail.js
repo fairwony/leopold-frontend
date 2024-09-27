@@ -28,6 +28,16 @@ export default function ReviewDetail() {
   const [commentList, setCommentList] = useState([]);
 
   // * 표시
+  const length = review?.name?.length;
+  let name = review?.name;
+
+  if (length === 2) {
+    name = name[0] + "*" + name[1];
+  } else if (length === 3) {
+    name = name[0] + "*" + name[2];
+  } else if (length >= 4) {
+    name = name[0] + "*" + name.slice(-1);
+  }
   
 
   // 시간 설정
@@ -170,7 +180,7 @@ export default function ReviewDetail() {
           <div className="title-box">
             <p className="title-text1">{review.title}</p>
             <div className="text2-box">
-              <p className="title-text2">{review.name}</p>
+              <p className="title-text2">{name}</p>
               <div className="title-line"></div>
               <p className="title-text2">{year}.{month}.{day}</p>
             </div>

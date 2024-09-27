@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
@@ -6,6 +8,7 @@ import "./ForgotPs.css";
 
 export default function ForgotPs() {
 	const [isEmail, setIsEmail] = useState(true);
+	const navigate = useNavigate();
 
 	const [id, setId] = useState();
 	const [name, setName] = useState();
@@ -13,6 +16,31 @@ export default function ForgotPs() {
 	const [phone1, setPhone1] = useState();
 	const [phone2, setPhone2] = useState();
 	const [phone3, setPhone3] = useState();
+
+	function handleClickFind() {
+		if (isEmail) {
+			axios.get(`${process.env.REACT_APP_API_URL}/passwordByEmail?id=${id}&name=${name}&email=${email}`, { withCredentials: true })
+				.then((response) => {
+					console.log(response.data);
+					alert(`회원님의 비밀번호는 ${response.data} 입니다. 로그인 창으로 이동합니다.`);
+					navigate("/login");
+				})
+				.catch((error) => {
+					console.log(error.response.data);
+				});
+		} else {
+			axios.get(`${process.env.REACT_APP_API_URL}/passwordByPhone?id=${id}&name=${name}&phone=${phone1}-${phone2}-${phone3}`, { withCredentials: true })
+				.then((response) => {
+					console.log(response.data);
+					alert(`회원님의 비밀번호는 ${response.data} 입니다. 로그인 창으로 이동합니다.`);
+					navigate("/login");
+				})
+				.catch((error) => {
+					console.log(error.response.data);
+					alert("비밀번호를 찾을 수 없습니다.");
+				});
+		}
+	}
 
 	return (
 		<div className="ForgotPs">
@@ -72,8 +100,8 @@ export default function ForgotPs() {
 						</div>
 					</div>}
 
-				<button className="forgotPs-button">확인</button>
-				<p>{id}, {name}, {email}, {phone1}, {phone2}, {phone3}</p>
+				<button className="forgotPs-button"
+					onClick={handleClickFind}>확인</button>
 			</Main>
 			<Footer />
 		</div>

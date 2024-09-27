@@ -14,7 +14,7 @@ export default function Order() {
 	const [orderList, setOrderList] = useState([]);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/order/list`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/order/list`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setOrderList(response.data);

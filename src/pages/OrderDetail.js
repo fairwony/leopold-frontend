@@ -17,7 +17,7 @@ export default function OrderDetail() {
 	const [wishList, setWishList] = useState([]);
 
 	useEffect(() => {
-		axios.get(`http://localhost:8080/order?orderUid=${orderUid}`, { withCredentials: true })
+		axios.get(`${process.env.REACT_APP_API_URL}/order?orderUid=${orderUid}`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				setOrder(response.data.order);
@@ -42,7 +42,7 @@ export default function OrderDetail() {
 	));
 
 	function handleClickCancel() {
-		axios.delete(`http://localhost:8080/order?orderUid=${orderUid}`, { withCredentials: true })
+		axios.delete(`${process.env.REACT_APP_API_URL}/order?orderUid=${orderUid}`, { withCredentials: true })
 			.then((response) => {
 				console.log(response.data);
 				alert("주문이 취소되었습니다.")

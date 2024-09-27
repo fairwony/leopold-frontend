@@ -7,6 +7,7 @@ import Main from "../components/Main";
 import WhiteHeader from "../components/WhiteHeader";
 import "./WriteOne2one.css";
 import "./WriteReview.css";
+import "froala-editor/js/plugins/align.min.js";
 
 export default function WriteOne2one() {
   const navigate = useNavigate();
@@ -158,8 +159,7 @@ export default function WriteOne2one() {
                   setContent(model);
                 }}
                 config={{
-                  height: 450, //고정된 높이
-                  heightMin: 400, //최소 높이
+                  heightMin: 450, //최소 높이
                   autoGrow: false //높이 자동 조절 비활성화
                 }}
               />
