@@ -14,14 +14,11 @@ export default function FAQ() {
   const [faqList, setFaqList] = useState([]);
   const [totalElements, setTotalElements] = useState();
 
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(null); // 토글을 위한 상태
 
+  // 현재 선택된 index가 다시 클릭되면 닫기, 아니면 열기
   const handleToggle = (index) => {
-    if (active === index) {
-      setActive(null);
-    } else {
-      setActive(index);
-    }
+    setActive((prevActive) => (prevActive === index ? null : index));
   };
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
@@ -147,8 +144,7 @@ export default function FAQ() {
         {/* Q & A */}
         <div className="faq-cboth_questions">
           <ul>
-            <li className="faq-has-sub"></li>
-            <li>
+            <li className="faq-has-sub">
               {faqList.map((faq, index) => (
               <FaqSub
                 faq={faq}
@@ -156,8 +152,8 @@ export default function FAQ() {
                 index={index}
                 page={page}
                 size={size}
-                // handleToggle={}
-                // active={}
+                handleToggle={handleToggle} // 토글 함수 전달
+                active={active} // 현재 활성화된 인덱스
               />
               ))}
             </li>

@@ -119,7 +119,7 @@ export default function AS() {
               </li>
             </ul>
           </div>
-          {/* Q&A */}
+          {/* Q & A */}
           <div className="as-cboth_questions">
             <ul>
               <li className="as-has-sub">

@@ -1,10 +1,11 @@
 import "./FaqSub.css";
 
-export default function FaqSub({ faq }) {
+export default function FaqSub({ faq, index, active, handleToggle }) {
+  const isActive = active === index; // 현재 항목이 활성화되었는지 확인
 
   return (
     <>
-      <div className="faqSub-move">
+      <div className="faqSub-move" onClick={() => handleToggle(index)}>
         <span>
           <img src="images\FAQ\faq_q.svg" alt="Q" />
         </span>
@@ -19,24 +20,26 @@ export default function FaqSub({ faq }) {
           />
         </svg>
       </div>
-      <div className="faqSub-has-sub-a">
-        <div className="faqSub-wrap">
-          <span>
-            <img src="images\FAQ\faq_a.svg" alt="A" />
-          </span>
-          <div>
-            <p dangerouslySetInnerHTML={{ __html: faq?.answer }} />
-            <br />
-            <p>
-              <img
-                src={faq?.imageUrl}
-                alt={faq?.imageUrl}
-                className="faqSub-fr-dib"
-              />
-            </p>
+      {isActive && (
+        <div className="faqSub-has-sub-a">
+          <div className="faqSub-wrap">
+            <span>
+              <img src="images\FAQ\faq_a.svg" alt="A" />
+            </span>
+            <div>
+              <p dangerouslySetInnerHTML={{ __html: faq?.answer }} />
+              <br />
+              <p>
+                <img
+                  src={faq?.imageUrl}
+                  alt={faq?.imageUrl}
+                  className="faqSub-fr-dib"
+                />
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
