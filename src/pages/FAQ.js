@@ -192,7 +192,7 @@ export default function FAQ() {
                   page={page}
                   size={size}
                   handleToggle={() => handleToggle(index, 1)} // 카테고리 2의 토글
-                  active={activeCategory1 === index} // 카테고리 2의 활성화 상태
+                  active={activeCategory2 === index} // 카테고리 2의 활성화 상태
                 />
               ))}
               {categoryUid === 3 &&
@@ -204,7 +204,7 @@ export default function FAQ() {
                   page={page}
                   size={size}
                   handleToggle={() => handleToggle(index, 1)} // 카테고리 3의 토글
-                  active={activeCategory1 === index} // 카테고리 3의 활성화 상태
+                  active={activeCategory3 === index} // 카테고리 3의 활성화 상태
                 />
               ))}
               {categoryUid === 4 &&
@@ -216,7 +216,7 @@ export default function FAQ() {
                   page={page}
                   size={size}
                   handleToggle={() => handleToggle(index, 1)} // 카테고리 4의 토글
-                  active={activeCategory1 === index} // 카테고리 4의 활성화 상태
+                  active={activeCategory4 === index} // 카테고리 4의 활성화 상태
                 />
               ))}
             </li>
