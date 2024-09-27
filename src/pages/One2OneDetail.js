@@ -74,6 +74,17 @@ const hours2 = String(date2.getHours()).padStart(2, '0');
 const minutes2 = String(date2.getMinutes()).padStart(2, '0'); 
 const seconds2 = String(date2.getSeconds()).padStart(2, '0'); 
 
+const length = one2One?.name?.length;
+  let name = one2One?.name;
+
+  if (length === 2) {
+    name = name[0] + "*" + name[1];
+  } else if (length === 3) {
+    name = name[0] + "*" + name[2];
+  } else if (length >= 4) {
+    name = name[0] + "*" + name.slice(-1);
+  }
+
 
 
 
@@ -107,7 +118,7 @@ const seconds2 = String(date2.getSeconds()).padStart(2, '0');
             <div className="qa-box">
               <p className="qa-bold-text">작성자</p>
               <p style={{ width: "540px" }} className="qa-light-text">
-                {one2One.name}
+                {name}
               </p>
               <p className="qa-bold-text">답변여부</p>
               <p className="qa-light-text">{one2One.answerYn === "y" ? "O" : "X"}</p>

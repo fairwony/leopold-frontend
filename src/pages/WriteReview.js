@@ -1,4 +1,5 @@
 import axios from "axios";
+import "froala-editor/js/plugins/align.min.js";
 import { useState } from "react";
 import FroalaEditor from "react-froala-wysiwyg";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,28 +18,30 @@ export default function WriteReview() {
     if (title === "") {
       alert("제목을 입력해주세요.");
       return;
-    }else if (content === "") {
+    } else if (content === "") {
       alert("내용을 입력해주세요.");
       return;
     }
 
-    axios.post("http://localhost:8080/review/write",
-      {
-        title: `${title}`,
-        content: `${content}`,
-      },
-      {
-        withCredentials: true,
-      }
-    )
-    .then((resp) => {
-      navigate(`/review`)
-      alert("작성 완료!");
-    })
-    .catch((e) => {
-      alert("로그인이 필요합니다!")
-    });
-  }
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/review/write`,
+        {
+          title: `${title}`,
+          content: `${content}`,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((resp) => {
+        navigate(`/review`);
+        alert("작성 완료!");
+      })
+      .catch((e) => {
+        alert("로그인이 필요합니다!");
+      });
+  };
 
   return (
     <>
@@ -97,47 +100,68 @@ export default function WriteReview() {
         {/* 제목 */}
         <div className="review-titleArea">
           <h2>사용자 리뷰</h2>
-          <p>User review
+          <p>
+            User review
             {title}, {content}
           </p>
         </div>
         {/* 글작성 */}
         <div className="write-container">
-            <div className="write-title-container">
-                <p style={{fontSize:"15px", width:"58px"}}>제목</p>
-                <textarea className="write-title-box"
-                onChange={(e) =>{
-                  setTitle(e.target.value);
-                }}></textarea>
-            </div>
-            <div className="write-content-container">
-                <div className="write-content-top">
-                <FroalaEditor
-                tag="textarea"
-                model={content}
-                onModelChange={(model) => {
-                  setContent(model);
-                }}
-              />
-                </div>
-            </div>
-            <div className="ucc-container">
-                <p style={{fontSize:"14px"}}>UCC URL</p>
-                <textarea className="ucc-box"></textarea>
-            </div>
-            <div className="guide-container">
-                <p style={{paddingBottom:"5px"}}>· 상품과 관련없는 내용 또는 이미지, 욕설/비방, 개인정보유출, 광고/홍보글 등 적절하지 않은 게시물은 별도의 고지없이 비공개 처리 될 수 있습니다.</p>
-                <p>· 작성된 게시물(사진, 동영상 포함)은 운영 및 마케팅에 활용될 수 있습니다.</p>
-            </div>
-            <div className="catalog-container">
-                <Link to="/review"><button className="catalog-box2">목록</button></Link>
-                <div className="cancle-container">
-                <button className="register-box" onClick={handleSubmit}>등록</button>
-                <button className="catalog-box2" onClick={() => {
+          <div className="write-title-container">
+            <p style={{ fontSize: "15px", width: "58px" }}>제목</p>
+            <textarea
+              className="write-title-box"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            ></textarea>
+          </div>
+          <div className="write-content-container">
+            <FroalaEditor
+              tag="textarea"
+              model={content}
+              onModelChange={(model) => {
+                setContent(model);
+              }}
+              config={{
+                heightMin: 450, //최소 높이
+                autoGrow: false //높이 자동 조절 비활성화
+              }}
+            />
+          </div>
+          <div className="ucc-container">
+            <p style={{ fontSize: "14px" }}>UCC URL</p>
+            <textarea className="ucc-box"></textarea>
+          </div>
+          <div className="guide-container">
+            <p style={{ paddingBottom: "5px" }}>
+              · 상품과 관련없는 내용 또는 이미지, 욕설/비방, 개인정보유출,
+              광고/홍보글 등 적절하지 않은 게시물은 별도의 고지없이 비공개 처리
+              될 수 있습니다.
+            </p>
+            <p>
+              · 작성된 게시물(사진, 동영상 포함)은 운영 및 마케팅에 활용될 수
+              있습니다.
+            </p>
+          </div>
+          <div className="catalog-container">
+            <Link to="/review">
+              <button className="catalog-box2">목록</button>
+            </Link>
+            <div className="cancle-container">
+              <button className="register-box" onClick={handleSubmit}>
+                등록
+              </button>
+              <button
+                className="catalog-box2"
+                onClick={() => {
                   navigate(`/review`);
-                }} >취소</button>
-                </div>
+                }}
+              >
+                취소
+              </button>
             </div>
+          </div>
         </div>
       </Main>
       <Footer />
