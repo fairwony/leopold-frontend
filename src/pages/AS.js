@@ -13,7 +13,7 @@ export default function AS() {
   const [category, setCategory] = useState(1);
   const [asList_1, setAsList_1] = useState([]);
   const [asList_2, setAsList_2] = useState([]);
-  const {get , set} = useContext(ContextSystem);
+  const {get} = useContext(ContextSystem);
 
   useEffect(() => {
     axios
@@ -32,7 +32,7 @@ export default function AS() {
       });
   }, []);
 
-  function handleClickButton() {
+  function handleButtonClick() {
     if(get.isLogin === false) {
       alert("회원에게만 글쓰기 권한이 있습니다.");
     }else {
@@ -140,7 +140,7 @@ export default function AS() {
         {/* 접수하기 버튼*/}
         <div className="as-btn">
           <span className="as-gRight">
-            <div className="as-btnSubmit" onClick={handleClickButton}>
+            <div className="as-btnSubmit" onClick={handleButtonClick}>
               접수하기
             </div>
           </span>
