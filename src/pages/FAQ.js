@@ -14,37 +14,26 @@ export default function FAQ() {
   const [faqList, setFaqList] = useState([]);
   const [totalElements, setTotalElements] = useState();
 
-  const [activeCategory1, setActiveCategory1] = useState(null); // 카테고리 1의 토글 상태
-  const [activeCategory2, setActiveCategory2] = useState(null); // 카테고리 2의 토글 상태
-  const [activeCategory3, setActiveCategory3] = useState(null); // 카테고리 3의 토글 상태
-  const [activeCategory4, setActiveCategory4] = useState(null); // 카테고리 4의 토글 상태
+  const [activeIndexCategory1, setActiveIndexCategory1] = useState(null);
+  const [activeIndexCategory2, setActiveIndexCategory2] = useState(null);
+  const [activeIndexCategory3, setActiveIndexCategory3] = useState(null);
+  const [activeIndexCategory4, setActiveIndexCategory4] = useState(null);
 
-  // 현재 선택된 index가 다시 클릭되면 닫기, 아니면 열기
-  const handleToggle = (index, category) => {
-    switch (category) {
-      case 1:
-        setActiveCategory1((prevActive) =>
-          prevActive === index ? null : index
-        );
-        break;
-      case 2:
-        setActiveCategory2((prevActive) =>
-          prevActive === index ? null : index
-        );
-        break;
-      case 3:
-        setActiveCategory3((prevActive) =>
-          prevActive === index ? null : index
-        );
-        break;
-      case 4:
-        setActiveCategory4((prevActive) =>
-          prevActive === index ? null : index
-        );
-        break;
-      default:
-        break;
-    }
+  // 각 카테고리별로 handleToggle 함수를 구분
+  const handleToggleCategory1 = (index) => {
+    setActiveIndexCategory1(activeIndexCategory1 === index ? null : index);
+  };
+
+  const handleToggleCategory2 = (index) => {
+    setActiveIndexCategory2(activeIndexCategory2 === index ? null : index);
+  };
+
+  const handleToggleCategory3 = (index) => {
+    setActiveIndexCategory3(activeIndexCategory3 === index ? null : index);
+  };
+
+  const handleToggleCategory4 = (index) => {
+    setActiveIndexCategory4(activeIndexCategory4 === index ? null : index);
   };
 
   const page = queryParams.get("page") ? parseInt(queryParams.get("page")) : 1;
@@ -179,8 +168,8 @@ export default function FAQ() {
                   index={index}
                   page={page}
                   size={size}
-                  handleToggle={() => handleToggle(index, 1)} // 카테고리 1의 토글
-                  active={activeCategory1 === index} // 카테고리 1의 활성화 상태
+                  handleToggle={handleToggleCategory1} // 카테고리 1의 토글
+                  active={activeIndexCategory1} // 카테고리 1의 활성화 상태
                 />
               ))}
               {categoryUid === 2 &&
@@ -191,8 +180,8 @@ export default function FAQ() {
                   index={index}
                   page={page}
                   size={size}
-                  handleToggle={() => handleToggle(index, 2)} // 카테고리 2의 토글
-                  active={activeCategory2 === index} // 카테고리 2의 활성화 상태
+                  handleToggle={handleToggleCategory2} // 카테고리 2의 토글
+                  active={activeIndexCategory2} // 카테고리 2의 활성화 상태
                 />
               ))}
               {categoryUid === 3 &&
@@ -203,8 +192,8 @@ export default function FAQ() {
                   index={index}
                   page={page}
                   size={size}
-                  handleToggle={() => handleToggle(index, 3)} // 카테고리 3의 토글
-                  active={activeCategory3 === index} // 카테고리 3의 활성화 상태
+                  handleToggle={handleToggleCategory3} // 카테고리 3의 토글
+                  active={activeIndexCategory3} // 카테고리 3의 활성화 상태
                 />
               ))}
               {categoryUid === 4 &&
@@ -215,8 +204,8 @@ export default function FAQ() {
                   index={index}
                   page={page}
                   size={size}
-                  handleToggle={() => handleToggle(index, 4)} // 카테고리 4의 토글
-                  active={activeCategory4 === index} // 카테고리 4의 활성화 상태
+                  handleToggle={handleToggleCategory4} // 카테고리 4의 토글
+                  active={activeIndexCategory4} // 카테고리 4의 활성화 상태
                 />
               ))}
             </li>

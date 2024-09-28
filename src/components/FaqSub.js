@@ -2,7 +2,9 @@ import "./FaqSub.css";
 
 export default function FaqSub({ faq, index, active, handleToggle }) {
   const isActive = active === index; // 현재 항목이 활성화되었는지 확인
-
+  console.log(isActive);
+  console.log(active);
+  console.log(index);
   return (
     <>
       <div className="faqSub-move" onClick={() => handleToggle(index)}>
@@ -15,7 +17,7 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
           height={24}
           viewBox="0 0 24 24"
           fill="none"
-          className={active ? "faqSub-arrow-active" : "faqSub-arrow"}
+          className={isActive ? "faqSub-arrow-active" : "faqSub-arrow"}
         >
           <path
             d="M4 8L12 16L20 8"
@@ -26,8 +28,8 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
           />
         </svg>
       </div>
-      {active && (
-        <div className={`faqSub-has-sub-a ${active ? "active" : ""}`}>
+      {isActive && (
+        <div className={`faqSub-has-sub-a ${isActive ? "active" : ""}`}>
           <div className="faqSub-wrap">
             <span>
               <img src="images\FAQ\faq_a.svg" alt="A" />
@@ -35,13 +37,15 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
             <div>
               <p dangerouslySetInnerHTML={{ __html: faq?.answer }} />
               <br />
-              <p>
-                <img
-                  src={faq?.imageUrl}
-                  alt={faq?.imageUrl}
-                  className="faqSub-fr-dib"
-                />
-              </p>
+              {faq?.imageUrl && (
+                <p>
+                  <img
+                    src={faq?.imageUrl}
+                    alt="faq 이미지"
+                    className="faqSub-fr-dib"
+                  />
+                </p>
+              )}
             </div>
           </div>
         </div>
