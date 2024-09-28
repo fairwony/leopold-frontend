@@ -5,6 +5,7 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
   console.log(isActive);
   console.log(active);
   console.log(index);
+
   return (
     <>
       <div className="faqSub-move" onClick={() => handleToggle(index)}>
@@ -28,8 +29,8 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
           />
         </svg>
       </div>
-      {isActive && (
-        <div className={`faqSub-has-sub-a ${isActive ? "active" : ""}`}>
+        <div 
+        className={`faqSub-has-sub-a ${isActive ? "active" : ""}`}>
           <div className="faqSub-wrap">
             <span>
               <img src="images\FAQ\faq_a.svg" alt="A" />
@@ -49,7 +50,7 @@ export default function FaqSub({ faq, index, active, handleToggle }) {
             </div>
           </div>
         </div>
-      )}
+    
     </>
   );
 }
