@@ -7,8 +7,8 @@ export default function InterestTable({ interest, selectedUidList, setSelectedUi
 
 	function handleChangeCheckBox(e) {
 		if (e.target.checked === true) {
-			const newList = selectedUidList?.map((selectedUid)=>{
-				if(selectedUid !== interest?.uid) return selectedUid;
+			const newList = selectedUidList?.map((selectedUid) => {
+				if (selectedUid !== interest?.uid) return selectedUid;
 			});
 			newList.push(interest?.uid);
 			console.log(newList);
@@ -33,7 +33,7 @@ export default function InterestTable({ interest, selectedUidList, setSelectedUi
 			</div>
 
 			<div className="interest-table-td2" style={{ width: 581 }}>
-				{interest?.name} {interest?.color}
+				<p style={{ cursor: "pointer" }} onClick={() => { navigate(`/shopping/detail?uid=${interest?.productUid}`) }}>{interest?.name} {interest?.color}</p>
 			</div>
 
 			<div className="interest-table-td1" style={{ width: 120, fontWeight: "bold" }}>

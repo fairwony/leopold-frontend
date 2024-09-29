@@ -27,6 +27,7 @@ export default function ForgotPs() {
 				})
 				.catch((error) => {
 					console.log(error.response.data);
+					alert("비밀번호를 찾을 수 없습니다.");
 				});
 		} else {
 			axios.get(`${process.env.REACT_APP_API_URL}/passwordByPhone?id=${id}&name=${name}&phone=${phone1}-${phone2}-${phone3}`, { withCredentials: true })

@@ -303,7 +303,7 @@ export default function Header() {
 
 					<div></div>
 
-					<p className="header-c1" style={{ cursor: "pointer" }} onClick={() => { navigate("/review") }}>Review</p>
+					<p className="header-c1" style={{ cursor: "pointer" }} onClick={() => { navigate("/one2one") }}>Q&A</p>
 
 					<div></div>
 

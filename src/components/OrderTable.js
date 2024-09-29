@@ -30,6 +30,11 @@ export default function OrderTable({ orderInfo }) {
 
 				<div style={{ display: "flex", gap: "6px" }}>
 					<button className="ot-small-btn" onClick={() => {
+						if(order?.status === "주문취소") {
+							alert("이미 취소된 주문입니다.");
+							return;
+						}
+						
 						axios.delete(`${process.env.REACT_APP_API_URL}/order?orderUid=${order?.uid}`, { withCredentials: true })
 							.then((response) => {
 								console.log(response.data);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
@@ -13,6 +13,10 @@ export default function Login() {
 
 	const [id, setId] = useState();
 	const [password, setPassword] = useState();
+
+	useEffect(() => {
+		document.getElementById('input-id').focus();
+	}, [])
 
 	function handleClickLogin() {
 		axios.post(`${process.env.REACT_APP_API_URL}/login`, {
@@ -34,6 +38,12 @@ export default function Login() {
 			})
 	}
 
+	function handleKeyPress(e) {
+		if (e.key === "Enter") {
+			handleClickLogin();
+		}
+	}
+
 	return (
 		<div className="Login">
 			<WhiteHeader />
@@ -44,12 +54,15 @@ export default function Login() {
 				<div className="login-key1">ID</div>
 
 				<input className="login-input"
-					onChange={(e) => { setId(e.target.value) }} />
+					onChange={(e) => { setId(e.target.value) }}
+					onKeyDown={handleKeyPress}
+					id='input-id' />
 
 				<div className="login-key2">PASSWORD</div>
 
 				<input type="password" className="login-input"
-					onChange={(e) => { setPassword(e.target.value) }} />
+					onChange={(e) => { setPassword(e.target.value) }}
+					onKeyDown={handleKeyPress} />
 
 				<div className="login-forgot-wrapper">
 					<Link to={"/forgotId"}><p className="login-forgot-button">아이디 찾기</p></Link>
